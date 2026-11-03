@@ -68,3 +68,10 @@ Os ~R$ 500 dela cobrem **só estadia + passagem**; o resto (comida, bares, passe
 
 ## 8. Status da triagem
 Em 3/nov o Airbnb passou a abrir na rede da sessão e os 8 anúncios foram triados (seção 5). Pendente: cancelamento, mercado a pé, ladeira, cama do #5 e disponibilidade do #3.
+
+## 9. Novo teto (decidido): estadia + passagens ida e volta
+Ela até **R$ 500**, ele até **R$ 600** (só estadia + passagens; comida, bares e passeios ficam à parte).
+- Passagem ida e volta ≈ R$ 125–130 por pessoa ⚠️ (R$ 61–65 por trecho, estimativa anterior; não reconferida).
+- Sobra para a estadia: ela ≈ R$ 370 + ele ≈ R$ 470 = **até ≈ R$ 840 no total das 2 noites (≈ R$ 420/noite)**. Com divisão meio a meio, o teto é ≈ R$ 740 (limite dela).
+- O alvo de R$ 200–300/noite continua; o teto maior é só folga. Eliminatório 4 passa de R$ 600 para **≈ R$ 740 (meio a meio) ou ≈ R$ 840 (ele paga mais)**.
+- Efeito na triagem: nenhum finalista muda (todos ≤ R$ 600). O #2 (R$ 702) passa a caber no preço, mas segue descartado por não ter água quente.

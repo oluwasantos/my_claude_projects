@@ -16,6 +16,7 @@ Viagem de casal para comemorar 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, sa
 - Sexta: saem de BH de manhã e **trabalham até 18h/19h** (café/padaria para trabalhar até o check-in; guardar mala). Sábado e domingo livres.
 - Orçamento por pessoa: ela ~R$ 500, ele ~R$ 800 (divisão não precisa ser igual) = ~R$ 1.300 para os dois. **Jantar romântico (ele paga, sábado) fica fora** desses tetos.
 - Mínimo fora de casa: 1 café da manhã, 1 almoço, 1 jantar; o resto mercado/cozinha. Gostam de bares. Uber/transfer ok. Paisagem leve, sem trilha difícil.
+- **Teto atualizado (decidido):** ela R$ 500 + ele R$ 600, só para **estadia + passagens ida e volta** (≈ R$ 125–130/pessoa de passagem) → estadia até ≈ R$ 840 no total (≈ R$ 740 se meio a meio). Substitui os tetos de R$ 500/R$ 800 acima para esses itens; comida e passeios ficam à parte (confirmar com o usuário o teto deles).
 - **Estadia (Airbnb): R$ 200–300/noite** (total 2 noites ≤ R$ 600 com taxas). **Indispensáveis: cozinha e cama de casal.** Desejável: mercado a pé. Critérios completos em `03-estadia-requisitos.md`.
 
 ### Andamento
