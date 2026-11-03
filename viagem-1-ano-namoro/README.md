@@ -6,8 +6,8 @@
 - [x] 01 Destino (escolhido: Ouro Preto) → [01-destino.md](01-destino.md)
 - [x] 02 Faixas de preço → [02-faixas-de-preco.md](02-faixas-de-preco.md)
 - [x] 03 Requisitos + triagem → [03-estadia-requisitos.md](03-estadia-requisitos.md) (estadia fechada: anúncio 825956212858015940, R$ 597 ⚠️)
-- [ ] 04 Roteiro
-- [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (decidido: cenário B, resto meio a meio)
+- [~] 04 Roteiro → [04-roteiro.md](04-roteiro.md) (rascunho; falta horário do ônibus, carimbo e jantar)
+- [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (decidido: cenário B, resto 65% ele / 35% ela)
 
 ## Decisões tomadas
 - Destino: **Ouro Preto**

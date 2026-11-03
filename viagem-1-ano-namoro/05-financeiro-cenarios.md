@@ -37,17 +37,17 @@ A folga nos tetos (seção 2) **não cobre** o resto: cada pessoa teria R$ 250�
 
 ## 5. DECIDIDO (3/nov)
 - **Divisão: cenário B** (proporcional aos tetos): ela R$ 389,55, ele R$ 467,45 de estadia + passagens.
-- **Resto (comida, bares, Uber, igrejas): meio a meio**, ≈ R$ 250–380 para cada um ⚠️.
+- **Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela** (corrigido em 3/nov; antes eu havia entendido meio a meio): ele ≈ R$ 325–494, ela ≈ R$ 175–266 ⚠️ (de R$ 500–760 no casal).
 - **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500 por ser jantar para dois; **confirmar**).
 
 ### Quanto cada um desembolsa
-| | Estadia + passagens (B) | Resto (50%) | Jantar | **Total** |
+| | Estadia + passagens (B) | Resto (35% ela / 65% ele) | Jantar | **Total** |
 |---|---|---|---|---|
-| Ela | R$ 389,55 | R$ 250–380 | — | **R$ 639,55–769,55** |
-| Ele | R$ 467,45 | R$ 250–380 | até R$ 500 | **R$ 1.217,45–1.347,45** |
+| Ela | R$ 389,55 | R$ 175–266 | — | **R$ 564,55–655,55** |
+| Ele | R$ 467,45 | R$ 325–494 | até R$ 500 | **R$ 1.292,45–1.461,45** |
 | Casal | R$ 857,00 | R$ 500–760 | até R$ 500 | **R$ 1.857–2.117** |
 
-Conferência: 389,55 + 467,45 = 857 · 639,55 + 1.217,45 = 1.857 · 769,55 + 1.347,45 = 2.117.
+Conferência: 175 + 325 = 500 e 266 + 494 = 760 · 389,55 + 175 = 564,55 · 389,55 + 266 = 655,55 · 467,45 + 325 + 500 = 1.292,45 · 467,45 + 494 + 500 = 1.461,45 · 564,55 + 1.292,45 = 1.857 · 655,55 + 1.461,45 = 2.117.
 
 ### Como pagar na prática (sugestão)
 - Cada um compra a **própria passagem** (≈ R$ 130 ⚠️).
