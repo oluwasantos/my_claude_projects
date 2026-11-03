@@ -12,4 +12,5 @@
 ## Decisões tomadas
 - Destino: **Ouro Preto**
 - Estadia: R$ 200–300/noite; cozinha e cama de casal indispensáveis; mercado próximo desejável
+- Orçamento (atualizado 3/nov): os ~R$ 500 dela cobrem **estadia + passagem**; o resto (comida, bares, passeios) tem margem à parte. Teto dele ~R$ 800
 - Jantar romântico (ele paga) fica **fora** dos tetos (ela ~R$ 500, ele ~R$ 800)

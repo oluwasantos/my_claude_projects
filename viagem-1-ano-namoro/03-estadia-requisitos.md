@@ -58,3 +58,9 @@
 - Os limites de R$ 400–600 vêm direto do alvo R$ 200–300 × 2 noites; "com taxas" é para não estourar na hora de pagar.
 - O critério "nota ≥4,8 e ≥10 avaliações" é uma regra minha de corte; podem afrouxar para 4,7 se o resto for ótimo.
 - Não verifiquei nada dos anúncios reais (acesso bloqueado).
+
+## 7. Atualização de orçamento (3/nov)
+Os ~R$ 500 dela cobrem **só estadia + passagem**; o resto (comida, bares, passeios) tem margem à parte. Conta de teto: passagem ≈ R$ 125–130 por pessoa → sobram ≈ R$ 370 por pessoa para a estadia → **até ≈ R$ 740 no total das 2 noites (≈ R$ 370/noite)** só olhando o lado dela. O alvo combinado continua **R$ 200–300/noite**; esse teto maior serve de folga caso um anúncio muito bom passe um pouco de R$ 300. Se quiserem, subo o corte da seção 1 (item 4) de R$ 600 para R$ 740.
+
+## 8. Status da triagem
+Segunda tentativa de abrir os 8 anúncios em 3/nov: `www.airbnb.com.br` continua bloqueado na rede da sessão ("host not found"), então a triagem segue pendente.
