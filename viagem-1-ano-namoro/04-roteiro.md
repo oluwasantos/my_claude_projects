@@ -1,7 +1,8 @@
 # 04 — Roteiro (rascunho): Ouro Preto, sex 6 → dom 8/11/2026
 
 > Confiança: ✅ confirmado · ⚠️ estimativa/fonte divergente · ❓ não achei. Ritmo **leve**, sem trilha. Ainda **sem passagens compradas**.
-> Base: casa no centro histórico (~0,2 km da Praça Tiradentes ✅, pino aproximado) · Wi-Fi + cabo + mesa de jantar ✅ · self check-in/fechadura inteligente ✅ · horário de silêncio 22h–7h ✅ · horário de check-in/check-out ❓ (não aparece na página).
+> Endereço do Airbnb ✅ (informado por vocês): **Rua dos Paulistas, 205, Ouro Preto – MG, 35400-000** (provavelmente bairro Antônio Dias ⚠️, inferido de outros números da mesma rua).
+> Base: casa no centro histórico (~0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️, pino aproximado) · Wi-Fi + cabo + mesa de jantar ✅ · self check-in/fechadura inteligente ✅ · horário de silêncio 22h–7h ✅ · horário de check-in/check-out ❓ (não aparece na página).
 
 ## Sexta 6/11 — chegar e trabalhar
 | Hora | O quê | Obs. |
@@ -47,11 +48,22 @@
 - Ida sexta 11h; volta domingo depois do almoço; carimbo no sábado à tarde.
 - Café de sábado: simples, em casa (compras na sexta). Café de domingo: fora, o mais legal, com calma. Mercado na sexta para o café de sábado e o resto da estadia.
 
+### Café legal de domingo: opções (pesquisa de 3/nov)
+Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual nem **horário de domingo ❓**. Preço de café da manhã em Ouro Preto: R$ 18–33 por pessoa ⚠️ (tabela de custos do Quanto Custa Viajar, sem data); um "café legal" tende a ficar acima disso, uns R$ 40–60 ⚠️ (estimativa minha).
+
+| Opção | Onde | O que se sabe | Confiança |
+|---|---|---|---|
+| **Café Geraes** | Rua Direita, 166 ⚠️ | Café e sobremesas; no mesmo espaço do Pub Escadabaixo (comentário de leitora) | ⚠️ |
+| **Chocolates Ouro Preto** | Rua Conde de Bobadela, 67 (Quanto Custa Viajar) ou Praça Tiradentes, esquina com Rua Direita (360 Meridianos): **endereços divergem** | Cafés especiais e chocolates artesanais; R$ 30–60/pessoa ⚠️ | ⚠️ |
+| **Terraço do O Passo Pizzajazz** | Rua São José, 56 ✅ | Uma fonte diz que o café da manhã pode ser servido no terraço com vista para a Igreja de São Francisco de Assis; **cardápio e horário não confirmados**; se for o jantar de sábado, repetiria o lugar | ⚠️ |
+
+**Sugestão:** ver no Google Maps/Instagram quais abrem **domingo cedo** e escolher entre Café Geraes (café + doces) e Chocolates Ouro Preto (mais "programa"). Todos ficam no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓).
+
 ## O que falta
 1. Ela confirmar o nome da pizzaria de 2024 (O Passo?) e vocês escolherem: O Passo ou Bené da Flauta.
 2. Comprar as passagens (11h na sexta; ~14h–15h no domingo) e conferir o horário real.
 3. Perguntar ao anfitrião: check-in antecipado/guarda de mala, check-out, internet, mercado a pé, cancelamento.
-4. Escolher o café legal de domingo (posso pesquisar) e conferir mercado perto da casa e horário de fechamento.
+4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
 5. Reservar o jantar e achar o ponto de carimbo (portal/app do Passaporte).
 
 ## Fontes
