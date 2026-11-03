@@ -9,7 +9,7 @@ Viagem de casal para comemorar 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, sa
 - Não entregar a primeira versão: fazer **auto-revisão** (somas, datas, o que é verificado vs. estimado) antes de mostrar.
 - Marcar confiança nos dados (✅ confirmado / ⚠️ estimativa / ❓ não achei). Não inventar preço, nota ou horário.
 - Perguntar quando houver dúvida real.
-- Commit + push na branch `claude/nifty-davinci-e9cshy` ao fim de cada etapa. Não abrir PR sem pedir.
+- Commit + push na branch `viagem-ouro-preto-nov-2026` ao fim de cada etapa. Não abrir PR sem pedir.
 
 ### Decisões já tomadas
 - **Destino: Ouro Preto** (ônibus Pássaro Verde, ~R$ 61–65/trecho). Tiradentes e São João del-Rei estão fora (já conhecem). Ela conhece OP mas não carimbou o Passaporte Estrada Real; ele não conhece nenhuma cidade da região.
