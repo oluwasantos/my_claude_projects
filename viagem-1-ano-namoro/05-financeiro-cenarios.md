@@ -35,7 +35,21 @@ Estimativas ⚠️ do arquivo 02, sem passagem: café + almoço + mercado + bare
 
 A folga nos tetos (seção 2) **não cobre** o resto: cada pessoa teria R$ 250–380 de comida e passeios a bancar por fora.
 
-## 5. Pontos a decidir
-1. Qual cenário de divisão (A, B ou C)?
-2. Quem paga o resto (comida, bares, Uber)? Meio a meio, ou cada um o que consumir?
-3. O R$ 500 é o teto do jantar dele? Se for menor, o total cai.
+## 5. DECIDIDO (3/nov)
+- **Divisão: cenário B** (proporcional aos tetos): ela R$ 389,55, ele R$ 467,45 de estadia + passagens.
+- **Resto (comida, bares, Uber, igrejas): meio a meio**, ≈ R$ 250–380 para cada um ⚠️.
+- **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500 por ser jantar para dois; **confirmar**).
+
+### Quanto cada um desembolsa
+| | Estadia + passagens (B) | Resto (50%) | Jantar | **Total** |
+|---|---|---|---|---|
+| Ela | R$ 389,55 | R$ 250–380 | — | **R$ 639,55–769,55** |
+| Ele | R$ 467,45 | R$ 250–380 | até R$ 500 | **R$ 1.217,45–1.347,45** |
+| Casal | R$ 857,00 | R$ 500–760 | até R$ 500 | **R$ 1.857–2.117** |
+
+Conferência: 389,55 + 467,45 = 857 · 639,55 + 1.217,45 = 1.857 · 769,55 + 1.347,45 = 2.117.
+
+### Como pagar na prática (sugestão)
+- Cada um compra a **própria passagem** (≈ R$ 130 ⚠️).
+- Quem reservar o Airbnb paga os **R$ 597**; o outro acerta por Pix: ela R$ 259,55 (389,55 − 130) e ele R$ 337,45 (467,45 − 130). Se ele reservar, ela manda R$ 259,55 a ele.
+- Se a passagem ou o total do Airbnb mudar, refazer a conta com os valores reais.

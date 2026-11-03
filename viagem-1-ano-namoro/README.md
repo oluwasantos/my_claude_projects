@@ -7,7 +7,7 @@
 - [x] 02 Faixas de preço → [02-faixas-de-preco.md](02-faixas-de-preco.md)
 - [x] 03 Requisitos + triagem → [03-estadia-requisitos.md](03-estadia-requisitos.md) (estadia fechada: anúncio 825956212858015940, R$ 597 ⚠️)
 - [ ] 04 Roteiro
-- [~] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (cenários prontos, falta decidir)
+- [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (decidido: cenário B, resto meio a meio)
 
 ## Decisões tomadas
 - Destino: **Ouro Preto**

@@ -22,5 +22,6 @@ Viagem de casal para comemorar 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, sa
 ### Andamento
 - Feito e no GitHub: 01 destino, 02 faixas de preço, 03 requisitos + triagem dos 8 anúncios (seção 5). Finalistas: #8 Cantinho do Céu (R$ 590), #1 (R$ 597), #5 Loft Trenzin (R$ 510, confirmar cama de casal); #3 sem disponibilidade na busca.
 - **Estadia FECHADA:** Casa no centro histórico (ID 825956212858015940), R$ 597 ⚠️ (confirmar total final e cancelamento flexível). Jantar romântico só dele, orçamento R$ 500 (a confirmar).
-- **Próximo passo:** decidir o cenário de divisão em `viagem-1-ano-namoro/05-financeiro-cenarios.md` (A meio a meio, B proporcional, C ela no teto) e quem paga o resto; depois 04 roteiro.
-- Depois: 04 roteiro (incl. jantar romântico sábado, reserva, carimbo do passaporte), 05 financeiro (divisão ela/ele).
+- **Financeiro decidido** (`05-financeiro-cenarios.md`): divisão B (ela R$ 389,55 / ele R$ 467,45 de estadia + passagens), resto meio a meio, jantar só dele com orçamento R$ 500 (ele escreveu "50"; confirmar).
+- **Próximo passo:** 04 roteiro. Faltam do usuário: horário do ônibus (ida e volta) e se querem o carimbo do Passaporte Estrada Real.
+- Depois: 04 roteiro (incl. jantar romântico sábado, reserva, carimbo do passaporte).
