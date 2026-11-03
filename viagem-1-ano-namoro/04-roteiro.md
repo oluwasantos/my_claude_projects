@@ -9,14 +9,15 @@
 | 11h | Ônibus BH → Ouro Preto (Pássaro Verde) | ✅ Saída das 11h da manhã (decidido); **comprar o bilhete e conferir o horário**. Duração 1h50–2h30 ⚠️ (Omio/Buson divergem) → chegada ~13h–13h30 ⚠️ |
 | ~13h30 | Rodoviária → casa (Uber/táxi) | Distância e valor ❓ |
 | 14h–18h/19h | **Trabalhar** | 1ª opção: na casa, se o anfitrião liberar entrada antes do check-in (mesa + Wi-Fi + cabo ✅). Plano B: deixar a mala (perguntar) e trabalhar em café perto da Praça Tiradentes |
-| Noite | Jantar simples (mercado/cozinha) ou 1º bar | Volta com silêncio após 22h; ladeiras à noite ⚠️ |
+| Depois de trabalhar | **Mercado**: comprar o café simples de sábado + o resto da estadia (jantares/almoço em casa) | Mercado a pé e **horário de fechamento ❓** (conferir; se terminarem às 19h, pode ficar apertado — alternativa: ir ao mercado antes, num intervalo) |
+| Noite | Jantar simples em casa ou 1º bar | Volta com silêncio após 22h; ladeiras à noite ⚠️ |
 
 **Perguntar ao anfitrião hoje:** check-in antecipado ou guarda de mala; internet aguenta videochamada; mercado a pé; cancelamento.
 
 ## Sábado 7/11 — dia inteiro leve + jantar dele
 | Período | Sugestão | Obs. |
 |---|---|---|
-| Manhã | **Café da manhã fora** (1 do mínimo) → Praça Tiradentes e igrejas do centro (ex.: São Francisco de Assis, Mercês e Perdões) | Igrejas ~8h30–11h45 e 13h30–16h45 ⚠️ (blog de 2022) |
+| Manhã | **Café da manhã em casa, simples** (comprado na sexta) → Praça Tiradentes e igrejas do centro (ex.: São Francisco de Assis, Mercês e Perdões) | Igrejas ~8h30–11h45 e 13h30–16h45 ⚠️ (blog de 2022) |
 | Almoço | **Almoço "legal" fora** (1 do mínimo) | R$ 30–50/refeição ⚠️ |
 | Tarde | Museu da Inconfidência e/ou Museu de Arte Sacra; **carimbo do Passaporte Estrada Real** | Museus ter–dom, horários divergem entre fontes ⚠️. **Ponto de carimbo em Ouro Preto ❓** (um relato cita o Hotel Solar de Maria; conferir no portal/app) |
 | Fim da tarde | Praça Tiradentes ao anoitecer | |
@@ -37,19 +38,21 @@
 ## Domingo 8/11 — manhã tranquila e volta
 | Período | Sugestão | Obs. |
 |---|---|---|
-| Manhã | Café em casa (mercado), última volta/foto, museu que faltou | Museus abrem domingo ⚠️ |
+| Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → última volta/foto, museu que faltou | Escolher o café ❓ (ainda não pesquisei); museus abrem domingo ⚠️ |
 | Check-out | Trancar as portas ✅ | Horário ❓ (perguntar ao anfitrião) |
-| Almoço | Último almoço em Ouro Preto (fora, ou em casa com o que sobrar do mercado) | Se for fora, entra nos R$ 30–50/pessoa ⚠️ |
+| Almoço | Último almoço em Ouro Preto: em casa com o que sobrar do mercado, ou fora (depois de um café fora, talvez leve) | Se for fora, R$ 30–50/pessoa ⚠️ |
 | ~14h–15h | **Ônibus Ouro Preto → BH** (decidido: depois do almoço) | Viagem 2h45–3h ⚠️ → chegada ~17h–18h ⚠️. Comprar o horário que bater com o almoço; último ônibus ❓ |
 
 ## Decidido em 3/nov
 - Ida sexta 11h; volta domingo depois do almoço; carimbo no sábado à tarde.
+- Café de sábado: simples, em casa (compras na sexta). Café de domingo: fora, o mais legal, com calma. Mercado na sexta para o café de sábado e o resto da estadia.
 
 ## O que falta
 1. Ela confirmar o nome da pizzaria de 2024 (O Passo?) e vocês escolherem: O Passo ou Bené da Flauta.
 2. Comprar as passagens (11h na sexta; ~14h–15h no domingo) e conferir o horário real.
 3. Perguntar ao anfitrião: check-in antecipado/guarda de mala, check-out, internet, mercado a pé, cancelamento.
-4. Reservar o jantar e achar o ponto de carimbo (portal/app do Passaporte).
+4. Escolher o café legal de domingo (posso pesquisar) e conferir mercado perto da casa e horário de fechamento.
+5. Reservar o jantar e achar o ponto de carimbo (portal/app do Passaporte).
 
 ## Fontes
 Itatiaia e CNN Brasil (O Passo), 360 Meridianos (preço O Passo), Omio e Buson (duração do ônibus), Deonibus (R$ 65,20 + taxas), blogs de roteiro/horários (Viagens Cinematográficas, Guia da Semana, Itatiaia), 360 Meridianos (onde comer), fuiserviajante.com (Passaporte). Todos com data incerta; **conferir horários antes de ir**.
