@@ -5,10 +5,11 @@
 ## Andamento
 - [x] 01 Destino (escolhido: Ouro Preto) → [01-destino.md](01-destino.md)
 - [x] 02 Faixas de preço → [02-faixas-de-preco.md](02-faixas-de-preco.md)
-- [ ] 03 Requisitos + filtros de estadia
+- [~] 03 Requisitos + filtros de estadia → [03-estadia-requisitos.md](03-estadia-requisitos.md) (falta triar os 8 anúncios)
 - [ ] 04 Roteiro
 - [ ] 05 Financeiro
 
 ## Decisões tomadas
 - Destino: **Ouro Preto**
+- Estadia: R$ 200–300/noite; cozinha e cama de casal indispensáveis; mercado próximo desejável
 - Jantar romântico (ele paga) fica **fora** dos tetos (ela ~R$ 500, ele ~R$ 800)
