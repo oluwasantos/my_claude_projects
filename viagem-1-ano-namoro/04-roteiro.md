@@ -10,7 +10,7 @@
 | 11h | Ônibus BH → Ouro Preto (Pássaro Verde) | ✅ Saída das 11h da manhã (decidido); **comprar o bilhete e conferir o horário**. Duração 1h50–2h30 ⚠️ (Omio/Buson divergem) → chegada ~13h–13h30 ⚠️ |
 | ~13h30 | Rodoviária → casa (Uber/táxi) | Distância e valor ❓ |
 | 14h–18h/19h | **Trabalhar** | 1ª opção: na casa, se o anfitrião liberar entrada antes do check-in (mesa + Wi-Fi + cabo ✅). Plano B: deixar a mala (perguntar) e trabalhar em café perto da Praça Tiradentes |
-| Depois de trabalhar | **Mercado**: comprar o café simples de sábado + o resto da estadia (jantares/almoço em casa) | Mercado a pé e **horário de fechamento ❓** (conferir; se terminarem às 19h, pode ficar apertado — alternativa: ir ao mercado antes, num intervalo) |
+| Depois de trabalhar | **Mercado**: comprar o café simples de sábado + o resto da estadia (jantares/almoço em casa) **+ 1 kg de alimento não perecível por passaporte** (doação exigida ao retirar o passaporte físico) | Mercado a pé e **horário de fechamento ❓** (conferir; se terminarem às 19h, pode ficar apertado — alternativa: ir ao mercado antes, num intervalo) |
 | Noite | Jantar simples em casa ou 1º bar | Volta com silêncio após 22h; ladeiras à noite ⚠️ |
 
 **Perguntar ao anfitrião hoje:** check-in antecipado ou guarda de mala; internet aguenta videochamada; mercado a pé; cancelamento.
@@ -20,7 +20,7 @@
 |---|---|---|
 | Manhã | **Café da manhã em casa, simples** (comprado na sexta) → Praça Tiradentes e igrejas do centro (ex.: São Francisco de Assis, Mercês e Perdões) | Igrejas ~8h30–11h45 e 13h30–16h45 ⚠️ (blog de 2022) |
 | Almoço | **Almoço "legal" fora** (1 do mínimo) | R$ 30–50/refeição ⚠️ |
-| Tarde | Museu da Inconfidência e/ou Museu de Arte Sacra; **carimbo do Passaporte Estrada Real** | Museus ter–dom, horários divergem entre fontes ⚠️. **Ponto de carimbo em Ouro Preto ❓** (um relato cita o Hotel Solar de Maria; conferir no portal/app) |
+| Tarde | Museu da Inconfidência e/ou Museu de Arte Sacra; **carimbo do Passaporte Estrada Real em Ouro Preto: Aqui Di Minas, Rua Conde de Bobadela, 65A** (ver seção do Passaporte) | Museus ter–dom, horários divergem entre fontes ⚠️. Aqui Di Minas abre todos os dias, 9h–19h ✅ (lista oficial) |
 | Fim da tarde | Praça Tiradentes ao anoitecer | |
 | Noite | **Jantar romântico (ele paga, orçamento R$ 500) no O Passo Pizzajazz** ✅ (confirmado por ela) → reservar | Ver detalhes abaixo |
 
@@ -54,6 +54,22 @@
 ### Torresmo (pedido dela)
 - **Não achei nenhum lugar específico de torresmo em Ouro Preto ❓** (os resultados eram de Juiz de Fora). **Perguntar a ela o nome/lugar que ela lembra.** Se não lembrar: procurar "torresmo" no Google Maps perto da Rua São José/Rua Direita ou pedir como petisco num bar (sexta ou sábado à noite).
 
+### Passaporte Estrada Real: onde e como carimbar em Ouro Preto ✅ (lista oficial)
+Fonte: PDF oficial do [Instituto Estrada Real](https://files.institutoestradareal.com.br/files/stamp-points-file/1686765570534/pontos_de_carimbo.pdf), **versão de jun/2023** (a mais recente que consegui abrir; os pontos listados são os únicos credenciados; **conferir no app/site antes**).
+
+| Ponto (Ouro Preto) | Endereço | Horário | Retira passaporte? |
+|---|---|---|---|
+| **Aqui Di Minas Produtos Artesanais** ⭐ | Rua Conde de Bobadela, 65A, Centro | **Todos os dias, 9h–19h** | Sim |
+| **Mocotó Galeria / Jacubas Livros e Artes** | **Praça Tiradentes, 4**, Centro | **Todos os dias, 10h–19h** | Sim |
+| Hotel Solar de Maria | Rua Tomé Afonso, 111 | Todos os dias, só atendimento do lado de fora | Sim |
+| Secretaria de Turismo, Indústria e Comércio | Rua Cláudio Manoel, 61, Centro | **Só seg–sex, 12h–18h**, com agendamento: (31) 3551-7329 | (carimbo) |
+
+- **Melhor para vocês: Aqui Di Minas** (aberto sábado e domingo; fica na Rua Conde de Bobadela, a mesma rua de um dos cafés da lista, o Chocolates Ouro Preto, nº 67 ⚠️). Plano B: Mocotó, na própria Praça Tiradentes. A Secretaria e o Hotel Solar de Maria não servem bem (a Secretaria fecha no fim de semana).
+- **Só vale 1 carimbo por cidade**, e só de ponto credenciado ✅.
+- **Passaporte é gratuito e individual** ✅. Passaporte **físico**: (1) **fazer o cadastro antes**, no [site do Instituto](https://www.institutoestradareal.com.br/passaporte) ou no app; (2) chegar um e-mail de confirmação com um **número**; (3) apresentar o número num ponto de retirada e doar **1 kg de alimento não perecível** (o Instituto cita 1 kg de alimento; um blog fala também em agasalho ⚠️). Se o e-mail não chegar: passaporteestradareal@fiemg.com.br ou (31) 3263-4765, com CPF.
+- Existe também o **passaporte virtual (app)**, com check-in nos pontos virtuais; as regras são diferentes e **não transfere carimbos** do físico ✅. Não verifiquei se Ouro Preto tem ponto virtual ❓.
+- **Fazer hoje/amanhã:** cadastro online de quem for tirar o passaporte (o e-mail de confirmação pode demorar). Se ela **já tem** passaporte, só precisa levar e carimbar.
+
 ## Decidido em 3/nov
 - Ida sexta 11h; volta domingo depois do almoço; carimbo no sábado à tarde.
 - Café de sábado: simples, em casa (compras na sexta). Café de domingo: fora, o mais legal, com calma. Mercado na sexta para o café de sábado e o resto da estadia.
@@ -74,7 +90,7 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 2. Comprar as passagens (11h na sexta; ~14h–15h no domingo) e conferir o horário real.
 3. Perguntar ao anfitrião: check-in antecipado/guarda de mala, check-out, internet, mercado a pé, cancelamento.
 4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
-5. Achar o ponto de carimbo (portal/app do Passaporte).
+5. **Passaporte:** fazer o cadastro online antes de sexta (e-mail com número), levar 1 kg de alimento não perecível por passaporte e carimbar no **Aqui Di Minas** (sábado à tarde). Ela já tem passaporte?
 6. Ela dizer **qual lugar do torresmo** (se lembrar) e vocês decidirem se o **Parque das Andorinhas** entra no domingo.
 7. Decidir sobre a **jardineira** (passeio de ônibus aberto) no sábado à tarde — ver pesquisa de 4/nov.
 
@@ -82,4 +98,4 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 Tour em ônibus antigo aberto, com guia, 4h30–6h ⚠️, saída perto da Praça Tiradentes (Rua Barão de Camargos, 126), a partir de ≈ R$ 95/pessoa ⚠️ (Decolar/Civitatis). **Ingressos de museus e igrejas não estão incluídos** (≈ R$ 150/pessoa se entrar em tudo ⚠️). Não confirmei se está operando em 2026 nem os horários; reserva com até 18 h de antecedência, cancelamento grátis até 12 h antes (Civitatis).
 
 ## Fontes
-Itatiaia (Parque das Andorinhas e O Passo), Civitatis/Decolar (jardineira), CNN Brasil (O Passo), 360 Meridianos (preço O Passo), Omio e Buson (duração do ônibus), Deonibus (R$ 65,20 + taxas), blogs de roteiro/horários (Viagens Cinematográficas, Guia da Semana, Itatiaia), 360 Meridianos (onde comer), fuiserviajante.com (Passaporte). Todos com data incerta; **conferir horários antes de ir**.
+Itatiaia (Parque das Andorinhas e O Passo), Civitatis/Decolar (jardineira), CNN Brasil (O Passo), 360 Meridianos (preço O Passo), Omio e Buson (duração do ônibus), Deonibus (R$ 65,20 + taxas), blogs de roteiro/horários (Viagens Cinematográficas, Guia da Semana, Itatiaia), 360 Meridianos (onde comer), Instituto Estrada Real, PDF oficial de pontos de carimbo (jun/2023), e Lokamig (Passaporte). Todos com data incerta; **conferir horários antes de ir**.
