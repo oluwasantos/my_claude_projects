@@ -2,18 +2,20 @@
 
 > Confiança: ✅ confirmado · ⚠️ estimativa/fonte divergente · ❓ não achei. Ritmo **leve**, sem trilha. Ainda **sem passagens compradas**.
 > Endereço do Airbnb ✅ (informado por vocês): **Rua dos Paulistas, 205, Ouro Preto – MG, 35400-000** (provavelmente bairro Antônio Dias ⚠️, inferido de outros números da mesma rua).
-> Base: casa no centro histórico (~0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️, pino aproximado) · Wi-Fi + cabo + mesa de jantar ✅ · self check-in/fechadura inteligente ✅ · horário de silêncio 22h–7h ✅ · horário de check-in/check-out ❓ (não aparece na página).
+> Base: casa no centro histórico (~0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️, pino aproximado) · Wi-Fi + cabo + mesa de jantar ✅ · self check-in/fechadura inteligente ✅ · horário de silêncio 22h–7h ✅ · **check-in a partir das 15h e check-out até 12h** ✅ (orientações do anfitrião, 4/nov).
 
 ## Sexta 6/11 — chegar e trabalhar
 | Hora | O quê | Obs. |
 |---|---|---|
 | 11h | Ônibus BH → Ouro Preto (Pássaro Verde) | ✅ Saída das 11h da manhã (decidido); **comprar o bilhete e conferir o horário**. Duração 1h50–2h30 ⚠️ (Omio/Buson divergem) → chegada ~13h–13h30 ⚠️ |
-| ~13h30 | Rodoviária → casa (Uber/táxi) | Distância e valor ❓ |
-| 14h–18h/19h | **Trabalhar** | 1ª opção: na casa, se o anfitrião liberar entrada antes do check-in (mesa + Wi-Fi + cabo ✅). Plano B: deixar a mala (perguntar) e trabalhar em café perto da Praça Tiradentes |
+| ~13h30 | Rodoviária → casa (Uber/táxi); **deixar as malas** | ✅ Anfitrião libera deixar mala **a partir das 12h30**. Distância e valor do Uber ❓ |
+| 14h–18h/19h | **Trabalhar** | Check-in é às **15h** ✅. O anfitrião disse que **libera antes se não houver reserva até o dia anterior** e **avisa no dia**. Se não liberar: trabalhar num café perto da praça até as 15h e depois ir para a casa. Na casa: Wi-Fi ✅; pelas fotos, o "espaço de trabalho" é uma **bancada alta com banquetas** ⚠️ (não é mesa comum), então talvez cansativo para 4 h; vale testar e, se precisar, trabalhar parte do tempo num café |
 | Depois de trabalhar | **Mercado**: comprar o café simples de sábado + o resto da estadia (jantares/almoço em casa) | Mercado a pé e **horário de fechamento ❓** (conferir; se terminarem às 19h, pode ficar apertado — alternativa: ir ao mercado antes, num intervalo) |
 | Noite | Jantar simples em casa ou 1º bar | Volta com silêncio após 22h; ladeiras à noite ⚠️ |
 
-**Perguntar ao anfitrião hoje:** check-in antecipado ou guarda de mala; internet aguenta videochamada; mercado a pé; cancelamento.
+**Já respondido pelo anfitrião (4/nov) ✅:** malas a partir das 12h30; check-in 15h (antecipado só se não houver reserva no dia anterior; ele avisa no dia); check-out até 12h; **a casa não fornece toalhas** (levar); roupa de cama: 1 coberta de casal, 2 de solteiro, 4 travesseiros, 1 lençol por cama; lixo na porta entre 22h e 7h; rua sem restrição, mas não estacionar perto da esquina/garagem (não importa, sem carro). *Senha da porta e do Wi-Fi: não registrei aqui de propósito; está na mensagem do anfitrião.*
+
+**Ainda perguntar:** guarda de mala **no domingo** depois do check-out (12h) se for ao parque/almoçar; internet para videochamada; mercado a pé; cancelamento.
 
 ## Sábado 7/11 — dia inteiro leve + jantar dele
 | Período | Sugestão | Obs. |
@@ -40,7 +42,7 @@
 | Período | Sugestão | Obs. |
 |---|---|---|
 | Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → **Parque das Andorinhas** (ver abaixo) ou última volta/foto, museu que faltou | Escolher o café (opções abaixo); museus abrem domingo ⚠️ |
-| Check-out | Trancar as portas ✅ | Horário ❓ (perguntar ao anfitrião) |
+| Check-out | **Até 12h** ✅. Fechar bem a porta e deslizar a capa da fechadura digital para baixo ✅ | Com o parque de manhã, voltar até ~11h30; ou pedir ao anfitrião para guardar a mala depois do check-out |
 | Almoço | Último almoço em Ouro Preto: em casa com o que sobrar do mercado, ou fora (depois de um café fora, talvez leve) | Se for fora, R$ 30–50/pessoa ⚠️ |
 | ~14h–15h | **Ônibus Ouro Preto → BH** (decidido: depois do almoço) | Viagem 2h45–3h ⚠️ → chegada ~17h–18h ⚠️. Comprar o horário que bater com o almoço; último ônibus ❓ |
 
@@ -78,7 +80,7 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 ## O que falta
 1. Reservar o **O Passo** (jantar de sábado, oficial).
 2. Comprar as passagens (11h na sexta; ~14h–15h no domingo) e conferir o horário real.
-3. Perguntar ao anfitrião: check-in antecipado/guarda de mala, check-out, internet, mercado a pé, cancelamento.
+3. Perguntar ao anfitrião: guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
 4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
 5. **Passaporte:** levar o passaporte físico (e o celular com o app) no sábado e carimbar no Mocotó, Praça Tiradentes, 4, **antes das 19h**.
 6. Ela dizer **qual lugar do torresmo** (se lembrar) e vocês decidirem se o **Parque das Andorinhas** entra no domingo.
