@@ -9,6 +9,8 @@
 - [~] 04 Roteiro → [04-roteiro.md](04-roteiro.md) (rascunho; falta horário do ônibus, carimbo e jantar)
 - [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (decidido: cenário B, resto 65% ele / 35% ela)
 
+- Apresentação do roteiro para ela: [apresentacao.html](apresentacao.html) (abrir no navegador; setas do teclado ou deslizar)
+
 ## Decisões tomadas
 - Destino: **Ouro Preto**
 - Estadia: R$ 200–300/noite; cozinha e cama de casal indispensáveis; mercado próximo desejável

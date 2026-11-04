@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ouro Preto — nosso fim de semana</title>
+<style>
+  :root {
+    --bg: #fbf6ec;
+    --surface: #ffffff;
+    --ink: #2a2118;
+    --muted: #6f6253;
+    --gold: #b8801f;
+    --gold-soft: #f1e2bf;
+    --blue: #274a6b;
+    --line: #e6dbc6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17130e;
+      --surface: #221c14;
+      --ink: #f4ecdc;
+      --muted: #b7a98f;
+      --gold: #e0a84a;
+      --gold-soft: #3a2e17;
+      --blue: #8fb4d6;
+      --line: #3a3124;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    overflow: hidden;
+  }
+  .deck { height: 100%; position: relative; }
+  .slide {
+    position: absolute; inset: 0;
+    display: none;
+    padding: clamp(24px, 6vw, 72px) clamp(20px, 7vw, 96px) 84px;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: center;
+    animation: fade .35s ease;
+  }
+  .slide.active { display: flex; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .kicker {
+    font-family: system-ui, sans-serif;
+    letter-spacing: .18em; text-transform: uppercase;
+    font-size: .8rem; color: var(--gold); margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(2.4rem, 7vw, 5rem); line-height: 1.05; font-weight: 400; }
+  h2 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 400; margin-bottom: 22px; line-height: 1.1; }
+  h3 { font-family: system-ui, sans-serif; font-size: 1rem; font-weight: 600; color: var(--blue); margin-bottom: 4px; }
+  p, li { font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.5; }
+  .lead { font-size: clamp(1.1rem, 2.4vw, 1.5rem); color: var(--muted); margin-top: 18px; max-width: 34em; }
+  .rule { width: 72px; height: 3px; background: var(--gold); margin: 22px 0; border: 0; }
+
+  .cover { text-align: left; }
+  .cover h1 em { color: var(--gold); font-style: italic; }
+  .draft {
+    display: inline-block; margin-top: 28px;
+    font-family: system-ui, sans-serif; font-size: .85rem;
+    border: 1px dashed var(--gold); color: var(--gold);
+    padding: 6px 12px; border-radius: 999px;
+  }
+
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 8px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 18px 20px;
+  }
+  .card .when { font-family: system-ui, sans-serif; font-size: .8rem; color: var(--gold); font-weight: 600; letter-spacing: .06em; margin-bottom: 6px; }
+  .card p { font-size: 1.05rem; }
+  .day-card { border-top: 4px solid var(--gold); }
+  .day-card .big { font-size: 2.6rem; color: var(--gold); line-height: 1; }
+  .day-card .name { font-family: system-ui, sans-serif; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 6px 0 10px; }
+
+  ul.timeline { list-style: none; padding: 0; display: grid; gap: 12px; max-width: 46em; }
+  ul.timeline li {
+    display: grid; grid-template-columns: 7.5em 1fr; gap: 14px;
+    padding: 12px 0; border-bottom: 1px solid var(--line);
+  }
+  ul.timeline .t { font-family: system-ui, sans-serif; font-weight: 600; color: var(--gold); font-size: .95rem; padding-top: 3px; }
+  .note { color: var(--muted); font-size: .95em; }
+  .tag {
+    font-family: system-ui, sans-serif; font-size: .72rem; font-weight: 600;
+    background: var(--gold-soft); color: var(--gold);
+    padding: 2px 8px; border-radius: 999px; margin-left: 6px; white-space: nowrap;
+  }
+  .ask {
+    margin-top: 22px; padding: 16px 20px; border-left: 4px solid var(--gold);
+    background: var(--gold-soft); border-radius: 0 12px 12px 0; max-width: 46em;
+  }
+  .ask strong { color: var(--gold); }
+  ol.todo { padding-left: 1.2em; display: grid; gap: 12px; max-width: 46em; }
+
+  .nav {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 14px clamp(16px, 4vw, 40px);
+    background: linear-gradient(to top, var(--bg) 70%, transparent);
+    font-family: system-ui, sans-serif;
+  }
+  .nav button {
+    font: inherit; font-size: .95rem; cursor: pointer;
+    background: var(--surface); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px;
+  }
+  .nav button:disabled { opacity: .35; cursor: default; }
+  .dots { display: flex; gap: 7px; flex-wrap: wrap; justify-content: center; }
+  .dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line); cursor: pointer; }
+  .dots span.on { background: var(--gold); }
+  .count { font-size: .85rem; color: var(--muted); min-width: 3.5em; text-align: center; }
+
+  @media (max-width: 560px) {
+    ul.timeline li { grid-template-columns: 1fr; gap: 2px; }
+    .dots { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .slide { animation: none; } }
+  @media print {
+    body { overflow: visible; }
+    .slide { display: flex !important; position: static; min-height: 100vh; page-break-after: always; animation: none; }
+    .nav { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <section class="slide cover active">
+    <div class="kicker">6 a 8 de novembro de 2026</div>
+    <h1>Ouro Preto,<br><em>nosso fim de semana</em></h1>
+    <hr class="rule">
+    <p class="lead">Um ano de nós, três dias de ladeiras, igrejas, café quentinho e jantar com calma.</p>
+    <div><span class="draft">rascunho — vamos ajustar juntos</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Visão geral</div>
+    <h2>Três dias, sem correria</h2>
+    <div class="grid">
+      <div class="card day-card"><div class="big">6</div><div class="name">sexta</div><p>Viagem de manhã, trabalho à tarde, mercado e noite tranquila.</p></div>
+      <div class="card day-card"><div class="big">7</div><div class="name">sábado</div><p>Centro histórico, museu, carimbo do Passaporte e jantar a dois.</p></div>
+      <div class="card day-card"><div class="big">8</div><div class="name">domingo</div><p>Café com calma, última voltinha, almoço e volta para BH.</p></div>
+    </div>
+    <p class="note" style="margin-top:22px">Ritmo leve, tudo a pé no centro, nenhuma trilha difícil.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Onde vamos ficar</div>
+    <h2>Casa no centro histórico</h2>
+    <div class="grid">
+      <div class="card"><h3>Endereço</h3><p>Rua dos Paulistas, 205<br>Ouro Preto – MG</p></div>
+      <div class="card"><h3>Perto de tudo</h3><p>A cerca de 200 m da Praça Tiradentes <span class="tag">aprox.</span></p></div>
+      <div class="card"><h3>O que tem</h3><p>Cozinha completa, cama de casal, Wi-Fi e mesa para trabalhar na sexta.</p></div>
+    </div>
+    <p class="note" style="margin-top:22px">Horário de silêncio na casa: 22h às 7h.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Sexta, 6 de novembro</div>
+    <h2>Chegar, trabalhar, abastecer</h2>
+    <ul class="timeline">
+      <li><span class="t">11h</span><span>Ônibus BH → Ouro Preto (Pássaro Verde) <span class="tag">comprar bilhete</span><br><span class="note">Chegamos por volta de 13h–13h30.</span></span></li>
+      <li><span class="t">Tarde</span><span>Dia de trabalho, até 18h/19h. Na casa, se o anfitrião deixar entrar antes do check-in; senão, num café perto da praça.</span></li>
+      <li><span class="t">Fim do dia</span><span>Mercado: café simples de sábado e o que vamos comer em casa no resto da estadia.</span></li>
+      <li><span class="t">Noite</span><span>Jantar simples em casa, ou um primeiro bar.</span></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Sábado, 7 de novembro</div>
+    <h2>Dia inteiro no centro histórico</h2>
+    <ul class="timeline">
+      <li><span class="t">Manhã</span><span>Café simples em casa. Depois, Praça Tiradentes e igrejas: São Francisco de Assis e Mercês e Perdões.</span></li>
+      <li><span class="t">Almoço</span><span>Almoço fora, sem pressa.</span></li>
+      <li><span class="t">Tarde</span><span>Museu da Inconfidência e/ou Museu de Arte Sacra. E o <strong>carimbo do Passaporte Estrada Real</strong> <span class="tag">ponto a confirmar</span></span></li>
+      <li><span class="t">Fim da tarde</span><span>Praça Tiradentes ao anoitecer.</span></li>
+      <li><span class="t">Noite</span><span>Jantar a dois (próximo slide).</span></li>
+    </ul>
+    <p class="note" style="margin-top:14px">Horários de igrejas e museus ainda a conferir.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Sábado à noite</div>
+    <h2>Onde jantar?</h2>
+    <div class="grid">
+      <div class="card"><h3>O Passo Pizzajazz</h3><p>Pizzaria que virou restaurante, num casarão do século XVIII com vista para a cidade. Eleito o melhor do interior de Minas em 2024 (voto popular).</p><p class="note" style="margin-top:8px">Rua São José, 56</p></div>
+      <div class="card"><h3>Bené da Flauta</h3><p>Casarão com música ao vivo, clima mais “noite especial”.</p></div>
+    </div>
+    <div class="ask"><strong>Pergunta para você:</strong> a pizzaria bonita que você viu em 2024 era o O Passo? Se for outra, qual o nome?</div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Domingo, 8 de novembro</div>
+    <h2>Com calma, e de volta para casa</h2>
+    <ul class="timeline">
+      <li><span class="t">Manhã</span><span>O café mais legal da viagem, fora, sem relógio. Opções: Café Geraes ou Chocolates Ouro Preto.</span></li>
+      <li><span class="t">Depois</span><span>Última voltinha, foto, museu que tiver ficado para trás. Check-out.</span></li>
+      <li><span class="t">Almoço</span><span>Último almoço em Ouro Preto.</span></li>
+      <li><span class="t">14h–15h</span><span>Ônibus de volta <span class="tag">horário a confirmar</span><br><span class="note">A viagem leva de 2h45 a 3h; chegamos em BH no fim da tarde.</span></span></li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Antes de ir</div>
+    <h2>O que falta decidir e reservar</h2>
+    <ol class="todo">
+      <li>Escolher o lugar do jantar de sábado e <strong>reservar</strong>.</li>
+      <li>Escolher o café de domingo e conferir se abre cedo no domingo.</li>
+      <li>Comprar as passagens: <strong>sexta 11h</strong> e <strong>domingo à tarde</strong>.</li>
+      <li>Achar o ponto do carimbo do Passaporte Estrada Real em Ouro Preto.</li>
+      <li>Falar com o anfitrião: entrada antes do check-in ou guarda de mala, horário de check-out e mercado perto.</li>
+    </ol>
+    <div class="ask"><strong>E você:</strong> o que não pode ficar de fora? Tem algo aqui que você tiraria?</div>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" type="button">← Anterior</button>
+  <div class="dots" id="dots"></div>
+  <span class="count" id="count"></span>
+  <button id="next" type="button">Próximo →</button>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dots = document.getElementById('dots');
+  var prev = document.getElementById('prev');
+  var next = document.getElementById('next');
+  var count = document.getElementById('count');
+  var i = 0;
+
+  slides.forEach(function (_, n) {
+    var d = document.createElement('span');
+    d.addEventListener('click', function () { go(n); });
+    dots.appendChild(d);
+  });
+
+  function go(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
+    Array.prototype.forEach.call(dots.children, function (d, k) { d.classList.toggle('on', k === i); });
+    prev.disabled = i === 0;
+    next.disabled = i === slides.length - 1;
+    count.textContent = (i + 1) + ' / ' + slides.length;
+    slides[i].scrollTop = 0;
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+
+  prev.addEventListener('click', function () { go(i - 1); });
+  next.addEventListener('click', function () { go(i + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(i + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i - 1); }
+    if (e.key === 'Home') go(0);
+    if (e.key === 'End') go(slides.length - 1);
+  });
+
+  var tx = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 60) go(i + (dx < 0 ? 1 : -1));
+    tx = null;
+  });
+
+  var start = parseInt((location.hash || '').replace('#', ''), 10);
+  go(isNaN(start) ? 0 : start - 1);
+})();
+</script>
+</body>
+</html>
