@@ -22,10 +22,10 @@
 | Almoço | **Almoço "legal" fora** (1 do mínimo) | R$ 30–50/refeição ⚠️ |
 | Tarde | Museu da Inconfidência e/ou Museu de Arte Sacra; **carimbo do Passaporte Estrada Real** | Museus ter–dom, horários divergem entre fontes ⚠️. **Ponto de carimbo em Ouro Preto ❓** (um relato cita o Hotel Solar de Maria; conferir no portal/app) |
 | Fim da tarde | Praça Tiradentes ao anoitecer | |
-| Noite | **Jantar romântico (ele paga, orçamento R$ 500)** → reservar | Duas opções, ver abaixo |
+| Noite | **Jantar romântico (ele paga, orçamento R$ 500) no O Passo Pizzajazz** ✅ (confirmado por ela) → reservar | Ver detalhes abaixo |
 
-### Jantar de sábado: opções
-| | **O Passo Pizzajazz** (a pizzaria?) | **Bené da Flauta** |
+### Jantar de sábado: O Passo Pizzajazz (oficial) e plano B
+| | **O Passo Pizzajazz** ✅ oficial | *Plano B:* Bené da Flauta |
 |---|---|---|
 | Estilo | Pizzaria que virou restaurante, casarão do séc. XVIII, vista para a cidade ✅ (Itatiaia); massa de fermentação natural ⚠️ (CNN Brasil) | Casarão com música ao vivo ⚠️ |
 | Fama | Eleito o **melhor do interior de MG** (voto popular, Prêmio Cumbucca, dez/2024) ✅ | Indicado como jantar romântico ⚠️ |
@@ -34,15 +34,25 @@
 | Dica | Pedir mesa na varanda ⚠️ | Reservar |
 | Folga no teto de R$ 500 | Muita (dá para vinho bom e sobremesa) | Muita |
 
-**Atenção:** não sei se "a pizzaria que ela viu em 2024" é o O Passo (fica no centro, bonita e bem avaliada; é o palpite mais provável). **Peça para ela confirmar o nome.** Alternativa de pizza na mesma rua: O Sótão (Rua São José, 201 ⚠️, mais simples). Não achei dado de reserva/horário de nenhum: ligar ou chamar no Instagram.
+**Decidido (4/nov):** ela confirmou que a pizzaria que viu em 2024 é o **O Passo**, então é o jantar oficial de sábado. Falta **reservar** (pedir mesa na varanda ⚠️); não achei reserva/horário: ligar ou chamar no Instagram. Bené da Flauta fica só de reserva.
 
 ## Domingo 8/11 — manhã tranquila e volta
 | Período | Sugestão | Obs. |
 |---|---|---|
-| Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → última volta/foto, museu que faltou | Escolher o café ❓ (ainda não pesquisei); museus abrem domingo ⚠️ |
+| Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → **Parque das Andorinhas** (ver abaixo) ou última volta/foto, museu que faltou | Escolher o café (opções abaixo); museus abrem domingo ⚠️ |
 | Check-out | Trancar as portas ✅ | Horário ❓ (perguntar ao anfitrião) |
 | Almoço | Último almoço em Ouro Preto: em casa com o que sobrar do mercado, ou fora (depois de um café fora, talvez leve) | Se for fora, R$ 30–50/pessoa ⚠️ |
 | ~14h–15h | **Ônibus Ouro Preto → BH** (decidido: depois do almoço) | Viagem 2h45–3h ⚠️ → chegada ~17h–18h ⚠️. Comprar o horário que bater com o almoço; último ônibus ❓ |
+
+### Parque Natural Municipal das Andorinhas (pedido dela, talvez domingo)
+- **Entrada gratuita** ✅ e funcionamento **diário das 8h às 18h**, condicionado ao tempo ⚠️ (Itatiaia; outro guia diz que está sempre aberto, mas desaconselha ficar após 17h).
+- Na chegada, **cadastro rápido por formulário** (contagem de visitantes) ⚠️, relato de visitante.
+- Tem **trilhas, mirantes e cachoeiras** (um guia fala em 4 cachoeiras, trilhas bem sinalizadas); **mapa na entrada com a dificuldade de cada trilha** ⚠️. Como querem paisagem leve, escolher uma trilha curta/fácil por esse mapa.
+- **Distância da casa e como ir ❓** (nenhuma fonte deu o trajeto): provavelmente Uber; perguntar ao anfitrião.
+- **Cabe no domingo?** Apertado, mas dá: café cedo → parque (abre 8h) → volta até ~11h30 → check-out e almoço → ônibus. Se o parque ficar longe ou o tempo ruim, vale empurrar o ônibus para ~15h–16h ⚠️ (conferir último ônibus ❓). Como o ônibus de domingo ainda não está comprado, dá para escolher o horário depois de decidir.
+
+### Torresmo (pedido dela)
+- **Não achei nenhum lugar específico de torresmo em Ouro Preto ❓** (os resultados eram de Juiz de Fora). **Perguntar a ela o nome/lugar que ela lembra.** Se não lembrar: procurar "torresmo" no Google Maps perto da Rua São José/Rua Direita ou pedir como petisco num bar (sexta ou sábado à noite).
 
 ## Decidido em 3/nov
 - Ida sexta 11h; volta domingo depois do almoço; carimbo no sábado à tarde.
@@ -60,11 +70,16 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 **Sugestão:** ver no Google Maps/Instagram quais abrem **domingo cedo** e escolher entre Café Geraes (café + doces) e Chocolates Ouro Preto (mais "programa"). Todos ficam no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓).
 
 ## O que falta
-1. Ela confirmar o nome da pizzaria de 2024 (O Passo?) e vocês escolherem: O Passo ou Bené da Flauta.
+1. Reservar o **O Passo** (jantar de sábado, oficial).
 2. Comprar as passagens (11h na sexta; ~14h–15h no domingo) e conferir o horário real.
 3. Perguntar ao anfitrião: check-in antecipado/guarda de mala, check-out, internet, mercado a pé, cancelamento.
 4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
-5. Reservar o jantar e achar o ponto de carimbo (portal/app do Passaporte).
+5. Achar o ponto de carimbo (portal/app do Passaporte).
+6. Ela dizer **qual lugar do torresmo** (se lembrar) e vocês decidirem se o **Parque das Andorinhas** entra no domingo.
+7. Decidir sobre a **jardineira** (passeio de ônibus aberto) no sábado à tarde — ver pesquisa de 4/nov.
+
+### Jardineira (pesquisa de 4/nov, ainda em aberto)
+Tour em ônibus antigo aberto, com guia, 4h30–6h ⚠️, saída perto da Praça Tiradentes (Rua Barão de Camargos, 126), a partir de ≈ R$ 95/pessoa ⚠️ (Decolar/Civitatis). **Ingressos de museus e igrejas não estão incluídos** (≈ R$ 150/pessoa se entrar em tudo ⚠️). Não confirmei se está operando em 2026 nem os horários; reserva com até 18 h de antecedência, cancelamento grátis até 12 h antes (Civitatis).
 
 ## Fontes
-Itatiaia e CNN Brasil (O Passo), 360 Meridianos (preço O Passo), Omio e Buson (duração do ônibus), Deonibus (R$ 65,20 + taxas), blogs de roteiro/horários (Viagens Cinematográficas, Guia da Semana, Itatiaia), 360 Meridianos (onde comer), fuiserviajante.com (Passaporte). Todos com data incerta; **conferir horários antes de ir**.
+Itatiaia (Parque das Andorinhas e O Passo), Civitatis/Decolar (jardineira), CNN Brasil (O Passo), 360 Meridianos (preço O Passo), Omio e Buson (duração do ônibus), Deonibus (R$ 65,20 + taxas), blogs de roteiro/horários (Viagens Cinematográficas, Guia da Semana, Itatiaia), 360 Meridianos (onde comer), fuiserviajante.com (Passaporte). Todos com data incerta; **conferir horários antes de ir**.
