@@ -7,7 +7,7 @@
 ## Sexta 6/11 — chegar e trabalhar
 | Hora | O quê | Obs. |
 |---|---|---|
-| 11h | Ônibus BH → Ouro Preto (Pássaro Verde) | ✅ Saída das 11h da manhã (decidido); **comprar o bilhete e conferir o horário**. Duração 1h50–2h30 ⚠️ (Omio/Buson divergem) → chegada ~13h–13h30 ⚠️ |
+| 11h | Ônibus BH → Ouro Preto (Pássaro Verde) | ✅ **Passagem comprada** (5/nov): saída às 11h. Duração 1h50–2h30 ⚠️ (Omio/Buson divergem) → chegada ~13h–13h30 ⚠️ |
 | ~13h30 | Rodoviária → casa (Uber/táxi); **deixar as malas** | ✅ Anfitrião libera deixar mala **a partir das 12h30**. Distância e valor do Uber ❓ |
 | 14h–18h/19h | **Trabalhar** | Check-in é às **15h** ✅. O anfitrião disse que **libera antes se não houver reserva até o dia anterior** e **avisa no dia**. Se não liberar: trabalhar num café perto da praça até as 15h e depois ir para a casa. Na casa: Wi-Fi ✅; pelas fotos, o "espaço de trabalho" é uma **bancada alta com banquetas** ⚠️ (não é mesa comum), então talvez cansativo para 4 h; vale testar e, se precisar, trabalhar parte do tempo num café |
 | Depois de trabalhar | **Mercado**: comprar o café simples de sábado + o resto da estadia (jantares/almoço em casa) | Mercado a pé e **horário de fechamento ❓** (conferir; se terminarem às 19h, pode ficar apertado — alternativa: ir ao mercado antes, num intervalo) |
@@ -44,14 +44,15 @@
 | Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → **Parque das Andorinhas** (ver abaixo) ou última volta/foto, museu que faltou | Escolher o café (opções abaixo); museus abrem domingo ⚠️ |
 | Check-out | **Até 12h** ✅. Fechar bem a porta e deslizar a capa da fechadura digital para baixo ✅ | Com o parque de manhã, voltar até ~11h30; ou pedir ao anfitrião para guardar a mala depois do check-out |
 | Almoço | Último almoço em Ouro Preto: em casa com o que sobrar do mercado, ou fora (depois de um café fora, talvez leve) | Se for fora, R$ 30–50/pessoa ⚠️ |
-| ~14h–15h | **Ônibus Ouro Preto → BH** (decidido: depois do almoço) | Viagem 2h45–3h ⚠️ → chegada ~17h–18h ⚠️. Comprar o horário que bater com o almoço; último ônibus ❓ |
+| 12h–15h | Check-out até 12h; **almoço** e tempo livre; mala guardada | ✅ Sobram ~4 h entre o check-out e o ônibus: dá para almoçar com calma, passar em um museu ou voltar à praça. **Preciso que o anfitrião guarde a mala** (perguntar) |
+| 16h | **Ônibus Ouro Preto → BH** ✅ **passagem comprada** (5/nov) | Estar na rodoviária ~20–30 min antes ⚠️ (sair do centro ~15h–15h15, de Uber; trajeto ❓). Viagem 2h45–3h ⚠️ → chegada em BH ~18h45–19h ⚠️ |
 
 ### Parque Natural Municipal das Andorinhas (pedido dela, talvez domingo)
 - **Entrada gratuita** ✅ e funcionamento **diário das 8h às 18h**, condicionado ao tempo ⚠️ (Itatiaia; outro guia diz que está sempre aberto, mas desaconselha ficar após 17h).
 - Na chegada, **cadastro rápido por formulário** (contagem de visitantes) ⚠️, relato de visitante.
 - Tem **trilhas, mirantes e cachoeiras** (um guia fala em 4 cachoeiras, trilhas bem sinalizadas); **mapa na entrada com a dificuldade de cada trilha** ⚠️. Como querem paisagem leve, escolher uma trilha curta/fácil por esse mapa.
 - **Distância da casa e como ir ❓** (nenhuma fonte deu o trajeto): provavelmente Uber; perguntar ao anfitrião.
-- **Cabe no domingo?** Apertado, mas dá: café cedo → parque (abre 8h) → volta até ~11h30 → check-out e almoço → ônibus. Se o parque ficar longe ou o tempo ruim, vale empurrar o ônibus para ~15h–16h ⚠️ (conferir último ônibus ❓). Como o ônibus de domingo ainda não está comprado, dá para escolher o horário depois de decidir.
+- **Cabe no domingo?** Sim, com a volta às 16h ✅ ficou folgado: café cedo → parque (abre 8h) → volta até ~11h30 → check-out às 12h → almoço → mala guardada → rodoviária por volta das 15h15. Se o tempo estiver ruim, trocar o parque por um museu.
 
 ### Torresmo (pedido dela)
 - **Não achei nenhum lugar específico de torresmo em Ouro Preto ❓** (os resultados eram de Juiz de Fora). **Perguntar a ela o nome/lugar que ela lembra.** Se não lembrar: procurar "torresmo" no Google Maps perto da Rua São José/Rua Direita ou pedir como petisco num bar (sexta ou sábado à noite).
@@ -79,8 +80,8 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 
 ## O que falta
 1. Reservar o **O Passo** (jantar de sábado, oficial).
-2. Comprar as passagens (11h na sexta; ~14h–15h no domingo) e conferir o horário real.
-3. Perguntar ao anfitrião: guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
+2. ~~Comprar as passagens~~ ✅ feito (sexta 11h; domingo 16h). Falta atualizar o financeiro com o **valor real** pago.
+3. Perguntar ao anfitrião (**importante**: ônibus às 16h, check-out às 12h): guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
 4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
 5. **Passaporte:** levar o passaporte físico (e o celular com o app) no sábado e carimbar no Mocotó, Praça Tiradentes, 4, **antes das 19h**.
 6. Ela dizer **qual lugar do torresmo** (se lembrar) e vocês decidirem se o **Parque das Andorinhas** entra no domingo.
