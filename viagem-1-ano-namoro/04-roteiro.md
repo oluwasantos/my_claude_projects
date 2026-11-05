@@ -42,9 +42,9 @@
 | Período | Sugestão | Obs. |
 |---|---|---|
 | Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → **Parque das Andorinhas** (ver abaixo) ou última volta/foto, museu que faltou | Escolher o café (opções abaixo); museus abrem domingo ⚠️ |
-| Check-out | **Até 12h** ✅. Fechar bem a porta e deslizar a capa da fechadura digital para baixo ✅ | Com o parque de manhã, voltar até ~11h30; ou pedir ao anfitrião para guardar a mala depois do check-out |
+| Check-out | **Até 12h** ✅. Fechar bem a porta e deslizar a capa da fechadura digital para baixo ✅ | Com o parque de manhã, voltar até ~11h30. Ônibus só às 16h, então **pedir ao anfitrião para guardar a mala** depois do check-out |
 | Almoço | Último almoço em Ouro Preto: em casa com o que sobrar do mercado, ou fora (depois de um café fora, talvez leve) | Se for fora, R$ 30–50/pessoa ⚠️ |
-| 12h–15h | Check-out até 12h; **almoço** e tempo livre; mala guardada | ✅ Sobram ~4 h entre o check-out e o ônibus: dá para almoçar com calma, passar em um museu ou voltar à praça. **Preciso que o anfitrião guarde a mala** (perguntar) |
+| 13h–15h | Tempo livre depois do almoço, com a **mala guardada** | ✅ Sobram ~4 h entre o check-out e o ônibus: dá para almoçar com calma, passar em um museu ou voltar à praça. **Preciso que o anfitrião guarde a mala** (perguntar) |
 | 16h | **Ônibus Ouro Preto → BH** ✅ **passagem comprada** (5/nov) | Estar na rodoviária ~20–30 min antes ⚠️ (sair do centro ~15h–15h15, de Uber; trajeto ❓). Viagem 2h45–3h ⚠️ → chegada em BH ~18h45–19h ⚠️ |
 
 ### Parque Natural Municipal das Andorinhas (pedido dela, talvez domingo)
