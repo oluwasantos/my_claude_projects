@@ -75,3 +75,6 @@ Ela até **R$ 500**, ele até **R$ 600** (só estadia + passagens; comida, bares
 - Sobra para a estadia: ela ≈ R$ 370 + ele ≈ R$ 470 = **até ≈ R$ 840 no total das 2 noites (≈ R$ 420/noite)**. Com divisão meio a meio, o teto é ≈ R$ 740 (limite dela).
 - O alvo de R$ 200–300/noite continua; o teto maior é só folga. Eliminatório 4 passa de R$ 600 para **≈ R$ 740 (meio a meio) ou ≈ R$ 840 (ele paga mais)**.
 - Efeito na triagem: nenhum finalista muda (todos ≤ R$ 600). O #2 (R$ 702) passa a caber no preço, mas segue descartado por não ter água quente.
+
+## 10. Política de cancelamento da reserva feita (6/nov) ✅
+Informada pelo usuário (tela da reserva): **cancelamento grátis até 5 dias antes**; depois disso, **reembolso parcial se cancelar antes do check-in, às 15h de 6/nov**; **a partir daí não é reembolsável**. Ou seja, o eliminatório 7 ("cancelamento flexível") só valeu até 5 dias antes; hoje, depois das 15h de 6/nov, a reserva não tem reembolso. Sem impacto prático se forem à viagem.

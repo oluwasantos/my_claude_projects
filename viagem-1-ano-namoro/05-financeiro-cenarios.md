@@ -42,7 +42,7 @@ Atualização: embora o plano fosse o cenário B (3/nov), vocês **pagaram estad
 - **Acerto por Pix:** feito (ver abaixo), se os valores forem as metades. (Se quiserem voltar ao B, ele passaria R$ 38,51 a ela: 423,58 − 385,07.)
 - **Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela**: ele ≈ R$ 325–494, ela ≈ R$ 175–266 ⚠️ (de R$ 500–760 no casal).
 - **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500; **confirmar**).
-- **Airbnb confirmado ✅ (6/nov): R$ 597 pagos por ele.** Ele pagou também as passagens (R$ 250,16 no total). **Ela já fez 2 Pix** (um das passagens, outro do Airbnb). Se foram as metades, ela repassou R$ 125,08 + R$ 298,50 = **R$ 423,58** e **está tudo acertado**.
+- **Airbnb confirmado ✅ (6/nov): R$ 597 pagos por ele.** Ele pagou também as passagens (R$ 250,16 no total). **Ela já fez 2 Pix** (um das passagens, outro do Airbnb). Ela mandou **R$ 125,08** (passagens, metade exata) e **R$ 300,00** (Airbnb, R$ 1,50 a mais que a metade de R$ 298,50): total R$ 425,08 contra R$ 423,58 devidos. **Acertado; ele fica devendo R$ 1,50 a ela** (ou fica por isso mesmo).
 
 ### Quanto cada um desembolsa (cenário A + resto 65/35)
 | | Estadia + passagens (A) | Resto (35% ela / 65% ele) | Jantar | **Total** |
