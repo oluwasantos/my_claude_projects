@@ -6,29 +6,6 @@
 <title>Ouro Preto — nosso fim de semana</title>
 <style>
   :root {
-    --bg: #fbf6ec;
-    --surface: #ffffff;
-    --ink: #2a2118;
-    --muted: #6f6253;
-    --gold: #9a6612;
-    --gold-soft: #f1e2bf;
-    --blue: #274a6b;
-    --line: #e6dbc6;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #17130e;
-      --surface: #221c14;
-      --ink: #f4ecdc;
-      --muted: #b7a98f;
-      --gold: #e0a84a;
-      --gold-soft: #3a2e17;
-      --blue: #8fb4d6;
-      --line: #3a3124;
-    }
-  }
-  /* Slides "momento especial": paleta de entardecer, igual nos dois temas */
-  body.dusk {
     --bg: #1d2740;
     --surface: #2a3350;
     --ink: #f8eedb;
@@ -60,7 +37,7 @@
   .slide > :first-child { margin-top: auto; }
   .slide > :last-child { margin-bottom: auto; }
   .slide.active { display: flex; }
-  .slide.moment {
+  .slide {
     background: radial-gradient(120% 90% at 80% 0%, #6b3f4a 0%, #2d3556 45%, #1d2740 100%);
   }
   @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
@@ -96,12 +73,10 @@
   .day-card .big { font-size: 2.6rem; color: var(--gold); line-height: 1; }
   .day-card .name { font-family: system-ui, sans-serif; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 6px 0 10px; }
 
-  ul.timeline { list-style: none; padding: 0; display: grid; gap: 4px; max-width: 46em; }
-  ul.timeline li {
-    display: grid; grid-template-columns: 7.5em 1fr; gap: 14px;
-    padding: 12px 0; border-bottom: 1px solid var(--line);
-  }
-  ul.timeline .t { font-family: system-ui, sans-serif; font-weight: 600; color: var(--gold); font-size: .95rem; padding-top: 3px; }
+  .steps { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .steps .card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .slide > h2 { margin-bottom: 0; }
+  .slide > h2 + .rule { margin: 16px 0 22px; }
   .note { color: var(--muted); font-size: .95em; }
   .tag {
     font-family: system-ui, sans-serif; font-size: .72rem; font-weight: 600;
@@ -158,12 +133,11 @@
   .count { font-size: .85rem; color: var(--muted); min-width: 3.5em; text-align: center; }
 
   @media (max-width: 560px) {
-    ul.timeline li { grid-template-columns: 1fr; gap: 2px; }
     .dots { display: none; }
   }
   @media (prefers-reduced-motion: reduce) { .slide, body, .nav { animation: none; transition: none; } }
   @media print {
-    body { overflow: visible; }
+    body { overflow: visible; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .slide { display: flex !important; position: static; min-height: 100vh; page-break-after: always; animation: none; }
     .nav { display: none; }
   }
@@ -193,6 +167,7 @@
   <section class="slide">
     <div class="kicker">Visão geral</div>
     <h2>Três dias, sem correria</h2>
+    <hr class="rule">
     <div class="grid">
       <div class="card day-card"><div class="big">6</div><div class="name">sexta</div><p>Viagem de manhã, trabalho à tarde, mercado e uma noite tranquila.</p></div>
       <div class="card day-card"><div class="big">7</div><div class="name">sábado</div><p>Centro histórico, museu, carimbo no Passaporte, anoitecer na praça e jantar a dois.</p></div>
@@ -205,6 +180,7 @@
   <section class="slide">
     <div class="kicker">Onde vamos ficar</div>
     <h2>Uma casa no centro histórico</h2>
+    <hr class="rule">
     <div class="grid">
       <div class="card"><h3>Endereço</h3><p>Rua dos Paulistas, 205<br>Ouro Preto – MG</p></div>
       <div class="card"><h3>Perto de tudo</h3><p>A cerca de 200 m da Praça Tiradentes <span class="tag">aprox.</span></p></div>
@@ -221,32 +197,34 @@
   <section class="slide">
     <div class="kicker">Sexta, 6 de novembro</div>
     <h2>Chegar, trabalhar, abastecer</h2>
-    <ul class="timeline">
-      <li><span class="t">11h</span><span>Ônibus BH → Ouro Preto (Pássaro Verde)<br><span class="note">Chegamos por volta de 13h–13h30.</span></span></li>
-      <li><span class="t">~13h30</span><span>Da rodoviária para a casa, de Uber ou táxi, e deixamos as malas.</span></li>
-      <li><span class="t">Tarde</span><span>Dia de trabalho até 18h/19h. Na casa, se o anfitrião liberar o check-in antes das 15h; senão, num café perto da praça até o check-in.</span></li>
-      <li><span class="t">Fim do dia</span><span>Mercado: o café simples de sábado e o que vamos comer em casa.</span></li>
-      <li><span class="t">Noite</span><span>Jantar simples em casa, ou um primeiro bar para brindar a chegada.</span></li>
-    </ul>
+    <hr class="rule">
+    <div class="steps">
+      <div class="card"><h3>11h</h3><p>Ônibus BH → Ouro Preto (Pássaro Verde)<br><span class="note">Chegamos por volta de 13h–13h30.</span></p></div>
+      <div class="card"><h3>~13h30</h3><p>Da rodoviária para a casa, de Uber ou táxi, e deixamos as malas.</p></div>
+      <div class="card"><h3>Tarde</h3><p>Dia de trabalho até 18h/19h. Na casa, se o anfitrião liberar o check-in antes das 15h; senão, num café perto da praça até o check-in.</p></div>
+      <div class="card"><h3>Fim do dia</h3><p>Mercado: o café simples de sábado e o que vamos comer em casa.</p></div>
+      <div class="card"><h3>Noite</h3><p>Jantar simples em casa, ou um primeiro bar para brindar a chegada.</p></div>
+    </div>
   </section>
 
   <!-- 5. Sábado -->
   <section class="slide">
     <div class="kicker">Sábado, 7 de novembro</div>
     <h2>O dia inteiro no centro histórico</h2>
-    <ul class="timeline">
-      <li><span class="t">Manhã</span><span>Café simples em casa. Depois, Praça Tiradentes e igrejas: São Francisco de Assis e Mercês e Perdões.</span></li>
-      <li><span class="t">Almoço</span><span>Almoço fora, sem pressa.</span></li>
-      <li><span class="t">Tarde</span><span>Museu da Inconfidência e/ou Museu de Arte Sacra.</span></li>
-      <li><span class="t">Fim da tarde</span><span>Na volta a pé, o <strong>carimbo do Passaporte Estrada Real</strong> no Mocotó Galeria, Praça Tiradentes, 4 (aberto até as 19h).</span></li>
-      <li><span class="t">Anoitecer</span><span>A praça acendendo (próximo slide).</span></li>
-      <li><span class="t">Noite</span><span>Jantar a dois no O Passo, chegando cedo (lá é por ordem de chegada).</span></li>
-    </ul>
+    <hr class="rule">
+    <div class="steps">
+      <div class="card"><h3>Manhã</h3><p>Café simples em casa. Depois, Praça Tiradentes e igrejas: São Francisco de Assis e Mercês e Perdões.</p></div>
+      <div class="card"><h3>Almoço</h3><p>Almoço fora, sem pressa.</p></div>
+      <div class="card"><h3>Tarde</h3><p>Museu da Inconfidência e/ou Museu de Arte Sacra.</p></div>
+      <div class="card"><h3>Fim da tarde</h3><p>Na volta a pé, o <strong>carimbo do Passaporte Estrada Real</strong> no Mocotó Galeria, Praça Tiradentes, 4 (aberto até as 19h).</p></div>
+      <div class="card"><h3>Anoitecer</h3><p>A praça acendendo (próximo slide).</p></div>
+      <div class="card"><h3>Noite</h3><p>Jantar a dois no O Passo, chegando cedo (lá é por ordem de chegada).</p></div>
+    </div>
     <p class="note" style="margin-top:14px">Horários de igrejas e museus a gente confere na hora.</p>
   </section>
 
   <!-- 6. Momento: anoitecer -->
-  <section class="slide moment" data-theme="dusk">
+  <section class="slide">
     <div class="split">
       <div class="txt">
         <div class="kicker">Um momento só nosso</div>
@@ -267,7 +245,7 @@
   </section>
 
   <!-- 7. Momento: jantar -->
-  <section class="slide moment" data-theme="dusk">
+  <section class="slide">
     <div class="split">
       <div class="txt">
         <div class="kicker">Sábado à noite</div>
@@ -292,20 +270,22 @@
   <section class="slide">
     <div class="kicker">Domingo, 8 de novembro</div>
     <h2>Com calma, e de volta para casa</h2>
-    <ul class="timeline">
-      <li><span class="t">Manhã</span><span>O café mais legal da viagem, fora, sem olhar o relógio.</span></li>
-      <li><span class="t">Depois</span><span><strong>Parque das Andorinhas</strong> <span class="tag">se o tempo ajudar</span>, ou uma última voltinha e foto pelo centro.</span></li>
-      <li><span class="t">Até 12h</span><span>Check-out. A mala fica guardada com o anfitrião <span class="tag">a combinar</span>.</span></li>
-      <li><span class="t">Almoço</span><span>O último almoço em Ouro Preto.</span></li>
-      <li><span class="t">~15h</span><span>Saímos do centro de Uber para a rodoviária.</span></li>
-      <li><span class="t">16h</span><span>Ônibus de volta para BH<br><span class="note">A viagem leva de 2h45 a 3h; chegamos por volta das 19h.</span></span></li>
-    </ul>
+    <hr class="rule">
+    <div class="steps">
+      <div class="card"><h3>Manhã</h3><p>O café mais legal da viagem, fora, sem olhar o relógio.</p></div>
+      <div class="card"><h3>Depois</h3><p><strong>Parque das Andorinhas</strong> <span class="tag">se o tempo ajudar</span>, ou uma última voltinha e foto pelo centro.</p></div>
+      <div class="card"><h3>Até 12h</h3><p>Check-out. A mala fica guardada com o anfitrião <span class="tag">a combinar</span>.</p></div>
+      <div class="card"><h3>Almoço</h3><p>O último almoço em Ouro Preto.</p></div>
+      <div class="card"><h3>~15h</h3><p>Saímos do centro de Uber para a rodoviária.</p></div>
+      <div class="card"><h3>16h</h3><p>Ônibus de volta para BH<br><span class="note">A viagem leva de 2h45 a 3h; chegamos por volta das 19h.</span></p></div>
+    </div>
   </section>
 
   <!-- 9. Pedidos dela -->
   <section class="slide">
     <div class="kicker">O que você pediu</div>
     <h2>Seus três desejos</h2>
+    <hr class="rule">
     <div class="grid">
       <div class="card"><h3>Torresmo</h3><p>Ainda não achei o lugar certo em Ouro Preto. Qual era o que você lembra? Se não lembrar, a gente procura lá, ou pede de petisco num bar.</p></div>
       <div class="card"><h3>Parque das Andorinhas</h3><p>Aberto todos os dias, das 8h às 18h. Tem trilhas, mirantes e cachoeiras; o mapa na entrada mostra a dificuldade de cada trilha, então escolhemos uma curtinha. Cabe no domingo de manhã.</p></div>
@@ -317,6 +297,7 @@
   <section class="slide">
     <div class="kicker">Para escolher juntos</div>
     <h2>O que ainda está aberto</h2>
+    <hr class="rule">
     <div class="grid">
       <div class="card"><h3>Café de domingo</h3>
         <ul class="opts">
@@ -341,6 +322,7 @@
   <section class="slide">
     <div class="kicker">Antes de sair</div>
     <h2>O que não pode ficar para trás</h2>
+    <hr class="rule">
     <div class="grid">
       <div class="card"><h3>Toalhas</h3><p>A casa não tem.</p></div>
       <div class="card"><h3>Passaporte Estrada Real</h3><p>O físico e o celular com o app, para o carimbo de sábado.</p></div>
@@ -354,6 +336,7 @@
   <section class="slide">
     <div class="kicker">Agora é com você</div>
     <h2>O que você mudaria?</h2>
+    <hr class="rule">
     <div class="ask"><strong>O que não pode ficar de fora?</strong> Algo que você sempre quis fazer em Ouro Preto e não está aqui?</div>
     <div class="ask"><strong>Tem algo que você tiraria?</strong> Ou que prefere em outro dia ou horário?</div>
     <div class="ask"><strong>E os pedidos:</strong> torresmo, parque e jardineira. Quais entram?</div>
@@ -391,7 +374,6 @@
     prev.disabled = i === 0;
     next.disabled = i === slides.length - 1;
     count.textContent = (i + 1) + ' / ' + slides.length;
-    document.body.classList.toggle('dusk', slides[i].getAttribute('data-theme') === 'dusk');
     slides[i].scrollTop = 0;
     try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
   }
