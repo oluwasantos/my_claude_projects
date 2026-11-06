@@ -6,19 +6,19 @@
 ## 1. Parte fixa (estadia + passagens)
 | Item | Valor |
 |---|---|
-| Estadia (2 noites) | R$ 597 ⚠️ |
-| Passagens ida e volta, 2 pessoas (R$ 125–130 cada) | ≈ R$ 260 ⚠️ (uso o topo) |
-| **Total fixo** | **≈ R$ 857** |
-| Soma dos tetos | R$ 1.100 → **sobram ≈ R$ 243 no total** |
+| Estadia (2 noites) | R$ 597 ⚠️ (da busca de 3/nov; falta o total final pago) |
+| Passagens **reais** (✅ informado por vocês, 5/nov): ida R$ 65,48 + volta R$ 59,60 = R$ 125,08 por pessoa, × 2 | **R$ 250,16** ✅ |
+| **Total fixo** | **R$ 847,16** |
+| Soma dos tetos | R$ 1.100 → **sobram R$ 252,84 no total** |
 
-## 2. Cenários de divisão (só estadia + passagens)
+## 2. Cenários de divisão (só estadia + passagens), com os valores reais
 | Cenário | Ela paga | Ele paga | Folga dela no teto | Folga dele no teto |
 |---|---|---|---|---|
-| **A. Meio a meio** | R$ 428,50 | R$ 428,50 | R$ 71,50 | R$ 171,50 |
-| **B. Proporcional aos tetos** (500:600) | R$ 389,55 | R$ 467,45 | R$ 110,45 | R$ 132,55 |
-| **C. Ela no teto, ele cobre o resto** (ela: 2 passagens R$ 260 + R$ 240 de estadia; ele: R$ 357 de estadia) | R$ 500,00 | R$ 357,00 | R$ 0 | R$ 243,00 |
+| **A. Meio a meio** | R$ 423,58 | R$ 423,58 | R$ 76,42 | R$ 176,42 |
+| **B. Proporcional aos tetos** (500:600) ✅ escolhido | **R$ 385,07** | **R$ 462,09** | R$ 114,93 | R$ 137,91 |
+| **C. Ela no teto, ele cobre o resto** (ela: 2 passagens R$ 250,16 + R$ 249,84 de estadia; ele: R$ 347,16 de estadia) | R$ 500,00 | R$ 347,16 | R$ 0 | R$ 252,84 |
 
-Conferência: A 428,50×2 = 857 · B 389,55 + 467,45 = 857 · C 500 + 357 = 857.
+Conferência: A 423,58 × 2 = 847,16 · B 385,07 + 462,09 = 847,16 · C 500 + 347,16 = 847,16.
 
 ## 3. O resto da viagem (fora dos tetos acima)
 Estimativas ⚠️ do arquivo 02, sem passagem: café + almoço + mercado + bares + Uber + igrejas.
@@ -30,26 +30,26 @@ Estimativas ⚠️ do arquivo 02, sem passagem: café + almoço + mercado + bare
 ## 4. Custo total da viagem (casal)
 | Estilo | Fixo + resto (sem jantar) | + jantar dele (até R$ 500) |
 |---|---|---|
-| Enxuto | ≈ R$ 1.357 | até ≈ R$ 1.857 |
-| Confortável | ≈ R$ 1.617 | até ≈ R$ 2.117 |
+| Enxuto | ≈ R$ 1.347,16 | até ≈ R$ 1.847,16 |
+| Confortável | ≈ R$ 1.607,16 | até ≈ R$ 2.107,16 |
 
 A folga nos tetos (seção 2) **não cobre** o resto: cada pessoa teria R$ 250–380 de comida e passeios a bancar por fora.
 
-## 5. DECIDIDO (3/nov)
-- **Divisão: cenário B** (proporcional aos tetos): ela R$ 389,55, ele R$ 467,45 de estadia + passagens.
+## 5. DECIDIDO (3/nov; números atualizados em 5/nov com as passagens reais)
+- **Divisão: cenário B** (proporcional aos tetos): ela R$ 385,07, ele R$ 462,09 de estadia + passagens (valores reais das passagens; estadia ainda R$ 597 ⚠️).
 - **Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela** (corrigido em 3/nov; antes eu havia entendido meio a meio): ele ≈ R$ 325–494, ela ≈ R$ 175–266 ⚠️ (de R$ 500–760 no casal).
 - **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500 por ser jantar para dois; **confirmar**).
 
 ### Quanto cada um desembolsa
 | | Estadia + passagens (B) | Resto (35% ela / 65% ele) | Jantar | **Total** |
 |---|---|---|---|---|
-| Ela | R$ 389,55 | R$ 175–266 | — | **R$ 564,55–655,55** |
-| Ele | R$ 467,45 | R$ 325–494 | até R$ 500 | **R$ 1.292,45–1.461,45** |
-| Casal | R$ 857,00 | R$ 500–760 | até R$ 500 | **R$ 1.857–2.117** |
+| Ela | R$ 385,07 | R$ 175–266 | — | **R$ 560,07–651,07** |
+| Ele | R$ 462,09 | R$ 325–494 | até R$ 500 | **R$ 1.287,09–1.456,09** |
+| Casal | R$ 847,16 | R$ 500–760 | até R$ 500 | **R$ 1.847,16–2.107,16** |
 
-Conferência: 175 + 325 = 500 e 266 + 494 = 760 · 389,55 + 175 = 564,55 · 389,55 + 266 = 655,55 · 467,45 + 325 + 500 = 1.292,45 · 467,45 + 494 + 500 = 1.461,45 · 564,55 + 1.292,45 = 1.857 · 655,55 + 1.461,45 = 2.117.
+Conferência: 385,07 + 175 = 560,07 · 385,07 + 266 = 651,07 · 462,09 + 325 + 500 = 1.287,09 · 462,09 + 494 + 500 = 1.456,09 · 560,07 + 1.287,09 = 1.847,16 · 651,07 + 1.456,09 = 2.107,16.
 
-### Como pagar na prática (sugestão)
-- Cada um compra a **própria passagem** (≈ R$ 130 ⚠️).
-- Quem reservar o Airbnb paga os **R$ 597**; o outro acerta por Pix: ela R$ 259,55 (389,55 − 130) e ele R$ 337,45 (467,45 − 130). Se ele reservar, ela manda R$ 259,55 a ele.
-- Se a passagem ou o total do Airbnb mudar, refazer a conta com os valores reais.
+### Como pagar na prática
+- Cada um já comprou a **própria passagem** (R$ 125,08 cada ✅).
+- Quem reservou o Airbnb pagou os **R$ 597** (⚠️ confirmar o valor final); o outro acerta por Pix: **ela R$ 259,99** (385,07 − 125,08) e **ele R$ 337,01** (462,09 − 125,08); somam R$ 597,00. Se ele pagou o Airbnb, ela manda R$ 259,99 a ele; se ela pagou, ele manda R$ 337,01 a ela.
+- Se o total final do Airbnb for diferente de R$ 597, refazer a conta.
