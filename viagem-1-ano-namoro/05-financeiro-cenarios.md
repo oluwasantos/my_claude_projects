@@ -35,21 +35,20 @@ Estimativas ⚠️ do arquivo 02, sem passagem: café + almoço + mercado + bare
 
 A folga nos tetos (seção 2) **não cobre** o resto: cada pessoa teria R$ 250–380 de comida e passeios a bancar por fora.
 
-## 5. DECIDIDO (3/nov; números atualizados em 5/nov com as passagens reais)
-- **Divisão: cenário B** (proporcional aos tetos): ela R$ 385,07, ele R$ 462,09 de estadia + passagens (valores reais das passagens; estadia ainda R$ 597 ⚠️).
-- **Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela** (corrigido em 3/nov; antes eu havia entendido meio a meio): ele ≈ R$ 325–494, ela ≈ R$ 175–266 ⚠️ (de R$ 500–760 no casal).
-- **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500 por ser jantar para dois; **confirmar**).
+## 5. O QUE FOI FEITO DE FATO (6/nov): estadia e passagens meio a meio (cenário A)
+Atualização: embora o plano fosse o cenário B (3/nov), vocês **pagaram estadia e passagens meio a meio**. Vale o cenário A, e **o B fica só como referência**.
+- **Cada um pagou:** passagens R$ 125,08 + estadia R$ 298,50 (metade de R$ 597 ⚠️) = **R$ 423,58**. Total fixo: R$ 847,16.
+- **Dentro dos tetos:** ela R$ 423,58 de R$ 500 (folga R$ 76,42); ele R$ 423,58 de R$ 600 (folga R$ 176,42).
+- **Acerto por Pix:** nenhum, se cada um pagou a metade de cada item. (Se quiserem voltar ao B, ele passaria R$ 38,51 a ela: 423,58 − 385,07.)
+- **Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela**: ele ≈ R$ 325–494, ela ≈ R$ 175–266 ⚠️ (de R$ 500–760 no casal).
+- **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500; **confirmar**).
+- **Falta confirmar o valor final do Airbnb** (R$ 597 vem da busca ⚠️); se for diferente, refazer a parte da estadia.
 
-### Quanto cada um desembolsa
-| | Estadia + passagens (B) | Resto (35% ela / 65% ele) | Jantar | **Total** |
+### Quanto cada um desembolsa (cenário A + resto 65/35)
+| | Estadia + passagens (A) | Resto (35% ela / 65% ele) | Jantar | **Total** |
 |---|---|---|---|---|
-| Ela | R$ 385,07 | R$ 175–266 | — | **R$ 560,07–651,07** |
-| Ele | R$ 462,09 | R$ 325–494 | até R$ 500 | **R$ 1.287,09–1.456,09** |
+| Ela | R$ 423,58 | R$ 175–266 | — | **R$ 598,58–689,58** |
+| Ele | R$ 423,58 | R$ 325–494 | até R$ 500 | **R$ 1.248,58–1.417,58** |
 | Casal | R$ 847,16 | R$ 500–760 | até R$ 500 | **R$ 1.847,16–2.107,16** |
 
-Conferência: 385,07 + 175 = 560,07 · 385,07 + 266 = 651,07 · 462,09 + 325 + 500 = 1.287,09 · 462,09 + 494 + 500 = 1.456,09 · 560,07 + 1.287,09 = 1.847,16 · 651,07 + 1.456,09 = 2.107,16.
-
-### Como pagar na prática
-- Cada um já comprou a **própria passagem** (R$ 125,08 cada ✅).
-- Quem reservou o Airbnb pagou os **R$ 597** (⚠️ confirmar o valor final); o outro acerta por Pix: **ela R$ 259,99** (385,07 − 125,08) e **ele R$ 337,01** (462,09 − 125,08); somam R$ 597,00. Se ele pagou o Airbnb, ela manda R$ 259,99 a ele; se ela pagou, ele manda R$ 337,01 a ela.
-- Se o total final do Airbnb for diferente de R$ 597, refazer a conta.
+Conferência: 423,58 + 175 = 598,58 · 423,58 + 266 = 689,58 · 423,58 + 325 + 500 = 1.248,58 · 423,58 + 494 + 500 = 1.417,58 · 598,58 + 1.248,58 = 1.847,16 · 689,58 + 1.417,58 = 2.107,16.
