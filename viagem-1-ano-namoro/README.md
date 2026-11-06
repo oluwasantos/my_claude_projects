@@ -8,7 +8,7 @@
 - [x] 03 Requisitos + triagem → [03-estadia-requisitos.md](03-estadia-requisitos.md) (estadia: Casa no centro histórico, Rua dos Paulistas, 205, ID 825956212858015940)
 - [~] 04 Roteiro → [04-roteiro.md](04-roteiro.md) (estrutura fechada; faltam reserva e escolhas de lugares, ver "Pendências")
 - [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (estadia e passagens pagas meio a meio; resto 65% ele / 35% ela)
-- [x] Apresentação do roteiro para ela → [apresentacao.html](apresentacao.html) (abrir no navegador; setas do teclado ou deslizar). **Sem valores**; 12 slides: visão geral, casa, os 3 dias, 2 slides de momentos especiais (anoitecer no centro histórico e jantar no O Passo), pedidos dela, o que está em aberto, o que levar e perguntas finais. Serve para criar expectativa e colher input dela.
+- [x] Apresentação do roteiro para ela → [apresentacao.html](apresentacao.html) (abrir no navegador; setas do teclado ou deslizar). **Sem valores**; 12 slides: visão geral, casa, os 3 dias, 2 slides de momentos especiais (anoitecer no centro histórico e jantar no O Passo), pedidos dela, o que está em aberto, o que levar e perguntas finais. Serve para criar expectativa e colher input dela. Fotos embutidas no próprio HTML (arquivo único, funciona offline): slide 6 (Ouro Preto à noite, 2 fotos ilustrativas enviadas pelo usuário, autoria não identificada; uso só pessoal) e slide 7 (3 fotos do Instagram @opassopizzajazz, créditos no slide; uso só pessoal, **não publicar**).
 
 ## Decisões tomadas
 - **Estadia:** Airbnb R$ 597 ✅ pago por ele; cancelamento grátis até 5 dias antes, parcial até o check-in de 6/nov (15h). Anfitrião: malas desde 12h30, check-in 15h (antecipado só se não houver reserva no dia anterior), check-out 12h, **sem toalhas** (levar).
@@ -18,7 +18,7 @@
 - **Sexta:** trabalham até 18h/19h; mercado no fim do dia. **Café de sábado** simples em casa; **café de domingo** fora, o mais legal.
 
 ## Pendências (em 6/nov)
-1. **Reservar o O Passo** (sábado; pedir mesa na varanda). Sem canal de reserva achado: ligar ou Instagram.
+1. **O Passo não aceita reserva** ✅ (site oficial: ordem de chegada; informam telefone e nº de pessoas na entrada e avisam por SMS; abre ter–dom 12h–23h30). Falta só **definir o horário de chegada no sábado** (~18h30 ⚠️) para pegar fila curta.
 2. **Perguntar ao anfitrião:** guarda de mala no domingo (check-out 12h, ônibus 16h), mercado a pé, check-in antecipado na sexta.
 3. **Levar:** toalhas, passaporte físico + app, calçado confortável, agasalho.
 4. **Decisões com ela** (slides 9 e 10 da apresentação): jardineira (sim/não), Parque das Andorinhas no domingo, lugar do torresmo, café de domingo, um bar, almoços de sábado e domingo.

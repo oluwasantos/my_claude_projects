@@ -24,7 +24,7 @@
 | Almoço | **Almoço "legal" fora** (1 do mínimo) | R$ 30–50/refeição ⚠️ |
 | Tarde | Museu da Inconfidência e/ou Museu de Arte Sacra | Museus ter–dom, horários divergem entre fontes ⚠️ |
 | Fim da tarde | **Carimbo do Passaporte Estrada Real no Mocotó Galeria / Jacubas Livros e Artes, Praça Tiradentes, 4**, na volta a pé para casa; depois, Praça Tiradentes ao anoitecer | ✅ Decidido. Abre todos os dias, **10h–19h** (lista oficial, jun/2023 ⚠️): **carimbar antes das 19h**, não depois do jantar. Já têm passaporte físico e app |
-| Noite | **Jantar romântico (ele paga, orçamento R$ 500) no O Passo Pizzajazz** ✅ (confirmado por ela) → reservar | Ver detalhes abaixo |
+| Noite | **Jantar romântico (ele paga, orçamento R$ 500) no O Passo Pizzajazz** ✅ (confirmado por ela) → **sem reserva: chegar cedo** | Ver detalhes abaixo |
 
 ### Jantar de sábado: O Passo Pizzajazz (oficial) e plano B
 | | **O Passo Pizzajazz** ✅ oficial | *Plano B:* Bené da Flauta |
@@ -33,10 +33,10 @@
 | Fama | Eleito o **melhor do interior de MG** (voto popular, Prêmio Cumbucca, dez/2024) ✅ | Indicado como jantar romântico ⚠️ |
 | Endereço | Rua São José, 56 ✅ | ❓ |
 | Preço | ≈ R$ 60/pessoa ⚠️ (360 Meridianos, data incerta) → ≈ R$ 120 para dois + bebida | R$ 70–120/pessoa ⚠️ → ≈ R$ 140–240 + bebida |
-| Dica | Pedir mesa na varanda ⚠️ | Reservar |
+| Dica | **Sem reserva** ✅ (ordem de chegada): chegar cedo; varanda com vista ✅, mas não dá para garantir mesa nela | Reservar |
 | Folga no teto de R$ 500 | Muita (dá para vinho bom e sobremesa) | Muita |
 
-**Decidido (4/nov):** ela confirmou que a pizzaria que viu em 2024 é o **O Passo**, então é o jantar oficial de sábado. Falta **reservar** (pedir mesa na varanda ⚠️); não achei reserva/horário: ligar ou chamar no Instagram. Bené da Flauta fica só de reserva.
+**Decidido (4/nov):** ela confirmou que a pizzaria que viu em 2024 é o **O Passo**, então é o jantar oficial de sábado. **Descoberta de 6/nov (site oficial e Instagram do restaurante):** o O Passo **não aceita reserva** ✅: *"o atendimento se dará em ordem de chegada, na entrada; informe um telefone e o número de pessoas; por SMS, notificaremos a disponibilidade da mesa"* (site, página /passo). Então **o plano é chegar cedo no sábado** (sugestão: ~18h30, ⚠️ minha) e entrar na fila. Horário: **ter–dom, 12h–23h30** ✅ (bio do Instagram, 6/nov). Tel. do restaurante (31) 3552-5089 ✅ (site; para tirar dúvida de fila, não de reserva). A varanda tem vista para a Casa dos Contos, a Ponte dos Contos, o Grande Hotel e o Horto dos Contos ✅ (site); tem forno a lenha e adega com mais de cem rótulos ✅. Maps confirma o endereço (Rua São José, 56, Centro, CEP 35400-066). Bené da Flauta fica só de reserva.
 
 ## Domingo 8/11 — manhã tranquila e volta
 | Período | Sugestão | Obs. |
@@ -79,7 +79,7 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 **Sugestão:** ver no Google Maps/Instagram quais abrem **domingo cedo** e escolher entre Café Geraes (café + doces) e Chocolates Ouro Preto (mais "programa"). Todos ficam no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓).
 
 ## O que falta
-1. Reservar o **O Passo** (jantar de sábado, oficial).
+1. ~~Reservar o O Passo~~ **não existe reserva** (ordem de chegada, ver "Jantar de sábado"): decidir o **horário de chegada** no sábado (~18h30 ⚠️) para pegar fila curta.
 2. ~~Comprar as passagens~~ ✅ feito (sexta 11h; domingo 16h); financeiro já atualizado com o valor real.
 3. Perguntar ao anfitrião (**importante**: ônibus às 16h, check-out às 12h): guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
 4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
