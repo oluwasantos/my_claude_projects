@@ -55,7 +55,7 @@
 - **Cabe no domingo?** Sim, com a volta às 16h ✅ ficou folgado: café cedo → parque (abre 8h) → volta até ~11h30 → check-out às 12h → almoço → mala guardada → rodoviária por volta das 15h15. Se o tempo estiver ruim, trocar o parque por um museu.
 
 ### Torresmo (pedido dela)
-- **Não achei nenhum lugar específico de torresmo em Ouro Preto ❓** (os resultados eram de Juiz de Fora). **Perguntar a ela o nome/lugar que ela lembra.** Se não lembrar: procurar "torresmo" no Google Maps perto da Rua São José/Rua Direita ou pedir como petisco num bar (sexta ou sábado à noite).
+- **Lugar: Bar do Glácio** ✅ (informado pelo usuário em 6/nov; ele enviou 2 fotos da porção, que estão no slide 10 da apresentação). **Endereço e horário ❓**: uma busca na web não achou o bar, então conferir no Google Maps. Falta escolher o **dia**: sexta à noite ou sábado antes/depois do jantar no O Passo.
 
 ### Passaporte Estrada Real: carimbo em Ouro Preto ✅
 **Decidido (4/nov): Mocotó Galeria | Jacubas Livros e Artes, Praça Tiradentes, 4, Centro**, todos os dias, 10h–19h, tel. (31) 99789-8198. Fonte: PDF oficial do [Instituto Estrada Real](https://files.institutoestradareal.com.br/files/stamp-points-file/1686765570534/pontos_de_carimbo.pdf), versão de jun/2023 (a mais recente que consegui abrir): conferir horário no app antes.
@@ -76,7 +76,7 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 | **Chocolates Ouro Preto** | Rua Conde de Bobadela, 67 (Quanto Custa Viajar) ou Praça Tiradentes, esquina com Rua Direita (360 Meridianos): **endereços divergem** | Cafés especiais e chocolates artesanais; R$ 30–60/pessoa ⚠️ | ⚠️ |
 | **Terraço do O Passo Pizzajazz** | Rua São José, 56 ✅ | Uma fonte diz que o café da manhã pode ser servido no terraço com vista para a Igreja de São Francisco de Assis; **cardápio e horário não confirmados**; se for o jantar de sábado, repetiria o lugar | ⚠️ |
 
-**Escolhido (6/nov): Chocolates Ouro Preto** ✅ (decisão do usuário). Pendente: confirmar **endereço** (Rua Conde de Bobadela, 67 ou Praça Tiradentes, 111: as fontes divergem) e **horário de domingo** ❓ no Google Maps/Instagram (não achei o @). Instagram ✅ [@chocolatesouropreto](https://www.instagram.com/chocolatesouropreto/) e pino no Maps ✅ [link](https://maps.app.goo.gl/CdXFecMPsuKXFRLp6) (enviados pelo usuário; não consegui abrir nenhum dos dois daqui, então endereço e horário seguem ❓). Se não abrir cedo no domingo, plano B: Café Geraes (Rua Direita/Conde de Bobadela). Fica no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓).
+**Escolhido (6/nov): Chocolates Ouro Preto** ✅ (decisão do usuário). Pendente: confirmar **endereço** (Rua Conde de Bobadela, 67 ou Praça Tiradentes, 111: as fontes divergem) e **horário de domingo** ❓ no Google Maps/Instagram (não achei o @). Instagram ✅ [@chocolatesouropreto](https://www.instagram.com/chocolatesouropreto/) e pino no Maps ✅ [link](https://maps.app.goo.gl/CdXFecMPsuKXFRLp6) (enviados pelo usuário; não consegui abrir nenhum dos dois daqui, então endereço e horário seguem ❓). Se não abrir cedo no domingo, plano B: Café Geraes (Rua Direita/Conde de Bobadela). Fica no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓). Fotos enviadas (6/nov): mesas junto às janelas/varanda com vista para o monumento da Praça Tiradentes e o morro, cardápio com café coado, cappuccino, chocolate quente, pão de queijo e petit gâteau com sorvete ✅ (vistos nas fotos; sem preços). A vista sugere que o endereço é **Praça Tiradentes, 111** ⚠️ (inferência minha, não confirmada). Fotos no slide 8 da apresentação.
 
 ## O que falta
 1. ~~Reservar o O Passo~~ **não existe reserva** (ordem de chegada, ver "Jantar de sábado"): decidir o **horário de chegada** no sábado (~18h30 ⚠️) para pegar fila curta.
@@ -84,7 +84,7 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 3. Perguntar ao anfitrião (**importante**: ônibus às 16h, check-out às 12h): guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
 4. ~~Escolher o café de domingo~~ ✅ **Chocolates Ouro Preto**; falta confirmar endereço e horário de domingo. Conferir mercado perto da casa e horário de fechamento.
 5. **Passaporte:** levar o passaporte físico (e o celular com o app) no sábado e carimbar no Mocotó, Praça Tiradentes, 4, **antes das 19h**.
-6. Ela dizer **qual lugar do torresmo** (se lembrar) e vocês decidirem se o **Parque das Andorinhas** entra no domingo.
+6. ~~Lugar do torresmo~~ ✅ **Bar do Glácio** (conferir endereço/horário e escolher o dia). Decidir se o **Parque das Andorinhas** entra no domingo.
 7. Decidir sobre a **jardineira** (passeio de ônibus aberto) no sábado à tarde — ver pesquisa de 4/nov.
 
 ### Jardineira (pesquisa de 4/nov, ainda em aberto)
