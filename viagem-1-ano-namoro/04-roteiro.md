@@ -76,13 +76,13 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 | **Chocolates Ouro Preto** | Rua Conde de Bobadela, 67 (Quanto Custa Viajar) ou Praça Tiradentes, esquina com Rua Direita (360 Meridianos): **endereços divergem** | Cafés especiais e chocolates artesanais; R$ 30–60/pessoa ⚠️ | ⚠️ |
 | **Terraço do O Passo Pizzajazz** | Rua São José, 56 ✅ | Uma fonte diz que o café da manhã pode ser servido no terraço com vista para a Igreja de São Francisco de Assis; **cardápio e horário não confirmados**; se for o jantar de sábado, repetiria o lugar | ⚠️ |
 
-**Sugestão:** ver no Google Maps/Instagram quais abrem **domingo cedo** e escolher entre Café Geraes (café + doces) e Chocolates Ouro Preto (mais "programa"). Todos ficam no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓).
+**Escolhido (6/nov): Chocolates Ouro Preto** ✅ (decisão do usuário). Pendente: confirmar **endereço** (Rua Conde de Bobadela, 67 ou Praça Tiradentes, 111: as fontes divergem) e **horário de domingo** ❓ no Google Maps/Instagram (não achei o @). Instagram não localizado. Se não abrir cedo no domingo, plano B: Café Geraes (Rua Direita/Conde de Bobadela). Fica no centro, perto da casa (≈ 0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️; subida/descida ❓).
 
 ## O que falta
 1. ~~Reservar o O Passo~~ **não existe reserva** (ordem de chegada, ver "Jantar de sábado"): decidir o **horário de chegada** no sábado (~18h30 ⚠️) para pegar fila curta.
 2. ~~Comprar as passagens~~ ✅ feito (sexta 11h; domingo 16h); financeiro já atualizado com o valor real.
 3. Perguntar ao anfitrião (**importante**: ônibus às 16h, check-out às 12h): guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
-4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
+4. ~~Escolher o café de domingo~~ ✅ **Chocolates Ouro Preto**; falta confirmar endereço e horário de domingo. Conferir mercado perto da casa e horário de fechamento.
 5. **Passaporte:** levar o passaporte físico (e o celular com o app) no sábado e carimbar no Mocotó, Praça Tiradentes, 4, **antes das 19h**.
 6. Ela dizer **qual lugar do torresmo** (se lembrar) e vocês decidirem se o **Parque das Andorinhas** entra no domingo.
 7. Decidir sobre a **jardineira** (passeio de ônibus aberto) no sábado à tarde — ver pesquisa de 4/nov.
