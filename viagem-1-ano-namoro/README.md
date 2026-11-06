@@ -15,7 +15,7 @@
 - **Financeiro:** estadia e passagens meio a meio (cada um R$ 423,58); ela já pagou R$ 425,08 (R$ 1,50 a mais, ele deve R$ 1,50). Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela. Tetos originais: ela R$ 500, ele R$ 600, só estadia + passagens.
 - **Jantar romântico de sábado:** só dele, **O Passo Pizzajazz** (Rua São José, 56), confirmado por ela; orçamento R$ 500 (ele escreveu "50", a confirmar). Plano B: Bené da Flauta.
 - **Carimbo do Passaporte Estrada Real:** sábado no fim da tarde, **Mocotó Galeria / Jacubas, Praça Tiradentes, 4** (10h–19h). Plano B: Aqui Di Minas, R. Conde de Bobadela, 65A. Já têm passaporte físico e app.
-- **Sexta:** trabalham até 18h/19h; mercado no fim do dia. **Café de sábado** simples em casa; **café de domingo** fora, o mais legal: **Chocolates Ouro Preto** ✅ (escolhido em 6/nov; confirmar endereço, Rua Conde de Bobadela, 67 ou Praça Tiradentes, 111, e horário de domingo ❓; plano B: Café Geraes).
+- **Sexta:** trabalham até 18h/19h; mercado no fim do dia. **Café de sábado** simples em casa; **café de domingo** fora, o mais legal: **Chocolates Ouro Preto** ✅ ([@chocolatesouropreto](https://www.instagram.com/chocolatesouropreto/), [Maps](https://maps.app.goo.gl/CdXFecMPsuKXFRLp6); escolhido em 6/nov; confirmar endereço, Rua Conde de Bobadela, 67 ou Praça Tiradentes, 111, e horário de domingo ❓; plano B: Café Geraes).
 
 ## Pendências (em 6/nov)
 1. **O Passo não aceita reserva** ✅ (site oficial: ordem de chegada; informam telefone e nº de pessoas na entrada e avisam por SMS; abre ter–dom 12h–23h30). Falta só **definir o horário de chegada no sábado** (~18h30 ⚠️) para pegar fila curta.
