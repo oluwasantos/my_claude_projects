@@ -1,6 +1,6 @@
 # 04 — Roteiro (rascunho): Ouro Preto, sex 6 → dom 8/11/2026
 
-> Confiança: ✅ confirmado · ⚠️ estimativa/fonte divergente · ❓ não achei. Ritmo **leve**, sem trilha. Ainda **sem passagens compradas**.
+> Confiança: ✅ confirmado · ⚠️ estimativa/fonte divergente · ❓ não achei. Ritmo **leve**, sem trilha. **Passagens compradas** ✅ (ida sexta 11h, volta domingo 16h).
 > Endereço do Airbnb ✅ (informado por vocês): **Rua dos Paulistas, 205, Ouro Preto – MG, 35400-000** (provavelmente bairro Antônio Dias ⚠️, inferido de outros números da mesma rua).
 > Base: casa no centro histórico (~0,2 km da Praça Tiradentes pelo pino do Airbnb ⚠️, pino aproximado) · Wi-Fi + cabo + mesa de jantar ✅ · self check-in/fechadura inteligente ✅ · horário de silêncio 22h–7h ✅ · **check-in a partir das 15h e check-out até 12h** ✅ (orientações do anfitrião, 4/nov).
 
@@ -80,7 +80,7 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 
 ## O que falta
 1. Reservar o **O Passo** (jantar de sábado, oficial).
-2. ~~Comprar as passagens~~ ✅ feito (sexta 11h; domingo 16h). Falta atualizar o financeiro com o **valor real** pago.
+2. ~~Comprar as passagens~~ ✅ feito (sexta 11h; domingo 16h); financeiro já atualizado com o valor real.
 3. Perguntar ao anfitrião (**importante**: ônibus às 16h, check-out às 12h): guarda de mala no domingo depois do check-out, internet para videochamada, mercado a pé, cancelamento. **Levar toalhas** (a casa não tem).
 4. Escolher o café legal de domingo (opções acima; conferir horário de domingo) e conferir mercado perto da casa e horário de fechamento.
 5. **Passaporte:** levar o passaporte físico (e o celular com o app) no sábado e carimbar no Mocotó, Praça Tiradentes, 4, **antes das 19h**.

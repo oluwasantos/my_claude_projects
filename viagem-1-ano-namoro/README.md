@@ -1,19 +1,28 @@
 # Viagem de 1 ano de namoro — 6 a 8/nov/2026
 
-**Premissas:** saída de BH sex 6/11 de manhã (trabalham até 18h/19h na sexta), volta dom 8/11 · 2 pessoas · tetos aprox. por pessoa: ela R$ 500, ele R$ 800 (divisão não precisa ser igual) · mínimo fora: 1 café, 1 almoço, 1 jantar (resto mercado/cozinha) · jantar romântico pago por ele (sábado) · Uber/transfer ok · sem Tiradentes/São João del-Rei · quer carimbar cidade nova no Passaporte Estrada Real.
+**Ouro Preto**, sex 6/11 a dom 8/11/2026, saindo de BH · 2 pessoas · ônibus Pássaro Verde: **ida sexta 11h, volta domingo 16h** ✅ (compradas em 5/nov) · estadia ✅ paga · sem Tiradentes/São João del-Rei.
 
 ## Andamento
-- [x] 01 Destino (escolhido: Ouro Preto) → [01-destino.md](01-destino.md)
+- [x] 01 Destino → [01-destino.md](01-destino.md)
 - [x] 02 Faixas de preço → [02-faixas-de-preco.md](02-faixas-de-preco.md)
-- [x] 03 Requisitos + triagem → [03-estadia-requisitos.md](03-estadia-requisitos.md) (estadia fechada: anúncio 825956212858015940, R$ 597 ⚠️)
-- [~] 04 Roteiro → [04-roteiro.md](04-roteiro.md) (rascunho; falta horário do ônibus, carimbo e jantar)
-- [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (decidido: cenário B, resto 65% ele / 35% ela)
-
-- Apresentação do roteiro para ela: [apresentacao.html](apresentacao.html) (abrir no navegador; setas do teclado ou deslizar)
+- [x] 03 Requisitos + triagem → [03-estadia-requisitos.md](03-estadia-requisitos.md) (estadia: Casa no centro histórico, Rua dos Paulistas, 205, ID 825956212858015940)
+- [~] 04 Roteiro → [04-roteiro.md](04-roteiro.md) (estrutura fechada; faltam reserva e escolhas de lugares, ver "Pendências")
+- [x] 05 Financeiro → [05-financeiro-cenarios.md](05-financeiro-cenarios.md) (estadia e passagens pagas meio a meio; resto 65% ele / 35% ela)
+- [x] Apresentação do roteiro para ela → [apresentacao.html](apresentacao.html) (abrir no navegador; setas do teclado ou deslizar). **Sem valores**; 12 slides: visão geral, casa, os 3 dias, 2 slides de momentos especiais (anoitecer no centro histórico e jantar no O Passo), pedidos dela, o que está em aberto, o que levar e perguntas finais. Serve para criar expectativa e colher input dela.
 
 ## Decisões tomadas
-- Destino: **Ouro Preto**
-- Estadia: R$ 200–300/noite; cozinha e cama de casal indispensáveis; mercado próximo desejável
-- Orçamento (atualizado 3/nov): os ~R$ 500 dela cobrem **estadia + passagem**; o resto (comida, bares, passeios) tem margem à parte. Teto dele ~R$ 800
-- Jantar romântico (ele paga) fica **fora** dos tetos (ela ~R$ 500, ele ~R$ 800)
-- Teto atual (decidido): ela R$ 500 + ele R$ 600, só estadia + passagens. Jantar só dele, orçamento R$ 500 (a confirmar)
+- **Estadia:** Airbnb R$ 597 ✅ pago por ele; cancelamento grátis até 5 dias antes, parcial até o check-in de 6/nov (15h). Anfitrião: malas desde 12h30, check-in 15h (antecipado só se não houver reserva no dia anterior), check-out 12h, **sem toalhas** (levar).
+- **Financeiro:** estadia e passagens meio a meio (cada um R$ 423,58); ela já pagou R$ 425,08 (R$ 1,50 a mais, ele deve R$ 1,50). Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela. Tetos originais: ela R$ 500, ele R$ 600, só estadia + passagens.
+- **Jantar romântico de sábado:** só dele, **O Passo Pizzajazz** (Rua São José, 56), confirmado por ela; orçamento R$ 500 (ele escreveu "50", a confirmar). Plano B: Bené da Flauta.
+- **Carimbo do Passaporte Estrada Real:** sábado no fim da tarde, **Mocotó Galeria / Jacubas, Praça Tiradentes, 4** (10h–19h). Plano B: Aqui Di Minas, R. Conde de Bobadela, 65A. Já têm passaporte físico e app.
+- **Sexta:** trabalham até 18h/19h; mercado no fim do dia. **Café de sábado** simples em casa; **café de domingo** fora, o mais legal.
+
+## Pendências (em 6/nov)
+1. **Reservar o O Passo** (sábado; pedir mesa na varanda). Sem canal de reserva achado: ligar ou Instagram.
+2. **Perguntar ao anfitrião:** guarda de mala no domingo (check-out 12h, ônibus 16h), mercado a pé, check-in antecipado na sexta.
+3. **Levar:** toalhas, passaporte físico + app, calçado confortável, agasalho.
+4. **Decisões com ela** (slides 9 e 10 da apresentação): jardineira (sim/não), Parque das Andorinhas no domingo, lugar do torresmo, café de domingo, um bar, almoços de sábado e domingo.
+5. **Confirmar** o orçamento do jantar (R$ 500).
+6. Conferir horários de igrejas, museus e do café de domingo (fontes de 2022 a 2023); trajeto e valor do Uber da rodoviária e do Parque das Andorinhas ❓.
+
+Quando as pendências 4 a 6 fecharem: atualizar `04-roteiro.md` e os slides com os nomes reais dos lugares.

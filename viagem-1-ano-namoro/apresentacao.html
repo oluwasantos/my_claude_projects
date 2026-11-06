@@ -10,7 +10,7 @@
     --surface: #ffffff;
     --ink: #2a2118;
     --muted: #6f6253;
-    --gold: #b8801f;
+    --gold: #9a6612;
     --gold-soft: #f1e2bf;
     --blue: #274a6b;
     --line: #e6dbc6;
@@ -27,6 +27,17 @@
       --line: #3a3124;
     }
   }
+  /* Slides "momento especial": paleta de entardecer, igual nos dois temas */
+  body.dusk {
+    --bg: #1d2740;
+    --surface: #2a3350;
+    --ink: #f8eedb;
+    --muted: #cdbfa6;
+    --gold: #f0bf68;
+    --gold-soft: #3b3550;
+    --blue: #a9c8e6;
+    --line: #435070;
+  }
   * { box-sizing: border-box; margin: 0; }
   html, body { height: 100%; }
   body {
@@ -34,18 +45,22 @@
     color: var(--ink);
     font-family: Georgia, "Times New Roman", serif;
     overflow: hidden;
+    transition: background .4s ease, color .4s ease;
   }
   .deck { height: 100%; position: relative; }
   .slide {
     position: absolute; inset: 0;
     display: none;
-    padding: clamp(24px, 6vw, 72px) clamp(20px, 7vw, 96px) 84px;
+    padding: clamp(24px, 6vw, 72px) clamp(20px, 7vw, 96px) 96px;
     overflow-y: auto;
     flex-direction: column;
     justify-content: center;
     animation: fade .35s ease;
   }
   .slide.active { display: flex; }
+  .slide.moment {
+    background: radial-gradient(120% 90% at 80% 0%, #6b3f4a 0%, #2d3556 45%, #1d2740 100%);
+  }
   @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
   .kicker {
@@ -60,13 +75,12 @@
   .lead { font-size: clamp(1.1rem, 2.4vw, 1.5rem); color: var(--muted); margin-top: 18px; max-width: 34em; }
   .rule { width: 72px; height: 3px; background: var(--gold); margin: 22px 0; border: 0; }
 
-  .cover { text-align: left; }
   .cover h1 em { color: var(--gold); font-style: italic; }
-  .draft {
+  .pill {
     display: inline-block; margin-top: 28px;
     font-family: system-ui, sans-serif; font-size: .85rem;
-    border: 1px dashed var(--gold); color: var(--gold);
-    padding: 6px 12px; border-radius: 999px;
+    border: 1px solid var(--gold); color: var(--gold);
+    padding: 6px 14px; border-radius: 999px;
   }
 
   .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 8px; }
@@ -74,13 +88,13 @@
     background: var(--surface); border: 1px solid var(--line);
     border-radius: 14px; padding: 18px 20px;
   }
-  .card .when { font-family: system-ui, sans-serif; font-size: .8rem; color: var(--gold); font-weight: 600; letter-spacing: .06em; margin-bottom: 6px; }
   .card p { font-size: 1.05rem; }
+  .card p + p { margin-top: 8px; }
   .day-card { border-top: 4px solid var(--gold); }
   .day-card .big { font-size: 2.6rem; color: var(--gold); line-height: 1; }
   .day-card .name { font-family: system-ui, sans-serif; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 6px 0 10px; }
 
-  ul.timeline { list-style: none; padding: 0; display: grid; gap: 12px; max-width: 46em; }
+  ul.timeline { list-style: none; padding: 0; display: grid; gap: 4px; max-width: 46em; }
   ul.timeline li {
     display: grid; grid-template-columns: 7.5em 1fr; gap: 14px;
     padding: 12px 0; border-bottom: 1px solid var(--line);
@@ -97,7 +111,10 @@
     background: var(--gold-soft); border-radius: 0 12px 12px 0; max-width: 46em;
   }
   .ask strong { color: var(--gold); }
-  ol.todo { padding-left: 1.2em; display: grid; gap: 12px; max-width: 46em; }
+  .quote { font-size: clamp(1.3rem, 3vw, 2rem); line-height: 1.35; max-width: 24em; font-style: italic; }
+  .opts { list-style: none; padding: 0; margin-top: 6px; display: grid; gap: 8px; }
+  .opts li { font-size: 1rem; padding-left: 1.1em; position: relative; }
+  .opts li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
 
   .nav {
     position: fixed; left: 0; right: 0; bottom: 0;
@@ -105,6 +122,7 @@
     padding: 14px clamp(16px, 4vw, 40px);
     background: linear-gradient(to top, var(--bg) 70%, transparent);
     font-family: system-ui, sans-serif;
+    transition: background .4s ease;
   }
   .nav button {
     font: inherit; font-size: .95rem; cursor: pointer;
@@ -121,7 +139,7 @@
     ul.timeline li { grid-template-columns: 1fr; gap: 2px; }
     .dots { display: none; }
   }
-  @media (prefers-reduced-motion: reduce) { .slide { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { .slide, body, .nav { animation: none; transition: none; } }
   @media print {
     body { overflow: visible; }
     .slide { display: flex !important; position: static; min-height: 100vh; page-break-after: always; animation: none; }
@@ -132,91 +150,165 @@
 <body>
 <div class="deck" id="deck">
 
+  <!-- 1. Capa -->
   <section class="slide cover active">
     <div class="kicker">6 a 8 de novembro de 2026</div>
     <h1>Ouro Preto,<br><em>nosso fim de semana</em></h1>
     <hr class="rule">
-    <p class="lead">Um ano de nós, três dias de ladeiras, igrejas, café quentinho e jantar com calma.</p>
-    <div><span class="draft">rascunho — vamos ajustar juntos</span></div>
+    <p class="lead">Um ano de nós, comemorado em três dias de ladeiras, igrejas, café quentinho e jantar com calma.</p>
+    <div><span class="pill">um roteiro para a gente imaginar junto</span></div>
   </section>
 
+  <!-- 2. Visão geral -->
   <section class="slide">
     <div class="kicker">Visão geral</div>
     <h2>Três dias, sem correria</h2>
     <div class="grid">
-      <div class="card day-card"><div class="big">6</div><div class="name">sexta</div><p>Viagem de manhã, trabalho à tarde, mercado e noite tranquila.</p></div>
-      <div class="card day-card"><div class="big">7</div><div class="name">sábado</div><p>Centro histórico, museu, carimbo do Passaporte e jantar a dois.</p></div>
+      <div class="card day-card"><div class="big">6</div><div class="name">sexta</div><p>Viagem de manhã, trabalho à tarde, mercado e uma noite tranquila.</p></div>
+      <div class="card day-card"><div class="big">7</div><div class="name">sábado</div><p>Centro histórico, museu, carimbo no Passaporte, anoitecer na praça e jantar a dois.</p></div>
       <div class="card day-card"><div class="big">8</div><div class="name">domingo</div><p>Café com calma, última voltinha, almoço e volta para BH.</p></div>
     </div>
     <p class="note" style="margin-top:22px">Ritmo leve, tudo a pé no centro, nenhuma trilha difícil.</p>
   </section>
 
+  <!-- 3. A casa -->
   <section class="slide">
     <div class="kicker">Onde vamos ficar</div>
-    <h2>Casa no centro histórico</h2>
+    <h2>Uma casa no centro histórico</h2>
     <div class="grid">
       <div class="card"><h3>Endereço</h3><p>Rua dos Paulistas, 205<br>Ouro Preto – MG</p></div>
       <div class="card"><h3>Perto de tudo</h3><p>A cerca de 200 m da Praça Tiradentes <span class="tag">aprox.</span></p></div>
-      <div class="card"><h3>O que tem</h3><p>Cozinha completa, cama de casal, Wi-Fi e mesa para trabalhar na sexta.</p></div>
+      <div class="card"><h3>O que tem</h3><p>Cozinha completa, cama de casal, Wi-Fi e uma bancada para trabalhar na sexta.</p></div>
     </div>
-    <p class="note" style="margin-top:22px">Check-in a partir das 15h (as malas podem ficar desde as 12h30). Check-out até as 12h. Silêncio das 22h às 7h. <strong>A casa não tem toalhas: levar as nossas.</strong></p>
+    <div class="grid" style="margin-top:16px">
+      <div class="card"><h3>Chegada</h3><p>As malas podem ficar desde as 12h30. Check-in a partir das 15h.</p></div>
+      <div class="card"><h3>Saída</h3><p>Check-out até as 12h. Silêncio das 22h às 7h.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px"><strong>A casa não tem toalhas: vamos levar as nossas.</strong></p>
   </section>
 
+  <!-- 4. Sexta -->
   <section class="slide">
     <div class="kicker">Sexta, 6 de novembro</div>
     <h2>Chegar, trabalhar, abastecer</h2>
     <ul class="timeline">
-      <li><span class="t">11h</span><span>Ônibus BH → Ouro Preto (Pássaro Verde) <span class="tag">passagem comprada</span><br><span class="note">Chegamos por volta de 13h–13h30.</span></span></li>
-      <li><span class="t">Tarde</span><span>Deixamos as malas na casa (liberado desde as 12h30). Dia de trabalho até 18h/19h: na casa, se o anfitrião liberar o check-in antes das 15h (ele avisa no dia); senão, num café perto da praça.</span></li>
-      <li><span class="t">Fim do dia</span><span>Mercado: café simples de sábado e o que vamos comer em casa no resto da estadia.</span></li>
-      <li><span class="t">Noite</span><span>Jantar simples em casa, ou um primeiro bar.</span></li>
+      <li><span class="t">11h</span><span>Ônibus BH → Ouro Preto (Pássaro Verde)<br><span class="note">Chegamos por volta de 13h–13h30.</span></span></li>
+      <li><span class="t">~13h30</span><span>Da rodoviária para a casa, de Uber ou táxi, e deixamos as malas.</span></li>
+      <li><span class="t">Tarde</span><span>Dia de trabalho até 18h/19h. Na casa, se o anfitrião liberar o check-in antes das 15h; senão, num café perto da praça até o check-in.</span></li>
+      <li><span class="t">Fim do dia</span><span>Mercado: o café simples de sábado e o que vamos comer em casa.</span></li>
+      <li><span class="t">Noite</span><span>Jantar simples em casa, ou um primeiro bar para brindar a chegada.</span></li>
     </ul>
   </section>
 
+  <!-- 5. Sábado -->
   <section class="slide">
     <div class="kicker">Sábado, 7 de novembro</div>
-    <h2>Dia inteiro no centro histórico</h2>
+    <h2>O dia inteiro no centro histórico</h2>
     <ul class="timeline">
       <li><span class="t">Manhã</span><span>Café simples em casa. Depois, Praça Tiradentes e igrejas: São Francisco de Assis e Mercês e Perdões.</span></li>
       <li><span class="t">Almoço</span><span>Almoço fora, sem pressa.</span></li>
       <li><span class="t">Tarde</span><span>Museu da Inconfidência e/ou Museu de Arte Sacra.</span></li>
-      <li><span class="t">Fim da tarde</span><span>Na volta a pé, o <strong>carimbo do Passaporte Estrada Real</strong> no Mocotó Galeria, Praça Tiradentes, 4 (aberto até as 19h). Depois, a praça ao anoitecer.</span></li>
-      <li><span class="t">Noite</span><span>Jantar a dois (próximo slide).</span></li>
+      <li><span class="t">Fim da tarde</span><span>Na volta a pé, o <strong>carimbo do Passaporte Estrada Real</strong> no Mocotó Galeria, Praça Tiradentes, 4 (aberto até as 19h).</span></li>
+      <li><span class="t">Anoitecer</span><span>A praça acendendo (próximo slide).</span></li>
+      <li><span class="t">Noite</span><span>Jantar a dois no O Passo.</span></li>
     </ul>
-    <p class="note" style="margin-top:14px">Horários de igrejas e museus ainda a conferir.</p>
+    <p class="note" style="margin-top:14px">Horários de igrejas e museus a gente confere na hora.</p>
   </section>
 
-  <section class="slide">
-    <div class="kicker">Sábado à noite</div>
-    <h2>Jantar: O Passo</h2>
+  <!-- 6. Momento: anoitecer -->
+  <section class="slide moment" data-theme="dusk">
+    <div class="kicker">Um momento só nosso</div>
+    <h2>O centro histórico à noite</h2>
+    <p class="quote">Carimbo no passaporte, a luz dourada nas igrejas, as ruas de pedra esvaziando. Sem destino: é só caminhar.</p>
+    <hr class="rule">
     <div class="grid">
-      <div class="card"><h3>O Passo Pizzajazz <span class="tag">escolhido</span></h3><p>Pizzaria que virou restaurante, num casarão do século XVIII com vista para a cidade. Eleito o melhor do interior de Minas em 2024 (voto popular).</p><p class="note" style="margin-top:8px">Rua São José, 56 · falta reservar</p></div>
+      <div class="card"><h3>Quando</h3><p>No fim da tarde de sábado, saindo do carimbo na Praça Tiradentes, e de novo na volta do jantar.</p></div>
+      <div class="card"><h3>Para ir bem</h3><p>Calçado confortável: as ladeiras e o chão de pedra pedem. E um agasalho para a noite.</p></div>
     </div>
-    <div class="ask"><strong>Pergunta para você:</strong> e o torresmo? Qual era o lugar que você lembra? Se não lembrar, a gente procura lá.</div>
   </section>
 
+  <!-- 7. Momento: jantar -->
+  <section class="slide moment" data-theme="dusk">
+    <div class="kicker">Sábado à noite</div>
+    <h2>Jantar no O Passo</h2>
+    <p class="quote">A pizzaria que você viu em 2024, agora com a gente sentados lá.</p>
+    <hr class="rule">
+    <div class="grid">
+      <div class="card"><h3>O lugar</h3><p>Pizzaria que virou restaurante, num casarão do século XVIII com vista para a cidade. Eleito o melhor do interior de Minas em 2024 (voto popular).</p></div>
+      <div class="card"><h3>O plano</h3><p>Rua São José, 56. Vamos reservar e pedir mesa na varanda, se tiver.</p><p class="note">Jantar sem pressa, com vinho e sobremesa.</p></div>
+    </div>
+  </section>
+
+  <!-- 8. Domingo -->
   <section class="slide">
     <div class="kicker">Domingo, 8 de novembro</div>
     <h2>Com calma, e de volta para casa</h2>
     <ul class="timeline">
-      <li><span class="t">Manhã</span><span>O café mais legal da viagem, fora, sem relógio. Opções: Café Geraes ou Chocolates Ouro Preto.</span></li>
-      <li><span class="t">Depois</span><span><strong>Parque das Andorinhas</strong> <span class="tag">se der tempo</span>: entrada grátis, aberto das 8h às 18h, trilhas, mirantes e cachoeiras. Senão, última voltinha e foto. Depois, check-out até as 12h.</span></li>
-      <li><span class="t">Almoço</span><span>Último almoço em Ouro Preto.</span></li>
-      <li><span class="t">16h</span><span>Ônibus de volta <span class="tag">passagem comprada</span><br><span class="note">A viagem leva de 2h45 a 3h; chegamos em BH por volta das 19h.</span></span></li>
+      <li><span class="t">Manhã</span><span>O café mais legal da viagem, fora, sem olhar o relógio.</span></li>
+      <li><span class="t">Depois</span><span><strong>Parque das Andorinhas</strong> <span class="tag">se o tempo ajudar</span>, ou uma última voltinha e foto pelo centro.</span></li>
+      <li><span class="t">Até 12h</span><span>Check-out. A mala fica guardada com o anfitrião <span class="tag">a combinar</span>.</span></li>
+      <li><span class="t">Almoço</span><span>O último almoço em Ouro Preto.</span></li>
+      <li><span class="t">~15h</span><span>Saímos do centro de Uber para a rodoviária.</span></li>
+      <li><span class="t">16h</span><span>Ônibus de volta para BH<br><span class="note">A viagem leva de 2h45 a 3h; chegamos por volta das 19h.</span></span></li>
     </ul>
   </section>
 
+  <!-- 9. Pedidos dela -->
   <section class="slide">
-    <div class="kicker">Antes de ir</div>
-    <h2>O que falta decidir e reservar</h2>
-    <ol class="todo">
-      <li><strong>Reservar</strong> o jantar de sábado no O Passo.</li>
-      <li>Escolher o café de domingo e conferir se abre cedo no domingo.</li>
-      <li>Decidir se o <strong>Parque das Andorinhas</strong> entra no domingo e achar o lugar do <strong>torresmo</strong>.</li>
-      <li>Passagens: <strong>sexta 11h</strong> e <strong>domingo 16h</strong>, já compradas.</li>
-      <li>Falar com o anfitrião: guardar a mala no domingo depois do check-out (12h) e onde fica o mercado mais perto. <strong>Levar toalhas.</strong></li>
-    </ol>
-    <div class="ask"><strong>E você:</strong> o que não pode ficar de fora? Tem algo aqui que você tiraria?</div>
+    <div class="kicker">O que você pediu</div>
+    <h2>Seus três desejos</h2>
+    <div class="grid">
+      <div class="card"><h3>Torresmo</h3><p>Ainda não achei o lugar certo em Ouro Preto. Qual era o que você lembra? Se não lembrar, a gente procura lá, ou pede de petisco num bar.</p></div>
+      <div class="card"><h3>Parque das Andorinhas</h3><p>Aberto todos os dias, das 8h às 18h. Tem trilhas, mirantes e cachoeiras; o mapa na entrada mostra a dificuldade de cada trilha, então escolhemos uma curtinha. Cabe no domingo de manhã.</p></div>
+      <div class="card"><h3>Jardineira</h3><p>Passeio num ônibus antigo aberto, com guia, de 4h30 a 6h. Ocuparia a tarde de sábado no lugar dos museus. Ainda preciso confirmar se está funcionando.</p></div>
+    </div>
+  </section>
+
+  <!-- 10. Escolher juntos -->
+  <section class="slide">
+    <div class="kicker">Para escolher juntos</div>
+    <h2>O que ainda está aberto</h2>
+    <div class="grid">
+      <div class="card"><h3>Café de domingo</h3>
+        <ul class="opts">
+          <li><strong>Café Geraes:</strong> café e sobremesas, na Rua Direita.</li>
+          <li><strong>Chocolates Ouro Preto:</strong> cafés especiais e chocolates artesanais, perto da praça.</li>
+          <li><strong>Terraço do O Passo:</strong> com vista para a Igreja de São Francisco, se servir café.</li>
+        </ul>
+        <p class="note" style="margin-top:8px">Falta conferir quem abre cedo no domingo.</p>
+      </div>
+      <div class="card"><h3>Um bar</h3>
+        <ul class="opts">
+          <li><strong>Pub Escadabaixo:</strong> no mesmo espaço do Café Geraes.</li>
+          <li><strong>Bené da Flauta:</strong> casarão com música ao vivo.</li>
+        </ul>
+        <p class="note" style="margin-top:8px">Pub tranquilo ou música ao vivo?</p>
+      </div>
+      <div class="card"><h3>Almoços</h3><p>Sábado e domingo, ainda sem lugar escolhido. Alguma vontade? Comida mineira, algo leve, um lugar com vista?</p></div>
+    </div>
+  </section>
+
+  <!-- 11. Na mala -->
+  <section class="slide">
+    <div class="kicker">Antes de sair</div>
+    <h2>O que não pode ficar para trás</h2>
+    <div class="grid">
+      <div class="card"><h3>Toalhas</h3><p>A casa não tem.</p></div>
+      <div class="card"><h3>Passaporte Estrada Real</h3><p>O físico e o celular com o app, para o carimbo de sábado.</p></div>
+      <div class="card"><h3>Calçado confortável</h3><p>Para as ladeiras e o chão de pedra.</p></div>
+      <div class="card"><h3>Agasalho</h3><p>A noite pode esfriar.</p></div>
+      <div class="card"><h3>Trabalho de sexta</h3><p>Notebook, carregador e fone.</p></div>
+    </div>
+  </section>
+
+  <!-- 12. E você? -->
+  <section class="slide">
+    <div class="kicker">Agora é com você</div>
+    <h2>O que você mudaria?</h2>
+    <div class="ask"><strong>O que não pode ficar de fora?</strong> Algo que você sempre quis fazer em Ouro Preto e não está aqui?</div>
+    <div class="ask"><strong>Tem algo que você tiraria?</strong> Ou que prefere em outro dia ou horário?</div>
+    <div class="ask"><strong>E os pedidos:</strong> torresmo, parque e jardineira. Quais entram?</div>
+    <p class="lead" style="margin-top:28px">Falta pouco para a gente estar lá.</p>
   </section>
 
 </div>
@@ -250,6 +342,7 @@
     prev.disabled = i === 0;
     next.disabled = i === slides.length - 1;
     count.textContent = (i + 1) + ' / ' + slides.length;
+    document.body.classList.toggle('dusk', slides[i].getAttribute('data-theme') === 'dusk');
     slides[i].scrollTop = 0;
     try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
   }
