@@ -37,12 +37,12 @@ A folga nos tetos (seção 2) **não cobre** o resto: cada pessoa teria R$ 250�
 
 ## 5. O QUE FOI FEITO DE FATO (6/nov): estadia e passagens meio a meio (cenário A)
 Atualização: embora o plano fosse o cenário B (3/nov), vocês **pagaram estadia e passagens meio a meio**. Vale o cenário A, e **o B fica só como referência**.
-- **Cada um pagou:** passagens R$ 125,08 + estadia R$ 298,50 (metade de R$ 597 ⚠️) = **R$ 423,58**. Total fixo: R$ 847,16.
+- **Cada um pagou:** passagens R$ 125,08 + estadia R$ 298,50 (metade de R$ 597 ✅) = **R$ 423,58**. Total fixo: R$ 847,16.
 - **Dentro dos tetos:** ela R$ 423,58 de R$ 500 (folga R$ 76,42); ele R$ 423,58 de R$ 600 (folga R$ 176,42).
-- **Acerto por Pix:** nenhum, se cada um pagou a metade de cada item. (Se quiserem voltar ao B, ele passaria R$ 38,51 a ela: 423,58 − 385,07.)
+- **Acerto por Pix:** feito (ver abaixo), se os valores forem as metades. (Se quiserem voltar ao B, ele passaria R$ 38,51 a ela: 423,58 − 385,07.)
 - **Resto (comida, bares, Uber, igrejas): 65% ele / 35% ela**: ele ≈ R$ 325–494, ela ≈ R$ 175–266 ⚠️ (de R$ 500–760 no casal).
 - **Jantar romântico: só dele**, orçamento **R$ 500** (ele escreveu "50"; assumi R$ 500; **confirmar**).
-- **Falta confirmar o valor final do Airbnb** (R$ 597 vem da busca ⚠️); se for diferente, refazer a parte da estadia.
+- **Airbnb confirmado ✅ (6/nov): R$ 597 pagos por ele.** Ele pagou também as passagens (R$ 250,16 no total). **Ela já fez 2 Pix** (um das passagens, outro do Airbnb). Se foram as metades, ela repassou R$ 125,08 + R$ 298,50 = **R$ 423,58** e **está tudo acertado**.
 
 ### Quanto cada um desembolsa (cenário A + resto 65/35)
 | | Estadia + passagens (A) | Resto (35% ela / 65% ele) | Jantar | **Total** |
