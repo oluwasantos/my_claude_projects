@@ -28,12 +28,13 @@
   .slide {
     position: absolute; inset: 0;
     display: none;
-    padding: clamp(24px, 6vw, 72px) clamp(20px, 7vw, 96px) 96px;
+    padding: clamp(24px, 6vw, 72px) clamp(20px, 7vw, 96px) 88px;
     overflow-y: auto;
     flex-direction: column;
     animation: fade .35s ease;
   }
   /* centraliza na vertical só quando sobra espaço; se passar da altura, começa do topo e rola */
+  .slide > * { flex-shrink: 0; }
   .slide > :first-child { margin-top: auto; }
   .slide > :last-child { margin-bottom: auto; }
   .slide.active { display: flex; }
@@ -73,8 +74,14 @@
   .day-card .big { font-size: 2.6rem; color: var(--gold); line-height: 1; }
   .day-card .name { font-family: system-ui, sans-serif; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 6px 0 10px; }
 
-  .steps { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
-  .steps .card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  /* roteiro: uma caixa por linha, horário à esquerda e texto à direita */
+  .steps { display: grid; gap: 8px; max-width: 66em; }
+  .steps .card { display: grid; grid-template-columns: 7.5em 1fr; gap: 16px; align-items: baseline; padding: 10px 20px; }
+  .steps .card h3 { color: var(--gold); font-size: 1rem; margin: 0; }
+  .steps .card p { font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.4; }
+  @media (max-width: 560px) {
+    .steps .card { grid-template-columns: 1fr; gap: 2px; }
+  }
   .slide > h2 { margin-bottom: 0; }
   .slide > h2 + .rule { margin: 16px 0 22px; }
   .note { color: var(--muted); font-size: .95em; }
