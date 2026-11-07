@@ -44,7 +44,7 @@
 | Manhã | **Café da manhã fora, o mais legal da viagem** (1 do mínimo; com calma) → **Parque das Andorinhas** (ver abaixo) ou última volta/foto, museu que faltou | Escolher o café (opções abaixo); museus abrem domingo ⚠️ |
 | Check-out | **Até 12h** ✅. Fechar bem a porta e deslizar a capa da fechadura digital para baixo ✅ | Com o parque de manhã, voltar até ~11h30. Ônibus só às 16h, então **pedir ao anfitrião para guardar a mala** depois do check-out |
 | Almoço | Último almoço em Ouro Preto: em casa com o que sobrar do mercado, ou fora (depois de um café fora, talvez leve) | Se for fora, R$ 30–50/pessoa ⚠️ |
-| 13h–15h | Tempo livre depois do almoço, com a **mala guardada** | ✅ Sobram ~4 h entre o check-out e o ônibus: dá para almoçar com calma, passar em um museu ou voltar à praça. **Preciso que o anfitrião guarde a mala** (perguntar) |
+| 13h–15h | **Gelato na Giuseppe** (sobremesa pós-almoço, pedido do usuário em 7/nov), com a **mala guardada**; sobrando tempo, museu ou volta à praça | ✅ Sobram ~4 h entre o check-out e o ônibus. **Giuseppe: endereço e horário ❓** (busca na web não achou a unidade de Ouro Preto; conferir no Maps/Instagram). **Preciso que o anfitrião guarde a mala** (perguntar) |
 | 16h | **Ônibus Ouro Preto → BH** ✅ **passagem comprada** (5/nov) | Estar na rodoviária ~20–30 min antes ⚠️ (sair do centro ~15h–15h15, de Uber; trajeto ❓). Viagem 2h45–3h ⚠️ → chegada em BH ~18h45–19h ⚠️ |
 
 ### Parque Natural Municipal das Andorinhas (pedido dela, talvez domingo)
@@ -85,7 +85,8 @@ Pouca informação confiável: nenhuma fonte trouxe cardápio, avaliação atual
 4. ~~Escolher o café de domingo~~ ✅ **Chocolates Ouro Preto**; falta confirmar endereço e horário de domingo. Conferir mercado perto da casa e horário de fechamento.
 5. **Passaporte:** levar o passaporte físico (e o celular com o app) no sábado e carimbar no Mocotó, Praça Tiradentes, 4, **antes das 19h**.
 6. ~~Lugar do torresmo~~ ✅ **Bar do Glácio** (conferir endereço/horário e escolher o dia). Decidir se o **Parque das Andorinhas** entra no domingo.
-7. Decidir sobre a **jardineira** (passeio de ônibus aberto) no sábado à tarde — ver pesquisa de 4/nov.
+7. **Giuseppe** (domingo pós-almoço): confirmar endereço e se abre domingo à tarde ❓.
+8. Decidir sobre a **jardineira** (passeio de ônibus aberto) no sábado à tarde — ver pesquisa de 4/nov.
 
 ### Jardineira (pesquisa de 4/nov, ainda em aberto)
 Tour em ônibus antigo aberto, com guia, 4h30–6h ⚠️, saída perto da Praça Tiradentes (Rua Barão de Camargos, 126), a partir de ≈ R$ 95/pessoa ⚠️ (Decolar/Civitatis). **Ingressos de museus e igrejas não estão incluídos** (≈ R$ 150/pessoa se entrar em tudo ⚠️). Não confirmei se está operando em 2026 nem os horários; reserva com até 18 h de antecedência, cancelamento grátis até 12 h antes (Civitatis).
