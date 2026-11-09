@@ -1,0 +1,771 @@
+<title>Sistema de Vida</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* Layout: deck em tela cheia, um slide por ideia, rolagem interna só se o conteúdo passar da altura.
+   Dark-first. Cores dos modos (verde/amarelo/vermelho/azul) só aparecem onde significam um modo ou um alerta. */
+:root{
+  --bg:#0c1214; --bg2:#121a1d; --bg3:#19242a; --ink:#e8eeec; --ink2:#a9b6b2; --mute:#76857f; --line:#243137;
+  --accent:#b9a8ff; --accent-ink:#0c1214;
+  --g:#52c796; --y:#ebbd4f; --r:#ef6a63; --b:#62adf0;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef2f0; --bg2:#ffffff; --bg3:#e2e9e6; --ink:#0f1a1d; --ink2:#41524d; --mute:#5b6c67; --line:#cbd6d2;
+    --accent:#5a40c8; --accent-ink:#ffffff;
+    --g:#177a52; --y:#946a05; --r:#c0332e; --b:#1766ad;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#eef2f0; --bg2:#ffffff; --bg3:#e2e9e6; --ink:#0f1a1d; --ink2:#41524d; --mute:#5b6c67; --line:#cbd6d2;
+  --accent:#5a40c8; --accent-ink:#ffffff;
+  --g:#177a52; --y:#946a05; --r:#c0332e; --b:#1766ad;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:clamp(1rem,1.2vw + .4rem,1.2rem);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+.eyebrow i{font-style:normal;color:var(--mute)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.5rem,7vw,5.6rem);line-height:.98;letter-spacing:-.025em;text-wrap:balance}
+h2{font-family:var(--display);font-weight:650;font-size:clamp(1.85rem,4.2vw,3.3rem);line-height:1.05;letter-spacing:-.02em;text-wrap:balance;max-width:20ch}
+h2.wide{max-width:26ch}
+h3{font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.15;letter-spacing:-.01em}
+.lede{color:var(--ink2);max-width:58ch;margin-top:1.1rem;text-wrap:pretty}
+.small{font-size:.88rem;color:var(--ink2)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:.12rem .45rem;border:1px solid var(--line);border-radius:4px;color:var(--ink2)}
+.tag.f{color:var(--g);border-color:color-mix(in srgb,var(--g) 45%,var(--line))}
+.tag.l{color:var(--b);border-color:color-mix(in srgb,var(--b) 45%,var(--line))}
+.tag.h{color:var(--y);border-color:color-mix(in srgb,var(--y) 45%,var(--line))}
+
+/* ---- Deck ---- */
+.stage{position:relative;height:100%;overflow:hidden}
+.slide{display:flex;flex-direction:column;padding-block:28px 96px;overflow-x:hidden;overflow-y:auto}
+.wrap{margin-block:auto;width:100%;max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.js .slide{position:absolute;inset:0;visibility:hidden;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease,visibility 0s .45s}
+.js .slide.active{visibility:visible;opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+html:not(.js) .slide{border-bottom:1px solid var(--line);padding-block:56px}
+.rise{opacity:1}
+.slide.active .rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 90ms + 120ms)}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---- Barra de navegação ---- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bg);border-top:1px solid var(--line);padding:10px max(16px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:12px}
+html:not(.js) .bar{display:none}
+.prog{position:absolute;left:0;top:-1px;height:2px;background:var(--accent);width:6%;transition:width .4s ease}
+.bar .btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--bg2);border:1px solid var(--line);border-radius:999px;height:40px;padding:0 14px;min-width:40px;justify-content:center;font-size:.85rem}
+.bar .btn:hover{border-color:var(--mute)}
+.bar .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bar .count{font-family:var(--mono);font-size:.8rem;color:var(--ink2);min-width:5.2ch;text-align:center;font-variant-numeric:tabular-nums}
+.bar .name{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-left:6px}
+.bar .spacer{flex:1}
+@media (max-width:640px){.bar .name,.bar .lbl{display:none}.bar .spacer{display:block}}
+
+/* ---- Capa ---- */
+.cover .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.cover h1 .soft{color:var(--ink2)}
+.days{display:grid;grid-template-columns:repeat(13,1fr);gap:clamp(4px,.8vw,9px);max-width:420px;justify-self:end;width:100%}
+.days i{aspect-ratio:1;border-radius:50%;background:var(--bg3);display:block}
+.days i.on{background:var(--ink2);opacity:.55}
+.days i.now{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 28%,transparent)}
+.days-cap{grid-column:1/-1;margin-top:.6rem;display:flex;justify-content:space-between;gap:1rem}
+.modes-row{display:flex;gap:.6rem;margin-top:2.2rem;flex-wrap:wrap}
+.dot{display:inline-block;width:.7em;height:.7em;border-radius:50%;background:var(--mute);flex:none}
+.dot.g{background:var(--g)}.dot.y{background:var(--y)}.dot.r{background:var(--r)}.dot.b{background:var(--b)}
+.chip{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem;font-size:.85rem;color:var(--ink2)}
+@media (max-width:820px){.cover .wrap{grid-template-columns:1fr}.days{justify-self:start;max-width:360px}}
+
+/* ---- Slide 2: três problemas ---- */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,28px);margin-top:2.4rem}
+.trio>div{border-top:1px solid var(--line);padding-top:1rem}
+.trio h3{margin-bottom:.5rem}
+.trio .step{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem;display:block}
+@media (max-width:760px){.trio{grid-template-columns:1fr}}
+
+/* ---- Slide 3: números ---- */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(16px,2.4vw,36px);margin-top:2.2rem}
+.num b{display:block;font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5vw,4rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.num span{display:block;margin-top:.4rem;color:var(--ink2);font-size:.9rem}
+.void{margin-top:2.4rem;border:1px dashed color-mix(in srgb,var(--r) 55%,var(--line));border-radius:8px;padding:1.1rem 1.3rem;display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.4rem;align-items:center}
+.void p{color:var(--ink2);font-size:.95rem}
+.void ul{display:flex;gap:.5rem;flex-wrap:wrap}
+.void li{border:1px solid color-mix(in srgb,var(--r) 45%,var(--line));color:var(--ink);border-radius:999px;padding:.2rem .75rem;font-size:.85rem}
+@media (max-width:700px){.void{grid-template-columns:1fr}}
+
+/* ---- Slide 4: linha do tempo ---- */
+.tl{margin-top:2rem;display:grid;gap:.9rem}
+.tl-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:1rem;align-items:center}
+.tl-row .lab{font-size:.9rem}
+.tl-row .lab small{display:block;color:var(--mute);font-size:.75rem}
+.track{position:relative;height:30px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/13 - 1px),var(--line) calc(100%/13 - 1px) calc(100%/13));border-radius:4px}
+.track .seg{position:absolute;top:6px;bottom:6px;background:var(--ink2);opacity:.55;border-radius:3px}
+.track .seg.hot{background:var(--accent);opacity:1;min-width:10px}
+.track .gap{position:absolute;top:50%;height:0;border-top:2px dashed var(--mute);opacity:.6}
+.track .pt{position:absolute;top:50%;width:11px;height:11px;border-radius:50%;background:var(--ink2);transform:translate(-50%,-50%)}
+.track .pt.b{background:var(--b)}
+.track .note{position:absolute;top:50%;transform:translateY(-50%);font-size:.74rem;color:var(--ink2);white-space:nowrap;font-family:var(--mono);background:var(--bg);padding:0 .45rem}
+.axis{display:grid;grid-template-columns:150px minmax(0,1fr);gap:1rem}
+.axis .in{position:relative;height:1.2rem}
+.axis .in span{position:absolute;top:0;white-space:nowrap;font-family:var(--mono);font-size:.68rem;color:var(--mute);transform:translateX(-50%)}
+.axis .in span:first-child{transform:none}.axis .in span:last-child{transform:translateX(-100%)}
+@media (max-width:700px){.tl-row,.axis{grid-template-columns:1fr;gap:.3rem}.axis>.mono{display:none}.track .note{display:none}}
+
+/* ---- Slide 5: horas ---- */
+.chart-wrap{margin-top:1.8rem}
+.hours{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:clamp(2px,.5vw,6px);align-items:end;height:clamp(180px,32vh,300px);border-bottom:1px solid var(--mute);position:relative}
+.hours li{position:relative;height:100%;display:flex;align-items:flex-end;outline-offset:2px}
+.hours li>span{display:block;width:100%;background:var(--ink2);opacity:.5;border-radius:3px 3px 0 0;transition:opacity .2s}
+.hours li.hot>span{background:var(--accent);opacity:1}
+.hours li:hover>span,.hours li:focus-visible>span{opacity:1}
+.hours li b{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(var(--h) + 4px);font-family:var(--mono);font-size:.72rem;font-weight:500;color:var(--ink)}
+.hours li::after{content:attr(data-tip);position:absolute;bottom:calc(var(--h) + 26px);left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--line);color:var(--ink);padding:.3rem .6rem;border-radius:6px;font-size:.78rem;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;z-index:3}
+.hours li:hover::after,.hours li:focus-visible::after{opacity:1}
+.hours li.el::after{left:0;transform:none}
+.hours li.er::after{left:auto;right:0;transform:none}
+.hlab,.hband{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:clamp(2px,.5vw,6px)}
+.hlab span{min-width:0;font-family:var(--mono);font-size:.68rem;color:var(--mute);margin-top:.4rem;white-space:nowrap}
+.hlab span:nth-child(3n+1){visibility:visible}
+.hlab span:not(:nth-child(3n+1)){visibility:hidden}
+.hband{margin-top:.3rem}
+.hband div{grid-column:17/21;border:1px solid var(--accent);border-top:none;height:12px;border-radius:0 0 4px 4px}
+.hband p{grid-column:1/25;margin-top:.5rem;font-size:.92rem}
+.hband p strong{color:var(--accent);font-weight:600}
+.chart-foot{display:flex;gap:.6rem 1.2rem;flex-wrap:wrap;margin-top:1.2rem;align-items:center}
+details{margin-top:1rem}
+details summary{cursor:pointer;color:var(--ink2);font-size:.88rem}
+.tbl-scroll{overflow-x:auto;margin-top:.6rem}
+table{border-collapse:collapse;font-size:.82rem;font-variant-numeric:tabular-nums}
+th,td{padding:.3rem .6rem;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;color:var(--mute)}
+
+/* ---- Slide 6: o que você mantém ---- */
+.formula{display:flex;gap:.7rem;flex-wrap:wrap;align-items:stretch;margin-top:2rem}
+.formula .t{flex:1 1 180px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:1rem 1.1rem}
+.formula .t b{font-family:var(--display);font-weight:650;font-size:1.25rem;display:block}
+.formula .t span{color:var(--ink2);font-size:.88rem}
+.formula .plus{align-self:center;color:var(--mute);font-family:var(--mono)}
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);margin-top:2rem;align-items:end}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.wk{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.6vw,18px);align-items:end;height:170px;position:relative;border-bottom:1px solid var(--mute)}
+.wk>div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.wk .b{background:var(--ink2);opacity:.65;border-radius:3px 3px 0 0;height:var(--h);position:relative}
+.wk .b.part{background:repeating-linear-gradient(135deg,var(--ink2) 0 4px,transparent 4px 8px);opacity:.7;outline:1px solid var(--ink2);outline-offset:-1px}
+.wk b{position:absolute;left:0;right:0;text-align:center;bottom:calc(var(--h) + 4px);font-family:var(--mono);font-size:.78rem;font-weight:500}
+.goal{position:absolute;left:0;right:0;bottom:48.6%;border-top:1px dashed var(--accent);pointer-events:none}
+.goal span{position:absolute;right:0;top:-1.25rem;font-family:var(--mono);font-size:.68rem;color:var(--accent);background:var(--bg);padding-left:.4rem}
+.wklab{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.6vw,18px);margin-top:.4rem}
+.wklab span{font-family:var(--mono);font-size:.66rem;color:var(--mute);text-align:center}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+
+/* ---- Slide 7: ruído ---- */
+.swap{display:grid;grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr);gap:clamp(16px,3vw,44px);margin-top:2rem;align-items:center}
+.swap ul{display:flex;flex-wrap:wrap;gap:.45rem}
+.swap .old li{border:1px solid var(--line);border-radius:6px;padding:.3rem .7rem;font-size:.88rem;color:var(--mute);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--mute) 60%,transparent)}
+.swap .new{display:grid;gap:.6rem}
+.swap .new li{background:var(--bg2);border:1px solid var(--accent);border-radius:8px;padding:.7rem 1rem}
+.swap .new li b{display:block;font-family:var(--display);font-weight:650;font-size:1.1rem}
+.swap .new li span{color:var(--ink2);font-size:.85rem}
+.arrow{color:var(--accent);font-family:var(--mono);font-size:1.6rem}
+.finds{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem 2rem;margin-top:2.2rem}
+.finds p{border-top:1px solid var(--line);padding-top:.7rem;color:var(--ink2);font-size:.92rem}
+.finds p b{color:var(--ink);font-weight:600}
+@media (max-width:820px){.swap{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:start}}
+
+/* ---- Slide 8: hipóteses ---- */
+.hyp{margin-top:1.8rem;display:grid;gap:0}
+.hyp li{display:grid;grid-template-columns:minmax(0,1.2fr) 132px minmax(0,1.5fr);gap:.4rem 1.4rem;padding:.7rem 0;border-top:1px solid var(--line);align-items:center;font-size:.95rem}
+.hyp li:last-child{border-bottom:1px solid var(--line)}
+.pill{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:.22rem .7rem;border:1px solid var(--line);white-space:nowrap;justify-self:start}
+.pill.s{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.pill.p{border-color:var(--accent);color:var(--accent)}
+.pill.w{color:var(--ink2)}
+.pill.n{color:var(--mute);border-style:dashed}
+.hyp .ev{color:var(--ink2);font-size:.88rem}
+@media (max-width:760px){.hyp li{grid-template-columns:1fr}}
+
+/* ---- Slide 9: camadas ---- */
+.layers{display:grid;gap:.7rem;margin-top:2rem}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr) minmax(0,.8fr);gap:.3rem 1.4rem;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem}
+.layer:nth-child(2){margin-left:clamp(0px,3vw,40px)}
+.layer:nth-child(3){margin-left:clamp(0px,6vw,80px)}
+.layer:nth-child(4){margin-left:clamp(0px,9vw,120px)}
+.layer h3{display:flex;flex-direction:column}
+.layer h3 small{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:400;margin-top:.15rem}
+.layer p{color:var(--ink2);font-size:.92rem}
+.layer .lim{font-size:.85rem;color:var(--ink)}
+.layer.open{border-style:dashed;border-color:var(--accent)}
+@media (max-width:760px){.layer{grid-template-columns:1fr}.layer:nth-child(n){margin-left:0}}
+
+/* ---- Slide 10: modos ---- */
+.modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.4vw,18px);margin-top:2rem}
+.mode{border-radius:8px;padding:1rem 1.05rem 1.1rem;display:grid;gap:.5rem;align-content:start;background:color-mix(in srgb,var(--mc) 13%,var(--bg2));border:1px solid color-mix(in srgb,var(--mc) 40%,var(--line))}
+.mode.g{--mc:var(--g)}.mode.y{--mc:var(--y)}.mode.r{--mc:var(--r)}.mode.b{--mc:var(--b)}
+.mode h3{display:flex;align-items:center;gap:.55rem}
+.mode h3 .dot{background:var(--mc);width:.62em;height:.62em}
+.mode .when{font-size:.85rem;color:var(--ink2)}
+.mode dl{margin:.4rem 0 0;display:grid;gap:.5rem}
+.mode dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.mode dd{margin:0;font-size:.88rem}
+.rules{display:flex;gap:.6rem 1.6rem;flex-wrap:wrap;margin-top:1.6rem;color:var(--ink2);font-size:.92rem}
+.rules span::before{content:"";display:inline-block;width:.45rem;height:.45rem;border-radius:50%;background:var(--accent);margin-right:.5rem;vertical-align:.1em}
+@media (max-width:980px){.modes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.modes{grid-template-columns:1fr}}
+
+/* ---- Slide 11: loop ---- */
+.loop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:2.4rem;position:relative}
+.loop>div{padding:1rem 1rem 1rem 0;border-top:2px solid var(--line);position:relative}
+.loop>div::before{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.loop .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);display:block;margin:.5rem 0 .3rem}
+.loop h3{margin-bottom:.35rem}
+.loop p{font-size:.88rem;color:var(--ink2)}
+.back{margin-top:.4rem;font-family:var(--mono);font-size:.74rem;color:var(--accent);display:flex;gap:.6rem;align-items:center}
+.back::before{content:"";flex:1;border-top:1px dashed var(--accent);opacity:.6}
+.back::after{content:"";flex:none}
+.duh{margin-top:1.8rem;display:flex;gap:.5rem 1rem;flex-wrap:wrap;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem}
+.duh b{font-family:var(--display);font-weight:650}
+@media (max-width:860px){.loop{grid-template-columns:1fr}.loop>div{border-top:none;border-left:2px solid var(--line);padding:.2rem 0 1rem 1.2rem}.loop>div::before{top:.3rem;left:-6px}}
+
+/* ---- Slide 12: princípios ---- */
+.prin{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,64px);margin-top:1.8rem}
+.prin li{padding:.85rem 0;border-top:1px solid var(--line)}
+.prin li b{display:block;font-family:var(--display);font-weight:650;font-size:1.15rem;letter-spacing:-.01em}
+.prin li span{display:block;margin-top:.2rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:760px){.prin{grid-template-columns:1fr}}
+
+/* ---- Slide 13: cadência ---- */
+.cad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:2rem}
+.cad>div{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.2rem 1.3rem;display:grid;gap:.6rem;align-content:start}
+.cad .time{font-family:var(--display);font-weight:700;font-size:clamp(2rem,3.6vw,3rem);letter-spacing:-.03em;line-height:1}
+.cad .time small{font-size:.4em;font-weight:500;color:var(--ink2);letter-spacing:0;margin-left:.3rem}
+.cad code{font-family:var(--mono);font-size:.82rem;color:var(--accent);background:var(--bg3);padding:.2rem .5rem;border-radius:4px;justify-self:start}
+.cad p{font-size:.9rem;color:var(--ink2)}
+.cad .rep{font-size:.78rem;color:var(--mute);border-top:1px solid var(--line);padding-top:.6rem}
+@media (max-width:860px){.cad{grid-template-columns:1fr}}
+
+/* ---- Slide 14: roadmap ---- */
+.road{display:flex;gap:6px;margin-top:2.2rem}
+.road>div{flex:var(--w) 1 0;min-width:0;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;display:grid;gap:.3rem;align-content:start}
+.road .now{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--bg2))}
+.road h3{font-size:1.05rem}
+.road .dur{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.road p{font-size:.82rem;color:var(--ink2)}
+.roadmeta{display:flex;gap:.7rem 1.4rem;flex-wrap:wrap;margin-top:1.1rem;align-items:center}
+.gate{margin-top:1.4rem;color:var(--ink2);font-size:.92rem;border-left:2px solid var(--accent);padding-left:1rem;max-width:64ch}
+@media (max-width:860px){.road{flex-direction:column}}
+
+/* ---- Slide 15: corpo ---- */
+.body3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,24px);margin-top:1.8rem}
+.body3>div{border-top:1px solid var(--line);padding-top:1rem;display:grid;gap:.9rem;align-content:start}
+.body3 h3 small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:400;margin-bottom:.3rem}
+.body3 dl{margin:0;display:grid;gap:.7rem}
+.body3 dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.body3 dd{margin:.1rem 0 0;font-size:.9rem;color:var(--ink2)}
+.body3 dd.q{color:var(--ink)}
+@media (max-width:860px){.body3{grid-template-columns:1fr}}
+
+/* ---- Slide 16: próximos passos ---- */
+.next{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);margin-top:1.8rem}
+.next h3{margin-bottom:.8rem}
+.todo li{display:flex;gap:.8rem;align-items:flex-start;padding:.65rem 0;border-top:1px solid var(--line)}
+.todo li:last-child{border-bottom:1px solid var(--line)}
+.todo input{appearance:none;width:1.25rem;height:1.25rem;border:1.5px solid var(--mute);border-radius:5px;flex:none;margin-top:.15rem;cursor:pointer;display:grid;place-content:center;background:transparent}
+.todo input:checked{background:var(--accent);border-color:var(--accent)}
+.todo input:checked::after{content:"";width:.35rem;height:.65rem;border:solid var(--accent-ink);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.todo label{cursor:pointer;font-size:.95rem}
+.todo input:checked+label{color:var(--mute);text-decoration:line-through}
+.unk li{padding:.55rem 0;border-top:1px solid var(--line);color:var(--ink2);font-size:.92rem}
+.unk li:last-child{border-bottom:1px solid var(--line)}
+.unk li b{color:var(--ink);font-weight:600}
+.close{margin-top:2rem;font-family:var(--display);font-weight:600;font-size:clamp(1.2rem,2.2vw,1.8rem);letter-spacing:-.01em;color:var(--ink2);text-wrap:balance;max-width:34ch}
+.close em{font-style:normal;color:var(--ink)}
+@media (max-width:820px){.next{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  .js .slide,.js .slide.active,.prog,.hours li>span,.hours li::after{transition:none}
+  .slide.active .rise{animation:none}
+}
+@media print{
+  .bar{display:none}
+  .stage{height:auto;overflow:visible}
+  .js .slide{position:relative;visibility:visible;opacity:1;transform:none;page-break-after:always;break-after:page;min-height:100vh;overflow:visible}
+  .slide.active .rise{animation:none}
+}
+</style>
+
+<main class="stage" id="stage">
+
+<!-- 1 · Capa -->
+<section class="slide cover active" data-name="Capa" id="s1">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rise" style="--i:0">Sistema de Vida <i>/</i> versão 1 <i>/</i> 09 nov 2026</p>
+      <h1 class="rise" style="--i:1">Um sistema para quem ainda está decidindo <span class="soft">quem quer ser.</span></h1>
+      <p class="lede rise" style="--i:2">Diagnóstico de 90 dias, um modelo mental que aguenta dias bons e ruins, e um plano de experimentos para sono, treino e alimentação.</p>
+      <div class="modes-row rise" style="--i:3" aria-label="Os quatro modos do dia">
+        <span class="chip"><span class="dot g"></span>Verde</span>
+        <span class="chip"><span class="dot y"></span>Amarelo</span>
+        <span class="chip"><span class="dot r"></span>Vermelho</span>
+        <span class="chip"><span class="dot b"></span>Viagem</span>
+      </div>
+    </div>
+    <div class="rise" style="--i:4">
+      <div class="days" id="days" role="img" aria-label="91 dias analisados, de 5 de agosto a 3 de novembro"></div>
+      <div class="days-cap mono" style="display:flex;justify-content:space-between;margin-top:.8rem;max-width:420px"><span>05 ago</span><span>91 dias lidos</span><span>03 nov</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Ponto de partida -->
+<section class="slide" data-name="Ponto de partida" id="s2">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Ponto de partida</p>
+    <h2 class="wide rise" style="--i:1">Você não precisa de mais uma forma de fazer mais coisas.</h2>
+    <p class="lede rise" style="--i:2">Um sistema comum resolve a execução. O seu precisa resolver três problemas diferentes, e cada um pede uma estratégia própria.</p>
+    <div class="trio">
+      <div class="rise" style="--i:3"><span class="step">Primeiro</span><h3>Escolher</h3><p class="small">O que merece sua energia agora, e o que fica de fora. Sem isso, a execução eficiente leva a uma vida que ninguém decidiu.</p></div>
+      <div class="rise" style="--i:4"><span class="step">Depois</span><h3>Executar</h3><p class="small">Transformar a escolha em comportamento pequeno, com gatilho e dia marcado, que acontece mesmo sem vontade.</p></div>
+      <div class="rise" style="--i:5"><span class="step">Sempre</span><h3>Sustentar</h3><p class="small">Manter quando a novidade acaba, voltar depois de uma semana ruim e revisar sem culpa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · O pente fino -->
+<section class="slide" data-name="O pente fino" id="s3">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Diagnóstico <i>/</i> o que foi lido</p>
+    <h2 class="wide rise" style="--i:1">Noventa dias de agenda, tarefas e e-mail.</h2>
+    <div class="nums">
+      <div class="num rise" style="--i:2"><b class="count" data-to="106">106</b><span>eventos na agenda</span></div>
+      <div class="num rise" style="--i:3"><b class="count" data-to="48">48</b><span>tarefas recorrentes no Todoist</span></div>
+      <div class="num rise" style="--i:4"><b class="count" data-to="200">200</b><span>conclusões lidas em detalhe</span></div>
+      <div class="num rise" style="--i:5"><b class="count" data-to="1844">1.844</b><span>threads de e-mail</span></div>
+      <div class="num rise" style="--i:6"><b class="count" data-to="4">4</b><span>e-mails enviados por você</span></div>
+    </div>
+    <div class="void rise" style="--i:7">
+      <span class="tag h">O que não existe</span>
+      <ul><li>sono real</li><li>treino</li><li>alimentação</li><li>energia</li><li>humor</li></ul>
+      <p style="grid-column:1/-1">Nenhuma das três fontes registra comportamento do corpo. Esse é o maior buraco, e por isso o plano começa observando. O detalhe do Todoist cobre 08/out a 03/nov; antes disso só tenho os totais por semana.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Agenda = intenção -->
+<section class="slide" data-name="Agenda é intenção" id="s4">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Diagnóstico <i>/</i> achado 1 <span class="tag f">Fato</span></p>
+    <h2 class="wide rise" style="--i:1">A agenda mostra o que você pretende, não o que acontece.</h2>
+    <div class="tl rise" style="--i:2">
+      <div class="tl-row"><div class="lab">Sono 23h–6h30<small>evento recorrente</small></div>
+        <div class="track"><div class="seg" style="left:0;width:67.8%"></div><div class="gap" style="left:67.8%;right:0"></div><span class="note" style="left:70%">some em 05/out</span></div></div>
+      <div class="tl-row"><div class="lab">Treino<small>bloco na agenda</small></div>
+        <div class="track"><div class="seg hot" style="left:98.2%;width:1.8%"></div><span class="note" style="right:3.4%">primeiro bloco em 02/nov</span></div></div>
+      <div class="tl-row"><div class="lab">Trabalho (Power)<small>9h às 18h</small></div>
+        <div class="track"><div class="gap" style="left:0;right:0"></div><span class="note" style="left:2%;background:var(--bg);padding:0 .5rem">nunca aparece</span></div></div>
+      <div class="tl-row"><div class="lab">Terapia<small>recorrente em agosto</small></div>
+        <div class="track"><span class="pt" style="left:0"></span><span class="pt" style="left:13.3%"></span><span class="note" style="left:16%">sem registro depois de 17/ago</span></div></div>
+      <div class="tl-row"><div class="lab">Consultas médicas<small>endócrino, nutro, psiq, nefro</small></div>
+        <div class="track"><span class="pt b" style="left:2.2%"></span><span class="pt b" style="left:16.7%"></span><span class="pt b" style="left:44.4%"></span><span class="pt b" style="left:52.2%"></span><span class="pt b" style="left:62.2%"></span><span class="pt b" style="left:87.8%"></span><span class="pt b" style="left:93.3%"></span><span class="pt b" style="left:100%"></span></div></div>
+      <div class="axis"><span class="mono"></span><div class="in"><span style="left:0">05 ago</span><span style="left:30%">01 set</span><span style="left:63.3%">01 out</span><span style="left:100%">03 nov</span></div></div>
+    </div>
+    <p class="lede rise" style="--i:3"><span class="tag l">Leitura</span> Sem registro, qualquer rotina de sono ou treino que eu desenhasse hoje seria suposição. A saúde está em modo investigação médica, não em modo rotina.</p>
+  </div>
+</section>
+
+<!-- 5 · Horas -->
+<section class="slide" data-name="Conclusões por hora" id="s5">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Diagnóstico <i>/</i> achado 2 <span class="tag h">Hipótese</span></p>
+    <h2 class="wide rise" style="--i:1">Quase um quarto do que você marca como feito acontece depois das 22h.</h2>
+    <figure class="chart-wrap rise" style="--i:2" aria-label="Conclusões de tarefas por hora do dia, 200 registros">
+      <ul class="hours" id="hours"></ul>
+      <div class="hlab" id="hlab" aria-hidden="true"></div>
+      <div class="hband"><div></div><p><strong>46 de 200 (23%)</strong> entre 22h e 01h59. Pico às 20h, com 23.</p></div>
+      <div class="chart-foot">
+        <span class="small">Conclusões por hora local, 08/out a 03/nov.</span>
+        <span class="tag l">Ressalva</span><span class="small">Mede a hora em que a tarefa foi <b>marcada</b>. Parte são marcações em lote à noite.</span>
+      </div>
+      <details><summary>Ver como tabela</summary>
+        <div class="tbl-scroll"><table id="htable"></table></div>
+      </details>
+    </figure>
+  </div>
+</section>
+
+<!-- 6 · O que você mantém -->
+<section class="slide" data-name="O que funciona" id="s6">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Diagnóstico <i>/</i> achado 3 <span class="tag f">Fato</span></p>
+    <h2 class="wide rise" style="--i:1">O que você mantém tem uma fórmula.</h2>
+    <div class="formula rise" style="--i:2">
+      <div class="t"><b>Concreto</b><span>uma ação clara, sem interpretação</span></div><span class="plus">+</span>
+      <div class="t"><b>Com data</b><span>dia e hora, ou regra fixa</span></div><span class="plus">+</span>
+      <div class="t"><b>Consequência externa</b><span>outra pessoa ou um vencimento</span></div>
+    </div>
+    <div class="split">
+      <div class="rise" style="--i:3">
+        <p class="small" style="margin-bottom:.8rem">Mantidos de forma consistente nos 90 dias:</p>
+        <ul class="chips"><li class="chip">Aluguel e contas da Olga</li><li class="chip">Fatura do Itaú</li><li class="chip">Investimento mensal</li><li class="chip">DARF</li><li class="chip">Mêsversário</li><li class="chip">Pulse semanal</li><li class="chip">Lixo seg, qua e sex</li></ul>
+        <p class="lede" style="font-size:.95rem">Esse é o princípio de desenho mais forte que os dados sustentam: todo hábito novo ganha gatilho, dia e, se possível, outra pessoa.</p>
+      </div>
+      <div class="rise" style="--i:4">
+        <p class="small" style="margin-bottom:1.4rem">Conclusões por semana. A sequência na meta de 35 já chega a 7 semanas.</p>
+        <div class="wk" role="img" aria-label="Conclusões por semana: 50, 72, 39 e 13 (semana em andamento). Meta semanal de 35.">
+          <div class="goal"><span>meta 35</span></div>
+          <div><b style="--h:69%">50</b><div class="b" style="--h:69%"></div></div>
+          <div><b style="--h:100%">72</b><div class="b" style="--h:100%"></div></div>
+          <div><b style="--h:54%">39</b><div class="b" style="--h:54%"></div></div>
+          <div><b style="--h:18%">13</b><div class="b part" style="--h:18%"></div></div>
+        </div>
+        <div class="wklab"><span>12–18 out</span><span>19–25 out</span><span>26 out–01 nov</span><span>02–08 nov*</span></div>
+        <p class="small" style="margin-top:.6rem;font-size:.78rem;color:var(--mute)">*semana em andamento quando os dados foram lidos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Ruído -->
+<section class="slide" data-name="Ruído no sistema" id="s7">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Diagnóstico <i>/</i> achados 5 a 7 <span class="tag f">Fato</span></p>
+    <h2 class="wide rise" style="--i:1">Nove rituais de revisão disputam a mesma semana.</h2>
+    <div class="swap rise" style="--i:2">
+      <ul class="old" aria-label="Rituais atuais">
+        <li>Review the week</li><li>Planejar a semana</li><li>Weekly Review GTD</li><li>Revisar processos</li><li>Revisar planos</li><li>Revisar objetivos</li><li>Vision Day</li><li>Sonhos do Ano</li><li>Processar 1 item do inbox</li>
+      </ul>
+      <span class="arrow" aria-hidden="true">→</span>
+      <ul class="new" aria-label="Rituais novos">
+        <li><b>Check-in diário</b><span>2 minutos</span></li>
+        <li><b>Revisão semanal</b><span>30 minutos, de dia</span></li>
+        <li><b>Revisão de temporada</b><span>1 hora, a cada 6 semanas</span></li>
+      </ul>
+    </div>
+    <div class="finds rise" style="--i:3">
+      <p><b>Consumo virou tarefa.</b> Em 20/out, sete links de Instagram foram "concluídos" em sequência. "This quarter" e "This semester" são depósitos de links.</p>
+      <p><b>Identidade virou checkbox.</b> "Definir meus limites e reforçá-los no dia a dia" aparece todo dia, e não dá para executar.</p>
+      <p><b>O Weekly Review GTD</b> está parado desde 07/mai. Parte do karma de 37 mil mede limpeza, não progresso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Hipóteses -->
+<section class="slide" data-name="Placar das hipóteses" id="s8">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Diagnóstico <i>/</i> o que os dados dizem sobre o seu perfil</p>
+    <h2 class="wide rise" style="--i:1">Das sete hipóteses sobre você, três têm evidência firme.</h2>
+    <ul class="hyp rise" style="--i:2">
+      <li><span>Planejar no lugar de executar</span><span class="pill p">◐ Parcial</span><span class="ev">Weekly Review parado, revisão às 02h34, muita captura.</span></li>
+      <li><span>Mais áreas do que a capacidade</span><span class="pill s">● Sustentada</span><span class="ev">11 projetos de vida ativos e 8 de meta-sistema.</span></li>
+      <li><span>Mensurável não é importante</span><span class="pill s">● Sustentada</span><span class="ev">Karma e meta diária inflados por limpeza e consumo.</span></li>
+      <li><span>Aspiração no lugar de experiência</span><span class="pill n">○ Sem dado</span><span class="ev">Depende das perguntas da fila.</span></li>
+      <li><span>Melhoria contra prazer</span><span class="pill w">◔ Fraca</span><span class="ev">Há muito lazer, viagem e romance. Não parece sufocar.</span></li>
+      <li><span>Complexidade acima do necessário</span><span class="pill s">● Sustentada</span><span class="ev">Cerca de 9 rituais de revisão sobrepostos.</span></li>
+      <li><span>Dizer não e encerrar</span><span class="pill p">◐ Parcial</span><span class="ev">Someday/Maybe existe, mas os depósitos de links crescem.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 9 · Modelo -->
+<section class="slide" data-name="O modelo mental" id="s9">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O sistema <i>/</i> modelo mental</p>
+    <h2 class="wide rise" style="--i:1">Quatro camadas, da pergunta maior à ação de hoje.</h2>
+    <div class="layers">
+      <div class="layer open rise" style="--i:2"><h3>Direção<small>anos</small></h3><p>O que é uma vida boa para você? Alcançar, vivenciar e ser: três colunas que se sobrepõem sem se igualar.</p><p class="lim">Fica em aberto de propósito. Cada valor entra só com evidência de comportamento.</p></div>
+      <div class="layer rise" style="--i:3"><h3>Temporada<small>6 semanas</small></h3><p>Qual frente evolui agora? As outras áreas ficam em Mantém, com critério escrito do que já é suficiente.</p><p class="lim">Uma frente de evolução por vez. No máximo 3 projetos ativos.</p></div>
+      <div class="layer rise" style="--i:4"><h3>Semana<small>7 dias</small></h3><p>O que o experimento ativo pede nesta semana, revisado de dia, em 30 minutos.</p><p class="lim">No máximo 3 compromissos.</p></div>
+      <div class="layer rise" style="--i:5"><h3>Dia<small>24 horas</small></h3><p>Em que modo estou hoje? Qual é o piso que não negocio?</p><p class="lim">O piso está sempre definido antes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · Modos -->
+<section class="slide" data-name="Modos do dia" id="s10">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O sistema <i>/</i> dias bons e ruins</p>
+    <h2 class="wide rise" style="--i:1">O sistema parte do dia real, não do dia perfeito.</h2>
+    <div class="modes">
+      <div class="mode g rise" style="--i:2"><h3><span class="dot"></span>Verde</h3><p class="when">Dormiu bem, energia normal.</p><dl><div><dt>Sono</dt><dd>Corte no horário, ritual de 3 min, cama até a meta.</dd></div><div><dt>Treino</dt><dd>Sessão completa.</dd></div></dl></div>
+      <div class="mode y rise" style="--i:3"><h3><span class="dot"></span>Amarelo</h3><p class="when">Cansado, dia cheio.</p><dl><div><dt>Sono</dt><dd>Só o corte: telas e Todoist fechados.</dd></div><div><dt>Treino</dt><dd>20 minutos.</dd></div></dl></div>
+      <div class="mode r rise" style="--i:4"><h3><span class="dot"></span>Vermelho</h3><p class="when">Doente, noite péssima, crise.</p><dl><div><dt>Sono</dt><dd>Deitar assim que der.</dd></div><div><dt>Treino</dt><dd>5 minutos de movimento. Conta como presença.</dd></div></dl></div>
+      <div class="mode b rise" style="--i:5"><h3><span class="dot"></span>Viagem</h3><p class="when">Fora de casa.</p><dl><div><dt>Sono</dt><dd>Mesmo horário local, ritual portátil.</dd></div><div><dt>Treino</dt><dd>Peso do corpo no quarto, ou caminhada de 30 min.</dd></div></dl></div>
+    </div>
+    <div class="rules rise" style="--i:6">
+      <span>Nunca duas falhas seguidas</span>
+      <span>Depois de uma falha, a versão mínima</span>
+      <span>Vermelho não se compensa depois</span>
+      <span>Três dias seguidos em amarelo ou vermelho viram pergunta</span>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · Loop -->
+<section class="slide" data-name="O loop de mudança" id="s11">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O sistema <i>/</i> como você muda</p>
+    <h2 class="wide rise" style="--i:1">Um hábito muda quando você entende o que ele faz por você.</h2>
+    <div class="loop rise" style="--i:2">
+      <div><span class="k">Passo</span><h3>Observar</h3><p>A deixa, a rotina e a recompensa do comportamento atual. Sem presumir.</p></div>
+      <div><span class="k">Passo</span><h3>Hipótese</h3><p>Se eu mudar X, então Y acontece, em tanto tempo.</p></div>
+      <div><span class="k">Passo</span><h3>Experimento</h3><p>Pequeno, de 2 a 3 semanas, com uma única intervenção nova.</p></div>
+      <div><span class="k">Passo</span><h3>Evidência</h3><p>Registro de 30 segundos por dia. Lacuna também é dado.</p></div>
+      <div><span class="k">Passo</span><h3>Decisão</h3><p>Manter, ajustar uma variável ou encerrar.</p></div>
+    </div>
+    <p class="back rise" style="--i:3">o que sobra da decisão vira a próxima observação</p>
+    <div class="duh rise" style="--i:4">
+      <b>Antes de trocar um hábito:</b>
+      <span class="small">descobrir que necessidade ele atende. Se a noite é seu único tempo sem cobrança, cortar a noite sem dar outro espaço para isso vai falhar.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · Princípios -->
+<section class="slide" data-name="Princípios de desenho" id="s12">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O sistema <i>/</i> princípios</p>
+    <h2 class="wide rise" style="--i:1">Sete regras que vêm dos seus dados, não de um livro.</h2>
+    <ul class="prin rise" style="--i:2">
+      <li><b>Concreto, com data e consequência externa.</b><span>vem de: o que você mantém</span></li>
+      <li><b>Substituir antes de adicionar.</b><span>vem de: 9 rituais sobrepostos</span></li>
+      <li><b>Registrar vale mais do que planejar.</b><span>vem de: agenda é intenção</span></li>
+      <li><b>Consumir não é progredir.</b><span>vem de: links viram tarefas</span></li>
+      <li><b>Limites duros: 1 frente, até 3 projetos, até 3 compromissos por semana.</b><span>vem de: áreas demais</span></li>
+      <li><b>A noite é para fechar, não para planejar.</b><span>hipótese a testar</span></li>
+      <li><b>Complexidade só com necessidade provada.</b><span>vem de: hipótese 6</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 13 · Cadência -->
+<section class="slide" data-name="Cadência" id="s13">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O sistema <i>/</i> cadência</p>
+    <h2 class="wide rise" style="--i:1">Três rituais, cada um com uma skill pronta.</h2>
+    <div class="cad">
+      <div class="rise" style="--i:2"><span class="time">2<small>min por dia</small></span><h3>Check-in</h3><code>/checkin</code><p>Modo do dia, três números (sono, corpo, comida) e uma pergunta da fila.</p><p class="rep">Substitui "Processar 1 item do inbox" e o hábito diário de limites.</p></div>
+      <div class="rise" style="--i:3"><span class="time">30<small>min por semana</small></span><h3>Revisão semanal</h3><code>/revisao-semanal</code><p>Compara o log com o plano, olha só a semana no Todoist e na agenda e decide um ajuste.</p><p class="rep">Substitui Review the week, Planejar a semana e o Weekly Review GTD.</p></div>
+      <div class="rise" style="--i:4"><span class="time">1<small>hora a cada 6 semanas</small></span><h3>Revisão de temporada</h3><code>/revisao-temporada</code><p>Mantém, ajusta ou encerra cada experimento e escolhe a próxima frente.</p><p class="rep">Substitui revisões de processos, planos, objetivos, Vision Day e Sonhos do Ano.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · Roadmap -->
+<section class="slide" data-name="Roadmap" id="s14">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O plano <i>/</i> temporada 1, frente única: corpo</p>
+    <h2 class="wide rise" style="--i:1">Primeiro observar. Depois mudar uma coisa de cada vez.</h2>
+    <div class="road rise" style="--i:2">
+      <div class="now" style="--w:1"><h3>Semana 0</h3><span class="dur">09 a 15 nov</span><p>Só registrar. Nenhuma mudança.</p></div>
+      <div style="--w:3"><h3>Sono</h3><span class="dur">3 semanas</span><p>Horário de corte do dia e ritual de desligamento.</p></div>
+      <div style="--w:3"><h3>Treino</h3><span class="dur">3 semanas</span><p>Âncora fixa e versão mínima de 10 minutos.</p></div>
+      <div style="--w:3"><h3>Alimentação</h3><span class="dur">3 semanas</span><p>Uma refeição-âncora. Só depois, uma segunda.</p></div>
+    </div>
+    <div class="roadmeta rise" style="--i:3">
+      <span class="chip"><span class="dot b"></span>Viagem Miami e Canadá a partir de cerca de 19/nov, duração a confirmar</span>
+      <span class="small">Entra em Modo Viagem e a contagem das 3 semanas pausa.</span>
+    </div>
+    <p class="gate rise" style="--i:4">Cada experimento só libera o próximo depois de uma decisão por escrito: manter, ajustar ou encerrar. Por isso as datas depois da Semana 0 dependem do que o seu log mostrar.</p>
+  </div>
+</section>
+
+<!-- 15 · Corpo -->
+<section class="slide" data-name="Sono, treino e comida" id="s15">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">O plano <i>/</i> os três experimentos</p>
+    <h2 class="wide rise" style="--i:1">Sono primeiro, porque sustenta os outros dois.</h2>
+    <div class="body3">
+      <div class="rise" style="--i:2"><h3><small>Experimento 1</small>Sono</h3><dl>
+        <div><dt>Hipótese</dt><dd class="q">Um horário de corte e um ritual de 3 minutos antecipam o deitar em pelo menos 45 min em 2 semanas.</dd></div>
+        <div><dt>Gatilho</dt><dd>Horário de corte (por exemplo 22h30), depois fechar o dia.</dd></div>
+        <div><dt>Fricção</dt><dd>Celular carrega fora da cama. Todoist sem notificação após o corte.</dd></div>
+        <div><dt>Piso</dt><dd>Dormir até 0h em 5 de 7 noites.</dd></div></dl></div>
+      <div class="rise" style="--i:3"><h3><small>Experimento 2</small>Treino</h3><dl>
+        <div><dt>Hipótese</dt><dd class="q">Horário fixo ancorado em algo que já acontece e versão de 10 min levam a 3 sessões por semana.</dd></div>
+        <div><dt>Gatilho</dt><dd>Depois de uma âncora existente, trocar de roupa. Bloco de treino das 10h às 12h.</dd></div>
+        <div><dt>Fricção</dt><dd>Roupa pronta na véspera. Compromisso com outra pessoa.</dd></div>
+        <div><dt>Piso</dt><dd>2 sessões por semana de pelo menos 10 min.</dd></div></dl></div>
+      <div class="rise" style="--i:4"><h3><small>Experimento 3</small>Alimentação</h3><dl>
+        <div><dt>Hipótese</dt><dd class="q">Uma refeição-âncora com plano fixo fica "ok" em pelo menos 5 de 7 dias.</dd></div>
+        <div><dt>Gatilho</dt><dd>Compra e preparo em um dia fixo da semana.</dd></div>
+        <div><dt>Fricção</dt><dd>A opção "ok" é a mais visível. A "meh" fica mais longe, sem proibição.</dd></div>
+        <div><dt>Piso</dt><dd>Refeição-âncora "ok" em 4 de 7 dias.</dd></div></dl></div>
+    </div>
+    <p class="small rise" style="--i:5;margin-top:1.4rem">Restrições e metas vêm da equipe de saúde (endócrino, nutrologia, nefrologia). O sistema só dá estrutura.</p>
+  </div>
+</section>
+
+<!-- 16 · Próximos passos -->
+<section class="slide" data-name="Próximos 7 dias" id="s16">
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Agora</p>
+    <h2 class="wide rise" style="--i:1">Os próximos sete dias, e o que ainda não sabemos.</h2>
+    <div class="next">
+      <div class="rise" style="--i:2">
+        <h3>Esta semana</h3>
+        <ul class="todo" id="todo">
+          <li><input type="checkbox" id="t1"><label for="t1">Começar o log de 30 segundos hoje (Semana 0, de 09 a 15/nov).</label></li>
+          <li><input type="checkbox" id="t2"><label for="t2">Responder uma pergunta de <b>04-perguntas.md</b> a cada check-in, começando pelos blocos A e B.</label></li>
+          <li><input type="checkbox" id="t3"><label for="t3">Anotar o que as consultas disseram: endócrino, nutrologia, nefrologia e psiquiatria.</label></li>
+          <li><input type="checkbox" id="t4"><label for="t4">Escolher o dia fixo da revisão semanal, de dia e não de madrugada.</label></li>
+          <li><input type="checkbox" id="t5"><label for="t5">Decidir o que fazer com <b>05-proposta-todoist.md</b>.</label></li>
+        </ul>
+      </div>
+      <div class="rise" style="--i:3">
+        <h3>Ainda em aberto</h3>
+        <ul class="unk">
+          <li><b>Sono, treino e comida reais.</b> A Semana 0 responde.</li>
+          <li><b>Onde está o gargalo:</b> começar, manter ou concluir.</li>
+          <li><b>TDAH</b> é uma pergunta para a consulta de psiquiatria, não uma conclusão deste diagnóstico.</li>
+          <li><b>Terapia</b> parou por decisão ou por lapso?</li>
+          <li><b>Quem você quer ser.</b> Fica para as perguntas, uma por vez.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="close rise" style="--i:4">O sistema é infraestrutura. <em>O objetivo é a vida.</em></p>
+  </div>
+</section>
+
+</main>
+
+<nav class="bar" id="bar" aria-label="Navegação da apresentação">
+  <div class="prog" id="prog"></div>
+  <button class="btn" id="prev" aria-label="Slide anterior"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <span class="count" id="count">01 / 16</span>
+  <button class="btn" id="next" aria-label="Próximo slide"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  <span class="name" id="name">Capa</span>
+  <span class="spacer"></span>
+  <button class="btn" id="theme" aria-label="Alternar tema claro e escuro"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="lbl">Tema</span></button>
+  <button class="btn" id="full" aria-label="Tela cheia"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="lbl">Tela cheia</span></button>
+</nav>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var N = slides.length, cur = 0;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Capa: 91 pontos, um por dia lido */
+  var days = document.getElementById('days');
+  for (var d = 0; d < 91; d++) { var i = document.createElement('i'); i.className = d === 90 ? 'now' : 'on'; days.appendChild(i); }
+
+  /* Gráfico de horas (06h até 05h do dia seguinte) */
+  var order = [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0,1,2,3,4,5];
+  var data = {6:0,7:1,8:4,9:5,10:15,11:6,12:8,13:13,14:11,15:10,16:6,17:16,18:10,19:11,20:23,21:10,22:12,23:17,0:3,1:14,2:5,3:0,4:0,5:0};
+  var hot = {22:1,23:1,0:1,1:1}, labelled = {20:1,23:1,1:1}, max = 23;
+  var ul = document.getElementById('hours'), lab = document.getElementById('hlab');
+  var rowH = '<tr><th>Hora</th>', rowV = '<tr><th>Conclusões</th>';
+  order.forEach(function(h, idx){
+    var v = data[h], pct = v / max * 100;
+    var li = document.createElement('li');
+    li.tabIndex = 0;
+    li.style.setProperty('--h', pct + '%');
+    li.setAttribute('data-tip', (h < 10 ? '0' + h : h) + 'h: ' + v + (v === 1 ? ' conclusão' : ' conclusões'));
+    if (hot[h]) li.className = 'hot';
+    if (idx < 3) li.className += ' el';
+    if (idx > 20) li.className += ' er';
+    li.innerHTML = '<span style="height:' + pct + '%"></span>' + (labelled[h] ? '<b>' + v + '</b>' : '');
+    ul.appendChild(li);
+    var s = document.createElement('span'); s.textContent = (h < 10 ? '0' + h : h) + 'h'; lab.appendChild(s);
+    rowH += '<td>' + (h < 10 ? '0' + h : h) + 'h</td>'; rowV += '<td>' + v + '</td>';
+  });
+  document.getElementById('htable').innerHTML = '<tbody>' + rowH + '</tr>' + rowV + '</tr></tbody>';
+
+  /* Contadores animados (o HTML já traz o valor final) */
+  function animateCounts(slide){
+    if (reduce) return;
+    slide.querySelectorAll('.count').forEach(function(el){
+      var to = +el.getAttribute('data-to'), t0 = null, dur = 900;
+      function step(t){
+        if (t0 === null) t0 = t;
+        var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(to * e).toLocaleString('pt-BR');
+        if (p < 1) requestAnimationFrame(step); else el.textContent = to.toLocaleString('pt-BR');
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* Navegação */
+  var countEl = document.getElementById('count'), nameEl = document.getElementById('name'), prog = document.getElementById('prog');
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function go(n, fromHash){
+    n = Math.max(0, Math.min(N - 1, n));
+    slides.forEach(function(s, i){ s.classList.toggle('active', i === n); if (i === n) s.scrollTop = 0; });
+    var changed = n !== cur; cur = n;
+    countEl.textContent = pad(n + 1) + ' / ' + N;
+    nameEl.textContent = slides[n].getAttribute('data-name');
+    prog.style.width = ((n + 1) / N * 100) + '%';
+    document.getElementById('prev').disabled = n === 0;
+    document.getElementById('next').disabled = n === N - 1;
+    document.getElementById('prev').style.opacity = n === 0 ? .4 : 1;
+    document.getElementById('next').style.opacity = n === N - 1 ? .4 : 1;
+    if (changed || fromHash) animateCounts(slides[n]);
+    if (!fromHash) { try { history.replaceState(null, '', '#s' + (n + 1)); } catch (e) { try { location.hash = 's' + (n + 1); } catch (e2) {} } }
+  }
+  function fromHash(){ var m = /^#s(\d+)$/.exec(location.hash); return m ? (+m[1] - 1) : 0; }
+  document.getElementById('prev').onclick = function(){ go(cur - 1); };
+  document.getElementById('next').onclick = function(){ go(cur + 1); };
+  window.addEventListener('hashchange', function(){ go(fromHash(), true); });
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target && e.target.tagName;
+    if (t === 'INPUT' && (e.key === ' ')) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || (k === ' ' && t !== 'BUTTON' && t !== 'SUMMARY')) { e.preventDefault(); go(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(cur - 1); }
+    else if (k === 'Home') { e.preventDefault(); go(0); }
+    else if (k === 'End') { e.preventDefault(); go(N - 1); }
+    else if (k === 'f' || k === 'F') { toggleFull(); }
+  });
+  var sx = 0, sy = 0, st = document.getElementById('stage');
+  st.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
+  st.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(cur + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+
+  /* Tela cheia */
+  var fullBtn = document.getElementById('full');
+  function toggleFull(){
+    try {
+      if (document.fullscreenElement) { document.exitFullscreen(); }
+      else if (document.documentElement.requestFullscreen) { var p = document.documentElement.requestFullscreen(); if (p && p.catch) p.catch(function(){}); }
+    } catch (e) {}
+  }
+  if (!document.fullscreenEnabled) fullBtn.style.display = 'none';
+  fullBtn.onclick = toggleFull;
+
+  /* Tema */
+  var root = document.documentElement;
+  function isDark(){
+    var a = root.getAttribute('data-theme');
+    if (a) return a === 'dark';
+    return !(window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches);
+  }
+  try { var saved = localStorage.getItem('sdv-theme'); if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved); } catch (e) {}
+  document.getElementById('theme').onclick = function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('sdv-theme', next); } catch (e) {}
+  };
+
+  /* Checklist: lembra o que você marcou, quando o navegador deixa */
+  document.querySelectorAll('#todo input').forEach(function(cb){
+    try { cb.checked = localStorage.getItem('sdv-' + cb.id) === '1'; } catch (e) {}
+    cb.addEventListener('change', function(){ try { localStorage.setItem('sdv-' + cb.id, cb.checked ? '1' : '0'); } catch (e) {} });
+  });
+
+  go(fromHash(), true);
+})();
+</script>
