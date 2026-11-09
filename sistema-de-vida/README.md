@@ -17,6 +17,7 @@ Um sistema pessoal para planejar e executar a vida com consistência, projetado 
 | `05-proposta-todoist.md` | Mudanças sugeridas no Todoist (só proposta) |
 | `log/` | Templates de registro diário e semanal |
 | `contexto/perfil-chatgpt.md` | Perfil de origem |
+| `apresentacao.html` | Apresentação visual do diagnóstico, do sistema e do plano (abra no navegador; setas para navegar) |
 | `CLAUDE.md` | Regras para a IA, incluindo economia de uso |
 
 ## Ordem dos próximos passos

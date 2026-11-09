@@ -19,7 +19,8 @@ Rótulos: **[Fato]** observado nos dados · **[Leitura]** interpretação · **[
 - [Leitura] Não dá para saber quanto você dorme ou treina. Qualquer sistema que presuma isso estaria construído sobre suposição.
 
 ### 2. Atividade noturna contradiz o sono planejado
-- [Fato] Dos ~200 registros de conclusão analisados (hora local), ~39 caem entre 22h e 02h. Há picos às 20h (23) e 23h (17). Uma revisão semanal foi concluída às 02h34.
+- [Fato] Dos 200 registros de conclusão analisados (hora local), **46 (23%) caem entre 22h e 01h59** (51 se contar até 02h59). Picos às 20h (23) e 23h (17). Uma revisão semanal foi marcada às 02h34. *(Correção: a primeira versão deste arquivo dizia "~39"; o número certo é 46.)*
+- [Ressalva] O horário é o de quando a tarefa foi **marcada**, não de quando foi feita. Há marcações em lote (ex.: 01/nov ~23h30), então parte disso é "limpar a lista à noite", não atividade real.
 - [Hipótese] O dia só "fecha" tarde da noite, e o planejamento/revisão ocupa o horário de dormir. **Sono é o candidato a gargalo-chave**, mas só um registro de 2 semanas confirma.
 
 ### 3. O que você mantém de verdade
