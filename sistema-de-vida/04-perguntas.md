@@ -3,7 +3,8 @@
 > Regra: **uma pergunta por check-in**, nunca a lista. Responda com um exemplo concreto, não com o ideal. Marque `[x]` e resuma a resposta em uma linha. A IA usa o que está aqui para testar hipóteses do diagnóstico.
 
 ## Bloco A — Como você funciona (primeiro)
-- [ ] A1. Qual foi a última vez que você fez algo difícil **sem ninguém cobrando**? O que tornou possível?
+- [x] A1. Qual foi a última vez que você fez algo difícil **sem ninguém cobrando**? O que tornou possível?
+  - *Resposta (10/11):* deu 8 exemplos, quase todos com compromisso assumido com outra pessoa ou consequência externa (dashboard com prazo reportado ao cliente via Ali; levar a irmã à escola por combinar com o pai; vestido da namorada pressionado por ele; terno de padrinho; exame de sangue para pré-diabetes). Os dois mais "sem cobrança" (curso de IA, academia) tinham objetivo próprio concreto + feedback visível (progresso treino a treino, massagem no fim); academia dependia de horário de comer/acordar que desse segurança para treinar e ainda trabalhar. Também citou procrastinar para começar mesmo com prazo. Hipótese (não confirmada): compromisso com terceiro e prazo visível fazem ele começar; sem isso, depende de rotina de alimentação/horário estável.
 - [ ] A2. Descreva a última vez que adiou algo importante. O que sentiu logo antes de desviar? Para onde foi a atenção?
 - [ ] A3. O seu atraso costuma ser em **começar**, **manter** ou **terminar**? Dê um exemplo de cada.
 - [ ] A4. Quais atividades te deixam com mais energia depois? E quais drenam, mesmo "produtivas"?

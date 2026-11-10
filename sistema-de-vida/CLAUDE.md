@@ -25,6 +25,7 @@ Projeto pessoal de Oluwasheun: construir um sistema de vida/produtividade sob me
 
 ### Estado
 - 2026-11-03: diagnóstico e conceito criados. Aguardando início da Semana 0.
+- 2026-11-10: Semana 0 iniciada (1º check-in em `log/2026-11.md`; viagem 6–8/nov sem registro). A1 respondida. Próxima pergunta: A2.
 
 ## Economia de uso (obrigatório)
 - **Estado mora em arquivos.** Leia o último log + o experimento ativo; não refaça o pente fino de 90 dias sem pedido.
