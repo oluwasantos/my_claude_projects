@@ -1,6 +1,13 @@
 # Proposta de mudanças no Todoist (somente proposta)
 
-> **Nada foi alterado.** Você decide item por item e aplica, ou me autoriza explicitamente. Princípio: **arquivar, não apagar**.
+> **Aprovado e aplicado em 10/11/2026** (princípio: **arquivar, não apagar**). Resumo do que foi feito:
+> - **A:** Review the week, Planejar a semana e o item diário do inbox já tinham sido tratados por você. Arquivei o projeto Weekly Review e aposentei (sem recorrência, na seção "Aposentados" do projeto Sistema de Vida, com a recorrência original na descrição): Adesão aos Processos, Progresso dos Planos, Progresso dos Objetivos, Vison Day e Alinhamento de Sonhos do Ano.
+> - **B:** "Definir meus limites" e "Habit-Maxxing" não existiam mais (você já mexeu). Nada a fazer.
+> - **C:** 41 itens de "This quarter"/"This semester" saíram de lá: 35 para o projeto **Ler/Assistir depois** (validade 10/12/2026, tarefa de expiração criada) e 6 para seções do Reference (Bares/Roles, Viagens, Receitas, Livros). Ficaram nos projetos antigos os itens acionáveis. Nada foi apagado.
+> - **D:** meta diária (5) e semanal (35) **não alterada**: a API não permite. Mudar manualmente em Todoist > Configurações > Produtividade.
+> - **E:** projeto **Sistema de Vida** criado com Check-in diário (21:30), Revisão semanal (dom 11:00) e Revisão de temporada (a cada 6 semanas, a partir de 20/12). Os 3 experimentos ficaram como tarefas **sem data**, na seção "Experimentos", para ativar só quando começarem. Rótulo de modo não criado (era opcional).
+> - **F:** nada tocado.
+> - Horários (21:30, dom 11:00) foram escolhidos por mim; ajuste à vontade.
 
 ## A. Fundir os rituais de revisão (hoje ~9 → 3)
 | Hoje | Ação proposta |
