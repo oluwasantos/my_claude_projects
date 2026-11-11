@@ -2,6 +2,9 @@
 
 Repo com projetos pessoais. Responder sempre em **português (pt-BR)**.
 
+## Projeto: oculos-de-sol/
+Visagismo e escolha de 1 óculos de sol curinga (ou 2 complementares), até R$ 400 cada, sem grau, estilo clássico/discreto/versátil. **Ler `oculos-de-sol/README.md` primeiro.** Rosto retangular/oblongo e largo, ponte nasal baixa/média, pele de subtom quente. Alvo de medida: lente 54–56 / ponte 19–21 / haste 145–150. Candidatos atuais (v2): curinga Chilli Beans OC.CL.5317.0202 ou OC.CL.5127.0202 (marrom sólido) + aviador dourado OC.MT.4000.0221. Ele achou o Polaroid 4108/S feminino e a estampa tartaruga "too much". Só usar links do site oficial que abram o produto. Fotos do rosto **não** vão para o repo. Mesmas regras de confiança (✅/⚠️/❓) e auto-revisão do projeto da viagem.
+
 ## Projeto ativo: viagem-1-ano-namoro/
 Viagem de casal para comemorar 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, saindo de BH. Planejamento ponta a ponta, decisão por decisão. **Ler `viagem-1-ano-namoro/README.md` primeiro** (andamento + decisões).
 
