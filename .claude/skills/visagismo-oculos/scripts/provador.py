@@ -16,7 +16,7 @@ Saída: <div class="provador"> com a foto embutida uma vez e um cartão (data-pr
 É simulação: tamanho e formato fiéis à escala da foto; cor, brilho e perspectiva aproximados.
 """
 import argparse, base64, io, json, math, os, re, ssl, sys, urllib.request
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from anotar import FORMAS, abrir_foto, recortar_codificar, centro_angulo, transform_armacao, escrever_previa, esc  # noqa: E402
@@ -132,23 +132,79 @@ def sem_fundo(caminho):
     return rgba.crop(caixa)
 
 
-def compor(base, prod, cx, cy, ang, largura_px, ancora_y=0.45):
-    """Cola a armação (RGBA) com a largura dada, o ponto (meio, ancora_y·altura) na pupila média, inclinada como a cabeça."""
+def refinar_lente(pr, opaco, lente):
+    """A erosão pelo aro estimado deixa uma faixa de lente colada no aro (ou come aro, se o aro for mais fino).
+    Reclassifica a faixa pixel a pixel: vai para a lente o que tem cor mais perto da cor da lente que da do aro."""
+    try:
+        import numpy as np
+    except ImportError:
+        return lente
+    rgb = np.asarray(pr.convert("RGB"), dtype=np.float32)
+    op = np.asarray(opaco) > 0
+    le = np.asarray(lente) > 0
+    anel = op & ~le
+    if le.sum() < 50 or anel.sum() < 50:
+        return lente
+    cor_l = np.median(rgb[le], axis=0)
+    cor_a = np.median(rgb[anel], axis=0)
+    dl = np.linalg.norm(rgb - cor_l, axis=2)
+    da = np.linalg.norm(rgb - cor_a, axis=2)
+    nova = le | (anel & (dl < da))
+    m = Image.fromarray((nova * 255).astype("uint8"), "L")
+    # remove fiapos soltos do aro classificados como lente
+    return m.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
+
+
+def compor(base, prod, cx, cy, ang, largura_px, ancora_y=0.45, aro_px=None):
+    """Cola a armação da foto de catálogo no rosto, em escala e inclinada como a cabeça.
+    Devolve (imagem, altura_da_armação_em_px_de_saída, altura_da_lente_em_px_de_saída).
+    - aro: camada normal, com a borda encolhida 1 px (sem halo claro);
+    - lente: miolo da armação (erosão pelo aro), com filtro de mediana que apaga a haste vista através
+      da lente na foto de estúdio, aplicada em modo multiplicar: escurece o rosto e deixa os olhos à vista."""
     w = max(4, round(largura_px))
     h = max(2, round(prod.height * w / prod.width))
     pr = prod.resize((w, h), Image.LANCZOS)
+    alfa = pr.getchannel("A")
+    opaco = alfa.point(lambda v: 255 if v > 128 else 0)
+    aro = max(2, round(aro_px if aro_px else w / 45))
+    lente = opaco.filter(ImageFilter.MinFilter(2 * aro + 1)).filter(ImageFilter.MaxFilter(3))
+    lente = refinar_lente(pr, opaco, lente)
+    # altura da lente: maior trecho vertical de lente numa coluna (perto do centro de cada lente)
+    alt_lente = 0
+    for fx in (0.25, 0.75):
+        col = [lente.getpixel((int(w * fx), y)) for y in range(h)]
+        alt_lente = max(alt_lente, sum(1 for v in col if v > 0))
+    # mediana larga o bastante para apagar a haste vista por trás da lente na foto de estúdio
+    k_med = min(35, max(3, (w // 22) | 1))
+    cor_lente = pr.convert("RGB").filter(ImageFilter.MedianFilter(k_med))
+    cor_lente = cor_lente.point(lambda v: int(255 * (v / 255) ** 1.35))  # lente de sol escurece mais que na foto de estúdio
+    alfa_aro = ImageChops.subtract(alfa.filter(ImageFilter.MinFilter(3)), lente)
+    camada_aro = pr.copy(); camada_aro.putalpha(alfa_aro)
     sombra = Image.new("RGBA", pr.size, (0, 0, 0, 0))
-    sombra.putalpha(pr.getchannel("A").point(lambda v: int(v * 0.30)).filter(ImageFilter.GaussianBlur(max(1, w / 110))))
+    sombra.putalpha(alfa_aro.point(lambda v: int(v * 0.30)).filter(ImageFilter.GaussianBlur(max(1, w / 110))))
+    mascara_lente = lente.filter(ImageFilter.GaussianBlur(1)).point(lambda v: int(v * 0.92))
+
     t = math.radians(ang)
     oy = (ancora_y - 0.5) * h
     dx, dy = -math.sin(t) * oy, math.cos(t) * oy
     out = base.convert("RGBA")
-    for camada, desloc in ((sombra, w / 140), (pr, 0)):
-        r = camada.rotate(-ang, resample=Image.BICUBIC, expand=True)
+    Wb, Hb = out.size
+
+    def no_quadro(img, fundo, desloc=0.0):
+        r = img.rotate(-ang, resample=Image.BICUBIC, expand=True, fillcolor=fundo)
+        quadro = Image.new(img.mode, (Wb, Hb), fundo)
         x = round(cx - r.width / 2 - dx)
         y = round(cy - r.height / 2 - dy + desloc)
-        out.alpha_composite(r, (max(0, x), max(0, y)), (max(0, -x), max(0, -y)))
-    return out.convert("RGB")
+        quadro.paste(r, (x, y))
+        return quadro
+
+    out.alpha_composite(no_quadro(sombra, (0, 0, 0, 0), w / 140))
+    lente_rgb = no_quadro(cor_lente, (255, 255, 255))
+    m = no_quadro(mascara_lente, 0)
+    rgb = out.convert("RGB")
+    out = Image.composite(ImageChops.multiply(rgb, lente_rgb), rgb, m).convert("RGBA")
+    out.alpha_composite(no_quadro(camada_aro, (0, 0, 0, 0)))
+    return out.convert("RGB"), h, alt_lente
 
 
 def recorte_img(img, rec, lado_max):
@@ -218,12 +274,14 @@ def main():
     if at and not a.sem_atual and at.get("lente") and at.get("ponte"):
         forma = next((v for kk, v in FORMATO_TEXTO.items() if kk in (at.get("formato") or "").lower()), "softsq")
         medida = (M.get("medidas", {}).get("armacao_atual_largura_total") or {}).get("mm")
+        # frente com frente: a mesma estimativa dos produtos (2·lente + ponte + 12). O aro medido na foto
+        # não inclui as peças laterais e deixaria a comparação injusta.
         itens.append({"id": "atual", "papel": "atual", "nome_curto": f"{at['lente']}□{at['ponte']} {at.get('haste', '')}".strip(),
-                      "formato": forma, "lente": at["lente"], "ponte": at["ponte"], "largura_total": round(medida) if medida else None,
-                      "material": at.get("material", ""), "cor": at.get("cor", ""), "lente_tipo": "clara", "origem_largura": "medida na foto"})
+                      "formato": forma, "lente": at["lente"], "ponte": at["ponte"], "largura_total": None,
+                      "material": at.get("material", ""), "cor": at.get("cor", ""), "lente_tipo": "clara"})
     itens.sort(key=lambda p: ORDEM.get(p.get("papel"), 9))
 
-    cards, linhas = [], []
+    cards, linhas, alturas = [], [], {}
     for p in itens:
         forma = p.get("formato", "softsq")
         if forma not in FORMAS:
@@ -258,7 +316,7 @@ def main():
             for campo in ("ponte", "haste", "lente"):
                 f, v = alvo_p.get(campo), p.get(campo)
                 if f and v is not None and not (f[0] <= v <= f[1]):
-                    avisos.append(f"{campo} {v}")
+                    avisos.append(f"{campo} {v} fora do alvo")
         nome = nome_de(p)
         star = " star" if p.get("papel") == "curinga" else ""
         modo, corpo = "desenho", None
@@ -271,13 +329,27 @@ def main():
             recB = [bx + (rec[0] - fx) * r, by + (rec[1] - fy) * r, bx + (rec[2] - fx) * r, by + (rec[3] - fy) * r]
             fotoB = recorte_img(abrir_foto(a.foto_oculos), recB, a.lado_max * 2).resize((W, H), Image.LANCZOS)
             pb64, _ = jpeg_b64(fotoB)
-            corpo = f'<image href="data:image/jpeg;base64,{pb64}" width="{W}" height="{H}"/>{guias}'
+            guiasB = ""
+            if B.get("temporas"):  # tracejado das têmporas desta foto (outra pose, outra posição)
+                for t_ in B["temporas"]:
+                    x = (t_[0] - recB[0]) * W / (recB[2] - recB[0])
+                    guiasB += f'<line x1="{x:.1f}" y1="{H*0.14:.1f}" x2="{x:.1f}" y2="{H*0.62:.1f}" style="stroke:rgba(255,255,255,.8);stroke-width:{max(1.5, W/260):.1f};stroke-dasharray:{W/90:.1f} {W/120:.1f}"/>'
+            corpo = f'<image href="data:image/jpeg;base64,{pb64}" width="{W}" height="{H}"/>{guiasB or guias}'
             modo = "sua foto real"
         elif p.get("foto_frente_url") and not a.so_desenho:
             os.makedirs(a.pasta_produtos, exist_ok=True)
             ext = os.path.splitext(p["foto_frente_url"].split("?")[0])[1] or ".jpg"
             arq = baixar(p["foto_frente_url"], os.path.join(a.pasta_produtos, f"{p.get('id')}{ext}"))
-            comp = compor(rosto, sem_fundo(arq), cx, cy, ang, mm / s * k, float(p.get("ancora_y", 0.45)))
+            larg_px = mm / s * k
+            comp, h_arm, h_lente = compor(rosto, sem_fundo(arq), cx, cy, ang, larg_px, float(p.get("ancora_y", 0.45)),
+                                          aro_px=espessura_mm(p) * larg_px / mm)
+            mm_px = s / k  # mm por px no cartão
+            altura_lente_mm = h_lente * mm_px
+            amax = ((M.get("alvo") or {}).get("altura_lente_max"))
+            # só alerta acima da margem somada das duas estimativas (foto do rosto e foto do produto, ≈ ±3 mm)
+            if amax and altura_lente_mm > amax + 3:
+                avisos.append(f"altura ≈ {altura_lente_mm:.0f} mm: pode tocar a maçã")
+            alturas[p.get("id")] = round(altura_lente_mm)
             pb64, _ = jpeg_b64(comp)
             corpo = f'<image href="data:image/jpeg;base64,{pb64}" width="{W}" height="{H}"/>{guias}'
             modo = "foto da loja"
@@ -289,7 +361,7 @@ def main():
                      f'<use href="#f-{forma}" width="300" height="110" style="fill:none;stroke:{cor};stroke-width:{aro:.2f};stroke-linejoin:round;stroke-linecap:round"/>'
                      f'</g>')
             if p.get("papel") != "atual":
-                modo = "desenho (a loja não tem foto de frente)"
+                modo = "desenho só da largura (a loja não tem foto de frente)"
         cards.append(
             f'<figure class="prov-card{star}" data-produto="{esc(p.get("id"))}" data-modo="{esc(modo)}">\n'
             f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="{esc(nome)} no rosto, em escala ({esc(modo)})">'
@@ -299,9 +371,9 @@ def main():
             f'<span class="mono">frente ≈ {mm:.0f} mm ({origem})</span>'
             f'<span class="mono">{esc(modo)}</span>'
             f'<span class="chip {chip}">{esc(veredito)}</span>'
-            + "".join(f'<span class="chip c-warn">{esc(x)} fora do alvo</span>' for x in avisos)
+            + "".join(f'<span class="chip c-warn">{esc(x)}</span>' for x in avisos)
             + '</figcaption>\n</figure>')
-        linhas.append(f"  {p.get('id'):<16} {modo[:12]:<12} {forma:<10} frente {mm:5.1f} mm ({origem}) · {veredito}" + (f" · {', '.join(avisos)} fora do alvo" if avisos else ""))
+        linhas.append(f"  {p.get('id'):<16} {modo[:12]:<12} {forma:<10} frente {mm:5.1f} mm ({origem}) · {veredito}" + (f" · {'; '.join(avisos)}" if avisos else ""))
 
     frag = (f'<div class="provador">\n<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
             f'<image id="prov-foto" href="data:image/jpeg;base64,{b64}" width="{W}" height="{H}"/></defs></svg>\n'
@@ -311,6 +383,8 @@ def main():
     print(f"{a.saida}: {len(cards)} cartões · foto {W}x{H}px ({kb:.0f} KB, embutida uma vez) · fragmento {len(frag)/1024:.0f} KB")
     print(f"escala {s:.4f} mm/px ({fonte}) · têmporas ≈ {temporas:.0f} mm" if temporas else f"escala {s:.4f} mm/px ({fonte})")
     print("\n".join(linhas))
+    if alturas:
+        print("altura da lente pela foto oficial (⚠️ estimada; registre em dados.produtos[].altura):", alturas)
     if a.preview:
         escrever_previa(frag, tipo, a.preview, "Prévia do provador")
         print(f"prévia: {a.preview}")

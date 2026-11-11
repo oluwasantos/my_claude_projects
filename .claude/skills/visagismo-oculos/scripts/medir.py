@@ -265,7 +265,11 @@ def main():
     leitura = {}
     if atual.get("lente") and atual.get("ponte"):
         tot = 2 * atual["lente"] + atual["ponte"] + BLOCO_MM
-        leitura["largura_total_estimada"] = round(M.get("armacao_atual_largura_total", {}).get("mm", tot), 1)
+        # frente com frente: 2·lente + ponte + blocos, como nos produtos. O aro medido na foto (sem as peças
+        # laterais) fica só como referência.
+        leitura["largura_total_estimada"] = round(tot, 1)
+        if M.get("armacao_atual_largura_total"):
+            leitura["aro_medido_na_foto"] = M["armacao_atual_largura_total"]["mm"]
         if W:
             dif = leitura["largura_total_estimada"] - W
             leitura["vs_rosto_mm"] = round(dif, 1)
