@@ -28,11 +28,25 @@ Base: `assets/template.html`. Referência de qualidade já aprovada pelo usuári
 | 6 | `cor` | Subtom e contraste, 6 amostras (inclua 1 "evitar") | `diagnostico.cor` |
 | 7 | `lente` | Sol: UV400, categoria, polarizada, cor da lente. Grau: tabela da receita, índice, descentração, altura | `receita` |
 | 8 | `estrategia` | 1 curinga ou curinga + complemento, com a ocasião de cada um | `diagnostico.estrategia` |
+| 8b | `provador` | Cada modelo recomendado no rosto do cliente, em escala, com "frente ≈ N mm" e o veredito; a armação atual como referência. Lede diz o que comparar | `provador.py` (produtos, medidas, pontos) |
 | 9+ | `<id do produto>` | Ilustração na cor real, nome, código, preço igual ao do dados, barra do teto, medidas com selo, por que entra, o que perde, estoque, link | `produtos[]` |
 | — | `revisei` | 3 a 6 decisões da autocrítica (ver `autocritica.md`) | `revisao`, `descartados` |
 | — | `fracos` | 3 a 5 limites honestos (escala estimada, luz e cor, estoque, policarbonato vs acetato…) e como conferir | `medidas.alertas`, produtos |
 | — | `checklist` | 6 testes na loja (sol: polarização + UV; grau: medidas pela ótica + lente na armação) | tipo |
 | — | `decisao` | "O que comprar e onde provar" em 5 segundos; passos; legenda dos selos; links | `produtos`, `combos` |
+
+## Provador
+
+- Gerado por `scripts/provador.py` a partir do `dados.json`, do `medidas.json` e do `pontos.json`. A foto entra **uma vez** e cada cartão a reusa (`<use href="#prov-foto">`): 5 cartões custam ≈ 90 KB.
+- **Largura:** `largura_total` da página quando existe; senão 2·lente + ponte + 12, marcada "(estimada)".
+- **Aparência:**
+  - cor do aro por `cor_css`, ou inferida de `cor`;
+  - espessura pelo material: metal ≈ 1,3 mm, acetato/policarbonato ≈ 4,5 mm;
+  - lente tingida pelo `lente_tipo`, translúcida para os olhos aparecerem.
+- **Rótulos:** `rotulo` troca o papel no cartão (ex.: "O que você quis provar", "Plano B"); `nome_curto` troca o nome (padrão: forma + número do código, como "Aviador 4000").
+- **Veredito:** frente − têmporas. |d| ≤ 3 mm encaixa; acima, "sobra ≈ X mm"; abaixo, "estreita ≈ X mm". O texto dos slides de produto tem de bater com o veredito.
+- É simulação: tamanho e formato fiéis à escala; cor, brilho e perspectiva aproximados. A legenda fixa do template diz isso; não a apague.
+- Sem foto de frente com escala (sem íris nítida nem armação conhecida), apague o slide `#provador`.
 
 ## Texto
 

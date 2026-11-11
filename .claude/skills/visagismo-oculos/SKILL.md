@@ -8,7 +8,7 @@ argument-hint: "[sol|grau] [nome da pessoa]"
 
 Você trabalha como um especialista em Claude com um **óptico-visagista sênior ao lado**. O visagista cuida da técnica e do caimento; você cuida do processo, dos dados e da apresentação. A pessoa analisada é "o cliente", mesmo quando é o próprio usuário.
 
-**Entrega:** uma apresentação HTML de 12 a 15 slides, com fotos anotadas, diagnóstico, alvo de medida, 3 a 5 modelos reais e decisão. O cliente só a recebe depois de autocrítica e reavaliação.
+**Entrega:** uma apresentação HTML de 12 a 17 slides, com fotos anotadas, um provador (cada modelo recomendado no rosto do cliente, em escala), diagnóstico, alvo de medida, 3 a 5 modelos reais e decisão. O cliente só a recebe depois de autocrítica e reavaliação.
 
 **Modelo recomendado:** Opus, com esforço `high` (ou `xhigh`). A skill não muda o modelo. Se a sessão estiver num modelo menor, avise em uma linha antes de começar e siga.
 
@@ -95,6 +95,7 @@ Rode `python3 <SKILL>/scripts/qa.py dados.json --online` cedo, para descartar lo
 ## Fase 5 · v0, autocrítica e reavaliação → leia `references/apresentacao.md` e `references/autocritica.md`
 
 1. **Fotos anotadas.** Escreva `rascunho/spec-frente.json` (e `spec-perfil.json`). Rode `anotar.py … --saida rascunho/frente.fig.html --preview rascunho/frente.preview.html --tema sol|grau`, capture com `node <SKILL>/scripts/render.js rascunho/frente.preview.html rascunho/prev` e olhe a imagem.
+   **Provador:** `python3 <SKILL>/scripts/provador.py dados.json medidas.json pontos.json --foto fotos/frente.jpg --saida rascunho/provador.fig.html --preview rascunho/provador.preview.html`. Cada modelo recomendado (e a armação atual, na entrada B) aparece no rosto do cliente, na largura real da frente, com veredito "encaixa / sobra / estreita" contra as têmporas. Capture a prévia e confira o alinhamento com as pupilas e se os vereditos batem com o texto dos slides.
 2. **Monte a v0** com um script do caso (`rascunho/montar.py`) que usa `<SKILL>/scripts/preencher.py` (`repetir`, `slots`, `manter_tipo`, `brl`, `faltando`) e lê os números do `dados.json`. Assim cada rodada de crítica recompila em um comando. Guarde uma cópia em `rascunho/v0.html`. **Ela não é mostrada.**
 3. **Rodada de crítica** (repita até zerar bloqueantes, no máximo 3):
    - as 3 lentes (visagista, cliente, QA de dados);
@@ -142,6 +143,6 @@ Rode `python3 <SKILL>/scripts/qa.py dados.json --online` cedo, para descartar lo
 | `references/dados.md` | Formato do `dados.json` |
 | `assets/template.html` | Design system e slides com slots (temas sol e grau) |
 | `assets/exemplo-dados.json` | Caso real (`oculos-de-sol/`) no formato do `dados.json` |
-| `scripts/grade.py` · `medir.py` · `anotar.py` · `preencher.py` · `qa.py` · `render.js` | Grade de coordenadas · medidas e alvos · foto anotada · montagem do template · portão de qualidade · capturas e checagem visual |
+| `scripts/grade.py` · `medir.py` · `anotar.py` · `provador.py` · `preencher.py` · `qa.py` · `render.js` | Grade de coordenadas · medidas e alvos · foto anotada · modelos no rosto em escala · montagem do template · portão de qualidade · capturas e checagem visual |
 
 Dependências: Python 3 com Pillow (e `pillow-heif` para fotos HEIC); Node com Playwright e Chromium (já instalados na sessão na nuvem).

@@ -190,7 +190,7 @@ def checar_dados(D):
     return tipo, prods
 
 
-def checar_html(caminho, tipo, prods):
+def checar_html(caminho, tipo, prods, tem_foto=False):
     with open(caminho, encoding="utf-8") as fh:
         h = fh.read()
     tam = len(h.encode()) / 1e6
@@ -210,6 +210,16 @@ def checar_html(caminho, tipo, prods):
     for sid in ("capa", "rosto", "revisei", "fracos", "checklist", "decisao"):
         if f'id="{sid}"' not in sem_coment:
             erro(f"Slide obrigatório ausente: #{sid}.")
+    # provador: com foto de frente medida, cada modelo recomendado aparece no rosto do cliente
+    if tem_foto:
+        if 'id="provador"' not in sem_coment:
+            erro("Há foto de frente com escala, mas falta o slide #provador (rode scripts/provador.py).")
+        else:
+            no_prov = set(re.findall(r'data-produto="([^"]+)"', sem_coment))
+            for p in prods:
+                if p.get("papel") != "referencia" and p.get("id") not in no_prov:
+                    erro(f"{p.get('marca')} {p.get('codigo')}: falta o cartão no provador (data-produto=\"{p.get('id')}\").")
+
     t = re.search(r"<title>(.*?)</title>", h[:8192], re.S)
     if not t or not t.group(1).strip():
         erro("Sem <title> nos primeiros 8 KB.")
@@ -300,7 +310,8 @@ def main():
         D = json.load(fh)
     tipo, prods = checar_dados(D)
     if a.html:
-        checar_html(a.html, tipo, prods)
+        tem_foto = bool(((D.get("medidas") or {}).get("escala") or {}).get("frente_fonte") not in (None, "nenhuma"))
+        checar_html(a.html, tipo, prods, tem_foto)
     if a.online:
         checar_links(prods)
     for m in OKS:

@@ -29,6 +29,11 @@ Regra da skill: **a primeira versão nunca chega ao usuário.** O que ele recebe
   - o índice sugerido é coerente?
   - o aro esconde a borda?
 - **Sol:** UV400 confirmado? A lente do curinga serve para a ocasião mais exigente que o cliente citou?
+- **Provador:**
+  - cada armação está centrada nas pupilas e com a barra de cima na linha da sobrancelha?
+  - o "frente ≈" do cartão é o mesmo dos slides de produto?
+  - o veredito (encaixa/sobra/estreita) contradiz algum texto?
+  - um modelo que "sobra" está sendo vendido como ideal?
 - **Advogado do diabo:** para cada produto, escreva o melhor argumento **contra**. Se você não tem resposta, troque o produto.
 
 ## Lente 2 · Cliente (ele vai se reconhecer e conseguir agir?)

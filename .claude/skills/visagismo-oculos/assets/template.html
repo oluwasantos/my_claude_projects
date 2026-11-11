@@ -172,6 +172,16 @@ p{margin:0;max-width:62ch}
 .plan use{fill:none;stroke:var(--acc);stroke-width:3;stroke-linejoin:round}
 .plan p{color:var(--muted)}
 
+/* provador: cada modelo no rosto do cliente, em escala (fragmento gerado por provador.py) */
+.provador{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:14px}
+.prov-card{margin:0;display:grid;gap:10px;align-content:start;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);min-width:0}
+.prov-card.star{border-color:var(--acc)}
+.prov-card svg{width:100%;height:auto;display:block;border-radius:10px}
+.prov-card figcaption{display:grid;gap:4px;justify-items:start}
+.prov-card b{font-weight:500;font-size:.95rem;color:var(--ink);overflow-wrap:anywhere}
+.prov-card .mono{font-size:.78rem;color:var(--muted)}
+.prov-card .chip{white-space:normal;max-width:100%}
+
 /* produto */
 .product{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
 @media (max-width:860px){.product{grid-template-columns:minmax(0,1fr)}}
@@ -505,6 +515,20 @@ h1,h2,.who,.price{font-variant-numeric:lining-nums}
         <p>{{PLANO2_TEXTO}}</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 8b · PROVADOR: os modelos recomendados no rosto do cliente, em escala real. Fragmento do provador.py.
+     Sem foto de frente com escala, apague este slide. -->
+<section class="slide" id="provador">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">No seu rosto</span>
+      <h2>{{PROVADOR_TITULO}}</h2><!-- ex.: "Os modelos, no seu tamanho" -->
+      <p class="lede">{{PROVADOR_LEDE}}</p><!-- o que comparar: largura nas têmporas, altura da lente, linha da sobrancelha -->
+    </div>
+    {{PROVADOR}}
+    <p class="hint">Simulação em escala pela foto: tamanho e formato fiéis à medida; cor, brilho e perspectiva aproximados. Não é foto do produto.</p>
   </div>
 </section>
 

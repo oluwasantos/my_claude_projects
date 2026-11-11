@@ -46,6 +46,60 @@ def esc(t):
     return html.escape(str(t), quote=True)
 
 
+# ---- funções comuns (usadas também pelo provador.py) ----
+
+def abrir_foto(foto):
+    """Abre a foto (JPG, PNG ou HEIC) já girada pelo EXIF, a mesma referência de coordenadas do grade.py."""
+    if foto.lower().endswith((".heic", ".heif")) and not _registrar_heif():
+        sys.exit("ERRO: foto HEIC e pillow-heif não instalado. Rode: pip install pillow-heif (ou converta para JPG).")
+    try:
+        return ImageOps.exif_transpose(Image.open(foto)).convert("RGB")
+    except Exception as e:
+        sys.exit(f"ERRO: não consegui abrir {foto}: {e}")
+
+
+def recortar_codificar(img, recorte=None, lado_max=1100, qualidade=78):
+    """Recorta, reduz e codifica em JPEG base64. Devolve (b64, W, H, P, k, kb), onde P converte coordenadas da foto original."""
+    W0, H0 = img.size
+    x0, y0, x1, y1 = recorte or [0, 0, W0, H0]
+    x0, y0, x1, y1 = max(0, int(x0)), max(0, int(y0)), min(W0, int(x1)), min(H0, int(y1))
+    img = img.crop((x0, y0, x1, y1))
+    k = min(1.0, lado_max / max(img.size))
+    if k < 1:
+        img = img.resize((round(img.width * k), round(img.height * k)), Image.LANCZOS)
+    buf = io.BytesIO()
+    img.save(buf, "JPEG", quality=int(qualidade), optimize=True, progressive=True)
+
+    def P(p):
+        return ((float(p[0]) - x0) * k, (float(p[1]) - y0) * k)
+    return base64.b64encode(buf.getvalue()).decode(), img.width, img.height, P, k, len(buf.getvalue()) / 1024
+
+
+def centro_angulo(pa, pb):
+    """Centro e inclinação (graus) da linha das pupilas, já em coordenadas de saída."""
+    (ax, ay), (bx, by) = pa, pb
+    if ax > bx:
+        (ax, ay), (bx, by) = (bx, by), (ax, ay)
+    return (ax + bx) / 2, (ay + by) / 2, math.degrees(math.atan2(by - ay, bx - ax))
+
+
+def transform_armacao(cx, cy, ang, largura_px_saida):
+    """Transform SVG que põe um símbolo f-*/l-* (300 unidades = largura total da frente) com a pupila média em (cx, cy)."""
+    sc = largura_px_saida / 300.0
+    return f"translate({cx:.1f} {cy:.1f}) rotate({ang:.2f}) scale({sc:.4f}) translate(-150 -50)", sc
+
+
+def escrever_previa(frag, tema, saida, titulo="Prévia"):
+    with open(TEMPLATE, encoding="utf-8") as fh:
+        t = fh.read()
+    estilo = re.search(r"<style>.*?</style>", t, re.S).group(0)
+    defs = re.search(r"<!-- DEFS:INICIO.*?<!-- DEFS:FIM -->", t, re.S).group(0)
+    pv = (f'<meta charset="utf-8"><title>{esc(titulo)}</title>\n{estilo}\n{defs}\n'
+          f'<main class="deck t-{tema}"><section class="slide"><div class="wrap">\n{frag}</div></section></main>\n')
+    with open(saida, "w", encoding="utf-8") as fh:
+        fh.write(pv)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("spec")
@@ -61,27 +115,8 @@ def main():
     foto = s["foto"]
     if not os.path.isabs(foto) and not os.path.exists(foto):
         foto = os.path.join(base, foto)
-    if foto.lower().endswith((".heic", ".heif")) and not _registrar_heif():
-        sys.exit("ERRO: foto HEIC e pillow-heif não instalado. Rode: pip install pillow-heif (ou converta para JPG).")
-    try:
-        img = ImageOps.exif_transpose(Image.open(foto)).convert("RGB")
-    except Exception as e:
-        sys.exit(f"ERRO: não consegui abrir {foto}: {e}")
-    W0, H0 = img.size
-    x0, y0, x1, y1 = s.get("recorte") or [0, 0, W0, H0]
-    x0, y0, x1, y1 = max(0, int(x0)), max(0, int(y0)), min(W0, int(x1)), min(H0, int(y1))
-    img = img.crop((x0, y0, x1, y1))
-    lado = int(s.get("lado_max", 1100))
-    k = min(1.0, lado / max(img.size))
-    if k < 1:
-        img = img.resize((round(img.width * k), round(img.height * k)), Image.LANCZOS)
-    W, H = img.size
-    buf = io.BytesIO()
-    img.save(buf, "JPEG", quality=int(s.get("qualidade", 78)), optimize=True, progressive=True)
-    b64 = base64.b64encode(buf.getvalue()).decode()
-
-    def P(p):
-        return ((float(p[0]) - x0) * k, (float(p[1]) - y0) * k)
+    img = abrir_foto(foto)
+    b64, W, H, P, k, kb = recortar_codificar(img, s.get("recorte"), int(s.get("lado_max", 1100)), int(s.get("qualidade", 78)))
 
     sw = max(2.0, W / 260)          # espessura da linha
     fs = max(14.0, W / 34)          # tamanho do rótulo
@@ -144,18 +179,14 @@ def main():
         if forma not in FORMAS:
             sys.exit(f"ERRO: forma '{forma}' não existe. Use uma de: {', '.join(sorted(FORMAS))}")
         if "pupilas" in arm:
-            (pax, pay), (pbx, pby) = P(arm["pupilas"][0]), P(arm["pupilas"][1])
-            if pax > pbx:
-                (pax, pay), (pbx, pby) = (pbx, pby), (pax, pay)
-            cx, cy = (pax + pbx) / 2, (pay + pby) / 2
-            ang = math.degrees(math.atan2(pby - pay, pbx - pax))
+            cx, cy, ang = centro_angulo(P(arm["pupilas"][0]), P(arm["pupilas"][1]))
         else:
             cx, cy = P(arm["centro"])
             ang = float(arm.get("angulo", 0))
-        sc = float(arm["largura_px"]) * k / 300.0
+        tr, sc = transform_armacao(cx, cy, ang, float(arm["largura_px"]) * k)
         stroke_simb = max(2.0, W / 230) / sc
         lente = arm.get("lente")
-        g = [f'<g transform="translate({cx:.1f} {cy:.1f}) rotate({ang:.2f}) scale({sc:.4f}) translate(-150 -50)">']
+        g = [f'<g transform="{tr}">']
         if lente:
             if lente not in LENTES:
                 sys.exit(f"ERRO: lente '{lente}' não existe. Use uma de: {', '.join(sorted(LENTES))}")
@@ -173,17 +204,10 @@ def main():
             + (f"<figcaption>{esc(leg)}</figcaption>\n" if leg else "") + "</figure>\n")
     with open(a.saida, "w", encoding="utf-8") as fh:
         fh.write(frag)
-    print(f"{a.saida}: {W}x{H}px · JPEG {len(buf.getvalue())/1024:.0f} KB · fragmento {len(frag)/1024:.0f} KB")
+    print(f"{a.saida}: {W}x{H}px · JPEG {kb:.0f} KB · fragmento {len(frag)/1024:.0f} KB")
 
     if a.preview:
-        with open(TEMPLATE, encoding="utf-8") as fh:
-            t = fh.read()
-        estilo = re.search(r"<style>.*?</style>", t, re.S).group(0)
-        defs = re.search(r"<!-- DEFS:INICIO.*?<!-- DEFS:FIM -->", t, re.S).group(0)
-        pv = (f'<meta charset="utf-8"><title>Prévia da anotação</title>\n{estilo}\n{defs}\n'
-              f'<main class="deck t-{a.tema}"><section class="slide"><div class="wrap">\n{frag}</div></section></main>\n')
-        with open(a.preview, "w", encoding="utf-8") as fh:
-            fh.write(pv)
+        escrever_previa(frag, a.tema, a.preview, "Prévia da anotação")
         print(f"prévia: {a.preview} (capture com: node render.js {a.preview} <pasta>)")
 
 

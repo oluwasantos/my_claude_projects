@@ -48,7 +48,10 @@ Selos (`conf`): `ok` = ✅ lido na página, informado pelo cliente ou medido na 
       "conf_preco": "ok", "conf_medidas": "ok", "lido_em": "2026-11-11",
       "publico": "masculino", "estoque": "incerto",  // disponivel | esgotado | incerto
       "justificativa_fora_alvo": null,
-      "porque": "as três medidas no alvo; marrom sólido", "perde": "policarbonato tem acabamento menos nobre"
+      "porque": "as três medidas no alvo; marrom sólido", "perde": "policarbonato tem acabamento menos nobre",
+      "cor_css": "#5b3922",       // opcional: cor do aro no provador (ou "url(#p-tartaruga)"); sem ele, sai de "cor"
+      "nome_curto": null,         // opcional: nome no cartão do provador (padrão: forma + número do código)
+      "rotulo": null              // opcional: papel no cartão (ex.: "Plano B", "O que você quis provar")
     }
   ],
   "combos": [{"nome":"curinga + aviador", "itens":["curinga-1","complemento"], "total":499.97}],
