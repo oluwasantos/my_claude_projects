@@ -200,6 +200,7 @@ def compor(base, prod, cx, cy, ang, largura_px, ancora_y=0.45, aro_px=None):
     aro = max(2, round(aro_px if aro_px else w / 45))
     lente = opaco.filter(ImageFilter.MinFilter(2 * aro + 1)).filter(ImageFilter.MaxFilter(3))
     lente = refinar_lente(pr, opaco, lente)
+    lente = ImageChops.multiply(lente, opaco.filter(ImageFilter.MinFilter(5)))  # longe do contorno externo: sem lascas brancas do fundo
     # altura da lente: maior trecho vertical de lente numa coluna (perto do centro de cada lente)
     alt_lente = 0
     for fx in (0.25, 0.75):
@@ -208,7 +209,8 @@ def compor(base, prod, cx, cy, ang, largura_px, ancora_y=0.45, aro_px=None):
     # mediana larga o bastante para apagar a haste vista por trás da lente na foto de estúdio
     cor_lente = sintetizar_lente(pr, lente)
     cor_lente = cor_lente.point(lambda v: int(255 * (v / 255) ** 1.35))  # lente de sol escurece mais que na foto de estúdio
-    alfa_aro = ImageChops.subtract(alfa.filter(ImageFilter.MinFilter(3)), lente)
+    # acetato: encolhe 2 px (some a borda clara); metal fino: 1 px, para o fio não sumir
+    alfa_aro = ImageChops.subtract(alfa.filter(ImageFilter.MinFilter(5 if aro >= 5 else 3)), lente)
     camada_aro = pr.copy(); camada_aro.putalpha(alfa_aro)
     sombra = Image.new("RGBA", pr.size, (0, 0, 0, 0))
     sombra.putalpha(alfa_aro.point(lambda v: int(v * 0.30)).filter(ImageFilter.GaussianBlur(max(1, w / 110))))
@@ -355,6 +357,8 @@ def main():
         amax_d = (M.get("alvo") or {}).get("altura_lente_max")
         if amax_d and p.get("altura") and p["altura"] > amax_d + 3:
             avisos.append(f"altura ≈ {p['altura']:.0f} mm: pode tocar a maçã")
+        elif amax_d and p.get("altura") and p["altura"] > amax_d:
+            avisos.append(("c-unk", f"altura ≈ {p['altura']:.0f} mm: no limite, teste do sorriso"))
         nome = nome_de(p)
         star = " star" if p.get("papel") == "curinga" else ""
         modo, corpo = "desenho", None
@@ -412,9 +416,9 @@ def main():
             f'<span class="mono">frente ≈ {mm:.0f} mm ({origem})</span>'
             f'<span class="mono">{esc(modo)}</span>'
             f'<span class="chip {chip}">{esc(veredito)}</span>'
-            + "".join(f'<span class="chip c-warn">{esc(x)}</span>' for x in avisos)
+            + "".join(f'<span class="chip {x[0]}">{esc(x[1])}</span>' if isinstance(x, tuple) else f'<span class="chip c-warn">{esc(x)}</span>' for x in avisos)
             + '</figcaption>\n</figure>')
-        linhas.append(f"  {p.get('id'):<16} {modo[:12]:<12} {forma:<10} frente {mm:5.1f} mm ({origem}) · {veredito}" + (f" · {'; '.join(avisos)}" if avisos else ""))
+        linhas.append(f"  {p.get('id'):<16} {modo[:12]:<12} {forma:<10} frente {mm:5.1f} mm ({origem}) · {veredito}" + (f" · {'; '.join(x[1] if isinstance(x, tuple) else x for x in avisos)}" if avisos else ""))
 
     frag = (f'<div class="provador" data-modo-provador="{a.modo}">\n<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
             f'<image id="prov-foto" href="data:image/jpeg;base64,{b64}" width="{W}" height="{H}"/></defs></svg>\n'
