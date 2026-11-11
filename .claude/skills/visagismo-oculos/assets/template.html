@@ -230,7 +230,12 @@ p{margin:0;max-width:62ch}
 .dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--muted);background:transparent;padding:0;cursor:pointer}
 .dots button[aria-current="true"]{background:var(--acc);border-color:var(--acc)}
 @media (max-width:640px){.dots{display:none}}
-.counter{position:fixed;left:max(16px,calc(env(safe-area-inset-left,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);font-family:var(--f-mono);font-size:.75rem;color:var(--muted);z-index:5;background:color-mix(in srgb,var(--bg) 80%,transparent);padding:4px 10px;border-radius:999px}
+/* contador só onde a margem lateral comporta: no celular e em telas médias ele cobria o texto */
+.counter{display:none;position:fixed;left:max(16px,calc(env(safe-area-inset-left,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);font-family:var(--f-mono);font-size:.75rem;color:var(--muted);z-index:5;background:color-mix(in srgb,var(--bg) 80%,transparent);padding:4px 10px;border-radius:999px;pointer-events:none}
+@media (min-width:1360px){.counter{display:block}}
+/* algarismos alinhados: a fonte de título usa algarismos antigos ("4000" lia como "ɥ000") */
+h1,h2,.who,.price{font-variant-numeric:lining-nums}
+.num{font-family:var(--f-mono);font-size:.82em;letter-spacing:.02em}
 </style>
 
 <!-- DEFS:INICIO · biblioteca de formatos (viewBox 0 0 300 110). f-<forma> = armação; l-<forma> = só as lentes (para preencher com lg-*).
