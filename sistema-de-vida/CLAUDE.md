@@ -27,6 +27,11 @@ Projeto pessoal de Oluwasheun: construir um sistema de vida/produtividade sob me
 - 2026-11-03: diagnóstico e conceito criados. Aguardando início da Semana 0.
 - 2026-11-11: Semana 0 em andamento (check-ins de 09/11 e 10/11 em `log/2026-11.md`; viagem 6–8/nov sem registro). A1 e A2 respondidas (A2 trouxe: não comunicar atraso/falha como padrão a testar; valores a alimentar o Bloco C). Próxima pergunta: A3. Viagem a Miami na semana de 16/11 pode quebrar a Semana 0: estender se faltar rotina normal.
 
+## Branch
+- Usar sempre a branch fixa `sistema-de-vida` (criar se não existir) para commits deste projeto. Nunca usar nomes gerados (ex.: `claude/intelligent-babbage-...`).
+- Se a plataforma impuser outra branch, avisar o usuário antes do push em vez de seguir em silêncio.
+- Não abrir PR sem pedir.
+
 ## Economia de uso (obrigatório)
 - **Estado mora em arquivos.** Leia o último log + o experimento ativo; não refaça o pente fino de 90 dias sem pedido.
 - Consulte APIs (Todoist/Calendar/Gmail) com **janela de datas curta**; resuma por contagem/agregação (`jq`), nunca despeje listas grandes no contexto.
