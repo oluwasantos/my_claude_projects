@@ -243,7 +243,8 @@ def main():
         A = ((sum(largura) / 2) - dbl_mid - BLOCO_MM) / 2
         alvo["lente"] = faixa(A, 1)
         if tipo == "sol":
-            alvo["lente_aviador"] = [alvo["lente"][0] + 4, alvo["lente"][1] + 6]
+            # aviador: mesma largura-alvo, ponte típica de 15 (plaquetas) → lente maior que a do quadrado
+            alvo["lente_aviador"] = [int(math.floor((largura[0] - 15 - BLOCO_MM) / 2)), int(math.ceil((largura[1] - 15 - BLOCO_MM) / 2))]
     if dbl:
         alvo["ponte_acetato"] = dbl
         nota.append("Ponte: em acetato a medida precisa casar com o nariz; com plaquetas ajustáveis (metal) importa menos.")

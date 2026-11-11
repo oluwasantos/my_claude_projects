@@ -246,6 +246,7 @@ h1,h2,.who,.price{font-variant-numeric:lining-nums}
     <linearGradient id="lg-marrom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2416"/><stop offset="1" stop-color="#9b7352"/></linearGradient>
     <linearGradient id="lg-cinza" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262a2c"/><stop offset="1" stop-color="#3d4245"/></linearGradient>
     <linearGradient id="lg-degrade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2b2e"/><stop offset=".55" stop-color="#5a5c60" stop-opacity=".75"/><stop offset="1" stop-color="#b9bcc0" stop-opacity=".25"/></linearGradient>
+    <linearGradient id="lg-degrade-marrom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2416"/><stop offset=".55" stop-color="#7a5638" stop-opacity=".8"/><stop offset="1" stop-color="#c9a77f" stop-opacity=".3"/></linearGradient>
     <linearGradient id="lg-clara" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfeee8" stop-opacity=".55"/><stop offset=".6" stop-color="#ffffff" stop-opacity=".2"/><stop offset="1" stop-color="#b9b0e6" stop-opacity=".35"/></linearGradient>
     <pattern id="p-tartaruga" width="60" height="40" patternUnits="userSpaceOnUse">
       <rect width="60" height="40" fill="#6d3f20"/>
@@ -521,7 +522,7 @@ h1,h2,.who,.price{font-variant-numeric:lining-nums}
     <div style="display:grid;gap:20px;min-width:0">
       <div class="head" style="gap:10px">
         <h2>{{PROD_NOME}}</h2>
-        <span class="mono" style="color:var(--muted);overflow-wrap:anywhere">{{PROD_CODIGO}} · {{PROD_SUB}}</span>
+        <span class="mono" style="color:var(--muted);overflow-wrap:anywhere">{{PROD_CODIGO}} · {{PROD_SUB}}</span><!-- PROD_SUB sai dos dados: "polarizado" só se lente_tipo disser polarizada -->
       </div>
       <div>
         <div class="price">{{PROD_PRECO}}<small>{{PROD_PARCELAS}}</small></div><!-- "R$ 199,99" exatamente como no dados.json -->

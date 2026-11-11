@@ -39,7 +39,7 @@ def _registrar_heif():
 AQUI = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(AQUI, "..", "assets", "template.html")
 FORMAS = {"softsq", "aviador", "panto", "redondo", "retangular", "wayfarer", "gatinho", "clubmaster", "geometrico", "oval"}
-LENTES = {"g15", "marrom", "cinza", "degrade", "clara"}
+LENTES = {"g15", "marrom", "cinza", "degrade", "degrade-marrom", "clara"}
 
 
 def esc(t):

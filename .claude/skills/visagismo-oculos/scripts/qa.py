@@ -232,6 +232,16 @@ def checar_html(caminho, tipo, prods):
                 erro(f"{nome}: preço {brl(p['preco'])} do dados.json não aparece igual na apresentação.")
         if p.get("url") and p["url"] not in h:
             erro(f"{nome}: link do dados.json não está na apresentação.")
+        # o slide do produto não pode prometer o que os dados não dizem (ex.: "polarizado" num degradê)
+        sec = re.search(r'<section[^>]*id="%s".*?</section>' % re.escape(p.get("id", "")), sem_coment, re.S)
+        if sec:
+            negacao = r"(não diz|nao diz|sem|não é|nao e|não declara|nao declara)\s+(a\s+)?polariz\w*(\s+declarada)?"
+            texto = re.sub(negacao, " ", re.sub(r"<[^>]+>", " ", sec.group(0)).lower())
+            lt = re.sub(negacao, " ", (p.get("lente_tipo") or "").lower())
+            if "polariz" in texto and "polariz" not in lt:
+                erro(f"{nome}: o slide diz 'polarizado', mas lente_tipo é '{p.get('lente_tipo')}'.")
+            if "uv400" in texto and p.get("uv400") != "ok":
+                erro(f"{nome}: o slide diz 'UV400', mas uv400 = '{p.get('uv400')}'.")
     ok(f"HTML conferido ({tam:.2f} MB).")
 
 
