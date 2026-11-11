@@ -37,3 +37,5 @@ Projeto pessoal de Oluwasheun: construir um sistema de vida/produtividade sob me
 
 ## Skills deste projeto
 `/checkin` (2 min, diário) · `/revisao-semanal` (30 min, semanal) · `/revisao-temporada` (6 em 6 semanas)
+
+Ficam em `.claude/skills/` na **raiz do repo** (não aqui), para carregarem em qualquer sessão. Os caminhos dentro delas já levam o prefixo `sistema-de-vida/`.

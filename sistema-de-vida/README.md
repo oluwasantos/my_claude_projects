@@ -19,6 +19,7 @@ Um sistema pessoal para planejar e executar a vida com consistência, projetado 
 | `contexto/perfil-chatgpt.md` | Perfil de origem |
 | `apresentacao.html` | Apresentação visual do diagnóstico, do sistema e do plano (abra no navegador; setas para navegar) |
 | `CLAUDE.md` | Regras para a IA, incluindo economia de uso |
+| `../.claude/skills/` | Skills `/checkin`, `/revisao-semanal` e `/revisao-temporada` (na raiz do repo, para valerem em qualquer sessão) |
 
 ## Ordem dos próximos passos
 1. Semana 0 (7 dias de log; não mude nada).
