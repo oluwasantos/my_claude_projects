@@ -2,23 +2,29 @@
 
 Repo com projetos pessoais. Responder sempre em **português (pt-BR)**.
 
-## Projeto ativo: viagem-1-ano-namoro/
-Viagem de casal para comemorar 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, saindo de BH. Planejamento ponta a ponta, decisão por decisão. **Ler `viagem-1-ano-namoro/README.md` primeiro** (andamento + decisões).
+## Projeto: viagem-1-ano-namoro/ — **CONCLUÍDO**
+Viagem de casal de 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, BH → Ouro Preto. **A viagem já aconteceu e foi incrível.** Não continuar planejando essas datas. O planejamento ficou pela metade (etapas 01–03 feitas; 04 roteiro e 05 financeiro nunca foram escritos, e os 8 anúncios do Airbnb não chegaram a ser triados no repo porque o Airbnb estava bloqueado na rede da sessão).
 
-### Preferências do usuário
+Use a pasta como **referência/modelo** para uma próxima viagem do casal: reaproveite o método (destino → faixas de preço → requisitos/filtros → roteiro → financeiro) e os critérios. Ler `viagem-1-ano-namoro/README.md` primeiro.
+
+### Preferências do usuário (valem para qualquer planejamento futuro)
 - Não entregar a primeira versão: fazer **auto-revisão** (somas, datas, o que é verificado vs. estimado) antes de mostrar.
 - Marcar confiança nos dados (✅ confirmado / ⚠️ estimativa / ❓ não achei). Não inventar preço, nota ou horário.
 - Perguntar quando houver dúvida real.
-- Commit + push na branch `claude/nifty-davinci-e9cshy` ao fim de cada etapa. Não abrir PR sem pedir.
+- **Estadia: definir requisitos mínimos e filtros ANTES de procurar.** O processo antigo (montar lista no Airbnb e ir excluindo) é ineficiente; aplicar os cortes eliminatórios primeiro e só então listar 2–3 finalistas, em vez de só listar opções.
+- Preço sempre **total e por pessoa** (pagam metade cada, mas a divisão não precisa ser igual). Mostrar low cost / intermediário / mais caro e o que cada faixa compra, antes de escolher.
+- Não inferir pronomes de ninguém.
+- Commit + push na branch `claude/nifty-davinci-e9cshy`; não abrir PR sem pedir.
 
-### Decisões já tomadas
-- **Destino: Ouro Preto** (ônibus Pássaro Verde, ~R$ 61–65/trecho). Tiradentes e São João del-Rei estão fora (já conhecem). Ela conhece OP mas não carimbou o Passaporte Estrada Real; ele não conhece nenhuma cidade da região.
-- Sexta: saem de BH de manhã e **trabalham até 18h/19h** (café/padaria para trabalhar até o check-in; guardar mala). Sábado e domingo livres.
-- Orçamento por pessoa: ela ~R$ 500, ele ~R$ 800 (divisão não precisa ser igual) = ~R$ 1.300 para os dois. **Jantar romântico (ele paga, sábado) fica fora** desses tetos.
-- Mínimo fora de casa: 1 café da manhã, 1 almoço, 1 jantar; o resto mercado/cozinha. Gostam de bares. Uber/transfer ok. Paisagem leve, sem trilha difícil.
-- **Estadia (Airbnb): R$ 200–300/noite** (total 2 noites ≤ R$ 600 com taxas). **Indispensáveis: cozinha e cama de casal.** Desejável: mercado a pé. Critérios completos em `03-estadia-requisitos.md`.
+### Gostos do casal (para escolher destino e roteiro)
+- Saem de **BH**; querem cidade próxima, **~2h de ônibus**.
+- **Centrinho histórico**, paisagens bonitas **sem aventura pesada** (nada de trilha difícil), vibe tipo Tiradentes.
+- Pelo menos um **almoço legal** e um **jantar romântico** (ele paga o jantar), e **um mínimo de vida noturna** (gostam de bares).
+- Gostam de **cozinhar em casa/mercado** alternando com comer fora; mínimo fora: 1 café, 1 almoço, 1 jantar.
+- Têm o **Passaporte da Estrada Real** e gostam de carimbar cidade nova.
+- Já conhecem Tiradentes e São João del-Rei (não repetir). Agora também conhecem Ouro Preto.
+- Estadia: **cozinha e cama de casal indispensáveis**, mercado a pé desejável. Trabalham remoto às sextas até 18h/19h (wi-fi/café/guarda de mala).
+- Orçamento de referência: ela ~R$ 500, ele ~R$ 800 por pessoa, jantar romântico à parte; estadia ~R$ 200–300/noite.
 
-### Andamento
-- Feito e no GitHub: 01 destino, 02 faixas de preço, 03 requisitos (falta triar os anúncios).
-- **Próximo passo:** triar os 8 anúncios do Airbnb listados em `03-estadia-requisitos.md` (seção 5) e recomendar 2–3. URL de cada um: `https://www.airbnb.com.br/rooms/<ID>?adults=2&check_in=2026-11-06&check_out=2026-11-08`. Se `www.airbnb.com.br` não abrir, a rede do ambiente precisa estar em "Full" (vale só para sessões novas); alternativa: o usuário cola os dados.
-- Depois: 04 roteiro (incl. jantar romântico sábado, reserva, carimbo do passaporte), 05 financeiro (divisão ela/ele).
+### Ferramentas / ambiente
+- Se `www.airbnb.com.br` não abrir, a rede do ambiente precisa estar em "Full" (vale só para sessões **novas**); alternativa: o usuário cola os dados do anúncio.
