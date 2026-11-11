@@ -178,6 +178,16 @@ p{margin:0;max-width:62ch}
 .dots button[aria-current="true"]{background:var(--gold);border-color:var(--gold)}
 @media (max-width:640px){.dots{display:none}}
 .counter{position:fixed;left:max(16px,calc(env(safe-area-inset-left,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);font-family:var(--f-mono);font-size:.75rem;color:var(--muted);z-index:5;background:rgba(21,17,14,.75);padding:4px 10px;border-radius:999px}
+.changes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
+@media (max-width:860px){.changes{grid-template-columns:minmax(0,1fr)}}
+.chg{display:grid;gap:8px;align-content:start;padding:18px 0;border-top:1px solid var(--line)}
+.chg .chip{justify-self:start}
+.chg p{color:var(--muted);font-size:.95rem}
+.chg b{color:var(--ink);font-weight:600}
+.code-card{display:grid;gap:6px;padding:18px 20px;border:1px solid var(--gold);border-radius:12px;background:var(--gold-soft);color:var(--muted);font-size:.92rem}
+.big-code{font-size:clamp(1.4rem,3.4vw,2rem);color:var(--ink);letter-spacing:.04em}
+.note a{font-weight:600;text-decoration:none}
+.note a:hover{text-decoration:underline}
 .hint{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
 </style>
 
@@ -210,7 +220,7 @@ p{margin:0;max-width:62ch}
 </svg>
 
 <nav class="dots" aria-label="Slides"></nav>
-<div class="counter mono" aria-live="polite">01 / 13</div>
+<div class="counter mono" aria-live="polite">01 / 14</div>
 
 <!-- 1 · CAPA -->
 <section class="slide cover" id="capa">
@@ -374,7 +384,7 @@ p{margin:0;max-width:62ch}
       <p class="lede">Na lente, o verde G-15 é o mais clássico e fiel às cores. O cinza escurece mais. A lente degradê fica para a cidade, porque protege menos na praia.</p>
     </div>
     <div class="swatches">
-      <div class="sw"><div class="tile tortoise"></div><h3>Havana escuro</h3><small>armação curinga</small></div>
+      <div class="sw"><div class="tile tortoise"></div><h3>Marrom e havana</h3><small>sólido no curinga, sem estampa forte</small></div>
       <div class="sw"><div class="tile" style="background:#0c0b0a"></div><h3>Preto</h3><small>se o armário é preto e cinza</small></div>
       <div class="sw"><div class="tile" style="background:linear-gradient(135deg,#8a6a2a,#D3A955 45%,#a7832f)"></div><h3>Dourado escuro</h3><small>aviador</small></div>
       <div class="sw"><div class="tile" style="background:linear-gradient(#2E4637,#4A6B52)"></div><h3>Verde G-15</h3><small>lente ideal</small></div>
@@ -395,8 +405,8 @@ p{margin:0;max-width:62ch}
       <div class="plan star">
         <span class="eyebrow">Se for um só</span>
         <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#softsq"/></svg>
-        <h3>Acetato quadrado suave, havana, lente polarizada</h3>
-        <p style="color:var(--muted)">Fica bem de linho no casamento, de bermuda na praia e de camisa no almoço. A lente alta cuida da proporção, e o havana aquece.</p>
+        <h3>Quadrado suave, marrom sólido, lente polarizada</h3>
+        <p style="color:var(--muted)">Fica bem de linho no casamento, de bermuda na praia e de camisa no almoço. A lente alta cuida da proporção, e o marrom aquece sem chamar atenção.</p>
       </div>
       <div class="plan">
         <span class="eyebrow">Se forem dois</span>
@@ -408,82 +418,101 @@ p{margin:0;max-width:62ch}
   </div>
 </section>
 
-<!-- 8 · A1 -->
+<!-- 8 · O QUE MUDOU -->
+<section class="slide" id="mudou">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Versão 2 · depois da sua avaliação</span>
+      <h2>O que mudou</h2>
+      <p class="lede">Ficou o aviador e ficou o formato do tartaruga, agora sem a estampa. Saiu o que pareceu feminino e o que não abria no site.</p>
+    </div>
+    <div class="changes">
+      <div class="chg"><span class="chip c-bad">saiu</span><h3>Polaroid PLD 4108/S</h3><p>"Muito feminino."</p></div>
+      <div class="chg"><span class="chip c-ok">ficou</span><h3>Aviador Dourado 4000.0221</h3><p>"Interessante, quero provar."</p></div>
+      <div class="chg"><span class="chip c-gold">ajustado</span><h3>Quadrado Tartaruga 4241</h3><p>"Too much, mas o formato é legal." O formato continua, agora em <b>marrom sólido</b>.</p></div>
+      <div class="chg"><span class="chip c-bad">saiu</span><h3>CB 4373 · Polaroid 4126/S</h3><p>"Item não encontrado." Agora só entram links da loja oficial que abrem o produto.</p></div>
+      <div class="chg"><span class="chip c-gold">ajustado</span><h3>Ray-Ban RB2132</h3><p>Em vez da busca genérica, um código exato para pedir na ótica: <span class="mono">RB2132 · 55 · 901</span>.</p></div>
+      <div class="chg"><span class="chip c-unk">descartado</span><h3>Polaroid, Zerezes, Livo</h3><p>Esgotados ou acima de R$ 400, lente pequena (47–49 mm) ou sem medidas na página.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · CURINGA 1 -->
 <section class="slide" id="curinga">
   <div class="wrap product">
     <div class="stage">
-      <span class="eyebrow">A1 · o curinga</span>
-      <svg viewBox="0 0 300 110" role="img" aria-label="Óculos quadrado suave em havana com lente marrom degradê">
+      <span class="eyebrow">Curinga 1 · favorito</span>
+      <svg viewBox="0 0 300 110" role="img" aria-label="Óculos quadrado suave em marrom sólido com lente marrom">
         <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#brownGrad)"/>
         <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#brownGrad)"/>
-        <use href="#softsq" class="fr" style="stroke:url(#tort)"/>
+        <use href="#softsq" class="fr" style="stroke:#5b3922"/>
       </svg>
       <span class="tag">Ilustração do formato, não é foto do produto</span>
     </div>
     <div style="display:grid;gap:20px;min-width:0">
       <div class="head" style="gap:10px">
-        <h2>Polaroid PLD&nbsp;4108/S</h2>
-        <span class="mono" style="color:var(--muted)">cor 086 · havana · Elister</span>
+        <h2>Quadrado Marrom 5317</h2>
+        <span class="mono" style="color:var(--muted)">OC.CL.5317.0202 · polarizado · loja oficial</span>
       </div>
       <div>
-        <div class="price">R$ 387,70<small>ou R$ 368,32 à vista</small></div>
-        <div class="cap"><div class="bar"><i style="width:96.9%"></i></div><span>97% do teto de R$ 400 · em estoque <span class="chip c-ok">lido 11/11</span></span></div>
+        <div class="price">R$ 199,99<small>à vista · 4x R$ 54,99</small></div>
+        <div class="cap"><div class="bar"><i style="width:50%"></i></div><span>50% do teto de R$ 400 <span class="chip c-ok">lido 11/11</span></span></div>
       </div>
       <div class="specs">
-        <div class="spec"><span class="k">Medidas</span><span><span class="mono">55□19 145</span> · no alvo <span class="chip c-ok">✓</span></span></div>
-        <div class="spec"><span class="k">Lente</span><span>Marrom degradê polarizada</span></div>
-        <div class="spec"><span class="k">Formato</span><span>Quadrado, cantos suaves</span></div>
+        <div class="spec"><span class="k">Medidas</span><span><span class="mono">56□20 145</span> · as três no alvo <span class="chip c-ok">✓</span></span></div>
+        <div class="spec"><span class="k">Armação</span><span>Policarbonato marrom sólido, apoio nasal embutido</span></div>
+        <div class="spec"><span class="k">Lente</span><span>Marrom polarizada</span></div>
       </div>
       <div class="note">
-        <span><b>Lente degradê:</b> ótima na cidade, protege menos na praia. A versão preta com lente cinza seria ainda melhor, mas não a achei no Brasil <span class="chip c-unk">não achei</span></span>
-        <span><b>Gênero:</b> algumas lojas dizem feminino, outras masculino. O formato é unissex, então prove <span class="chip c-warn">divergente</span></span>
-        <span><b>Material:</b> a loja diz acetato, lojas de fora dizem poliamida <span class="chip c-warn">divergente</span></span>
+        <span><b>Por que é o favorito:</b> é o único com as três medidas certas para o seu rosto (lente larga, ponte 20, haste 145) e o mais barato da lista.</span>
+        <span><b>O que você perde:</b> o policarbonato tem acabamento menos nobre que o acetato, mas é mais leve.</span>
+        <span><b>Estoque:</b> o site mostra "esgotado" em todos os modelos. Confira pelo CEP ou na loja <span class="chip c-warn">incerto</span></span>
+        <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-marrom-oc-cl-5317-0202/p">Ver o produto na loja oficial →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9 · ALTERNATIVAS CURINGA -->
-<section class="slide" id="alternativas">
-  <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Plano B do curinga</span>
-      <h2>Duas alternativas na Chilli Beans</h2>
+<!-- 10 · CURINGA 2 -->
+<section class="slide" id="curinga-2">
+  <div class="wrap product">
+    <div class="stage">
+      <span class="eyebrow">Curinga 2 · para provar lado a lado</span>
+      <svg viewBox="0 0 300 110" role="img" aria-label="Óculos quadrado suave em marrom com lente marrom">
+        <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#brownGrad)"/>
+        <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#brownGrad)"/>
+        <use href="#softsq" class="fr" style="stroke:#4a2f1d"/>
+      </svg>
+      <span class="tag">Também existe em cinza (5127.0408)</span>
     </div>
-    <div class="g2">
-      <div class="alt">
-        <svg viewBox="0 0 300 110" aria-hidden="true">
-          <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#greyLens)"/>
-          <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#greyLens)"/>
-          <use href="#softsq" class="fr" style="stroke:#0c0b0a;stroke:#2b2623"/>
-        </svg>
-        <span class="eyebrow">A2 · preto brilho</span>
-        <h3>Chilli Beans OC.CL.4373.0130</h3>
-        <div class="row"><span class="mono">55□20 150</span><span class="chip c-warn">medidas da busca</span></div>
-        <div class="p">Preço <span class="chip c-unk">não achei</span></div>
-        <p>A melhor medida de todas: ponte 20 e haste 150. É policarbonato, não acetato, então tem acabamento menos nobre. Vale consultar o preço na loja.</p>
+    <div style="display:grid;gap:20px;min-width:0">
+      <div class="head" style="gap:10px">
+        <h2>Quadrado Marrom 5127</h2>
+        <span class="mono" style="color:var(--muted)">OC.CL.5127.0202 · polarizado · loja oficial</span>
       </div>
-      <div class="alt">
-        <svg viewBox="0 0 300 110" aria-hidden="true">
-          <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#g15)"/>
-          <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#g15)"/>
-          <use href="#softsq" class="fr" style="stroke:url(#tort)"/>
-        </svg>
-        <span class="eyebrow">A3 · tartaruga</span>
-        <h3>Chilli Beans OC.CL.4241.1506</h3>
-        <div class="row"><span class="mono">56□18 145</span><span class="chip c-ok">lido 11/11</span></div>
-        <div class="p">R$ 199,99 <span class="chip c-bad">esgotado online</span></div>
-        <p>Acetato tartaruga com lente verde polarizada. Seria quase perfeito, mas a ponte 18 está no limite. Procure numa loja física e faça o teste do sorriso.</p>
+      <div>
+        <div class="price">R$ 279,99<small>à vista · 6x R$ 51,33</small></div>
+        <div class="cap"><div class="bar"><i style="width:70%"></i></div><span>70% do teto de R$ 400 <span class="chip c-ok">lido 11/11</span></span></div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Medidas</span><span><span class="mono">55□19 145</span> · as três no alvo <span class="chip c-ok">✓</span></span></div>
+        <div class="spec"><span class="k">Armação</span><span>Policarbonato marrom, "armação leve e design atemporal"</span></div>
+        <div class="spec"><span class="k">Lente</span><span>Marrom polarizada</span></div>
+      </div>
+      <div class="note">
+        <span><b>Por que entrou:</b> se o 5317 não estiver na loja, você não fica sem opção. Com ponte 19 ele fica no limite de baixo, então faça o teste do sorriso.</span>
+        <span><b>Na loja:</b> prove os dois no mesmo espelho e fique com o que some no rosto e deixa você em evidência.</span>
+        <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-marrom-oc-cl-5127-0202/p">Ver o produto na loja oficial →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 10 · AVIADOR -->
+<!-- 11 · AVIADOR -->
 <section class="slide" id="aviador">
   <div class="wrap product">
     <div class="stage">
-      <span class="eyebrow">B1 · o complemento</span>
+      <span class="eyebrow">O complemento · você quer provar</span>
       <svg viewBox="0 0 300 110" role="img" aria-label="Óculos aviador dourado com lente marrom">
         <path d="M28 20 H126 Q138 20 136 34 Q132 74 106 94 Q86 106 62 100 Q28 90 22 52 Q18 22 28 20Z" fill="url(#brownGrad)"/>
         <path d="M272 20 H174 Q162 20 164 34 Q168 74 194 94 Q214 106 238 100 Q272 90 278 52 Q282 22 272 20Z" fill="url(#brownGrad)"/>
@@ -494,11 +523,11 @@ p{margin:0;max-width:62ch}
     <div style="display:grid;gap:20px;min-width:0">
       <div class="head" style="gap:10px">
         <h2>Chilli Beans Aviador Dourado</h2>
-        <span class="mono" style="color:var(--muted)">OC.MT.4000.0221 · linha Clássicos</span>
+        <span class="mono" style="color:var(--muted)">OC.MT.4000.0221 · linha Clássicos · loja oficial</span>
       </div>
       <div>
-        <div class="price">R$ 329,98<small>6x R$ 54,99</small></div>
-        <div class="cap"><div class="bar"><i style="width:82.5%"></i></div><span>82% do teto · outras páginas: R$ 299,98 a 399,98 <span class="chip c-warn">varia</span></span></div>
+        <div class="price">R$ 299,98<small>à vista · 6x R$ 54,99</small></div>
+        <div class="cap"><div class="bar"><i style="width:75%"></i></div><span>75% do teto de R$ 400 <span class="chip c-ok">lido 11/11</span></span></div>
       </div>
       <div class="specs">
         <div class="spec"><span class="k">Medidas</span><span><span class="mono">62□15 142</span> <span class="chip c-ok">lido 11/11</span></span></div>
@@ -506,22 +535,27 @@ p{margin:0;max-width:62ch}
         <div class="spec"><span class="k">Lente</span><span>Marrom polarizada, UVA/UVB</span></div>
       </div>
       <div class="note">
-        <span><b>Lente 62 mm:</b> grande, o que é bom para rosto largo. Confira se não passa da borda do rosto.</span>
-        <span><b>Haste 142 mm:</b> um pouco curta. Peça ajuste na ótica.</span>
-        <span><b>Alternativa B2:</b> Polaroid PLD 4126/S J5G, dourado com lente <b>verde</b>, 58 mm, ~R$ 282–314 no Magalu <span class="chip c-warn">da busca</span>. Ponte e haste <span class="chip c-unk">não achei</span></span>
+        <span><b>Lente de 62 mm:</b> é grande, o que é bom para rosto largo. As plaquetas ajustáveis resolvem a ponte baixa.</span>
+        <span><b>Haste de 142 mm:</b> um pouco curta. Peça ajuste na ótica.</span>
+        <span><b>Mesma armação, outras cores:</b> preto com lente verde (4000.1501), preto (4000.0101) e ônix (4000.0122). Para combinar com a sua pele, o dourado continua sendo o melhor.</span>
+        <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-classicos-aviador-polarizado-dourado-oc-mt--4000-0221/p">Ver o produto na loja oficial →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 11 · REFERÊNCIA -->
+<!-- 12 · GABARITO -->
 <section class="slide" id="referencia">
   <div class="wrap g2" style="align-items:center">
     <div class="head">
-      <span class="eyebrow">Para provar, não para comprar</span>
-      <h2>Ray-Ban New Wayfarer, tamanho 55</h2>
-      <p class="lede">É a silhueta exata do seu curinga: <span class="mono">55□18 145</span> <span class="chip c-warn">da busca</span>. Custa a partir de uns R$ 765 no Brasil <span class="chip c-warn">da busca</span>, quase o dobro do teto.</p>
-      <p class="lede">Prove numa ótica para confirmar o formato no espelho. Se gostar, compre um dos modelos acima, que seguem a mesma lógica dentro do orçamento.</p>
+      <span class="eyebrow">Só para provar · não comprar</span>
+      <h2>O gabarito do formato</h2>
+      <p class="lede">Em qualquer ótica que venda Ray-Ban, peça este código exato:</p>
+      <div class="code-card">
+        <span class="mono big-code">RB2132 · 55 · 901</span>
+        <span>New Wayfarer · lente de 55 mm · preto com lente verde G-15</span>
+      </div>
+      <p class="lede">Ele tem a silhueta ideal para o seu rosto (<span class="mono">55□18 145</span> <span class="chip c-warn">da busca</span>), mas custa bem acima de R$ 400 <span class="chip c-warn">da busca</span>. Use no espelho como referência para comparar com os curingas da Chilli Beans.</p>
     </div>
     <div class="stage">
       <svg viewBox="0 0 300 110" aria-hidden="true">
@@ -529,12 +563,12 @@ p{margin:0;max-width:62ch}
         <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#g15)"/>
         <use href="#softsq" class="fr" style="stroke:#2b2623"/>
       </svg>
-      <span class="tag">preto · lente G-15 · a referência do formato</span>
+      <span class="tag">preto · lente G-15 · referência de formato</span>
     </div>
   </div>
 </section>
 
-<!-- 12 · CHECKLIST -->
+<!-- 13 · CHECKLIST -->
 <section class="slide" id="checklist">
   <div class="wrap">
     <div class="head">
@@ -552,45 +586,48 @@ p{margin:0;max-width:62ch}
   </div>
 </section>
 
-<!-- 13 · DECISÃO -->
+<!-- 14 · DECISÃO -->
 <section class="slide final" id="decisao">
   <div class="wrap">
     <div class="head">
-      <span class="eyebrow">A decisão proposta</span>
-      <h2>Comece pelo curinga</h2>
+      <span class="eyebrow">A decisão proposta · v2</span>
+      <h2>Uma visita à Chilli Beans prova tudo</h2>
+      <p class="lede">Os três modelos estão na mesma marca. Leve este dossiê e o checklist, prove os dois curingas lado a lado e depois o aviador.</p>
     </div>
     <div class="row">
       <div class="pick">
         <span class="eyebrow">Curinga · se for um só</span>
-        <span class="who">Polaroid PLD 4108/S havana</span>
-        <span class="mono">55□19 145 · R$ 387,70</span>
+        <span class="who">Quadrado Marrom 5317</span>
+        <span class="mono">56□20 145 · R$ 199,99 à vista</span>
+        <span class="hint">plano B: 5127 · 55□19 145 · R$ 279,99</span>
       </div>
       <div class="pick">
         <span class="eyebrow">Complemento · se forem dois</span>
-        <span class="who">Chilli Beans Aviador Dourado</span>
-        <span class="mono">62□15 142 · R$ 329,98</span>
+        <span class="who">Aviador Dourado 4000.0221</span>
+        <span class="mono">62□15 142 · R$ 299,98 à vista</span>
+        <span class="hint">os dois juntos: R$ 499,97 (curinga 1) ou R$ 579,97 (curinga 2)</span>
       </div>
     </div>
     <div class="steps">
       <span class="done">✓ Rosto analisado</span>
-      <span class="done">✓ Modelos pesquisados</span>
+      <span class="done">✓ v1 avaliada por você</span>
+      <span class="done">✓ v2 revisada</span>
+      <span>Checar estoque pelo CEP</span>
       <span>Provar com o checklist</span>
       <span>Comprar</span>
     </div>
     <div class="band tortoise" role="presentation"></div>
     <div class="src">
-      <span>Preços de 11/11/2026, que mudam toda semana.</span>
+      <span>Preços de 11/11/2026 na loja oficial, que mudam toda semana.</span>
       <span><span class="chip c-ok">✓</span> lido na página</span>
       <span><span class="chip c-warn">!</span> estimativa ou da busca</span>
       <span><span class="chip c-unk">?</span> não achei</span>
     </div>
     <div class="src">
-      <a href="https://www.elister.com.br/oculos/oculos-de-sol-polaroid-pld-marrom-havana-051061002">Elister · PLD 4108/S</a>
-      <a href="https://www.oticachillibeans.com.br/oculos-de-sol-masculino-chilli-beans-classicos-aviador-polarizado-dourado-oc-mt--4000-0221/p">Chilli Beans · Aviador</a>
-      <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-tartaruga-oc-cl-4241-1506/p">Chilli Beans · 4241.1506</a>
-      <a href="https://www.oticachillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-preto-brilho-oc-cl-4373-0130/p">Chilli Beans · 4373.0130</a>
-      <a href="https://www.magazineluiza.com.br/oculos-de-sol-polaroid-pld-4126-s-j5g-58-dourado/p/hf73kd2892/md/ocul/">Magalu · PLD 4126/S</a>
-      <a href="https://lista.mercadolivre.com.br/ray-ban-rb2132-new-wayfarer">Mercado Livre · RB2132</a>
+      <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-marrom-oc-cl-5317-0202/p">Chilli Beans · 5317.0202</a>
+      <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-marrom-oc-cl-5127-0202/p">Chilli Beans · 5127.0202</a>
+      <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-cinza-oc-cl-5127-0408/p">Chilli Beans · 5127.0408 (cinza)</a>
+      <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-classicos-aviador-polarizado-dourado-oc-mt--4000-0221/p">Chilli Beans · Aviador 4000.0221</a>
     </div>
   </div>
 </section>
