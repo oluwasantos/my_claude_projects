@@ -1,6 +1,11 @@
 # renda-extra/
 
-Projeto de renda extra online. Fase atual: **ideia escolhida, validação ainda não começou.**
+Projeto de renda extra online. Fase atual: **duas ideias na mesa, nenhuma validação começou. Escolher UMA para validar primeiro.**
+
+| # | Ideia | Arquivo |
+|---|---|---|
+| 1 | Dossiê visagista de óculos para óticas (B2B) | este README |
+| 2 | Infoproduto: GA4 + BigQuery para marketing (pack de queries → curso → empresas) | [`ideia-2-infoproduto-dados.md`](ideia-2-infoproduto-dados.md) |
 
 Legenda de confiança: ✅ confirmado · ⚠️ estimativa · ❓ não sei / falta checar.
 
