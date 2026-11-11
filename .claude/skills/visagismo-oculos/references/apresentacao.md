@@ -37,7 +37,11 @@ Base: `assets/template.html`. Referência de qualidade já aprovada pelo usuári
 
 ## Provador
 
-- Gerado por `scripts/provador.py` a partir do `dados.json`, do `medidas.json` e do `pontos.json`. A foto entra **uma vez** e cada cartão a reusa (`<use href="#prov-foto">`): 5 cartões custam ≈ 90 KB.
+- Gerado por `scripts/provador.py` a partir do `dados.json`, do `medidas.json` e do `pontos.json`.
+- **Foto real do produto** (padrão quando existe): o produto com `foto_frente_url` tem a foto oficial baixada (cache em `rascunho/produtos/`), o fundo claro removido e a armação colada nas pupilas, na largura da frente em escala, inclinada como a cabeça, com sombra leve. Cada cartão vira um JPEG de ≈ 60–80 KB.
+- **Seus óculos de hoje** (entrada B): com `--foto-oculos fotos/oculos-frente.jpg`, o cartão usa a foto real com a armação atual, enquadrada na mesma escala das outras.
+- **Desenho** (alternativa): produto sem foto de frente na loja, ou `--so-desenho`. O cartão diz "desenho (a loja não tem foto de frente)".
+- `ancora_y` (opcional, padrão 0,45): altura da pupila dentro da armação. Suba para ≈ 0,40 em aviador grande se a barra de cima ficar acima da sobrancelha.
 - **Largura:** `largura_total` da página quando existe; senão 2·lente + ponte + 12, marcada "(estimada)".
 - **Aparência:**
   - cor do aro por `cor_css`, ou inferida de `cor`;

@@ -31,6 +31,8 @@ Regra da skill: **a primeira versão nunca chega ao usuário.** O que ele recebe
 - **Sol:** UV400 confirmado? A lente do curinga serve para a ocasião mais exigente que o cliente citou?
 - **Provador:**
   - cada armação está centrada nas pupilas e com a barra de cima na linha da sobrancelha?
+  - o recorte da foto do produto ficou limpo, sem branco preso na ponte ou nas plaquetas, sem halo e sem pedaço de haste lateral?
+  - o cartão diz se é foto da loja, sua foto real ou desenho?
   - o "frente ≈" do cartão é o mesmo dos slides de produto?
   - o veredito (encaixa/sobra/estreita) contradiz algum texto?
   - um modelo que "sobra" está sendo vendido como ideal?

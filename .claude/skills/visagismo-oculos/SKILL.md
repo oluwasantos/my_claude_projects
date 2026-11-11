@@ -88,14 +88,14 @@ Cada regra precisa de uma evidência que dê para apontar na foto.
 
 ## Fase 4 · Pesquisa → leia `references/pesquisa-produtos.md`
 
-Escreva a ficha-alvo, busque (WebSearch), **leia cada página** (WebFetch ou o agente `web-fetch`) e registre em `dados.produtos`, `combos` e `descartados`.
+Escreva a ficha-alvo, busque (WebSearch), **leia cada página** (WebFetch ou o agente `web-fetch`) e registre em `dados.produtos`, `combos` e `descartados`. Para cada produto, baixe as fotos da página, **olhe** e registre a de frente em `foto_frente_url`.
 
 Rode `python3 <SKILL>/scripts/qa.py dados.json --online` cedo, para descartar logo o que não presta.
 
 ## Fase 5 · v0, autocrítica e reavaliação → leia `references/apresentacao.md` e `references/autocritica.md`
 
 1. **Fotos anotadas.** Escreva `rascunho/spec-frente.json` (e `spec-perfil.json`). Rode `anotar.py … --saida rascunho/frente.fig.html --preview rascunho/frente.preview.html --tema sol|grau`, capture com `node <SKILL>/scripts/render.js rascunho/frente.preview.html rascunho/prev` e olhe a imagem.
-   **Provador:** `python3 <SKILL>/scripts/provador.py dados.json medidas.json pontos.json --foto fotos/frente.jpg --saida rascunho/provador.fig.html --preview rascunho/provador.preview.html`. Cada modelo recomendado (e a armação atual, na entrada B) aparece no rosto do cliente, na largura real da frente, com veredito "encaixa / sobra / estreita" contra as têmporas. Capture a prévia e confira o alinhamento com as pupilas e se os vereditos batem com o texto dos slides.
+   **Provador:** `python3 <SKILL>/scripts/provador.py dados.json medidas.json pontos.json --foto fotos/frente.jpg [--foto-oculos fotos/oculos-frente.jpg] --saida rascunho/provador.fig.html --preview rascunho/provador.preview.html`. Usa a foto oficial de frente de cada produto (`foto_frente_url`, escolhida a olho na fase 4); sem ela, desenha o formato. Cada modelo recomendado (e a armação atual, na entrada B) aparece no rosto do cliente, na largura real da frente, com veredito "encaixa / sobra / estreita" contra as têmporas. Capture a prévia e confira o alinhamento com as pupilas e se os vereditos batem com o texto dos slides.
 2. **Monte a v0** com um script do caso (`rascunho/montar.py`) que usa `<SKILL>/scripts/preencher.py` (`repetir`, `slots`, `manter_tipo`, `brl`, `faltando`) e lê os números do `dados.json`. Assim cada rodada de crítica recompila em um comando. Guarde uma cópia em `rascunho/v0.html`. **Ela não é mostrada.**
 3. **Rodada de crítica** (repita até zerar bloqueantes, no máximo 3):
    - as 3 lentes (visagista, cliente, QA de dados);
