@@ -23,22 +23,25 @@ Leia na fase 2. O objetivo é sair com o **alvo de compra** (lente □ ponte · 
 | `zigomas` | Ponto mais largo das maçãs |
 | `mandibula` | Ângulos da mandíbula (gônio). Com barba cheia, estime pelo contorno do osso, não do pelo |
 | `linha_cabelo` / `queixo` | Linha do cabelo no centro da testa (com calvície, onde a testa encontraria a linha original) / ponta do queixo (osso, não a barba) |
-| `ponte_nasal` | Largura do nariz onde as plaquetas ou a ponte apoiam: ≈ 5–10 mm abaixo da linha dos cantos internos dos olhos |
+| `ponte_nasal` | Largura do nariz onde a ponte apoia, perto da linha dos cantos internos. **Preditor fraco:** varia de 17 a 22 mm conforme a altura marcada. Com armação atual que apoia bem, a ponte dela manda (`armacao_atual.ponte_ok: true`) |
+| `base_nariz` (frente e perfil) | Subnasal, onde o nariz encontra o lábio. Leva a escala da frente para o perfil sem depender do queixo, que a barba esconde |
 | `sobrancelha` / `bochecha` | Na vertical da pupila: borda de baixo da sobrancelha / topo da maçã |
 | Perfil: `cornea`, `orelha` | Ápice da córnea / raiz superior da orelha, onde a haste dobra |
 | Perfil: `pupila`, `queixo` | Para transferir a escala da frente para o perfil |
-| Com óculos: `lente_d/e` | Bordas interna e externa **visíveis** da lente (o canal do aro esconde ~0,5 mm de cada lado: aceitável) |
+| Com óculos: `lente_d/e` | Bordas interna e externa **visíveis** da lente, na altura mais larga dela. O canal do aro esconde ~0,5 mm de cada lado; o `medir.py` compensa |
+| Com óculos: `temporas` | Largura do rosto na altura das têmporas **também na foto com óculos**: é a melhor ponte de escala para a foto sem óculos |
 
 ## Escala (de px para mm), da melhor para a pior
 
 1. **DP da receita ou medida pela ótica** (`receita.dp`) dá a escala da frente. ✅ para a escala, ⚠️ para as medidas derivadas.
-2. **Armação atual conhecida** (entrada B): A e A+DBL na foto com óculos dão mm/px e daí a DP. A DP leva a escala para a foto sem óculos. Margem típica de ±3%.
-3. **Íris:** diâmetro horizontal visível ≈ **11,7 mm** em adultos (±0,5 mm). Margem de ±5%. Sempre ⚠️.
+2. **Armação atual conhecida** (entrada B): A e A+DBL dão mm/px na foto com óculos. A escala passa para a foto sem óculos pela **largura das têmporas**, marcada nas duas fotos. Margem típica de ±3%.
+   - Não use a DP vista através das lentes como ponte de escala quando os óculos têm grau: a lente desloca as pupilas na foto.
+3. **Íris:** diâmetro horizontal visível ≈ **11,7 mm** em adultos (±0,5 mm, mas varia de 10,7 a 13 entre pessoas). Margem de ±5–8%. Sempre ⚠️.
 4. **Nada disso:** só proporções, sem mm. Diga isso no slide da régua e peça uma foto melhor se o alvo de medida for decisivo.
 
-Na entrada B, o `medir.py` compara a escala pela DP com a escala pela íris. Divergência > 8% indica marcação ruim ou foto distorcida: remarque antes de seguir.
+O `medir.py` compara as escalas disponíveis e avisa quando divergem mais de 8%. No caso real de teste, a íris divergiu 8% da armação: a armação venceu, porque a largura do rosto medida na própria foto com óculos confirmou.
 
-O perfil não tem escala própria: o `medir.py` a transfere pela distância vertical pupila → queixo medida na frente.
+O perfil não tem escala própria: o `medir.py` a transfere pelas distâncias verticais pupila → base do nariz e pupila → queixo, e avisa a dispersão. Inclinação diferente da cabeça entre as fotos e barba no queixo aumentam o erro.
 
 ## Fórmulas (as do `medir.py`)
 
@@ -46,8 +49,11 @@ O perfil não tem escala própria: o `medir.py` a transfere pela distância vert
   - Grau: W ± 2 mm.
   - Sol: W até W + 4 mm (lente maior protege mais).
 - **Lente:** A ≈ (largura-alvo − ponte − 12) / 2, ±1 mm. Aviador: +4 a +6 mm, porque o desenho em gota precisa de mais largura.
-- **Ponte (acetato):** largura do nariz no apoio, até +2 mm, limitada a 14–24. Metal com plaquetas: a ponte nominal importa menos.
-- **Haste:** córnea → orelha + 12 (vértice) + 35 (queda atrás da orelha), arredondado para os tamanhos comerciais (135/140/145/150).
+- **Ponte (acetato/policarbonato):**
+  - entrada B com a ponte atual apoiando bem: ponte atual ±1 mm;
+  - senão: largura do nariz no apoio ±1 mm, limitada a 14–24;
+  - metal com plaquetas: a ponte nominal importa menos.
+- **Haste:** córnea → orelha + 35 mm (≈ 5 da dobradiça à frente da córnea + ≈ 30 de queda atrás da orelha), arredondado para os tamanhos comerciais (135/140/145/150). É a medida mais incerta (±10 mm). Na entrada B, confirme pela foto com óculos (de lado ou de 3/4): haste que desce inclinada e dobra rente à orelha é curta.
 - **Altura máxima da lente:** sobrancelha → topo da maçã − 2 mm.
 - **Descentração por olho (grau):** (A + DBL − DP) / 2. Ver `grau-vs-sol.md`.
 

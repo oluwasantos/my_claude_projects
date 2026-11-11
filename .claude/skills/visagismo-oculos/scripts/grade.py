@@ -16,6 +16,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 def carregar(caminho):
+    if caminho.lower().endswith((".heic", ".heif")) and not _registrar_heif():
+        sys.exit("ERRO: foto HEIC e pillow-heif não instalado. Rode: pip install pillow-heif (ou converta para JPG).")
     try:
         img = Image.open(caminho)
     except Exception as e:  # HEIC sem plugin, arquivo corrompido etc.

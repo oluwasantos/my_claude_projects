@@ -26,6 +26,16 @@ O fragmento usa os <symbol> do template: só funciona colado no deck (ou no --pr
 import argparse, base64, html, io, json, math, os, re, sys
 from PIL import Image, ImageOps
 
+
+def _registrar_heif():
+    """iPhone e Android salvam em HEIC. Pillow lê via pillow-heif (pip install pillow-heif)."""
+    try:
+        import pillow_heif
+        pillow_heif.register_heif_opener()
+        return True
+    except ImportError:
+        return False
+
 AQUI = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(AQUI, "..", "assets", "template.html")
 FORMAS = {"softsq", "aviador", "panto", "redondo", "retangular", "wayfarer", "gatinho", "clubmaster", "geometrico", "oval"}
@@ -51,6 +61,8 @@ def main():
     foto = s["foto"]
     if not os.path.isabs(foto) and not os.path.exists(foto):
         foto = os.path.join(base, foto)
+    if foto.lower().endswith((".heic", ".heif")) and not _registrar_heif():
+        sys.exit("ERRO: foto HEIC e pillow-heif não instalado. Rode: pip install pillow-heif (ou converta para JPG).")
     try:
         img = ImageOps.exif_transpose(Image.open(foto)).convert("RGB")
     except Exception as e:

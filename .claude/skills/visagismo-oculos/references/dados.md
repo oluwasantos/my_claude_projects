@@ -21,7 +21,7 @@ Selos (`conf`): `ok` = ✅ lido na página, informado pelo cliente ou medido na 
     "observacoes": "barba cheia; cabelo muda pouco"
   },
   "receita": null,                      // grau: {"od":{"esf":-2.5,"cil":-0.75,"eixo":180},"oe":{...},"adicao":null,"dp":63,"fonte":"receita de 03/2026"}
-  "armacao_atual": null,                // entrada B: {"lente":51,"ponte":21,"haste":140,"formato":"panto","material":"acetato","cor":"preto fosco","leitura":"estreita; ponte apoia bem; haste curta"}
+  "armacao_atual": null,                // entrada B: {"lente":51,"ponte":21,"haste":140,"ponte_ok":true,"formato":"panto","material":"acetato","cor":"preto fosco","leitura":"estreita; ponte apoia bem; haste curta"}
   "medidas": { },                       // cole a saída inteira do medir.py
   "alvo": {"lente":[54,56], "ponte":[19,21], "haste":[145,150], "largura_total":[137,141]},
   "alvo_por_formato": {"aviador": {"lente":[58,62], "ponte":[14,18], "haste":[140,150]}},
@@ -55,7 +55,8 @@ Selos (`conf`): `ok` = ✅ lido na página, informado pelo cliente ou medido na 
   "descartados": [{"modelo":"CB 4016.0202", "motivo":"ponte 17: escorrega"}],
   "revisao": [
     {"rodada":1, "fonte":"autocritica", "severidade":"importante", "objecao":"…", "decisao":"…", "status":"resolvida"},
-    {"rodada":1, "fonte":"critico", "severidade":"cosmetico", "objecao":"…", "decisao":"…", "status":"resolvida"}
+    {"rodada":1, "fonte":"critico", "severidade":"cosmetico", "objecao":"…", "decisao":"…", "status":"resolvida"},
+    {"rodada":2, "fonte":"cliente", "severidade":"importante", "objecao":"'muito feminino'", "decisao":"saiu", "status":"resolvida"}   // reação do cliente, nas palavras dele
   ]
 }
 ```

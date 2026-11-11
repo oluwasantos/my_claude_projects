@@ -15,16 +15,17 @@ pontos.json (todas as vistas são opcionais, menos "frente"):
       "iris_d": [[x,y],[x,y]], "iris_e": [[x,y],[x,y]],     # bordas horizontais da íris (limbo)
       "temporas": [[x,y],[x,y]], "zigomas": [[x,y],[x,y]], "mandibula": [[x,y],[x,y]],
       "linha_cabelo": [x,y], "queixo": [x,y],
-      "ponte_nasal": [[x,y],[x,y]],                         # largura do nariz onde a ponte apoia
+      "ponte_nasal": [[x,y],[x,y]],                         # largura do nariz onde a ponte apoia (só pesa sem armação atual)
+      "base_nariz": [x,y],                                  # subnasal: ponte de escala para o perfil (sem barba)
       "sobrancelha": [x,y], "bochecha": [x,y]               # na vertical da pupila: borda de baixo da sobrancelha / topo da maçã
   }},
-  "perfil": {"pontos": {"pupila": [x,y], "queixo": [x,y], "cornea": [x,y], "orelha": [x,y]}},
+  "perfil": {"pontos": {"pupila": [x,y], "base_nariz": [x,y], "queixo": [x,y], "cornea": [x,y], "orelha": [x,y]}},
   "com_oculos_frente": {"pontos": {
       "lente_d": [[x,y],[x,y]], "lente_e": [[x,y],[x,y]],   # bordas interna e externa visíveis de cada lente
       "pupila_d": [x,y], "pupila_e": [x,y],
       "aro_total": [[x,y],[x,y]], "temporas": [[x,y],[x,y]]
   }},
-  "armacao_atual": {"lente": 51, "ponte": 21, "haste": 140},
+  "armacao_atual": {"lente": 51, "ponte": 21, "haste": 140, "ponte_ok": true},  # ponte_ok: a ponte atual apoia bem?
   "receita": {"dp": 64}                                     # opcional; DP medida pela ótica vence a da foto
 }
 """
@@ -32,8 +33,8 @@ import argparse, json, math, sys
 
 IRIS_MM = 11.7       # diâmetro horizontal visível da íris (HVID) médio de adultos, ±0,5 mm
 BLOCO_MM = 12.0      # largura total ≈ 2×lente + ponte + ~12 mm de blocos laterais (varia 8–16)
-VERTEX_MM = 12.0     # distância córnea → plano da lente
-QUEDA_MM = 35.0      # trecho da haste que desce atrás da orelha
+HASTE_EXTRA_MM = 35.0  # haste ≈ córnea→orelha + ~5 (dobradiça à frente da córnea) + ~30 (queda atrás da orelha)
+CANAL_MM = 1.0       # parte da lente escondida no canal do aro (0,5 mm de cada lado)
 
 
 def d(p, q):
@@ -102,7 +103,8 @@ def main():
         ests = []
         for lado in ("lente_d", "lente_e"):
             if B.get(lado):
-                ests.append(A / d(*B[lado]))
+                # o canal do aro esconde ~0,5 mm de cada lado: a lente visível tem ~A − 1 mm
+                ests.append((A - CANAL_MM) / d(*B[lado]))
         if B.get("lente_d") and B.get("lente_e"):
             cd = [((p[0] + q[0]) / 2, (p[1] + q[1]) / 2) for p, q in (B["lente_d"], B["lente_e"])]
             ests.append((A + DBL) / d(cd[0], cd[1]))
@@ -127,18 +129,34 @@ def main():
     if iris:
         s_iris = IRIS_MM / media(iris)
         escala["frente_mm_por_px_iris"] = round(s_iris, 5)
+    # Ordem de preferência: DP da receita > têmporas (visíveis nas duas fotos, fora das lentes)
+    # > DP da foto com óculos (lente de grau desloca as pupilas vistas através dela) > íris.
     s_dp = None
-    dp_ref = rx.get("dp") or dp_mm
-    if dp_ref and F.get("pupila_d") and F.get("pupila_e"):
-        s_dp = float(dp_ref) / d(F["pupila_d"], F["pupila_e"])
-        escala["frente_mm_por_px_dp"] = round(s_dp, 5)
-    s_F = s_dp or s_iris
-    if s_dp and s_iris:
-        dif = abs(s_dp - s_iris) / s_dp * 100
-        escala["frente_divergencia_dp_iris_pct"] = round(dif, 1)
-        if dif > 8:
-            alertas.append(f"Escala pela DP e pela íris divergem {dif:.0f}%. Usei a DP; confira a marcação da íris ou peça foto mais próxima e nítida.")
-    escala["frente_fonte"] = "DP (receita)" if rx.get("dp") else ("DP da foto com óculos" if s_dp else ("íris 11,7 mm" if s_iris else "nenhuma"))
+    if F.get("pupila_d") and F.get("pupila_e"):
+        dp_ref = rx.get("dp") or dp_mm
+        if dp_ref:
+            s_dp = float(dp_ref) / d(F["pupila_d"], F["pupila_e"])
+            escala["frente_mm_por_px_dp"] = round(s_dp, 5)
+    s_tem = None
+    if s_B and B.get("temporas") and F.get("temporas"):
+        s_tem = M["temporas_foto_com_oculos"]["mm"] / proj(*F["temporas"], u)
+        escala["frente_mm_por_px_temporas"] = round(s_tem, 5)
+    if rx.get("dp") and s_dp:
+        s_F, fonte = s_dp, "DP (receita)"
+    elif s_tem:
+        s_F, fonte = s_tem, "têmporas da foto com óculos (armação conhecida)"
+    elif s_dp:
+        s_F, fonte = s_dp, "DP da foto com óculos"
+        alertas.append("Escala pela DP vista através das lentes: lente de grau desloca as pupilas na foto. Marque as têmporas nas duas fotos para uma escala melhor.")
+    else:
+        s_F, fonte = s_iris, ("íris 11,7 mm" if s_iris else "nenhuma")
+    escala["frente_fonte"] = fonte
+    for nome, alt in (("íris", s_iris), ("DP", s_dp if fonte != "DP (receita)" and not fonte.startswith("DP") else None)):
+        if alt and s_F and alt is not s_F:
+            dif = abs(alt - s_F) / s_F * 100
+            escala[f"frente_divergencia_{'iris' if nome == 'íris' else 'dp'}_pct"] = round(dif, 1)
+            if dif > 8:
+                alertas.append(f"A escala pela {nome} diverge {dif:.0f}% da escala usada ({fonte}). Usei a mais confiável; diga no slide de pontos fracos que as medidas têm essa margem.")
     if not s_F:
         alertas.append("Sem escala (nem íris nem armação conhecida): só proporções, sem mm. Peça a foto com os olhos nítidos ou a armação atual com medidas.")
 
@@ -153,7 +171,7 @@ def main():
     if s_F and F.get("linha_cabelo") and F.get("queixo"):
         put("comprimento_rosto", proj(F["linha_cabelo"], F["queixo"], v) * s_F, "frente (linha do cabelo → queixo)")
     if s_F and F.get("pupila_d") and F.get("pupila_e") and "dp_foto" not in M:
-        put("dp_foto", d(F["pupila_d"], F["pupila_e"]) * s_F, "pupilas × escala da íris")
+        put("dp_foto", d(F["pupila_d"], F["pupila_e"]) * s_F, f"pupilas × escala ({fonte})")
     if s_F and F.get("sobrancelha") and F.get("bochecha"):
         put("altura_livre_lente", proj(F["sobrancelha"], F["bochecha"], v) * s_F, "sobrancelha → topo da maçã, na vertical da pupila")
 
@@ -186,12 +204,24 @@ def main():
         pistas.append("testa estreita (< 0,85 das maçãs): diamante ou triângulo" if tz < 0.85 else
                       ("testa larga (≥ 0,97 das maçãs): coração ou quadrado" if tz >= 0.97 else "testa proporcional"))
 
-    # 5) haste pelo perfil (escala transferida pela distância vertical pupila → queixo)
-    if s_F and P.get("pupila") and P.get("queixo") and F.get("pupila_d") and F.get("queixo"):
+    # 5) haste pelo perfil: escala transferida por distâncias verticais vistas nas duas fotos
+    #    (pupila → base do nariz, sem barba; pupila → queixo, com barba é incerto). Média + dispersão.
+    s_P = None
+    if s_F and P.get("pupila") and F.get("pupila_d"):
         pup_med = ((F["pupila_d"][0] + F["pupila_e"][0]) / 2, (F["pupila_d"][1] + F["pupila_e"][1]) / 2) if F.get("pupila_e") else F["pupila_d"]
-        vert_mm = proj(pup_med, F["queixo"], v) * s_F
-        s_P = vert_mm / abs(P["queixo"][1] - P["pupila"][1])
-        escala["perfil_mm_por_px"] = round(s_P, 5)
+        ests = []
+        for ref in ("base_nariz", "queixo"):
+            if F.get(ref) and P.get(ref) and abs(P[ref][1] - P["pupila"][1]) > 0:
+                ests.append(proj(pup_med, F[ref], v) * s_F / abs(P[ref][1] - P["pupila"][1]))
+        if ests:
+            s_P = media(ests)
+            escala["perfil_mm_por_px"] = round(s_P, 5)
+            if len(ests) > 1:
+                disp = (max(ests) - min(ests)) / s_P * 100
+                escala["perfil_dispersao_pct"] = round(disp, 1)
+                if disp > 8:
+                    alertas.append(f"Escala do perfil incerta ({disp:.0f}% entre base do nariz e queixo): cabeça inclinada diferente nas fotos ou queixo coberto pela barba. A haste fica com margem maior.")
+    if s_P:
         if P.get("cornea") and P.get("orelha"):
             ce = abs(P["orelha"][0] - P["cornea"][0]) * s_P
             put("cornea_orelha", ce, "perfil (horizontal córnea → raiz da orelha)")
@@ -200,7 +230,12 @@ def main():
     alvo, nota = {}, []
     W = tem or (zig * 0.97 if zig else None)
     n = M.get("ponte_nasal", {}).get("mm")
-    dbl = [max(14, int(round(n))), min(24, int(round(n)) + 2)] if n else None
+    dbl = [max(14, int(round(n)) - 1), min(24, int(round(n)) + 1)] if n else None
+    if atual.get("ponte") and atual.get("ponte_ok"):
+        # a armação atual que apoia bem é melhor gabarito que a largura do nariz na foto
+        dbl = [int(atual["ponte"]) - 1, int(atual["ponte"]) + 1]
+        nota.append(f"Ponte ancorada na armação atual ({atual['ponte']} mm), que apoia bem; o nariz na foto mediu ≈ {n:.0f} mm." if n else
+                    f"Ponte ancorada na armação atual ({atual['ponte']} mm), que apoia bem.")
     if W:
         largura = {"grau": [W - 2, W + 2], "sol": [W, W + 4]}[tipo]
         alvo["largura_total"] = [int(round(x)) for x in largura]
@@ -214,8 +249,9 @@ def main():
         nota.append("Ponte: em acetato a medida precisa casar com o nariz; com plaquetas ajustáveis (metal) importa menos.")
     ce = M.get("cornea_orelha", {}).get("mm")
     if ce:
-        h = ce + VERTEX_MM + QUEDA_MM
+        h = ce + HASTE_EXTRA_MM
         alvo["haste"] = [r5_baixo(h), r5_baixo(h) + 5]
+        alertas.append(f"Haste estimada pela foto (≈ {h:.0f} mm) tem margem de ±10 mm. Na entrada B, confronte com a haste atual e com onde ela dobra na orelha.")
     altura = M.get("altura_livre_lente", {}).get("mm")
     if altura:
         alvo["altura_lente_max"] = int(math.floor(altura - 2))

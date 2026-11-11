@@ -36,7 +36,11 @@ Você trabalha como um especialista em Claude com um **óptico-visagista sênior
 | **Sempre** | Orçamento por armação · cidade (para provar) · estilo desejado · público do modelo (masculino/feminino/unissex) · ocasiões · 1 ou 2 óculos · barba/cabelo mudam? |
 | **Só grau** | Receita (esférico, cilíndrico, eixo, adição, DP) e se o orçamento inclui as lentes |
 
-**Onde estão as fotos:** caminhos que o usuário passou ou `/mnt/user-data/uploads/` (sessão na nuvem). Se as imagens só aparecem no chat sem arquivo, peça para anexar como arquivo: os scripts precisam do arquivo.
+**Onde estão as fotos:** caminhos que o usuário passou, `/root/.claude/uploads/<sessão>/` ou `/mnt/user-data/uploads/` (sessão na nuvem). Se as imagens só aparecem no chat sem arquivo, peça para anexar como arquivo: os scripts precisam do arquivo.
+
+**HEIC (iPhone e muitos Android):** converta para JPG na fase 1. O ImageMagick da sessão pode não ter o decodificador HEVC; o caminho que funciona é `pip install pillow-heif` e converter com Pillow (o `grade.py` e o `anotar.py` também abrem HEIC se o pacote estiver instalado).
+
+**Nome na capa:** use o nome que o usuário der para o cliente. Nunca deduza o nome do e-mail ou da conta; se ninguém disse, a capa fica sem nome.
 
 **Qualidade da foto.** Recuse com gentileza e peça outra se faltar algum destes itens:
 - frente com olhar para a câmera e cabeça reta;
@@ -55,7 +59,11 @@ Mensagem-modelo (adapte, uma vez só):
 CASO="<scratchpad>/visagismo/<nome-sem-acento>-$(date +%Y%m%d)"   # sem scratchpad: ${TMPDIR:-/tmp}/visagismo/...
 mkdir -p "$CASO"/{fotos,shots,rascunho}
 cp <fotos> "$CASO/fotos/"            # nomes: frente.jpg, perfil.jpg, perfil-esq.jpg, oculos-frente.jpg, oculos-perfil.jpg
+# HEIC → JPG (gira pelo EXIF):
+python3 -c "import sys,pillow_heif;from PIL import Image,ImageOps;pillow_heif.register_heif_opener();[ImageOps.exif_transpose(Image.open(f)).convert('RGB').save(f.rsplit('.',1)[0]+'.jpg',quality=92) for f in sys.argv[1:]]" "$CASO"/fotos/*.heic
 ```
+
+Olhe uma folha com todas as fotos lado a lado para classificá-las: o nome do arquivo não diz qual é frente, perfil ou com óculos. Foto de 3/4 com óculos não serve para medir, mas mostra onde a haste dobra.
 
 O `CASO` nunca fica dentro do repositório. Abra cada foto com Read para ter a impressão geral antes de medir: formato, traços, cor, como a armação atual assenta.
 
@@ -87,7 +95,7 @@ Rode `python3 <SKILL>/scripts/qa.py dados.json --online` cedo, para descartar lo
 ## Fase 5 · v0, autocrítica e reavaliação → leia `references/apresentacao.md` e `references/autocritica.md`
 
 1. **Fotos anotadas.** Escreva `rascunho/spec-frente.json` (e `spec-perfil.json`). Rode `anotar.py … --saida rascunho/frente.fig.html --preview rascunho/frente.preview.html --tema sol|grau`, capture com `node <SKILL>/scripts/render.js rascunho/frente.preview.html rascunho/prev` e olhe a imagem.
-2. **Monte a v0:** `cp <SKILL>/assets/template.html apresentacao.html` e preencha os slots a partir do `dados.json`. Guarde uma cópia em `rascunho/v0.html`. **Ela não é mostrada.**
+2. **Monte a v0** com um script do caso (`rascunho/montar.py`) que usa `<SKILL>/scripts/preencher.py` (`repetir`, `slots`, `manter_tipo`, `brl`, `faltando`) e lê os números do `dados.json`. Assim cada rodada de crítica recompila em um comando. Guarde uma cópia em `rascunho/v0.html`. **Ela não é mostrada.**
 3. **Rodada de crítica** (repita até zerar bloqueantes, no máximo 3):
    - as 3 lentes (visagista, cliente, QA de dados);
    - `qa.py dados.json --html apresentacao.html --online`;
@@ -134,6 +142,6 @@ Rode `python3 <SKILL>/scripts/qa.py dados.json --online` cedo, para descartar lo
 | `references/dados.md` | Formato do `dados.json` |
 | `assets/template.html` | Design system e slides com slots (temas sol e grau) |
 | `assets/exemplo-dados.json` | Caso real (`oculos-de-sol/`) no formato do `dados.json` |
-| `scripts/grade.py` · `medir.py` · `anotar.py` · `qa.py` · `render.js` | Grade de coordenadas · medidas e alvos · foto anotada · portão de qualidade · capturas e checagem visual |
+| `scripts/grade.py` · `medir.py` · `anotar.py` · `preencher.py` · `qa.py` · `render.js` | Grade de coordenadas · medidas e alvos · foto anotada · montagem do template · portão de qualidade · capturas e checagem visual |
 
-Dependências: Python 3 com Pillow; Node com Playwright e Chromium (já instalados na sessão na nuvem).
+Dependências: Python 3 com Pillow (e `pillow-heif` para fotos HEIC); Node com Playwright e Chromium (já instalados na sessão na nuvem).
