@@ -11,6 +11,7 @@ Objetivo: achar **1 óculos de sol curinga**, ou **2 complementares**, que harmo
 ## Andamento
 - [x] Fotos analisadas (não ficam no repo): [`01-diagnostico-visagista.md`](01-diagnostico-visagista.md)
 - [x] Pesquisa de modelos reais com preço e medidas (11/11/2026): [`02-recomendacoes.md`](02-recomendacoes.md)
+- [x] Apresentação: [`apresentacao.html`](apresentacao.html)
 - [ ] Provar na loja com o checklist da seção final do 02 e decidir
 - [ ] Comprar
 

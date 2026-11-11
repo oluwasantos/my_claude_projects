@@ -1,0 +1,627 @@
+<meta charset="utf-8">
+<title>Dossiê do Óculos de Sol</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: vertical deck of full-height "boutique" slides; tortoiseshell band as signature; optician's measurement notation (55□19 145) as the recurring data motif. Deliberate single dark look (night-time optical boutique). */
+:root{
+  --bg:#15110E; --bg2:#1F1914; --card:#261E18; --ink:#F1E8DC; --muted:#AC9E8E; --line:rgba(241,232,220,.14);
+  --gold:#D3A955; --gold-soft:rgba(211,169,85,.16); --havana:#7B4A2B; --lens:#3B5A46;
+  --ok:#86BC92; --warn:#E3B354; --unk:#9FA8BA; --bad:#D77C6A;
+  --f-display:"Italiana","Didot","Bodoni 72",Georgia,serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+a{color:var(--gold)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.slide{min-height:100vh;min-height:100dvh;scroll-snap-align:start;display:flex;align-items:center;
+  padding-block:72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.wrap{width:100%;max-width:1120px;margin:0 auto;display:grid;gap:36px;min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1,h2{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:clamp(3rem,9vw,7.2rem);line-height:.95}
+h2{font-size:clamp(2.2rem,5.2vw,4.2rem);line-height:1}
+h3{font-size:1.05rem;font-weight:700;margin:0;letter-spacing:.01em}
+p{margin:0;max-width:62ch}
+.lede{font-size:1.15rem;color:var(--muted);max-width:56ch}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.head{display:grid;gap:14px}
+
+/* tortoiseshell */
+.tortoise{background:
+  radial-gradient(ellipse 18% 12% at 12% 30%,#2a170c 40%,transparent 62%),
+  radial-gradient(ellipse 10% 16% at 30% 70%,#A8692F 30%,transparent 64%),
+  radial-gradient(ellipse 22% 10% at 48% 22%,#3a1f0e 40%,transparent 66%),
+  radial-gradient(ellipse 12% 20% at 66% 62%,#c08440 25%,transparent 62%),
+  radial-gradient(ellipse 16% 12% at 84% 34%,#24130a 42%,transparent 66%),
+  radial-gradient(ellipse 9% 14% at 92% 80%,#9a5e2a 30%,transparent 64%),
+  radial-gradient(ellipse 14% 10% at 6% 86%,#b4772f 28%,transparent 62%),
+  linear-gradient(115deg,#5b331a,#7B4A2B 40%,#4a2914 70%,#6d3f20)}
+
+/* cover */
+.cover{background:radial-gradient(1200px 600px at 70% 10%,rgba(211,169,85,.10),transparent 60%),var(--bg)}
+.cover .wrap{gap:28px}
+.cover-glasses{width:min(560px,100%);height:auto;justify-self:start}
+.cover-glasses path{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cover-glasses .lensfill{fill:url(#g15);stroke:none;opacity:.9}
+@media (prefers-reduced-motion:no-preference){
+  .cover-glasses .draw{stroke-dasharray:900;animation:draw 1.6s cubic-bezier(.6,.1,.2,1) both}
+  .cover-glasses .lensfill{animation:fade 1s .9s both}
+  @keyframes draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+  @keyframes fade{from{opacity:0}to{opacity:.9}}
+}
+.notation{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline}
+.notation .big{font-family:var(--f-mono);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--ink);letter-spacing:.02em}
+.notation .big b{color:var(--gold);font-weight:500}
+.band{height:14px;border-radius:7px;width:100%}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--muted);font-size:.92rem}
+
+/* grids */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.g2,.g3{grid-template-columns:minmax(0,1fr)}}
+
+.fact{display:grid;gap:6px;padding:18px 0;border-top:1px solid var(--line)}
+.fact .k{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fact .v{font-size:1.05rem}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;
+  padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;vertical-align:middle}
+.c-ok{color:var(--ok)} .c-warn{color:var(--warn)} .c-unk{color:var(--unk)} .c-bad{color:var(--bad)} .c-gold{color:var(--gold)}
+
+/* face diagram */
+.face svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto}
+.face .outline{fill:var(--bg2);stroke:var(--muted);stroke-width:1.5}
+.face .anno{stroke:var(--gold);stroke-width:1;fill:none;stroke-dasharray:3 4}
+.face text{fill:var(--ink);font-family:var(--f-mono);font-size:11px}
+.face .frame{fill:none;stroke:var(--gold);stroke-width:2.5}
+
+/* ruler */
+.ruler{display:grid;gap:26px}
+.rrow{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;align-items:center}
+@media (max-width:560px){.rrow{grid-template-columns:minmax(0,1fr)}}
+.rlabel{display:grid;gap:2px}
+.rlabel .mono{font-size:.8rem;color:var(--muted)}
+.track{position:relative;height:44px;border-bottom:1px solid var(--line)}
+.track .target{position:absolute;top:8px;height:22px;background:var(--gold-soft);border:1px solid var(--gold);border-radius:4px}
+.track .now{position:absolute;top:2px;width:2px;height:34px;background:var(--ink)}
+.track .now span,.track .target span{position:absolute;top:36px;font-family:var(--f-mono);font-size:.72rem;white-space:nowrap;transform:translateX(-50%)}
+.track .now span{left:1px;color:var(--ink);top:-18px}
+.track .target span{left:50%;color:var(--gold)}
+.track .tick{position:absolute;bottom:-18px;font-family:var(--f-mono);font-size:.68rem;color:var(--muted);transform:translateX(-50%)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.85rem;color:var(--muted);margin-top:14px}
+.legend i{display:inline-block;width:14px;height:10px;vertical-align:middle;margin-right:6px;border-radius:2px}
+
+/* do / avoid */
+.shape{display:grid;gap:10px;align-content:start}
+.shape svg{width:100%;max-width:220px;height:auto}
+.shape path,.shape rect,.shape circle{fill:none;stroke-width:3;stroke-linejoin:round}
+.yes path,.yes rect,.yes circle{stroke:var(--gold)}
+.no path,.no rect,.no circle{stroke:var(--muted);opacity:.7}
+.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px}
+.list li::before{content:"";width:10px;height:10px;margin-top:8px;border-radius:50%;background:var(--gold)}
+.list.neg li::before{background:transparent;border:1.5px solid var(--bad)}
+
+/* palette */
+.swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw{display:grid;gap:8px}
+.sw .tile{aspect-ratio:4/3;border-radius:10px;border:1px solid var(--line);max-width:100%}
+.sw small{color:var(--muted);font-size:.82rem}
+
+/* strategy */
+.plan{display:grid;gap:18px;padding:26px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);align-content:start}
+.plan.star{border-color:var(--gold)}
+.plan svg{width:100%;max-width:260px;height:auto}
+.plan svg path{fill:none;stroke:var(--gold);stroke-width:3;stroke-linejoin:round}
+
+/* product */
+.product{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:860px){.product{grid-template-columns:minmax(0,1fr)}}
+.stage{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:34px 24px;display:grid;gap:18px;justify-items:center}
+.stage svg{width:100%;max-width:440px;height:auto}
+.stage .fr{fill:none;stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
+.stage .tag{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);text-align:center}
+.specs{display:grid;gap:0}
+.spec{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.spec .k{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.price{font-family:var(--f-display);font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;color:var(--ink)}
+.price small{font-family:var(--f-body);font-size:.95rem;color:var(--muted);margin-left:6px}
+.cap{display:grid;gap:6px;margin-top:6px}
+.cap .bar{height:6px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.cap .bar i{position:absolute;inset:0 auto 0 0;background:var(--gold);border-radius:3px}
+.cap span{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.note{border-left:2px solid var(--warn);padding:4px 0 4px 14px;color:var(--muted);font-size:.95rem;display:grid;gap:6px}
+.note b{color:var(--ink);font-weight:600}
+
+/* alt cards */
+.alt{display:grid;gap:14px;padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);align-content:start;min-width:0}
+.alt svg{width:100%;max-width:240px;height:auto}
+.alt .fr{fill:none;stroke-width:6;stroke-linejoin:round}
+.alt .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.alt p{color:var(--muted);font-size:.95rem}
+.alt .p{font-family:var(--f-display);font-size:2rem;line-height:1}
+
+/* checklist */
+.check{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;counter-reset:c}
+@media (max-width:760px){.check{grid-template-columns:minmax(0,1fr)}}
+.check div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:18px 0;border-top:1px solid var(--line);counter-increment:c}
+.check div::before{content:counter(c);font-family:var(--f-display);font-size:2.2rem;line-height:1;color:var(--gold)}
+.check h3{margin-bottom:4px}
+.check p{color:var(--muted);font-size:.95rem}
+
+/* final */
+.final .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media (max-width:760px){.final .row{grid-template-columns:minmax(0,1fr)}}
+.pick{display:grid;gap:10px;padding:26px;border-radius:14px;border:1px solid var(--gold);background:linear-gradient(160deg,var(--gold-soft),transparent 70%)}
+.pick .who{font-family:var(--f-display);font-size:2rem;line-height:1.05}
+.steps{display:flex;flex-wrap:wrap;gap:10px}
+.steps span{font-size:.9rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.steps span.done{color:var(--ok);border-color:var(--ok)}
+.src{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px}
+
+/* nav */
+.dots{position:fixed;right:max(14px,calc(env(safe-area-inset-right,0px) + 10px));top:50%;transform:translateY(-50%);display:grid;gap:10px;z-index:5}
+.dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--muted);background:transparent;padding:0;cursor:pointer}
+.dots button[aria-current="true"]{background:var(--gold);border-color:var(--gold)}
+@media (max-width:640px){.dots{display:none}}
+.counter{position:fixed;left:max(16px,calc(env(safe-area-inset-left,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);font-family:var(--f-mono);font-size:.75rem;color:var(--muted);z-index:5;background:rgba(21,17,14,.75);padding:4px 10px;border-radius:999px}
+.hint{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g15" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E4637"/><stop offset="1" stop-color="#4A6B52"/></linearGradient>
+    <linearGradient id="brownGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2416"/><stop offset="1" stop-color="#9b7352"/></linearGradient>
+    <linearGradient id="greyLens" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262a2c"/><stop offset="1" stop-color="#3d4245"/></linearGradient>
+    <pattern id="tort" width="60" height="40" patternUnits="userSpaceOnUse">
+      <rect width="60" height="40" fill="#6d3f20"/>
+      <ellipse cx="12" cy="10" rx="9" ry="5" fill="#2a170c"/>
+      <ellipse cx="40" cy="28" rx="7" ry="9" fill="#b07032"/>
+      <ellipse cx="48" cy="8" rx="6" ry="4" fill="#3a1f0e"/>
+      <ellipse cx="18" cy="32" rx="5" ry="6" fill="#c08440"/>
+    </pattern>
+    <!-- soft square (curinga) -->
+    <symbol id="softsq" viewBox="0 0 300 110">
+      <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z"/>
+      <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z"/>
+      <path d="M135 34 Q150 24 165 34"/>
+    </symbol>
+    <!-- aviator -->
+    <symbol id="aviator" viewBox="0 0 300 110">
+      <path d="M28 20 H126 Q138 20 136 34 Q132 74 106 94 Q86 106 62 100 Q28 90 22 52 Q18 22 28 20Z"/>
+      <path d="M272 20 H174 Q162 20 164 34 Q168 74 194 94 Q214 106 238 100 Q272 90 278 52 Q282 22 272 20Z"/>
+      <path d="M126 20 H174"/>
+      <path d="M136 40 Q150 32 164 40"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="dots" aria-label="Slides"></nav>
+<div class="counter mono" aria-live="polite">01 / 13</div>
+
+<!-- 1 · CAPA -->
+<section class="slide cover" id="capa">
+  <div class="wrap">
+    <span class="eyebrow">Dossiê visagista · 11 nov 2026</span>
+    <h1>O seu óculos&nbsp;de&nbsp;sol</h1>
+    <svg class="cover-glasses" viewBox="0 0 300 110" role="img" aria-label="Desenho de óculos quadrado de cantos suaves">
+      <path class="lensfill" d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z"/>
+      <path class="lensfill" d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z"/>
+      <path class="draw" d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z"/>
+      <path class="draw" d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z"/>
+      <path class="draw" d="M135 34 Q150 24 165 34"/>
+      <path class="draw" d="M16 28 L2 26 M284 28 L298 26"/>
+    </svg>
+    <div class="notation">
+      <span class="big"><b>55</b>□<b>19–20</b> <b>145+</b></span>
+      <span class="hint">lente □ ponte · haste, em mm: as três medidas que você vai procurar</span>
+    </div>
+    <div class="band tortoise" role="presentation"></div>
+    <div class="meta-row"><span>1 curinga · ou 2 complementares</span><span>até R$ 400 cada</span><span>sem grau</span><span>clássico · discreto · versátil</span></div>
+    <span class="hint">Role ou use ↓ / → para avançar</span>
+  </div>
+</section>
+
+<!-- 2 · BRIEFING -->
+<section class="slide" id="briefing">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">O pedido</span>
+      <h2>Um óculos que vai do casamento ao sol de domingo</h2>
+      <p class="lede">A missão é um rosto em harmonia com a armação, sem depender da ocasião. Por isso cada escolha precisa funcionar de terno e de camiseta.</p>
+    </div>
+    <div class="g3">
+      <div class="fact"><span class="k">Ocasiões</span><span class="v">Casamento ao ar livre, rua, praia, viagem</span></div>
+      <div class="fact"><span class="k">Orçamento</span><span class="v mono">≤ R$ 400 por óculos</span></div>
+      <div class="fact"><span class="k">Estilo</span><span class="v">Clássico, discreto, versátil</span></div>
+      <div class="fact"><span class="k">Lentes</span><span class="v">Sem grau · polarizadas · UV400</span></div>
+      <div class="fact"><span class="k">Barba</span><span class="v">Bigode + cavanhaque aparados, laterais raspadas</span></div>
+      <div class="fact"><span class="k">Referência</span><span class="v">Seus óculos de grau <span class="mono">51□21 140</span>, panto preto</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · ROSTO -->
+<section class="slide" id="rosto">
+  <div class="wrap g2" style="align-items:center">
+    <div class="head" style="gap:18px">
+      <span class="eyebrow">Leitura do rosto</span>
+      <h2>Retangular, largo e de traços marcados</h2>
+      <div>
+        <div class="fact"><span class="k">Formato</span><span class="v">Retangular/oblongo: testa alta, linha do cabelo reta, mandíbula forte <span class="chip c-warn">visual</span></span></div>
+        <div class="fact"><span class="k">Largura</span><span class="v">Larga nas têmporas e nas maçãs <span class="chip c-warn">visual</span></span></div>
+        <div class="fact"><span class="k">Cavanhaque</span><span class="v">Alonga a parte de baixo; sem laterais, a mandíbula aparece mais <span class="chip c-ok">relato</span></span></div>
+        <div class="fact"><span class="k">Nariz</span><span class="v">Ponte baixa a média, base larga <span class="chip c-warn">perfil</span></span></div>
+        <div class="fact"><span class="k">Pele</span><span class="v">Subtom quente: pede dourado, havana e preto <span class="chip c-warn">visual</span></span></div>
+      </div>
+    </div>
+    <div class="face">
+      <svg viewBox="0 0 320 340" role="img" aria-label="Esquema do rosto retangular com a armação ideal posicionada na linha da sobrancelha">
+        <path class="outline" d="M86 74 Q88 22 160 20 Q232 22 234 74 L238 196 Q236 262 192 292 Q160 310 128 292 Q84 262 82 196Z"/>
+        <path class="anno" d="M86 70 H30 M234 70 H290"/>
+        <text x="16" y="62">testa alta</text>
+        <path class="anno" d="M82 170 H22 M238 170 H298"/>
+        <text x="14" y="162">maçãs largas</text>
+        <path class="anno" d="M236 240 L290 268"/>
+        <text x="216" y="290">mandíbula</text>
+        <text x="220" y="304">marcada</text>
+        <path class="anno" d="M160 20 V8 M160 310 V328"/>
+        <text x="168" y="332">comprimento &gt; largura</text>
+        <g transform="translate(78 102) scale(0.547)">
+          <use href="#softsq" class="frame" width="300" height="110" style="fill:none;stroke:var(--gold);stroke-width:4.5"/>
+        </g>
+        <path d="M110 112 Q130 104 150 110 M170 110 Q190 104 210 112" stroke="var(--muted)" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · RÉGUA -->
+<section class="slide" id="regua">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A régua · <span class="mono">51□21 140</span> → alvo</span>
+      <h2>Seus óculos de grau mostram o tamanho certo</h2>
+      <p class="lede">Nas fotos, a armação atual fica um pouco estreita (dobradiças por dentro das têmporas) e a haste curta. A ponte de 21 apoia bem e deve ser mantida.</p>
+    </div>
+    <div class="ruler">
+      <div class="rrow">
+        <div class="rlabel"><h3>Lente</h3><span class="mono">escala 45–60 mm</span></div>
+        <div class="track">
+          <div class="target" style="left:60%;width:13.33%"><span>54–56</span></div>
+          <div class="now" style="left:40%"><span>51 hoje</span></div>
+          <span class="tick" style="left:0">45</span><span class="tick" style="left:100%">60</span>
+        </div>
+      </div>
+      <div class="rrow">
+        <div class="rlabel"><h3>Ponte</h3><span class="mono">escala 14–24 mm</span></div>
+        <div class="track">
+          <div class="target" style="left:50%;width:20%"><span>19–21</span></div>
+          <div class="now" style="left:70%"><span>21 hoje</span></div>
+          <span class="tick" style="left:0">14</span><span class="tick" style="left:100%">24</span>
+        </div>
+      </div>
+      <div class="rrow">
+        <div class="rlabel"><h3>Haste</h3><span class="mono">escala 130–155 mm</span></div>
+        <div class="track">
+          <div class="target" style="left:60%;width:20%"><span>145–150</span></div>
+          <div class="now" style="left:40%"><span>140 hoje</span></div>
+          <span class="tick" style="left:0">130</span><span class="tick" style="left:100%">155</span>
+        </div>
+      </div>
+    </div>
+    <div class="legend"><span><i style="background:var(--ink)"></i>seus óculos de grau <span class="chip c-ok">medido</span></span><span><i style="background:var(--gold-soft);border:1px solid var(--gold)"></i>faixa-alvo no solar</span><span>No aviador a lente sobe para 58–62 mm, porque o desenho é outro.</span></div>
+  </div>
+</section>
+
+<!-- 5 · FORMA -->
+<section class="slide" id="forma">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Forma</span>
+      <h2>Altura na lente, curva nos cantos</h2>
+      <p class="lede">Um rosto longo e anguloso pede o contrário dele mesmo: lente alta para encurtar e cantos suaves para equilibrar a mandíbula. A barra de cima acompanha a sobrancelha.</p>
+    </div>
+    <div class="g2">
+      <div class="g2" style="gap:20px">
+        <div class="shape yes">
+          <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#softsq"/></svg>
+          <h3>Quadrado suave</h3><span class="chip c-gold">curinga</span>
+        </div>
+        <div class="shape yes">
+          <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#aviator"/></svg>
+          <h3>Aviador de metal</h3><span class="chip c-gold">complemento</span>
+        </div>
+      </div>
+      <div class="g2" style="gap:20px">
+        <div class="shape no">
+          <svg viewBox="0 0 300 110" aria-hidden="true"><rect x="16" y="38" width="118" height="38" rx="3"/><rect x="166" y="38" width="118" height="38" rx="3"/><path d="M134 50 H166"/></svg>
+          <h3>Retângulo baixo</h3><span class="chip c-bad">alonga o rosto</span>
+        </div>
+        <div class="shape no">
+          <svg viewBox="0 0 300 110" aria-hidden="true"><circle cx="100" cy="58" r="32"/><circle cx="200" cy="58" r="32"/><path d="M132 52 Q150 44 168 52"/></svg>
+          <h3>Redondo pequeno</h3><span class="chip c-bad">some no rosto</span>
+        </div>
+      </div>
+    </div>
+    <ul class="list neg">
+      <li>Quadrado de cantos duros soma ângulo com ângulo.</li>
+      <li>Ponte de 16–17 mm em acetato escorrega e encosta na bochecha.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6 · COR -->
+<section class="slide" id="cor">
+  <div class="wrap g2" style="align-items:center">
+    <div class="head">
+      <span class="eyebrow">Cor</span>
+      <h2>Tons quentes para uma pele quente</h2>
+      <p class="lede">Havana, preto e dourado escuro conversam com o subtom da sua pele. Prata fria e cores claras apagam o contraste.</p>
+      <p class="lede">Na lente, o verde G-15 é o mais clássico e fiel às cores. O cinza escurece mais. A lente degradê fica para a cidade, porque protege menos na praia.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw"><div class="tile tortoise"></div><h3>Havana escuro</h3><small>armação curinga</small></div>
+      <div class="sw"><div class="tile" style="background:#0c0b0a"></div><h3>Preto</h3><small>se o armário é preto e cinza</small></div>
+      <div class="sw"><div class="tile" style="background:linear-gradient(135deg,#8a6a2a,#D3A955 45%,#a7832f)"></div><h3>Dourado escuro</h3><small>aviador</small></div>
+      <div class="sw"><div class="tile" style="background:linear-gradient(#2E4637,#4A6B52)"></div><h3>Verde G-15</h3><small>lente ideal</small></div>
+      <div class="sw"><div class="tile" style="background:linear-gradient(#262a2c,#3d4245)"></div><h3>Cinza</h3><small>lente, sol forte</small></div>
+      <div class="sw"><div class="tile" style="background:linear-gradient(#c9ccd1,#8f949b);opacity:.55"></div><h3>Prata fria</h3><small><span class="chip c-bad">evitar</span></small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · ESTRATÉGIA -->
+<section class="slide" id="estrategia">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A estratégia</span>
+      <h2>Um curinga, ou um curinga e seu par</h2>
+    </div>
+    <div class="g2">
+      <div class="plan star">
+        <span class="eyebrow">Se for um só</span>
+        <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#softsq"/></svg>
+        <h3>Acetato quadrado suave, havana, lente polarizada</h3>
+        <p style="color:var(--muted)">Fica bem de linho no casamento, de bermuda na praia e de camisa no almoço. A lente alta cuida da proporção, e o havana aquece.</p>
+      </div>
+      <div class="plan">
+        <span class="eyebrow">Se forem dois</span>
+        <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#aviator"/></svg>
+        <h3>O curinga + aviador dourado</h3>
+        <p style="color:var(--muted)">O acetato fica para o dia a dia. O aviador de metal é leve e elegante, combina com terno e resolve a ponte baixa com as plaquetas ajustáveis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · A1 -->
+<section class="slide" id="curinga">
+  <div class="wrap product">
+    <div class="stage">
+      <span class="eyebrow">A1 · o curinga</span>
+      <svg viewBox="0 0 300 110" role="img" aria-label="Óculos quadrado suave em havana com lente marrom degradê">
+        <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#brownGrad)"/>
+        <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#brownGrad)"/>
+        <use href="#softsq" class="fr" style="stroke:url(#tort)"/>
+      </svg>
+      <span class="tag">Ilustração do formato, não é foto do produto</span>
+    </div>
+    <div style="display:grid;gap:20px;min-width:0">
+      <div class="head" style="gap:10px">
+        <h2>Polaroid PLD&nbsp;4108/S</h2>
+        <span class="mono" style="color:var(--muted)">cor 086 · havana · Elister</span>
+      </div>
+      <div>
+        <div class="price">R$ 387,70<small>ou R$ 368,32 à vista</small></div>
+        <div class="cap"><div class="bar"><i style="width:96.9%"></i></div><span>97% do teto de R$ 400 · em estoque <span class="chip c-ok">lido 11/11</span></span></div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Medidas</span><span><span class="mono">55□19 145</span> · no alvo <span class="chip c-ok">✓</span></span></div>
+        <div class="spec"><span class="k">Lente</span><span>Marrom degradê polarizada</span></div>
+        <div class="spec"><span class="k">Formato</span><span>Quadrado, cantos suaves</span></div>
+      </div>
+      <div class="note">
+        <span><b>Lente degradê:</b> ótima na cidade, protege menos na praia. A versão preta com lente cinza seria ainda melhor, mas não a achei no Brasil <span class="chip c-unk">não achei</span></span>
+        <span><b>Gênero:</b> algumas lojas dizem feminino, outras masculino. O formato é unissex, então prove <span class="chip c-warn">divergente</span></span>
+        <span><b>Material:</b> a loja diz acetato, lojas de fora dizem poliamida <span class="chip c-warn">divergente</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · ALTERNATIVAS CURINGA -->
+<section class="slide" id="alternativas">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Plano B do curinga</span>
+      <h2>Duas alternativas na Chilli Beans</h2>
+    </div>
+    <div class="g2">
+      <div class="alt">
+        <svg viewBox="0 0 300 110" aria-hidden="true">
+          <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#greyLens)"/>
+          <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#greyLens)"/>
+          <use href="#softsq" class="fr" style="stroke:#0c0b0a;stroke:#2b2623"/>
+        </svg>
+        <span class="eyebrow">A2 · preto brilho</span>
+        <h3>Chilli Beans OC.CL.4373.0130</h3>
+        <div class="row"><span class="mono">55□20 150</span><span class="chip c-warn">medidas da busca</span></div>
+        <div class="p">Preço <span class="chip c-unk">não achei</span></div>
+        <p>A melhor medida de todas: ponte 20 e haste 150. É policarbonato, não acetato, então tem acabamento menos nobre. Vale consultar o preço na loja.</p>
+      </div>
+      <div class="alt">
+        <svg viewBox="0 0 300 110" aria-hidden="true">
+          <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#g15)"/>
+          <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#g15)"/>
+          <use href="#softsq" class="fr" style="stroke:url(#tort)"/>
+        </svg>
+        <span class="eyebrow">A3 · tartaruga</span>
+        <h3>Chilli Beans OC.CL.4241.1506</h3>
+        <div class="row"><span class="mono">56□18 145</span><span class="chip c-ok">lido 11/11</span></div>
+        <div class="p">R$ 199,99 <span class="chip c-bad">esgotado online</span></div>
+        <p>Acetato tartaruga com lente verde polarizada. Seria quase perfeito, mas a ponte 18 está no limite. Procure numa loja física e faça o teste do sorriso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · AVIADOR -->
+<section class="slide" id="aviador">
+  <div class="wrap product">
+    <div class="stage">
+      <span class="eyebrow">B1 · o complemento</span>
+      <svg viewBox="0 0 300 110" role="img" aria-label="Óculos aviador dourado com lente marrom">
+        <path d="M28 20 H126 Q138 20 136 34 Q132 74 106 94 Q86 106 62 100 Q28 90 22 52 Q18 22 28 20Z" fill="url(#brownGrad)"/>
+        <path d="M272 20 H174 Q162 20 164 34 Q168 74 194 94 Q214 106 238 100 Q272 90 278 52 Q282 22 272 20Z" fill="url(#brownGrad)"/>
+        <use href="#aviator" class="fr" style="stroke:var(--gold);stroke-width:4"/>
+      </svg>
+      <span class="tag">Ilustração do formato, não é foto do produto</span>
+    </div>
+    <div style="display:grid;gap:20px;min-width:0">
+      <div class="head" style="gap:10px">
+        <h2>Chilli Beans Aviador Dourado</h2>
+        <span class="mono" style="color:var(--muted)">OC.MT.4000.0221 · linha Clássicos</span>
+      </div>
+      <div>
+        <div class="price">R$ 329,98<small>6x R$ 54,99</small></div>
+        <div class="cap"><div class="bar"><i style="width:82.5%"></i></div><span>82% do teto · outras páginas: R$ 299,98 a 399,98 <span class="chip c-warn">varia</span></span></div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Medidas</span><span><span class="mono">62□15 142</span> <span class="chip c-ok">lido 11/11</span></span></div>
+        <div class="spec"><span class="k">Material</span><span>Aço inox · ponte dupla · apoio nasal de silicone</span></div>
+        <div class="spec"><span class="k">Lente</span><span>Marrom polarizada, UVA/UVB</span></div>
+      </div>
+      <div class="note">
+        <span><b>Lente 62 mm:</b> grande, o que é bom para rosto largo. Confira se não passa da borda do rosto.</span>
+        <span><b>Haste 142 mm:</b> um pouco curta. Peça ajuste na ótica.</span>
+        <span><b>Alternativa B2:</b> Polaroid PLD 4126/S J5G, dourado com lente <b>verde</b>, 58 mm, ~R$ 282–314 no Magalu <span class="chip c-warn">da busca</span>. Ponte e haste <span class="chip c-unk">não achei</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · REFERÊNCIA -->
+<section class="slide" id="referencia">
+  <div class="wrap g2" style="align-items:center">
+    <div class="head">
+      <span class="eyebrow">Para provar, não para comprar</span>
+      <h2>Ray-Ban New Wayfarer, tamanho 55</h2>
+      <p class="lede">É a silhueta exata do seu curinga: <span class="mono">55□18 145</span> <span class="chip c-warn">da busca</span>. Custa a partir de uns R$ 765 no Brasil <span class="chip c-warn">da busca</span>, quase o dobro do teto.</p>
+      <p class="lede">Prove numa ótica para confirmar o formato no espelho. Se gostar, compre um dos modelos acima, que seguem a mesma lógica dentro do orçamento.</p>
+    </div>
+    <div class="stage">
+      <svg viewBox="0 0 300 110" aria-hidden="true">
+        <path d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z" fill="url(#g15)"/>
+        <path d="M276 18 H176 Q164 18 165 30 L170 76 Q173 98 196 98 H250 Q274 98 278 76 L284 30 Q285 18 276 18Z" fill="url(#g15)"/>
+        <use href="#softsq" class="fr" style="stroke:#2b2623"/>
+      </svg>
+      <span class="tag">preto · lente G-15 · a referência do formato</span>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · CHECKLIST -->
+<section class="slide" id="checklist">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Na loja</span>
+      <h2>Seis testes antes de pagar</h2>
+    </div>
+    <div class="check">
+      <div><section><h3>Largura</h3><p>A armação chega à borda do rosto, sem apertar as têmporas e sem sobrar mais de um dedo.</p></section></div>
+      <div><section><h3>Teste do sorriso</h3><p>Sorria e balance a cabeça. O óculos não desce e a lente não encosta na bochecha.</p></section></div>
+      <div><section><h3>Sobrancelha</h3><p>A barra de cima cobre a sobrancelha. Ela não pode aparecer por cima.</p></section></div>
+      <div><section><h3>Haste</h3><p>Curva atrás da orelha sem pressionar. Se for de 140–142 mm, peça ajuste.</p></section></div>
+      <div><section><h3>Polarização</h3><p>Olhe a tela do celular e gire a cabeça 90°. Se a tela escurecer, é polarizada de verdade.</p></section></div>
+      <div><section><h3>UV400</h3><p>Procure o selo na etiqueta ou gravado na haste.</p></section></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · DECISÃO -->
+<section class="slide final" id="decisao">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A decisão proposta</span>
+      <h2>Comece pelo curinga</h2>
+    </div>
+    <div class="row">
+      <div class="pick">
+        <span class="eyebrow">Curinga · se for um só</span>
+        <span class="who">Polaroid PLD 4108/S havana</span>
+        <span class="mono">55□19 145 · R$ 387,70</span>
+      </div>
+      <div class="pick">
+        <span class="eyebrow">Complemento · se forem dois</span>
+        <span class="who">Chilli Beans Aviador Dourado</span>
+        <span class="mono">62□15 142 · R$ 329,98</span>
+      </div>
+    </div>
+    <div class="steps">
+      <span class="done">✓ Rosto analisado</span>
+      <span class="done">✓ Modelos pesquisados</span>
+      <span>Provar com o checklist</span>
+      <span>Comprar</span>
+    </div>
+    <div class="band tortoise" role="presentation"></div>
+    <div class="src">
+      <span>Preços de 11/11/2026, que mudam toda semana.</span>
+      <span><span class="chip c-ok">✓</span> lido na página</span>
+      <span><span class="chip c-warn">!</span> estimativa ou da busca</span>
+      <span><span class="chip c-unk">?</span> não achei</span>
+    </div>
+    <div class="src">
+      <a href="https://www.elister.com.br/oculos/oculos-de-sol-polaroid-pld-marrom-havana-051061002">Elister · PLD 4108/S</a>
+      <a href="https://www.oticachillibeans.com.br/oculos-de-sol-masculino-chilli-beans-classicos-aviador-polarizado-dourado-oc-mt--4000-0221/p">Chilli Beans · Aviador</a>
+      <a href="https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-tartaruga-oc-cl-4241-1506/p">Chilli Beans · 4241.1506</a>
+      <a href="https://www.oticachillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-preto-brilho-oc-cl-4373-0130/p">Chilli Beans · 4373.0130</a>
+      <a href="https://www.magazineluiza.com.br/oculos-de-sol-polaroid-pld-4126-s-j5g-58-dourado/p/hf73kd2892/md/ocul/">Magalu · PLD 4126/S</a>
+      <a href="https://lista.mercadolivre.com.br/ray-ban-rb2132-new-wayfarer">Mercado Livre · RB2132</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dots=document.querySelector('.dots'), counter=document.querySelector('.counter');
+  var cur=0, pad=function(n){return (n<10?'0':'')+n};
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.type='button'; b.setAttribute('aria-label','Ir para o slide '+(i+1));
+    b.addEventListener('click',function(){go(i)});
+    dots.appendChild(b);
+  });
+  function mark(i){
+    cur=i; counter.textContent=pad(i+1)+' / '+pad(slides.length);
+    [].forEach.call(dots.children,function(b,j){b.setAttribute('aria-current',j===i?'true':'false')});
+  }
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i)); slides[i].scrollIntoView({block:'start'}); mark(i)}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)mark(slides.indexOf(e.target))})},{threshold:0.55});
+    slides.forEach(function(s){io.observe(s)});
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
+    else if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
+    else if(e.key==='Home'){e.preventDefault();go(0)}
+    else if(e.key==='End'){e.preventDefault();go(slides.length-1)}
+  });
+  mark(0);
+})();
+</script>
