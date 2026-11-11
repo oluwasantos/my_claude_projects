@@ -25,7 +25,7 @@ Projeto pessoal de Oluwasheun: construir um sistema de vida/produtividade sob me
 
 ### Estado
 - 2026-11-03: diagnóstico e conceito criados. Aguardando início da Semana 0.
-- 2026-11-11: Semana 0 em andamento (check-ins de 09/11 e 10/11 em `log/2026-11.md`; viagem 6–8/nov sem registro). A1 respondida. Próxima pergunta: A2.
+- 2026-11-11: Semana 0 em andamento (check-ins de 09/11 e 10/11 em `log/2026-11.md`; viagem 6–8/nov sem registro). A1 e A2 respondidas (A2 trouxe: não comunicar atraso/falha como padrão a testar; valores a alimentar o Bloco C). Próxima pergunta: A3. Viagem a Miami na semana de 16/11 pode quebrar a Semana 0: estender se faltar rotina normal.
 
 ## Economia de uso (obrigatório)
 - **Estado mora em arquivos.** Leia o último log + o experimento ativo; não refaça o pente fino de 90 dias sem pedido.
