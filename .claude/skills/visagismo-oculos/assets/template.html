@@ -1,0 +1,686 @@
+<meta charset="utf-8">
+<title>{{TITULO_PAGINA}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!--
+  TEMPLATE DA APRESENTAÇÃO · skill visagismo-oculos
+  Como usar (detalhes em references/apresentacao.md):
+  1. Copie para a pasta de trabalho do cliente. Nunca edite este arquivo para um cliente.
+  2. Troque TODO {{SLOT}}. O qa.py bloqueia se sobrar algum "{{".
+  3. Blocos com data-so="sol" ou data-so="grau": apague os que não são do tipo pedido.
+  4. Blocos entre <!- - REPETIR:x - -> e <!- - /REPETIR:x - ->: duplique ou apague conforme o caso.
+  5. Fotos anotadas: cole o fragmento gerado por scripts/anotar.py no lugar de {{FOTO_ANOTADA_*}}.
+  6. Réguas e barras de preço são desenhadas pelo JS a partir dos atributos data-*. Não calcule porcentagens à mão.
+  Tema: class="deck t-sol" (boutique noturna, faixa tartaruga) ou "deck t-grau" (ateliê claro, faixa de antirreflexo).
+  Os dois temas são visuais únicos e deliberados: cada um define todas as cores e o color-scheme próprio.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: deck vertical de slides em tela cheia, com cara de boutique de ótica. Assinatura: a faixa (tartaruga no sol, antirreflexo no grau) e a notação do óptico (55□19 145) como motivo de dado. */
+:root{
+  /* TEMA SOL · boutique noturna (padrão) */
+  --bg:#15110E; --bg2:#1F1914; --ink:#F1E8DC; --muted:#AC9E8E; --line:rgba(241,232,220,.14);
+  --acc:#D3A955; --acc-soft:rgba(211,169,85,.16); --halo:rgba(12,9,7,.72);
+  --ok:#86BC92; --warn:#E3B354; --unk:#9FA8BA; --bad:#D77C6A;
+  --f-display:"Italiana","Didot","Bodoni 72",Georgia,serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+:root:has(.t-grau){
+  /* TEMA GRAU · ateliê claro de lentes: névoa fria, tinta verde-petróleo, reflexo de antirreflexo */
+  --bg:#EDF1EF; --bg2:#F8FAF9; --ink:#14201D; --muted:#55655F; --line:rgba(20,32,29,.14);
+  --acc:#24695C; --acc-soft:rgba(36,105,92,.10); --halo:rgba(255,255,255,.78);
+  --ok:#2F7D45; --warn:#9A6A08; --unk:#56607A; --bad:#B0412E;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+a{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+.slide{min-height:100vh;min-height:100dvh;scroll-snap-align:start;display:flex;align-items:center;
+  padding-block:72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.wrap{width:100%;max-width:1120px;margin:0 auto;display:grid;gap:36px;min-width:0}
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+h1,h2{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.01em}
+h1{font-size:clamp(3rem,9vw,7.2rem);line-height:.95}
+h2{font-size:clamp(2.2rem,5.2vw,4.2rem);line-height:1}
+h3{font-size:1.05rem;font-weight:700;margin:0;letter-spacing:.01em}
+p{margin:0;max-width:62ch}
+.lede{font-size:1.15rem;color:var(--muted);max-width:56ch}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.head{display:grid;gap:14px;min-width:0}
+.hint{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+
+/* faixa-assinatura */
+.band{height:14px;border-radius:7px;width:100%}
+.t-sol .band,.tortoise{background:
+  radial-gradient(ellipse 18% 12% at 12% 30%,#2a170c 40%,transparent 62%),
+  radial-gradient(ellipse 10% 16% at 30% 70%,#A8692F 30%,transparent 64%),
+  radial-gradient(ellipse 22% 10% at 48% 22%,#3a1f0e 40%,transparent 66%),
+  radial-gradient(ellipse 12% 20% at 66% 62%,#c08440 25%,transparent 62%),
+  radial-gradient(ellipse 16% 12% at 84% 34%,#24130a 42%,transparent 66%),
+  radial-gradient(ellipse 9% 14% at 92% 80%,#9a5e2a 30%,transparent 64%),
+  radial-gradient(ellipse 14% 10% at 6% 86%,#b4772f 28%,transparent 62%),
+  linear-gradient(115deg,#5b331a,#7B4A2B 40%,#4a2914 70%,#6d3f20)}
+.t-grau .band{background:linear-gradient(100deg,#bfe3d4 0%,#7fc4ae 22%,#a99be0 48%,#7fb9d6 70%,#c6e7dc 100%);opacity:.9}
+
+/* capa */
+.cover{background:radial-gradient(1200px 600px at 70% 10%,var(--acc-soft),transparent 60%),var(--bg)}
+.cover .wrap{gap:28px}
+.cover-glasses{width:min(560px,100%);height:auto;justify-self:start}
+.cover-glasses use.draw{fill:none;stroke:var(--acc);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.cover-glasses use.lensfill{stroke:none;opacity:.9}
+@media (prefers-reduced-motion:no-preference){
+  .cover-glasses use.draw{stroke-dasharray:900;animation:draw 1.6s cubic-bezier(.6,.1,.2,1) both}
+  @keyframes draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+}
+.notation{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:baseline}
+.notation .big{font-family:var(--f-mono);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--ink);letter-spacing:.02em}
+.notation .big b{color:var(--acc);font-weight:500}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--muted);font-size:.92rem}
+
+/* grades */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g2>*,.g3>*{min-width:0}
+@media (max-width:820px){.g2,.g3{grid-template-columns:minmax(0,1fr)}}
+.fact{display:grid;gap:6px;padding:16px 0;border-top:1px solid var(--line)}
+.fact .k{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fact .v{font-size:1.02rem}
+
+/* selos de confiança */
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;
+  padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;vertical-align:middle}
+.shape .chip,.chg .chip,.cap .chip{white-space:normal;max-width:100%}
+.c-ok{color:var(--ok)} .c-warn{color:var(--warn)} .c-unk{color:var(--unk)} .c-bad{color:var(--bad)} .c-acc{color:var(--acc)}
+
+/* foto anotada (fragmento gerado por anotar.py) */
+.photo{display:grid;gap:10px;justify-items:center;margin:0;min-width:0}
+.photo svg{width:100%;max-width:460px;height:auto;display:block;border-radius:16px;border:1px solid var(--line);background:var(--bg2)}
+.photo figcaption{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);text-align:center;max-width:46ch}
+.photo .a-med{stroke:var(--acc);fill:none;stroke-linecap:round}
+.photo .a-guia{stroke:var(--ink);fill:none;stroke-dasharray:6 8;opacity:.85}
+.photo .a-alerta{stroke:var(--bad);fill:none;stroke-linecap:round}
+.photo .a-halo{stroke:var(--halo);fill:none;stroke-linecap:round}
+.photo .a-marco{fill:var(--acc);stroke:var(--halo)}
+.photo text{fill:var(--ink);font-family:var(--f-mono);paint-order:stroke;stroke:var(--halo);stroke-linejoin:round}
+.photo .a-armacao{fill:none;stroke:var(--acc);stroke-linejoin:round;opacity:.95}
+.photo .a-lente{opacity:.32}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+@media (max-width:700px){.photos{grid-template-columns:minmax(0,1fr)}}
+
+/* rosto esquemático (alternativa sem foto) */
+.face svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto}
+.face .outline{fill:var(--bg2);stroke:var(--muted);stroke-width:1.5}
+.face .anno{stroke:var(--acc);stroke-width:1;fill:none;stroke-dasharray:3 4}
+.face text{fill:var(--ink);font-family:var(--f-mono);font-size:11px}
+
+/* régua (montada pelo JS a partir de data-*) */
+.ruler{display:grid;gap:30px}
+.rrow{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;align-items:center}
+@media (max-width:560px){.rrow{grid-template-columns:minmax(0,1fr)}}
+.rlabel{display:grid;gap:2px}
+.rlabel .mono{font-size:.8rem;color:var(--muted)}
+.track{position:relative;height:44px;border-bottom:1px solid var(--line);margin-inline:14px}
+.track .target{position:absolute;top:8px;height:22px;background:var(--acc-soft);border:1px solid var(--acc);border-radius:4px;min-width:6px}
+.track .now{position:absolute;top:2px;width:2px;height:34px;background:var(--ink)}
+.track .now span,.track .target span{position:absolute;font-family:var(--f-mono);font-size:.72rem;white-space:nowrap;transform:translateX(-50%)}
+.track .now span{left:1px;color:var(--ink);top:-18px}
+.track .target span{left:50%;color:var(--acc);top:26px}
+.track .tick{position:absolute;bottom:-18px;font-family:var(--f-mono);font-size:.68rem;color:var(--muted);transform:translateX(-50%)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.85rem;color:var(--muted);margin-top:14px}
+.legend i{display:inline-block;width:14px;height:10px;vertical-align:middle;margin-right:6px;border-radius:2px}
+
+/* formas: sim / evitar */
+.shape{display:grid;gap:10px;align-content:start;justify-items:start}
+.shape svg{width:100%;max-width:220px;height:auto}
+.shape use{fill:none;stroke-width:3;stroke-linejoin:round}
+.yes use{stroke:var(--acc)}
+.no use{stroke:var(--muted);opacity:.7}
+.list{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px}
+.list li::before{content:"";width:10px;height:10px;margin-top:8px;border-radius:50%;background:var(--acc)}
+.list.neg li::before{background:transparent;border:1.5px solid var(--bad)}
+
+/* paleta */
+.swatches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sw{display:grid;gap:8px;min-width:0}
+.sw .tile{aspect-ratio:4/3;border-radius:10px;border:1px solid var(--line);max-width:100%}
+.sw small{color:var(--muted);font-size:.82rem}
+
+/* lente: proteção (sol) ou receita (grau) */
+.rx{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.92rem}
+.rx th,.rx td{padding:10px 12px;border-top:1px solid var(--line);text-align:left;white-space:nowrap}
+.rx th{color:var(--muted);font-weight:500;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+.scroll-x{overflow-x:auto;min-width:0}
+.kpi{display:grid;gap:4px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--bg2)}
+.kpi .n{font-family:var(--f-display);font-size:2.4rem;line-height:1}
+.kpi small{color:var(--muted)}
+
+/* estratégia */
+.plan{display:grid;gap:18px;padding:26px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);align-content:start;min-width:0}
+.plan.star{border-color:var(--acc)}
+.plan svg{width:100%;max-width:260px;height:auto}
+.plan use{fill:none;stroke:var(--acc);stroke-width:3;stroke-linejoin:round}
+.plan p{color:var(--muted)}
+
+/* produto */
+.product{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:860px){.product{grid-template-columns:minmax(0,1fr)}}
+.stage{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:34px 24px;display:grid;gap:18px;justify-items:center;min-width:0}
+.stage svg{width:100%;max-width:440px;height:auto}
+.stage .fr{fill:none;stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
+.stage .tag{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);text-align:center}
+.specs{display:grid}
+.spec{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.spec .k{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.price{font-family:var(--f-display);font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;color:var(--ink)}
+.price small{font-family:var(--f-body);font-size:.95rem;color:var(--muted);margin-left:6px}
+.cap{display:grid;gap:6px;margin-top:6px}
+.cap .bar{height:6px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.cap .bar i{position:absolute;inset:0 auto 0 0;background:var(--acc);border-radius:3px;width:0}
+.cap span{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.note{border-left:2px solid var(--warn);padding:4px 0 4px 14px;color:var(--muted);font-size:.95rem;display:grid;gap:6px}
+.note b{color:var(--ink);font-weight:600}
+.note a{font-weight:600;text-decoration:none}
+.note a:hover{text-decoration:underline}
+.code-card{display:grid;gap:6px;padding:18px 20px;border:1px solid var(--acc);border-radius:12px;background:var(--acc-soft);color:var(--muted);font-size:.92rem}
+.big-code{font-size:clamp(1.4rem,3.4vw,2rem);color:var(--ink);letter-spacing:.04em;overflow-wrap:anywhere}
+
+/* o que revisei · pontos fracos */
+.changes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
+@media (max-width:860px){.changes{grid-template-columns:minmax(0,1fr)}}
+.chg{display:grid;gap:8px;align-content:start;padding:18px 0;border-top:1px solid var(--line);min-width:0}
+.chg .chip{justify-self:start}
+.chg p{color:var(--muted);font-size:.95rem}
+.chg b{color:var(--ink);font-weight:600}
+.weak{display:grid;gap:0}
+.weak div{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:18px;padding:16px 0;border-top:1px solid var(--line)}
+@media (max-width:640px){.weak div{grid-template-columns:minmax(0,1fr);gap:6px}}
+.weak p{color:var(--muted)}
+
+/* checklist */
+.check{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;counter-reset:c}
+@media (max-width:760px){.check{grid-template-columns:minmax(0,1fr)}}
+.check>div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;padding:18px 0;border-top:1px solid var(--line);counter-increment:c}
+.check>div::before{content:counter(c);font-family:var(--f-display);font-size:2.2rem;line-height:1;color:var(--acc)}
+.check h3{margin-bottom:4px}
+.check p{color:var(--muted);font-size:.95rem}
+
+/* decisão */
+.final .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media (max-width:760px){.final .row{grid-template-columns:minmax(0,1fr)}}
+.pick{display:grid;gap:10px;padding:26px;border-radius:14px;border:1px solid var(--acc);background:linear-gradient(160deg,var(--acc-soft),transparent 70%);min-width:0}
+.pick .who{font-family:var(--f-display);font-size:2rem;line-height:1.05}
+.steps{display:flex;flex-wrap:wrap;gap:10px}
+.steps span{font-size:.9rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.steps span.done{color:var(--ok);border-color:var(--ok)}
+.src{font-size:.8rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px}
+
+/* navegação */
+.dots{position:fixed;right:max(14px,calc(env(safe-area-inset-right,0px) + 10px));top:50%;transform:translateY(-50%);display:grid;gap:10px;z-index:5}
+.dots button{width:10px;height:10px;border-radius:50%;border:1px solid var(--muted);background:transparent;padding:0;cursor:pointer}
+.dots button[aria-current="true"]{background:var(--acc);border-color:var(--acc)}
+@media (max-width:640px){.dots{display:none}}
+.counter{position:fixed;left:max(16px,calc(env(safe-area-inset-left,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);font-family:var(--f-mono);font-size:.75rem;color:var(--muted);z-index:5;background:color-mix(in srgb,var(--bg) 80%,transparent);padding:4px 10px;border-radius:999px}
+</style>
+
+<!-- DEFS:INICIO · biblioteca de formatos (viewBox 0 0 300 110). f-<forma> = armação; l-<forma> = só as lentes (para preencher com lg-*).
+     Formas: softsq (quadrado suave) · aviador · panto · redondo · retangular · wayfarer · gatinho · clubmaster · geometrico · oval -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" id="defs-armacoes">
+  <defs>
+    <linearGradient id="lg-g15" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E4637"/><stop offset="1" stop-color="#4A6B52"/></linearGradient>
+    <linearGradient id="lg-marrom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2416"/><stop offset="1" stop-color="#9b7352"/></linearGradient>
+    <linearGradient id="lg-cinza" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262a2c"/><stop offset="1" stop-color="#3d4245"/></linearGradient>
+    <linearGradient id="lg-degrade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2b2e"/><stop offset=".55" stop-color="#5a5c60" stop-opacity=".75"/><stop offset="1" stop-color="#b9bcc0" stop-opacity=".25"/></linearGradient>
+    <linearGradient id="lg-clara" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dfeee8" stop-opacity=".55"/><stop offset=".6" stop-color="#ffffff" stop-opacity=".2"/><stop offset="1" stop-color="#b9b0e6" stop-opacity=".35"/></linearGradient>
+    <pattern id="p-tartaruga" width="60" height="40" patternUnits="userSpaceOnUse">
+      <rect width="60" height="40" fill="#6d3f20"/>
+      <ellipse cx="12" cy="10" rx="9" ry="5" fill="#2a170c"/>
+      <ellipse cx="40" cy="28" rx="7" ry="9" fill="#b07032"/>
+      <ellipse cx="48" cy="8" rx="6" ry="4" fill="#3a1f0e"/>
+      <ellipse cx="18" cy="32" rx="5" ry="6" fill="#c08440"/>
+    </pattern>
+    <!-- lentes esquerdas (a direita é espelhada) -->
+    <path id="L-softsq" d="M24 18 H124 Q136 18 135 30 L130 76 Q127 98 104 98 H50 Q26 98 22 76 L16 30 Q15 18 24 18Z"/>
+    <path id="L-aviador" d="M28 20 H126 Q138 20 136 34 Q132 74 106 94 Q86 106 62 100 Q28 90 22 52 Q18 22 28 20Z"/>
+    <path id="L-panto" d="M26 22 H122 Q136 22 134 40 Q130 96 78 98 Q24 98 18 50 Q16 24 26 22Z"/>
+    <path id="L-redondo" d="M36 58 A42 42 0 1 0 120 58 A42 42 0 1 0 36 58Z"/>
+    <path id="L-retangular" d="M20 34 H130 Q136 34 136 40 V78 Q136 84 130 84 H22 Q16 84 16 78 V40 Q16 34 20 34Z"/>
+    <path id="L-wayfarer" d="M14 18 H134 Q138 18 137 23 L130 74 Q126 96 102 96 H50 Q28 96 23 76 L13 24 Q12 18 14 18Z"/>
+    <path id="L-gatinho" d="M8 12 Q40 24 126 24 Q138 24 134 44 Q128 92 82 96 Q32 98 20 62 Q14 38 8 12Z"/>
+    <path id="L-clubmaster" d="M20 40 Q20 96 76 96 Q132 96 132 40 M12 24 H136 Q140 24 139 30 L137 42 H14 L11 30 Q10 24 12 24Z"/>
+    <path id="L-geometrico" d="M42 18 H110 L134 58 L110 98 H42 L18 58Z"/>
+    <path id="L-oval" d="M18 58 A58 36 0 1 0 134 58 A58 36 0 1 0 18 58Z"/>
+    <path id="B-padrao" d="M135 36 Q150 26 165 36 M16 30 L2 28 M284 30 L298 28"/>
+    <path id="B-aviador" d="M126 20 H174 M136 40 Q150 32 164 40 M22 30 L4 28 M278 30 L296 28"/>
+    <symbol id="f-softsq" viewBox="0 0 300 110"><use href="#L-softsq"/><use href="#L-softsq" transform="matrix(-1 0 0 1 300 0)"/><use href="#B-padrao"/></symbol>
+    <symbol id="l-softsq" viewBox="0 0 300 110"><use href="#L-softsq"/><use href="#L-softsq" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-aviador" viewBox="0 0 300 110"><use href="#L-aviador"/><use href="#L-aviador" transform="matrix(-1 0 0 1 300 0)"/><use href="#B-aviador"/></symbol>
+    <symbol id="l-aviador" viewBox="0 0 300 110"><use href="#L-aviador"/><use href="#L-aviador" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-panto" viewBox="0 0 300 110"><use href="#L-panto"/><use href="#L-panto" transform="matrix(-1 0 0 1 300 0)"/><use href="#B-padrao"/></symbol>
+    <symbol id="l-panto" viewBox="0 0 300 110"><use href="#L-panto"/><use href="#L-panto" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-redondo" viewBox="0 0 300 110"><use href="#L-redondo"/><use href="#L-redondo" transform="matrix(-1 0 0 1 300 0)"/><path d="M120 52 Q150 40 180 52 M36 50 L20 46 M264 50 L280 46"/></symbol>
+    <symbol id="l-redondo" viewBox="0 0 300 110"><use href="#L-redondo"/><use href="#L-redondo" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-retangular" viewBox="0 0 300 110"><use href="#L-retangular"/><use href="#L-retangular" transform="matrix(-1 0 0 1 300 0)"/><path d="M136 50 Q150 42 164 50 M16 44 L2 42 M284 44 L298 42"/></symbol>
+    <symbol id="l-retangular" viewBox="0 0 300 110"><use href="#L-retangular"/><use href="#L-retangular" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-wayfarer" viewBox="0 0 300 110"><use href="#L-wayfarer"/><use href="#L-wayfarer" transform="matrix(-1 0 0 1 300 0)"/><use href="#B-padrao"/></symbol>
+    <symbol id="l-wayfarer" viewBox="0 0 300 110"><use href="#L-wayfarer"/><use href="#L-wayfarer" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-gatinho" viewBox="0 0 300 110"><use href="#L-gatinho"/><use href="#L-gatinho" transform="matrix(-1 0 0 1 300 0)"/><use href="#B-padrao"/></symbol>
+    <symbol id="l-gatinho" viewBox="0 0 300 110"><use href="#L-gatinho"/><use href="#L-gatinho" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-clubmaster" viewBox="0 0 300 110"><use href="#L-clubmaster"/><use href="#L-clubmaster" transform="matrix(-1 0 0 1 300 0)"/><path d="M139 32 H161 M10 30 L2 29 M290 30 L298 29"/></symbol>
+    <symbol id="l-clubmaster" viewBox="0 0 300 110"><path d="M20 42 Q20 96 76 96 Q132 96 132 42Z"/><path d="M280 42 Q280 96 224 96 Q168 96 168 42Z"/></symbol>
+    <symbol id="f-geometrico" viewBox="0 0 300 110"><use href="#L-geometrico"/><use href="#L-geometrico" transform="matrix(-1 0 0 1 300 0)"/><path d="M134 50 Q150 40 166 50 M18 54 L2 52 M282 54 L298 52"/></symbol>
+    <symbol id="l-geometrico" viewBox="0 0 300 110"><use href="#L-geometrico"/><use href="#L-geometrico" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+    <symbol id="f-oval" viewBox="0 0 300 110"><use href="#L-oval"/><use href="#L-oval" transform="matrix(-1 0 0 1 300 0)"/><path d="M134 52 Q150 42 166 52 M18 52 L2 50 M282 52 L298 50"/></symbol>
+    <symbol id="l-oval" viewBox="0 0 300 110"><use href="#L-oval"/><use href="#L-oval" transform="matrix(-1 0 0 1 300 0)"/></symbol>
+  </defs>
+</svg>
+<!-- DEFS:FIM -->
+
+<nav class="dots" aria-label="Slides"></nav>
+<div class="counter mono" aria-live="polite">01</div>
+
+<main class="deck {{TEMA_CLASSE}}"><!-- t-sol ou t-grau -->
+
+<!-- 1 · CAPA: tese em uma linha + notação-alvo. -->
+<section class="slide cover" id="capa">
+  <div class="wrap">
+    <span class="eyebrow">Dossiê visagista · {{NOME_CLIENTE}} · {{DATA_EXTENSO}}</span>
+    <h1>{{TITULO_CAPA}}</h1><!-- ex.: "O seu óculos&nbsp;de&nbsp;sol" / "A sua armação de grau" -->
+    <svg class="cover-glasses" viewBox="0 0 300 110" role="img" aria-label="{{CAPA_ALT}}">
+      <use class="lensfill" href="#l-{{CAPA_FORMA}}" style="fill:url(#lg-{{CAPA_LENTE}})"/><!-- sol: g15/marrom/cinza · grau: clara -->
+      <use class="draw" href="#f-{{CAPA_FORMA}}"/>
+    </svg>
+    <div class="notation">
+      <span class="big"><b>{{ALVO_LENTE}}</b>□<b>{{ALVO_PONTE}}</b> <b>{{ALVO_HASTE}}</b></span>
+      <span class="hint">lente □ ponte · haste, em mm: as três medidas que você vai procurar</span>
+    </div>
+    <div class="band" role="presentation"></div>
+    <div class="meta-row"><span>{{META_1}}</span><span>{{META_2}}</span><span>{{META_3}}</span><span>{{META_4}}</span></div>
+    <span class="hint">Role ou use ↓ / → para avançar</span>
+  </div>
+</section>
+
+<!-- 2 · BRIEFING: o pedido nas palavras do cliente. -->
+<section class="slide" id="briefing">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">O pedido</span>
+      <h2>{{BRIEFING_TITULO}}</h2>
+      <p class="lede">{{BRIEFING_LEDE}}</p>
+    </div>
+    <div class="g3">
+      <div class="fact"><span class="k">Tipo</span><span class="v">{{BRIEF_TIPO}}</span></div>
+      <div class="fact"><span class="k">Ocasiões</span><span class="v">{{BRIEF_OCASIOES}}</span></div>
+      <div class="fact"><span class="k">Orçamento</span><span class="v mono">{{BRIEF_ORCAMENTO}}</span></div>
+      <div class="fact"><span class="k">Estilo</span><span class="v">{{BRIEF_ESTILO}}</span></div>
+      <div class="fact"><span class="k">{{BRIEF_K5}}</span><span class="v">{{BRIEF_V5}}</span></div><!-- ex.: Barba/cabelo -->
+      <div class="fact"><span class="k">{{BRIEF_K6}}</span><span class="v">{{BRIEF_V6}}</span></div><!-- ex.: Referência (armação atual) ou Receita -->
+    </div>
+  </div>
+</section>
+
+<!-- 3 · ROSTO: a foto anotada é a prova de cada afirmação. Cada fato leva selo. -->
+<section class="slide" id="rosto">
+  <div class="wrap g2" style="align-items:center">
+    <div class="head" style="gap:18px">
+      <span class="eyebrow">Leitura do rosto</span>
+      <h2>{{ROSTO_TITULO}}</h2>
+      <div>
+        <!-- REPETIR:fato-rosto (4 a 6) -->
+        <div class="fact"><span class="k">{{FATO_K}}</span><span class="v">{{FATO_V}} <span class="chip c-warn">{{FATO_SELO}}</span></span></div>
+        <!-- /REPETIR:fato-rosto -->
+      </div>
+    </div>
+    {{FOTO_ANOTADA_FRENTE}}<!-- fragmento <figure class="photo"> do anotar.py; sem foto, use o rosto esquemático de oculos-de-sol/apresentacao.html -->
+  </div>
+</section>
+
+<!-- 3b · PERFIL (opcional, recomendado): ponte nasal, haste, projeção. Apague se não houver perfil útil. -->
+<section class="slide" id="perfil">
+  <div class="wrap g2" style="align-items:center">
+    {{FOTO_ANOTADA_PERFIL}}
+    <div class="head" style="gap:18px">
+      <span class="eyebrow">De perfil</span>
+      <h2>{{PERFIL_TITULO}}</h2>
+      <p class="lede">{{PERFIL_LEDE}}</p>
+      <div>
+        <!-- REPETIR:fato-perfil (2 a 4) -->
+        <div class="fact"><span class="k">{{FATO_K}}</span><span class="v">{{FATO_V}} <span class="chip c-warn">{{FATO_SELO}}</span></span></div>
+        <!-- /REPETIR:fato-perfil -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · RÉGUA: medidas-alvo. data-min/max = escala; data-alvo="54-56"; data-atual opcional (só entrada B). -->
+<section class="slide" id="regua">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">{{REGUA_EYEBROW}}</span><!-- ex.: "A régua · 51□21 140 → alvo" ou "A régua · medida nas fotos" -->
+      <h2>{{REGUA_TITULO}}</h2>
+      <p class="lede">{{REGUA_LEDE}}</p>
+    </div>
+    <div class="ruler">
+      <div class="rrow">
+        <div class="rlabel"><h3>Lente</h3><span class="mono">escala 45–62 mm</span></div>
+        <div class="track" data-min="45" data-max="62" data-alvo="{{R_LENTE_ALVO}}" data-atual="{{R_LENTE_ATUAL}}"></div>
+      </div>
+      <div class="rrow">
+        <div class="rlabel"><h3>Ponte</h3><span class="mono">escala 14–24 mm</span></div>
+        <div class="track" data-min="14" data-max="24" data-alvo="{{R_PONTE_ALVO}}" data-atual="{{R_PONTE_ATUAL}}"></div>
+      </div>
+      <div class="rrow">
+        <div class="rlabel"><h3>Haste</h3><span class="mono">escala 130–155 mm</span></div>
+        <div class="track" data-min="130" data-max="155" data-alvo="{{R_HASTE_ALVO}}" data-atual="{{R_HASTE_ATUAL}}"></div>
+      </div>
+      <!-- opcional: largura total da frente, escala 120–160 -->
+    </div>
+    <div class="legend"><span><i style="background:var(--ink)"></i>{{LEGENDA_ATUAL}}</span><span><i style="background:var(--acc-soft);border:1px solid var(--acc)"></i>faixa-alvo</span><span>{{LEGENDA_NOTA}}</span></div>
+  </div>
+</section>
+
+<!-- 5 · FORMA: o que sim e o que evitar, sempre com o porquê ligado a ESTE rosto. -->
+<section class="slide" id="forma">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Forma</span>
+      <h2>{{FORMA_TITULO}}</h2>
+      <p class="lede">{{FORMA_LEDE}}</p>
+    </div>
+    <div class="g2">
+      <div class="g2" style="gap:20px">
+        <!-- REPETIR:forma-sim (1 a 2) -->
+        <div class="shape yes"><svg viewBox="0 0 300 110" aria-hidden="true"><use href="#f-{{FORMA_SIM}}"/></svg><h3>{{FORMA_SIM_NOME}}</h3><span class="chip c-acc">{{FORMA_SIM_PAPEL}}</span></div>
+        <!-- /REPETIR:forma-sim -->
+      </div>
+      <div class="g2" style="gap:20px">
+        <!-- REPETIR:forma-nao (1 a 2) -->
+        <div class="shape no"><svg viewBox="0 0 300 110" aria-hidden="true"><use href="#f-{{FORMA_NAO}}"/></svg><h3>{{FORMA_NAO_NOME}}</h3><span class="chip c-bad">{{FORMA_NAO_MOTIVO}}</span></div>
+        <!-- /REPETIR:forma-nao -->
+      </div>
+    </div>
+    <ul class="list neg">
+      <!-- REPETIR:evitar (2 a 4) --><li>{{EVITAR}}</li><!-- /REPETIR:evitar -->
+    </ul>
+  </div>
+</section>
+
+<!-- 6 · COR: pele, contraste e o porquê. 6 amostras. -->
+<section class="slide" id="cor">
+  <div class="wrap g2" style="align-items:center">
+    <div class="head">
+      <span class="eyebrow">Cor</span>
+      <h2>{{COR_TITULO}}</h2>
+      <p class="lede">{{COR_LEDE}}</p>
+    </div>
+    <div class="swatches">
+      <!-- REPETIR:amostra (6). Tile: class="tile tortoise" para havana, ou style="background:..." com a cor real do material. Use chip c-bad em "evitar". -->
+      <div class="sw"><div class="tile" style="background:{{AMOSTRA_CSS}}"></div><h3>{{AMOSTRA_NOME}}</h3><small>{{AMOSTRA_USO}}</small></div>
+      <!-- /REPETIR:amostra -->
+    </div>
+  </div>
+</section>
+
+<!-- 7a · LENTE (SÓ SOL): proteção. -->
+<section class="slide" id="lente" data-so="sol">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Lente</span>
+      <h2>{{LENTE_SOL_TITULO}}</h2><!-- ex.: "Proteção primeiro, cor depois" -->
+      <p class="lede">{{LENTE_SOL_LEDE}}</p>
+    </div>
+    <div class="g3">
+      <div class="kpi"><span class="n">UV400</span><small>{{SOL_UV_TEXTO}}</small></div>
+      <div class="kpi"><span class="n">{{SOL_CATEGORIA}}</span><small>{{SOL_CATEGORIA_TEXTO}}</small></div><!-- ex.: "Cat. 3" -->
+      <div class="kpi"><span class="n">{{SOL_POLARIZADA}}</span><small>{{SOL_POLARIZADA_TEXTO}}</small></div>
+    </div>
+    <div class="swatches">
+      <div class="sw"><div class="tile" style="background:linear-gradient(#2E4637,#4A6B52)"></div><h3>Verde G-15</h3><small>{{SOL_G15}}</small></div>
+      <div class="sw"><div class="tile" style="background:linear-gradient(#262a2c,#3d4245)"></div><h3>Cinza</h3><small>{{SOL_CINZA}}</small></div>
+      <div class="sw"><div class="tile" style="background:linear-gradient(#3a2416,#9b7352)"></div><h3>Marrom</h3><small>{{SOL_MARROM}}</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7b · LENTE (SÓ GRAU): a receita define o que a armação aguenta. -->
+<section class="slide" id="lente" data-so="grau">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Lente e receita</span>
+      <h2>{{LENTE_GRAU_TITULO}}</h2><!-- ex.: "Sua receita pede lente menor e centrada" -->
+      <p class="lede">{{LENTE_GRAU_LEDE}}</p>
+    </div>
+    <div class="scroll-x">
+      <table class="rx">
+        <thead><tr><th></th><th>Esférico</th><th>Cilíndrico</th><th>Eixo</th><th>Adição</th><th>DP</th></tr></thead>
+        <tbody>
+          <tr><td>OD</td><td>{{OD_ESF}}</td><td>{{OD_CIL}}</td><td>{{OD_EIXO}}</td><td>{{ADICAO}}</td><td>{{DP}}</td></tr>
+          <tr><td>OE</td><td>{{OE_ESF}}</td><td>{{OE_CIL}}</td><td>{{OE_EIXO}}</td><td>{{ADICAO}}</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="g3">
+      <div class="kpi"><span class="n">{{GRAU_INDICE}}</span><small>{{GRAU_INDICE_TEXTO}}</small></div><!-- índice sugerido -->
+      <div class="kpi"><span class="n">{{GRAU_DESCENT}}</span><small>{{GRAU_DESCENT_TEXTO}}</small></div><!-- descentração por olho -->
+      <div class="kpi"><span class="n">{{GRAU_ALTURA}}</span><small>{{GRAU_ALTURA_TEXTO}}</small></div><!-- altura mínima (multifocal) ou espessura -->
+    </div>
+    <p class="hint">Antirreflexo sempre. Filtro de luz azul é opcional: a evidência de benefício para a saúde ocular é fraca.</p>
+  </div>
+</section>
+
+<!-- 8 · ESTRATÉGIA: 1 curinga, ou curinga + complemento. -->
+<section class="slide" id="estrategia">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A estratégia</span>
+      <h2>{{ESTRATEGIA_TITULO}}</h2>
+    </div>
+    <div class="g2">
+      <div class="plan star">
+        <span class="eyebrow">{{PLANO1_EYEBROW}}</span>
+        <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#f-{{PLANO1_FORMA}}"/></svg>
+        <h3>{{PLANO1_TITULO}}</h3>
+        <p>{{PLANO1_TEXTO}}</p>
+      </div>
+      <div class="plan">
+        <span class="eyebrow">{{PLANO2_EYEBROW}}</span>
+        <svg viewBox="0 0 300 110" aria-hidden="true"><use href="#f-{{PLANO2_FORMA}}"/></svg>
+        <h3>{{PLANO2_TITULO}}</h3>
+        <p>{{PLANO2_TEXTO}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPETIR:produto (3 a 5 slides). Ilustração do formato, nunca foto de produto. -->
+<section class="slide" id="{{PROD_ID}}">
+  <div class="wrap product">
+    <div class="stage">
+      <span class="eyebrow">{{PROD_PAPEL}}</span><!-- ex.: "Curinga 1 · favorito" -->
+      <svg viewBox="0 0 300 110" role="img" aria-label="{{PROD_ALT}}">
+        <use href="#l-{{PROD_FORMA}}" style="fill:url(#lg-{{PROD_LENTE}})"/>
+        <use href="#f-{{PROD_FORMA}}" class="fr" style="stroke:{{PROD_COR_ARMACAO}}"/><!-- cor real do material; tartaruga: url(#p-tartaruga) -->
+      </svg>
+      <span class="tag">Ilustração do formato, não é foto do produto</span>
+    </div>
+    <div style="display:grid;gap:20px;min-width:0">
+      <div class="head" style="gap:10px">
+        <h2>{{PROD_NOME}}</h2>
+        <span class="mono" style="color:var(--muted);overflow-wrap:anywhere">{{PROD_CODIGO}} · {{PROD_SUB}}</span>
+      </div>
+      <div>
+        <div class="price">{{PROD_PRECO}}<small>{{PROD_PARCELAS}}</small></div><!-- "R$ 199,99" exatamente como no dados.json -->
+        <div class="cap" data-preco="{{PROD_PRECO_NUM}}" data-teto="{{TETO_NUM}}"><div class="bar"><i></i></div><span><span class="pct"></span> <span class="chip c-ok">lido {{PROD_LIDO}}</span></span></div>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="k">Medidas</span><span><span class="mono">{{PROD_MEDIDAS}}</span> · {{PROD_MEDIDAS_LEITURA}} <span class="chip c-ok">✓</span></span></div>
+        <div class="spec"><span class="k">Armação</span><span>{{PROD_ARMACAO}}</span></div>
+        <div class="spec"><span class="k">Lente</span><span>{{PROD_LENTE_TEXTO}}</span></div>
+      </div>
+      <div class="note">
+        <span><b>Por que entra:</b> {{PROD_PORQUE}}</span>
+        <span><b>O que você perde:</b> {{PROD_PERDE}}</span>
+        <span><b>Estoque:</b> {{PROD_ESTOQUE}} <span class="chip c-warn">incerto</span></span>
+        <a href="{{PROD_URL}}">Ver o produto na loja oficial →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /REPETIR:produto -->
+
+<!-- 10 · O QUE REVISEI: mostra o raciocínio da autocrítica (nunca a v0). 3 a 6 cartões. -->
+<section class="slide" id="revisei">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Antes de chegar a você</span>
+      <h2>{{REVISEI_TITULO}}</h2><!-- ex.: "O que eu questionei e mudei" -->
+      <p class="lede">{{REVISEI_LEDE}}</p>
+    </div>
+    <div class="changes">
+      <!-- REPETIR:mudanca. chip: c-bad "saiu" · c-acc "ajustado" · c-ok "confirmado" -->
+      <div class="chg"><span class="chip {{MUD_CHIP_CLASSE}}">{{MUD_CHIP}}</span><h3>{{MUD_TITULO}}</h3><p>{{MUD_TEXTO}}</p></div>
+      <!-- /REPETIR:mudanca -->
+    </div>
+  </div>
+</section>
+
+<!-- 11 · PONTOS FRACOS ASSUMIDOS: o que pode estar errado e como conferir. -->
+<section class="slide" id="fracos">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Pontos fracos, assumidos</span>
+      <h2>{{FRACOS_TITULO}}</h2><!-- ex.: "O que a foto não mostra" -->
+    </div>
+    <div class="weak">
+      <!-- REPETIR:fraco (3 a 5) -->
+      <div><h3>{{FRACO_TITULO}}</h3><p>{{FRACO_TEXTO}}</p></div>
+      <!-- /REPETIR:fraco -->
+    </div>
+  </div>
+</section>
+
+<!-- 12 · CHECKLIST NA LOJA: 6 testes. Sol: polarização + UV400. Grau: DP/altura medidas pela ótica + antirreflexo. -->
+<section class="slide" id="checklist">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Na loja</span>
+      <h2>Seis testes antes de pagar</h2>
+    </div>
+    <div class="check">
+      <div><div><h3>Largura</h3><p>A armação chega à borda do rosto, sem apertar as têmporas e sem sobrar mais de um dedo.</p></div></div>
+      <div><div><h3>Teste do sorriso</h3><p>Sorria e balance a cabeça. O óculos não desce e a lente não encosta na bochecha.</p></div></div>
+      <div><div><h3>Sobrancelha</h3><p>{{CHECK_SOBRANCELHA}}</p></div></div>
+      <div><div><h3>Haste</h3><p>Curva atrás da orelha sem pressionar. {{CHECK_HASTE}}</p></div></div>
+      <div data-so="sol"><div><h3>Polarização</h3><p>Olhe a tela do celular e gire a cabeça 90°. Se a tela escurecer, é polarizada de verdade.</p></div></div>
+      <div data-so="sol"><div><h3>UV400</h3><p>Procure o selo na etiqueta ou gravado na haste.</p></div></div>
+      <div data-so="grau"><div><h3>Medidas pela ótica</h3><p>Peça para medir a DP e a altura com a armação escolhida no rosto. Não use a medida de outra armação.</p></div></div>
+      <div data-so="grau"><div><h3>Lente na armação</h3><p>{{CHECK_GRAU_LENTE}}</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · DECISÃO: o slide que responde "o que eu compro?" em 5 segundos. -->
+<section class="slide final" id="decisao">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A decisão proposta</span>
+      <h2>{{DECISAO_TITULO}}</h2>
+      <p class="lede">{{DECISAO_LEDE}}</p>
+    </div>
+    <div class="row">
+      <div class="pick">
+        <span class="eyebrow">{{PICK1_EYEBROW}}</span>
+        <span class="who">{{PICK1_NOME}}</span>
+        <span class="mono">{{PICK1_LINHA}}</span><!-- medidas · preço -->
+        <span class="hint">{{PICK1_PLANO_B}}</span>
+      </div>
+      <div class="pick">
+        <span class="eyebrow">{{PICK2_EYEBROW}}</span>
+        <span class="who">{{PICK2_NOME}}</span>
+        <span class="mono">{{PICK2_LINHA}}</span>
+        <span class="hint">{{PICK2_TOTAL}}</span>
+      </div>
+    </div>
+    <div class="steps">
+      <span class="done">✓ Rosto medido nas fotos</span>
+      <span class="done">✓ Recomendações revisadas</span>
+      <span>{{PASSO_1}}</span>
+      <span>{{PASSO_2}}</span>
+      <span>Comprar</span>
+    </div>
+    <div class="band" role="presentation"></div>
+    <div class="src">
+      <span>{{FONTE_DATA}}</span><!-- ex.: "Preços de 11/11/2026 nas lojas oficiais. Mudam toda semana." -->
+      <span><span class="chip c-ok">✓</span> lido na página ou medido</span>
+      <span><span class="chip c-warn">!</span> estimativa</span>
+      <span><span class="chip c-unk">?</span> não achei</span>
+    </div>
+    <div class="src">
+      <!-- REPETIR:link --><a href="{{LINK_URL}}">{{LINK_TEXTO}}</a><!-- /REPETIR:link -->
+    </div>
+    <p class="hint">As fotos aparecem só nesta apresentação e não são guardadas em outro lugar.</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+  // réguas: data-min, data-max, data-alvo="a-b", data-atual (opcional)
+  [].forEach.call(document.querySelectorAll('.track[data-min]'),function(t){
+    var mn=+t.dataset.min, mx=+t.dataset.max, pct=function(v){return Math.max(0,Math.min(100,(v-mn)/(mx-mn)*100))};
+    var al=(t.dataset.alvo||'').split(/[-–]/).map(Number);
+    if(al.length&&!isNaN(al[0])){var a=al[0],b=isNaN(al[1])?al[0]:al[1];
+      var g=document.createElement('div');g.className='target';g.style.left=pct(a)+'%';g.style.width=Math.max(pct(b)-pct(a),1.5)+'%';
+      var s=document.createElement('span');s.textContent=a===b?String(a):a+'–'+b;g.appendChild(s);t.appendChild(g);}
+    var at=parseFloat(t.dataset.atual);
+    if(!isNaN(at)){var n=document.createElement('div');n.className='now';n.style.left=pct(at)+'%';
+      var ns=document.createElement('span');ns.textContent=at+' hoje';n.appendChild(ns);t.appendChild(n);}
+    [mn,mx].forEach(function(v,i){var k=document.createElement('span');k.className='tick';k.style.left=(i?100:0)+'%';k.textContent=v;t.appendChild(k);});
+  });
+  // barra de preço: data-preco, data-teto
+  [].forEach.call(document.querySelectorAll('.cap[data-preco]'),function(c){
+    var p=parseFloat(c.dataset.preco), t=parseFloat(c.dataset.teto);
+    if(isNaN(p)||isNaN(t)||t<=0)return;
+    var r=p/t; c.querySelector('.bar i').style.width=Math.min(100,r*100)+'%';
+    var o=c.querySelector('.pct'); if(o)o.textContent=Math.round(r*100)+'% do teto de R$ '+t.toLocaleString('pt-BR');
+  });
+  // navegação
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var dots=document.querySelector('.dots'), counter=document.querySelector('.counter');
+  var cur=0, pad=function(n){return (n<10?'0':'')+n};
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.type='button'; b.setAttribute('aria-label','Ir para o slide '+(i+1));
+    b.addEventListener('click',function(){go(i)});
+    dots.appendChild(b);
+  });
+  function mark(i){
+    cur=i; counter.textContent=pad(i+1)+' / '+pad(slides.length);
+    [].forEach.call(dots.children,function(b,j){b.setAttribute('aria-current',j===i?'true':'false')});
+  }
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i)); slides[i].scrollIntoView({block:'start'}); mark(i)}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)mark(slides.indexOf(e.target))})},{threshold:0.55});
+    slides.forEach(function(s){io.observe(s)});
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(['ArrowDown','ArrowRight','PageDown',' '].indexOf(e.key)>-1){e.preventDefault();go(cur+1)}
+    else if(['ArrowUp','ArrowLeft','PageUp'].indexOf(e.key)>-1){e.preventDefault();go(cur-1)}
+    else if(e.key==='Home'){e.preventDefault();go(0)}
+    else if(e.key==='End'){e.preventDefault();go(slides.length-1)}
+  });
+  mark(0);
+})();
+</script>

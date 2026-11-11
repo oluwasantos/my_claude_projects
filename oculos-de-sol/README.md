@@ -1,5 +1,7 @@
 # Óculos de sol: visagismo e escolha
 
+> Este caso virou a skill [`/visagismo-oculos`](../.claude/skills/visagismo-oculos/SKILL.md), que repete o processo para qualquer rosto, de sol ou de grau.
+
 Objetivo: achar **1 óculos de sol curinga**, ou **2 complementares**, que harmonizem com o rosto e sirvam em qualquer situação, de casamento ao ar livre a dia casual de sol.
 
 ## Restrições (decididas)
