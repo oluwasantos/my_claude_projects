@@ -216,6 +216,11 @@ def checar_html(caminho, tipo, prods, tem_foto=False):
             erro("Há foto de frente com escala, mas falta o slide #provador (rode scripts/provador.py).")
         else:
             no_prov = set(re.findall(r'data-produto="([^"]+)"', sem_coment))
+            if 'data-modo-provador="foto"' in sem_coment:
+                for pid in re.findall(r'data-produto="([^"]+)" data-modo="desenho só da largura', sem_coment):
+                    aviso(f"Provador em modo foto, mas '{pid}' ficou desenhado (sem foto de frente). Procure a mesma armação em outra cor ou código irmão.")
+            if len(re.findall(r'<p class="hint" data-modo="(foto|desenho)"', sem_coment)) > 1:
+                erro("O slide #provador tem as duas legendas (foto e desenho): use manter_modo().")
             for p in prods:
                 if p.get("papel") != "referencia" and p.get("id") not in no_prov:
                     erro(f"{p.get('marca')} {p.get('codigo')}: falta o cartão no provador (data-produto=\"{p.get('id')}\").")

@@ -3,11 +3,12 @@
 
 Uso típico (rodando da pasta do caso):
     import sys; sys.path.insert(0, "<SKILL>/scripts")
-    from preencher import carregar_template, repetir, slots, manter_tipo, brl, faltando
+    from preencher import carregar_template, repetir, slots, manter_tipo, manter_modo, brl, faltando
     t = carregar_template()
     t = repetir(t, "produto", [ {...slots do produto 1...}, {...} ])   # duplica o bloco REPETIR:produto
     t = repetir(t, "fato-rosto", [ {"FATO_K": "Formato", "FATO_V": "...", "FATO_SELO": "foto"}, ... ])
     t = manter_tipo(t, "sol")                                            # apaga os blocos data-so do outro tipo
+    t = manter_modo(t, "foto")                                           # legenda do provador: "foto" ou "desenho"
     t = slots(t, {"TITULO_PAGINA": "...", "FOTO_ANOTADA_FRENTE": open("rascunho/frente.fig.html").read(), ...})
     print(faltando(t)); open("apresentacao.html", "w").write(t)
 
@@ -53,6 +54,13 @@ def manter_tipo(t, tipo):
     t = re.sub(r'\n<!-- [^\n]*\(SÓ %s\)[^\n]*-->\n<section[^>]*data-so="%s".*?</section>\n' % (outro.upper(), outro), "\n", t, flags=re.S)
     t = re.sub(r'\s*<div data-so="%s">.*?</div></div>' % outro, "", t, flags=re.S)
     return t.replace(' data-so="%s"' % tipo, "")
+
+
+def manter_modo(t, modo):
+    """Provador: mantém a legenda do modo usado no provador.py (foto ou desenho) e apaga a outra."""
+    outro = {"foto": "desenho", "desenho": "foto"}[modo]
+    t = re.sub(r'\s*<p class="hint" data-modo="%s">.*?</p>' % outro, "", t, flags=re.S)
+    return t.replace(' data-modo="%s"' % modo, "", 1)
 
 
 def faltando(t):

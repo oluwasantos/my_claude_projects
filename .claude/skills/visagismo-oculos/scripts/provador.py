@@ -155,6 +155,37 @@ def refinar_lente(pr, opaco, lente):
     return m.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
 
 
+def sintetizar_lente(pr, lente):
+    """Cor da lente sem a haste que aparece por trás dela na foto de estúdio.
+    Para cada linha da lente, mediana das cores descartando os ~35% mais escuros (a haste é mais escura que
+    a lente); depois suaviza na vertical. O degradê (escuro em cima, claro embaixo) continua; a haste some."""
+    import numpy as np
+    rgb = np.asarray(pr.convert("RGB"), dtype=np.float32)
+    m = np.asarray(lente) > 0
+    h, w = m.shape
+    lum = rgb.mean(axis=2)
+    linhas = np.full((h, 3), np.nan, dtype=np.float32)
+    for y in range(h):
+        sel = m[y]
+        if sel.sum() < 4:
+            continue
+        px, lv = rgb[y][sel], lum[y][sel]
+        corte = np.percentile(lv, 35)
+        claros = px[lv >= corte]
+        linhas[y] = np.median(claros if len(claros) else px, axis=0)
+    ok = ~np.isnan(linhas[:, 0])
+    if not ok.any():
+        return pr.convert("RGB")
+    ys = np.arange(h)
+    for c in range(3):  # preenche linhas sem lente por interpolação, para a borda não sair branca
+        linhas[:, c] = np.interp(ys, ys[ok], linhas[ok, c])
+    k = max(3, h // 25)
+    ker = np.ones(k) / k
+    suave = np.stack([np.convolve(np.pad(linhas[:, c], (k // 2, k - 1 - k // 2), mode="edge"), ker, mode="valid") for c in range(3)], axis=1)
+    img = np.repeat(suave[:, None, :], w, axis=1).clip(0, 255).astype("uint8")
+    return Image.fromarray(img, "RGB")
+
+
 def compor(base, prod, cx, cy, ang, largura_px, ancora_y=0.45, aro_px=None):
     """Cola a armação da foto de catálogo no rosto, em escala e inclinada como a cabeça.
     Devolve (imagem, altura_da_armação_em_px_de_saída, altura_da_lente_em_px_de_saída).
@@ -175,8 +206,7 @@ def compor(base, prod, cx, cy, ang, largura_px, ancora_y=0.45, aro_px=None):
         col = [lente.getpixel((int(w * fx), y)) for y in range(h)]
         alt_lente = max(alt_lente, sum(1 for v in col if v > 0))
     # mediana larga o bastante para apagar a haste vista por trás da lente na foto de estúdio
-    k_med = min(35, max(3, (w // 22) | 1))
-    cor_lente = pr.convert("RGB").filter(ImageFilter.MedianFilter(k_med))
+    cor_lente = sintetizar_lente(pr, lente)
     cor_lente = cor_lente.point(lambda v: int(255 * (v / 255) ** 1.35))  # lente de sol escurece mais que na foto de estúdio
     alfa_aro = ImageChops.subtract(alfa.filter(ImageFilter.MinFilter(3)), lente)
     camada_aro = pr.copy(); camada_aro.putalpha(alfa_aro)
@@ -235,8 +265,12 @@ def main():
     ap.add_argument("--lado-max", type=int, default=760)
     ap.add_argument("--foto-oculos", default="", help="foto de frente COM a armação atual: vira o cartão 'seus óculos de hoje' (foto real)")
     ap.add_argument("--pasta-produtos", default="rascunho/produtos", help="cache das fotos de produto baixadas")
-    ap.add_argument("--so-desenho", action="store_true", help="ignora foto_frente_url e desenha todas as armações")
+    ap.add_argument("--modo", choices=["foto", "desenho"], default="foto",
+                    help="foto: foto oficial de cada produto (padrão); desenho: todos os cartões vetoriais, inclusive a armação atual")
+    ap.add_argument("--so-desenho", action="store_true", help="atalho antigo para --modo desenho")
     a = ap.parse_args()
+    if a.so_desenho:
+        a.modo = "desenho"
     D = json.load(open(a.dados, encoding="utf-8"))
     M = json.load(open(a.medidas, encoding="utf-8"))
     PJ = json.load(open(a.pontos, encoding="utf-8"))
@@ -281,7 +315,7 @@ def main():
                       "material": at.get("material", ""), "cor": at.get("cor", ""), "lente_tipo": "clara"})
     itens.sort(key=lambda p: ORDEM.get(p.get("papel"), 9))
 
-    cards, linhas, alturas = [], [], {}
+    cards, linhas, alturas, faltam_fotos = [], [], {}, []
     for p in itens:
         forma = p.get("formato", "softsq")
         if forma not in FORMAS:
@@ -317,10 +351,14 @@ def main():
                 f, v = alvo_p.get(campo), p.get(campo)
                 if f and v is not None and not (f[0] <= v <= f[1]):
                     avisos.append(f"{campo} {v} fora do alvo")
+        # altura registrada no dados.json (lida ou estimada pela foto oficial): alerta igual nos dois modos
+        amax_d = (M.get("alvo") or {}).get("altura_lente_max")
+        if amax_d and p.get("altura") and p["altura"] > amax_d + 3:
+            avisos.append(f"altura ≈ {p['altura']:.0f} mm: pode tocar a maçã")
         nome = nome_de(p)
         star = " star" if p.get("papel") == "curinga" else ""
         modo, corpo = "desenho", None
-        if p.get("papel") == "atual" and a.foto_oculos and PJ.get("com_oculos_frente") and esc_.get("com_oculos_mm_por_px"):
+        if a.modo == "foto" and p.get("papel") == "atual" and a.foto_oculos and PJ.get("com_oculos_frente") and esc_.get("com_oculos_mm_por_px"):
             # a foto real com os óculos de hoje, enquadrada igual às outras (mesma escala e centro nas pupilas)
             B = PJ["com_oculos_frente"]["pontos"]
             r = s / esc_["com_oculos_mm_por_px"]
@@ -336,7 +374,7 @@ def main():
                     guiasB += f'<line x1="{x:.1f}" y1="{H*0.14:.1f}" x2="{x:.1f}" y2="{H*0.62:.1f}" style="stroke:rgba(255,255,255,.8);stroke-width:{max(1.5, W/260):.1f};stroke-dasharray:{W/90:.1f} {W/120:.1f}"/>'
             corpo = f'<image href="data:image/jpeg;base64,{pb64}" width="{W}" height="{H}"/>{guiasB or guias}'
             modo = "sua foto real"
-        elif p.get("foto_frente_url") and not a.so_desenho:
+        elif p.get("foto_frente_url") and a.modo == "foto":
             os.makedirs(a.pasta_produtos, exist_ok=True)
             ext = os.path.splitext(p["foto_frente_url"].split("?")[0])[1] or ".jpg"
             arq = baixar(p["foto_frente_url"], os.path.join(a.pasta_produtos, f"{p.get('id')}{ext}"))
@@ -347,12 +385,12 @@ def main():
             altura_lente_mm = h_lente * mm_px
             amax = ((M.get("alvo") or {}).get("altura_lente_max"))
             # só alerta acima da margem somada das duas estimativas (foto do rosto e foto do produto, ≈ ±3 mm)
-            if amax and altura_lente_mm > amax + 3:
+            if amax and altura_lente_mm > amax + 3 and p.get("altura") is None:
                 avisos.append(f"altura ≈ {altura_lente_mm:.0f} mm: pode tocar a maçã")
             alturas[p.get("id")] = round(altura_lente_mm)
             pb64, _ = jpeg_b64(comp)
             corpo = f'<image href="data:image/jpeg;base64,{pb64}" width="{W}" height="{H}"/>{guias}'
-            modo = "foto da loja"
+            modo = p.get("foto_frente_origem") or "foto da loja"
         if corpo is None:
             corpo = (f'<use href="#prov-foto"/>{guias}'
                      f'<g transform="{tr}">'
@@ -360,8 +398,11 @@ def main():
                      f'<use href="#f-{forma}" width="300" height="110" style="fill:none;stroke:rgba(255,255,255,.28);stroke-width:{halo:.2f};stroke-linejoin:round"/>'
                      f'<use href="#f-{forma}" width="300" height="110" style="fill:none;stroke:{cor};stroke-width:{aro:.2f};stroke-linejoin:round;stroke-linecap:round"/>'
                      f'</g>')
-            if p.get("papel") != "atual":
+            if a.modo == "desenho":
+                modo = "desenho em escala"
+            elif p.get("papel") != "atual":
                 modo = "desenho só da largura (a loja não tem foto de frente)"
+                faltam_fotos.append(p.get("id"))
         cards.append(
             f'<figure class="prov-card{star}" data-produto="{esc(p.get("id"))}" data-modo="{esc(modo)}">\n'
             f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="{esc(nome)} no rosto, em escala ({esc(modo)})">'
@@ -375,7 +416,7 @@ def main():
             + '</figcaption>\n</figure>')
         linhas.append(f"  {p.get('id'):<16} {modo[:12]:<12} {forma:<10} frente {mm:5.1f} mm ({origem}) · {veredito}" + (f" · {'; '.join(avisos)}" if avisos else ""))
 
-    frag = (f'<div class="provador">\n<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
+    frag = (f'<div class="provador" data-modo-provador="{a.modo}">\n<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
             f'<image id="prov-foto" href="data:image/jpeg;base64,{b64}" width="{W}" height="{H}"/></defs></svg>\n'
             + "\n".join(cards) + "\n</div>\n")
     with open(a.saida, "w", encoding="utf-8") as fh:
@@ -383,6 +424,9 @@ def main():
     print(f"{a.saida}: {len(cards)} cartões · foto {W}x{H}px ({kb:.0f} KB, embutida uma vez) · fragmento {len(frag)/1024:.0f} KB")
     print(f"escala {s:.4f} mm/px ({fonte}) · têmporas ≈ {temporas:.0f} mm" if temporas else f"escala {s:.4f} mm/px ({fonte})")
     print("\n".join(linhas))
+    if faltam_fotos:
+        print("⚠ sem foto de frente (ficaram desenhados):", ", ".join(faltam_fotos),
+              "→ procure a mesma armação em outra cor ou código irmão e registre foto_frente_url + foto_frente_origem")
     if alturas:
         print("altura da lente pela foto oficial (⚠️ estimada; registre em dados.produtos[].altura):", alturas)
     if a.preview:

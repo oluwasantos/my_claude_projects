@@ -24,7 +24,7 @@ Use WebSearch para achar a página e **leia a página** (WebFetch ou o agente `w
 - **Estoque.** "Esgotado" na página pode ser texto fixo do site. Registre `estoque: "incerto"` e mande checar pelo CEP ou ligar para a loja.
 - **Foto de frente do produto (para o provador).** Ache na página a imagem do produto em 1000 px ou mais e **olhe** cada uma antes de escolher: o nome do arquivo não diz a vista.
   - No caso real, a `--1-` era a frente no 5317 e no 3614, mas a lateral no 5127, cuja frente era a `--2-`.
-  - O 4000 não tinha nenhuma foto de frente: ficou com o desenho.
+  - O 4000 não tinha foto de frente, mas o 4351 (mesma armação 62□15 142, mesma cor) tinha. Use a foto dele e registre `foto_frente_origem: "foto da mesma armação (código 4351)"`.
   - Registre a URL escolhida em `foto_frente_url`. Só foto da loja oficial, usada só nesta apresentação privada.
 - **Nos slides de produto,** continue com a ilustração SVG do formato, na cor real, e o link para a loja.
 - **Confira o formato pela foto:** o 5127, tratado como quadrado suave, era um wayfarer.

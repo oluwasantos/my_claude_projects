@@ -52,6 +52,14 @@ Base: `assets/template.html`. Referência de qualidade já aprovada pelo usuári
 - É simulação: tamanho e formato fiéis à escala; cor, brilho e perspectiva aproximados. A legenda fixa do template diz isso; não a apague.
 - Sem foto de frente com escala (sem íris nítida nem armação conhecida), apague o slide `#provador`.
 
+## Duas versões: foto e desenho
+
+- **Foto (padrão):** `provador.py --modo foto`, com a foto oficial de cada produto. É a que mais impressiona quando a loja tem foto de frente limpa.
+  - A cor da lente é **recomposta** linha a linha a partir da foto, descartando os pixels escuros: some a haste que aparece por trás da lente nas fotos de estúdio, e o degradê continua.
+  - Sem foto de frente, procure a **mesma armação** em outra cor ou código irmão com as mesmas medidas (no caso real: o 4000 usou a foto do 4351) e registre `foto_frente_origem`, que aparece no cartão.
+- **Desenho:** `provador.py --modo desenho`. Todos os cartões vetoriais, inclusive a armação atual. Mais limpo e uniforme, sem os defeitos de recorte; formato e altura genéricos.
+- Para o cliente comparar, monte as duas a partir do mesmo `dados.json`, aplicando `manter_modo(t, "foto"|"desenho")` do `preencher.py`, que deixa só a legenda certa. Publique como dois artifacts com títulos distintos (ex.: "Dossiê Óculos de Sol" e "Dossiê Óculos Ilustrado"). Os vereditos e alertas têm de sair iguais nas duas.
+
 ## Texto
 
 - Português do Brasil, segunda pessoa ("seu rosto", "você"), frases curtas, sem jargão sem explicação.

@@ -53,7 +53,8 @@ Selos (`conf`): `ok` = ✅ lido na página, informado pelo cliente ou medido na 
       "nome_curto": null,         // opcional: nome no cartão do provador (padrão: forma + número do código)
       "rotulo": null,             // opcional: papel no cartão (ex.: "Plano B", "O que você quis provar")
       "foto_frente_url": "https://…/OC.CL.5317-0202…--1-.jpg",  // foto de FRENTE da loja oficial, conferida a olho; vai para o provador
-      "ancora_y": 0.45            // opcional: altura da pupila dentro da armação no provador
+      "ancora_y": 0.45,           // opcional: altura da pupila dentro da armação no provador
+      "foto_frente_origem": null  // opcional: quando a foto é de outro código com a mesma armação, ex.: "foto da mesma armação (código 4351)"
     }
   ],
   "combos": [{"nome":"curinga + aviador", "itens":["curinga-1","complemento"], "total":499.97}],
