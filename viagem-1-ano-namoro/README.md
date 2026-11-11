@@ -2,6 +2,8 @@
 
 **Ouro Preto**, sex 6/11 a dom 8/11/2026, saindo de BH · 2 pessoas · ônibus Pássaro Verde: **ida sexta 11h, volta domingo 16h** ✅ (compradas em 5/nov) · estadia ✅ paga · sem Tiradentes/São João del-Rei.
 
+> **Status: viagem realizada em 6–8/11/2026 (foi incrível). Projeto concluído.**
+
 ## Andamento
 - [x] 01 Destino → [01-destino.md](01-destino.md)
 - [x] 02 Faixas de preço → [02-faixas-de-preco.md](02-faixas-de-preco.md)
