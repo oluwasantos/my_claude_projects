@@ -6,7 +6,8 @@ Uso (da pasta do caso):
       --saida rascunho/provador.fig.html [--preview rascunho/provador.preview.html] [--sem-atual] [--com-referencia]
 
 Para cada produto (curinga, complemento, alternativa; referência só com --com-referencia) e para a
-armação atual (entrada B), desenha o formato da biblioteca do template na largura real da frente:
+armação atual (entrada B), cola a foto oficial de frente do produto (foto_frente_url) no rosto, na largura
+real da frente; sem foto de frente, desenha o formato da biblioteca do template como último recurso:
   frente (mm) = largura_total lida na página ou 2·lente + ponte + 12 (estimada)
   frente (px) = frente (mm) ÷ escala da foto de frente (medidas.escala.frente_mm_por_px_*)
 centrada e inclinada pela linha das pupilas. Aro com a cor (cor_css ou cor) e a espessura do material;
@@ -267,12 +268,7 @@ def main():
     ap.add_argument("--lado-max", type=int, default=760)
     ap.add_argument("--foto-oculos", default="", help="foto de frente COM a armação atual: vira o cartão 'seus óculos de hoje' (foto real)")
     ap.add_argument("--pasta-produtos", default="rascunho/produtos", help="cache das fotos de produto baixadas")
-    ap.add_argument("--modo", choices=["foto", "desenho"], default="foto",
-                    help="foto: foto oficial de cada produto (padrão); desenho: todos os cartões vetoriais, inclusive a armação atual")
-    ap.add_argument("--so-desenho", action="store_true", help="atalho antigo para --modo desenho")
     a = ap.parse_args()
-    if a.so_desenho:
-        a.modo = "desenho"
     D = json.load(open(a.dados, encoding="utf-8"))
     M = json.load(open(a.medidas, encoding="utf-8"))
     PJ = json.load(open(a.pontos, encoding="utf-8"))
@@ -362,7 +358,7 @@ def main():
         nome = nome_de(p)
         star = " star" if p.get("papel") == "curinga" else ""
         modo, corpo = "desenho", None
-        if a.modo == "foto" and p.get("papel") == "atual" and a.foto_oculos and PJ.get("com_oculos_frente") and esc_.get("com_oculos_mm_por_px"):
+        if p.get("papel") == "atual" and a.foto_oculos and PJ.get("com_oculos_frente") and esc_.get("com_oculos_mm_por_px"):
             # a foto real com os óculos de hoje, enquadrada igual às outras (mesma escala e centro nas pupilas)
             B = PJ["com_oculos_frente"]["pontos"]
             r = s / esc_["com_oculos_mm_por_px"]
@@ -378,7 +374,7 @@ def main():
                     guiasB += f'<line x1="{x:.1f}" y1="{H*0.14:.1f}" x2="{x:.1f}" y2="{H*0.62:.1f}" style="stroke:rgba(255,255,255,.8);stroke-width:{max(1.5, W/260):.1f};stroke-dasharray:{W/90:.1f} {W/120:.1f}"/>'
             corpo = f'<image href="data:image/jpeg;base64,{pb64}" width="{W}" height="{H}"/>{guiasB or guias}'
             modo = "sua foto real"
-        elif p.get("foto_frente_url") and a.modo == "foto":
+        elif p.get("foto_frente_url"):
             os.makedirs(a.pasta_produtos, exist_ok=True)
             ext = os.path.splitext(p["foto_frente_url"].split("?")[0])[1] or ".jpg"
             arq = baixar(p["foto_frente_url"], os.path.join(a.pasta_produtos, f"{p.get('id')}{ext}"))
@@ -402,9 +398,7 @@ def main():
                      f'<use href="#f-{forma}" width="300" height="110" style="fill:none;stroke:rgba(255,255,255,.28);stroke-width:{halo:.2f};stroke-linejoin:round"/>'
                      f'<use href="#f-{forma}" width="300" height="110" style="fill:none;stroke:{cor};stroke-width:{aro:.2f};stroke-linejoin:round;stroke-linecap:round"/>'
                      f'</g>')
-            if a.modo == "desenho":
-                modo = "desenho em escala"
-            elif p.get("papel") != "atual":
+            if p.get("papel") != "atual":  # último recurso: nem a loja nem uma armação equivalente têm foto de frente
                 modo = "desenho só da largura (a loja não tem foto de frente)"
                 faltam_fotos.append(p.get("id"))
         cards.append(
@@ -420,7 +414,7 @@ def main():
             + '</figcaption>\n</figure>')
         linhas.append(f"  {p.get('id'):<16} {modo[:12]:<12} {forma:<10} frente {mm:5.1f} mm ({origem}) · {veredito}" + (f" · {'; '.join(x[1] if isinstance(x, tuple) else x for x in avisos)}" if avisos else ""))
 
-    frag = (f'<div class="provador" data-modo-provador="{a.modo}">\n<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
+    frag = (f'<div class="provador">\n<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
             f'<image id="prov-foto" href="data:image/jpeg;base64,{b64}" width="{W}" height="{H}"/></defs></svg>\n'
             + "\n".join(cards) + "\n</div>\n")
     with open(a.saida, "w", encoding="utf-8") as fh:
