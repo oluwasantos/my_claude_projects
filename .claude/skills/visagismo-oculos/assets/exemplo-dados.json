@@ -1,0 +1,78 @@
+{
+  "cliente": {
+    "nome": "Caso exemplo (oculos-de-sol/)",
+    "data": "2026-11-11",
+    "tipo": "sol",
+    "entrada": "B",
+    "publico": "masculino",
+    "orcamento_max": 400,
+    "orcamento_inclui_lentes": null,
+    "cidade": "Belo Horizonte",
+    "estilo": "clássico, discreto, versátil",
+    "ocasioes": ["casamento ao ar livre", "rua", "praia", "viagem"],
+    "quantidade": "1 curinga ou 2 complementares",
+    "observacoes": "cabelo curto; bigode e cavanhaque aparados, laterais raspadas"
+  },
+  "receita": null,
+  "armacao_atual": {"lente": 51, "ponte": 21, "haste": 140, "formato": "panto", "material": "acetato", "cor": "preto fosco",
+    "leitura": "levemente estreita (dobradiças por dentro das têmporas); ponte apoia bem; haste curta"},
+  "medidas": {},
+  "alvo": {"lente": [54, 56], "ponte": [19, 21], "haste": [145, 150]},
+  "alvo_por_formato": {"aviador": {"lente": [58, 62], "ponte": [14, 18], "haste": [140, 150]}},
+  "diagnostico": {
+    "formato_rosto": {"valor": "retangular/oblongo, ângulos marcados", "conf": "warn"},
+    "largura": {"valor": "largo nas têmporas e maçãs", "conf": "warn"},
+    "barba": {"valor": "cavanhaque alonga o terço inferior", "conf": "ok"},
+    "nariz": {"valor": "ponte baixa a média, base larga", "conf": "warn"},
+    "pele": {"valor": "negra, subtom quente", "conf": "warn"},
+    "regras": ["lente com boa altura", "cantos suavizados", "barra superior na linha da sobrancelha", "lente polarizada UV400"],
+    "evitar": ["retângulo baixo e estreito", "redondo pequeno", "quadrado de cantos duros", "ponte 16–17 em acetato", "prata fria", "degradê no curinga"],
+    "cores": {"sim": ["marrom/havana sólido", "preto", "dourado escuro"], "evitar": ["prata fria", "cores claras"]},
+    "estrategia": "1 curinga quadrado suave marrom sólido; complemento aviador dourado"
+  },
+  "produtos": [
+    {"id": "curinga-1", "papel": "curinga", "marca": "Chilli Beans", "modelo": "Quadrado Polarizado Marrom", "codigo": "OC.CL.5317.0202",
+     "formato": "softsq", "url": "https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-marrom-oc-cl-5317-0202/p",
+     "lente": 56, "ponte": 20, "haste": 145, "altura": null, "largura_total": null, "material": "policarbonato", "aro": "fechado", "curvatura": null,
+     "cor": "marrom sólido", "lente_tipo": "polarizada marrom", "uv400": "unk",
+     "preco": 199.99, "parcelado": "4x R$ 54,99", "conf_preco": "ok", "conf_medidas": "ok", "lido_em": "2026-11-11",
+     "publico": "masculino", "estoque": "incerto", "justificativa_fora_alvo": null,
+     "porque": "as três medidas no alvo; marrom sólido; o mais barato", "perde": "policarbonato tem acabamento menos nobre que acetato"},
+    {"id": "curinga-2", "papel": "alternativa", "marca": "Chilli Beans", "modelo": "Quadrado Polarizado Marrom", "codigo": "OC.CL.5127.0202",
+     "formato": "softsq", "url": "https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-quadrado-polarizado-marrom-oc-cl-5127-0202/p",
+     "lente": 55, "ponte": 19, "haste": 145, "altura": null, "largura_total": null, "material": "policarbonato", "aro": "fechado", "curvatura": null,
+     "cor": "marrom sólido", "lente_tipo": "polarizada marrom", "uv400": "unk",
+     "preco": 279.99, "parcelado": "6x R$ 51,33", "conf_preco": "ok", "conf_medidas": "ok", "lido_em": "2026-11-11",
+     "publico": "masculino", "estoque": "incerto", "justificativa_fora_alvo": null,
+     "porque": "as três medidas no alvo; descrito como design atemporal", "perde": "R$ 80 mais caro que o 5317"},
+    {"id": "complemento", "papel": "complemento", "marca": "Chilli Beans", "modelo": "Clássicos Aviador Polarizado Dourado", "codigo": "OC.MT.4000.0221",
+     "formato": "aviador", "url": "https://loja.chillibeans.com.br/oculos-de-sol-masculino-chilli-beans-classicos-aviador-polarizado-dourado-oc-mt--4000-0221/p",
+     "lente": 62, "ponte": 15, "haste": 142, "altura": null, "largura_total": null, "material": "aço inox", "aro": "fechado", "curvatura": null,
+     "cor": "dourado", "lente_tipo": "polarizada", "uv400": "unk",
+     "preco": 299.98, "parcelado": "6x R$ 54,99", "conf_preco": "ok", "conf_medidas": "ok", "lido_em": "2026-11-11",
+     "publico": "masculino", "estoque": "incerto", "justificativa_fora_alvo": null,
+     "porque": "metal leve, ponte dupla e plaquetas de silicone resolvem a ponte baixa", "perde": "haste de 142 pede ajuste de curvatura"},
+    {"id": "referencia", "papel": "referencia", "marca": "Ray-Ban", "modelo": "RB2132 New Wayfarer", "codigo": "RB2132 · 55 · 901",
+     "formato": "wayfarer", "url": "https://www.ray-ban.com/brazil",
+     "lente": 55, "ponte": 18, "haste": 145, "altura": null, "largura_total": null, "material": "acetato", "aro": "fechado", "curvatura": null,
+     "cor": "preto", "lente_tipo": "G-15", "uv400": "ok",
+     "preco": null, "parcelado": null, "conf_preco": "unk", "conf_medidas": "warn", "lido_em": "2026-11-11",
+     "publico": "unissex", "estoque": "incerto", "justificativa_fora_alvo": "só para provar o formato; ponte 18 a confirmar no rosto",
+     "porque": "gabarito do formato ideal", "perde": "fora do teto"}
+  ],
+  "combos": [
+    {"nome": "curinga 1 + aviador", "itens": ["curinga-1", "complemento"], "total": 499.97},
+    {"nome": "curinga 2 + aviador", "itens": ["curinga-2", "complemento"], "total": 579.97}
+  ],
+  "descartados": [
+    {"modelo": "Polaroid PLD 4108/S", "motivo": "categoria feminina; o cliente achou 'muito feminino'"},
+    {"modelo": "Chilli Beans 4241.1506", "motivo": "estampa tartaruga 'too much'; mesmo formato em marrom sólido"},
+    {"modelo": "Chilli Beans 4016.0202", "motivo": "ponte 17: escorrega"},
+    {"modelo": "Zerezes (quadrados)", "motivo": "lente 47–49: pequena para o rosto"}
+  ],
+  "revisao": [
+    {"rodada": 1, "fonte": "autocritica", "severidade": "bloqueante", "objecao": "Polaroid 4108/S é de categoria feminina", "decisao": "saiu", "status": "resolvida"},
+    {"rodada": 1, "fonte": "autocritica", "severidade": "bloqueante", "objecao": "links de marketplace e de busca não abriam o produto", "decisao": "só loja oficial, links testados", "status": "resolvida"},
+    {"rodada": 1, "fonte": "critico", "severidade": "importante", "objecao": "estampa tartaruga contrastante contra o pedido de estilo discreto", "decisao": "mesmo formato em marrom sólido", "status": "resolvida"}
+  ]
+}
