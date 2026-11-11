@@ -35,32 +35,46 @@
 ## 4. Mensagem curta para mandar ao anfitrião (se passar nos eliminatórios)
 > "Oi! Somos um casal, chegamos sexta de manhã de ônibus e trabalhamos até a noite. Dá para deixar as malas antes do check-in? A internet aguenta videochamada? E tem mercado perto a pé? Obrigado!"
 
-## 5. Triagem dos 8 anúncios que vocês enviaram
-**Não consegui abrir os links:** `www.airbnb.com.br` não está liberado na rede desta sessão, então **não vi nenhum dos 8 anúncios** e não vou inventar preço, nota ou fotos. Cada linha abaixo tem o ID do anúncio; falta preencher.
+## 5. Triagem dos 8 anúncios que vocês enviaram (feita em 3/nov, datas 6→8/11, 2 adultos)
+Leitura das páginas públicas do Airbnb e da busca com as datas. Preço = **total das 2 noites** mostrado na busca (diária × 2). Distância = linha reta até a Praça Tiradentes (o Airbnb desloca o pino ~150 m; em Ouro Preto, a pé, conte mais por causa das ladeiras).
 
-| # | ID do anúncio | Total 2 noites | Nota / avaliações | Cama de casal? | Cozinha completa? | Wi-Fi/mesa? | Mercado a pé? | Ladeira/distância | Cancelamento | Veredito |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 825956212858015940 | | | | | | | | | |
-| 2 | 1290705658521562132 | | | | | | | | | |
-| 3 | 1592642257409033849 | | | | | | | | | |
-| 4 | 54070114 | | | | | | | | | |
-| 5 | 559203953750433034 | | | | | | | | | |
-| 6 | 650587689817510894 | | | | | | | | | |
-| 7 | 1148748804203162552 | | | | | | | | | |
-| 8 | 691335827230295819 | | | | | | | | | |
+| # | Anúncio (ID) | Total 2 noites | Nota (aval.) | Cama de casal | Cozinha | Wi-Fi / mesa | Dist. Tiradentes | Veredito |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Casa, centro histórico (825956212858015940) | **R$ 597** | 4,74 (150) · Preferido dos hóspedes | Sim (+ solteiro + sofá) | Completa (fogão a gás, geladeira, utensílios) | Wi-Fi + cabo + mesa de jantar | ~0,2 km | **Finalista** (nota 4,74 < 4,8, mas 150 aval.) |
+| 2 | Apto Recanto do Rosário (1290705658521562132) | R$ 702 | 4,9 (73) · Preferido | Sim (+ 2 solteiros) | Completa (indução, micro, refrigerador) | Wi-Fi + cabo + mesa | ~0,8 km | **Descarta**: acima de R$ 600 e **sem água quente** nem aquecedor |
+| 3 | Casa Refúgio Real 2 (1592642257409033849) | **não apareceu na busca** | 4,97 (36) | Sim (+ colchão + sofá-cama) | Completa (fogão a gás, micro, Nespresso) | Wi-Fi + **espaço de trabalho exclusivo** | ~1,0 km | **Pendente**: sumiu da busca com essas datas (provável indisponível); abrir o link e conferir |
+| 4 | Apto encantador (54070114) | R$ 537 | 4,59 (151) | Sim (+ solteiro) | Completa (fogão, forno, micro) | Wi-Fi + mesa de jantar | ~0,3 km | **Descarta**: nota 4,59 |
+| 5 | Loft Trenzin Aconchegante (559203953750433034) | **R$ 510** | 4,78 (148) · Superhost | **Não informa o tipo** (1 cama) | Completa (fogão, forno, geladeira, cafeteira) | Wi-Fi + mesa de jantar | ~0,4 km | **Finalista se a cama for de casal** (perguntar/ver fotos) |
+| 6 | Suíte em hospedaria (650587689817510894) | R$ 490 | 4,76 (135) | Não informa (1 cama) | **Sem fogão** (só micro, frigobar, chaleira) | Wi-Fi + cabo, sem mesa | ~0,2 km | **Descarta**: kitchenette não conta |
+| 7 | Casa de hóspedes "Divô e Divó" (1148748804203162552) | R$ 586 | 4,92 (108) · Superhost | Sim (2 quartos, 8 camas) | Fogão elétrico, micro, frigobar (sem geladeira) | Só Wi-Fi, sem mesa/espaço de trabalho | ~0,7 km | **Reserva**: bom, mas fraco para trabalhar sexta |
+| 8 | Casa Cantinho do Céu (691335827230295819) | **R$ 590** | **4,96 (119)** | Sim (+ 3 colchões extras) | Completa (fogão a gás, refrigerador, micro, cafeteira) | Wi-Fi + mesa de jantar | ~1,0 km | **Finalista** (cabe no teto, melhor nota; conferir ladeira/volta à noite) |
 
-**Como destravar (escolham um):**
-- (a) Liberar `www.airbnb.com.br` nas configurações de rede do ambiente do Claude Code — aí eu leio e classifico os 8; ou
-- (b) Colar aqui, por anúncio: **total das 2 noites, nota e nº de avaliações, tipo de cama, o que tem na cozinha, bairro/distância a pé, política de cancelamento**. Com isso eu aplico os cortes da seção 1 e recomendo 2–3.
+**Recomendação:** 1ª opção **#8**, 2ª **#1** (mais perto, nota um pouco menor), 3ª **#5** se confirmarem cama de casal. **#3** é a melhor para trabalhar, mas precisa confirmar disponibilidade.
+
+**Ainda não consegui verificar (conferir no anúncio antes de reservar):**
+- **Política de cancelamento** de todos (carrega só no navegador) — item 7 dos eliminatórios.
+- **Mercado a pé** e **escada/ladeira** (depende das avaliações, que não consegui ler).
+- Totais podem mudar na tela de reserva (taxas/serviço); confiram o valor final.
+- Cama do #5 e do #6 não vem descrita na página.
 
 ## 6. Auto-revisão
 - Conferi que tudo o que vocês pediram entrou como eliminatório: cozinha, cama de casal; e mercado próximo entrou como desejável (se quiserem, viro eliminatório).
 - Os limites de R$ 400–600 vêm direto do alvo R$ 200–300 × 2 noites; "com taxas" é para não estourar na hora de pagar.
 - O critério "nota ≥4,8 e ≥10 avaliações" é uma regra minha de corte; podem afrouxar para 4,7 se o resto for ótimo.
-- Não verifiquei nada dos anúncios reais (acesso bloqueado).
+- Os 8 anúncios foram lidos em 3/nov (ver seção 5); cancelamento, mercado e ladeira ficaram sem verificar.
 
 ## 7. Atualização de orçamento (3/nov)
 Os ~R$ 500 dela cobrem **só estadia + passagem**; o resto (comida, bares, passeios) tem margem à parte. Conta de teto: passagem ≈ R$ 125–130 por pessoa → sobram ≈ R$ 370 por pessoa para a estadia → **até ≈ R$ 740 no total das 2 noites (≈ R$ 370/noite)** só olhando o lado dela. O alvo combinado continua **R$ 200–300/noite**; esse teto maior serve de folga caso um anúncio muito bom passe um pouco de R$ 300. Se quiserem, subo o corte da seção 1 (item 4) de R$ 600 para R$ 740.
 
 ## 8. Status da triagem
-Segunda tentativa de abrir os 8 anúncios em 3/nov: `www.airbnb.com.br` continua bloqueado na rede da sessão ("host not found"), então a triagem segue pendente.
+Em 3/nov o Airbnb passou a abrir na rede da sessão e os 8 anúncios foram triados (seção 5). Pendente: cancelamento, mercado a pé, ladeira, cama do #5 e disponibilidade do #3.
+
+## 9. Novo teto (decidido): estadia + passagens ida e volta
+Ela até **R$ 500**, ele até **R$ 600** (só estadia + passagens; comida, bares e passeios ficam à parte).
+- Passagem ida e volta ≈ R$ 125–130 por pessoa ⚠️ (R$ 61–65 por trecho, estimativa anterior; não reconferida).
+- Sobra para a estadia: ela ≈ R$ 370 + ele ≈ R$ 470 = **até ≈ R$ 840 no total das 2 noites (≈ R$ 420/noite)**. Com divisão meio a meio, o teto é ≈ R$ 740 (limite dela).
+- O alvo de R$ 200–300/noite continua; o teto maior é só folga. Eliminatório 4 passa de R$ 600 para **≈ R$ 740 (meio a meio) ou ≈ R$ 840 (ele paga mais)**.
+- Efeito na triagem: nenhum finalista muda (todos ≤ R$ 600). O #2 (R$ 702) passa a caber no preço, mas segue descartado por não ter água quente.
+
+## 10. Política de cancelamento da reserva feita (6/nov) ✅
+Informada pelo usuário (tela da reserva): **cancelamento grátis até 5 dias antes**; depois disso, **reembolso parcial se cancelar antes do check-in, às 15h de 6/nov**; **a partir daí não é reembolsável**. Ou seja, o eliminatório 7 ("cancelamento flexível") só valeu até 5 dias antes; hoje, depois das 15h de 6/nov, a reserva não tem reembolso. Sem impacto prático se forem à viagem.
