@@ -1,11 +1,12 @@
 # renda-extra/
 
-Projeto de renda extra online. Fase atual: **duas ideias na mesa, nenhuma validação começou. Escolher UMA para validar primeiro.**
+Projeto de renda extra online. Fase atual: **ideia 3 é a candidata principal** (critérios do usuário: potencial de venda, barreira financeira baixa, escalável; não precisa ser da área dele; construir com o Polsia). Ideias 1 e 2 estacionadas. Nenhuma validação começou.
 
 | # | Ideia | Arquivo |
 |---|---|---|
 | 1 | Dossiê visagista de óculos para óticas (B2B) | este README |
 | 2 | Infoproduto: GA4 + BigQuery para marketing (pack de queries → curso → empresas) | [`ideia-2-infoproduto-dados.md`](ideia-2-infoproduto-dados.md) |
+| **3** | **"Anúncio Pronto": SaaS que gera o marketing do imóvel em 1 min para corretores (via Polsia)** | [`ideia-3-corretor-ia.md`](ideia-3-corretor-ia.md) |
 
 Legenda de confiança: ✅ confirmado · ⚠️ estimativa · ❓ não sei / falta checar.
 
