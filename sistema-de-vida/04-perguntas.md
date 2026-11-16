@@ -17,7 +17,8 @@
   - *Resposta (16/11):* depende do cenário. (1) Estressado e sem comer: tende a besteira (salgadinho, Coca Zero). (2) Estresse de trabalho com prazo: procrastina com YouTube e, principalmente, finanças (top 1); depois volta e faz; ou "passa por cima" e lida direto com a pendência, vendo o alívio no fim dela. (3) Estresse emocional forte: escreve para processar (acha que deveria fazer mais em dias normais; vê o check-in como parte disso). (4) Meditação (1–5 min/dia por ~7 dias) "cria espaço" e o desestabiliza menos; parou de meditar. (5) Acordou depois do desejado: café ou energético para "dar um gás". Cerveja na sexta (13/11) foi relaxar de fim de semana, não alívio imediato; evita álcool e não fuma. Avaliação dele: coping geralmente não destrutivo.
 
 ## Bloco B — Saúde (alimenta os experimentos)
-- [ ] B1. O que acontece nas noites em que você dorme depois da 1h? (O que te mantém acordado?)
+- [x] B1. O que acontece nas noites em que você dorme depois da 1h? (O que te mantém acordado?)
+  - *Resposta (16/11):* normalmente acorda mais tarde → começa a rotina tarde → trabalho e pendências pessoais (passagem para BH, compras e planejamento de viagens) vão até o fim do dia. Também saídas sociais: quarta 11/11 com amigos do basquete; quinta 12/11 com a amiga (conversa que aliviou o estresse). Menciona pensar em voltar a jogar basquete (sem decisão).
 - [ ] B2. Qual foi o maior período em que você treinou com regularidade? O que tornava fácil?
 - [ ] B3. Em um dia comum, quando você come pior? (Horário, lugar, emoção.)
 - [ ] B4. O que as consultas disseram? (Endócrino, nutrologia, psiquiatria, nefrologia.) Há restrição ou orientação que muda o desenho?
