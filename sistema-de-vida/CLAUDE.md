@@ -30,9 +30,10 @@ Projeto pessoal de Oluwasheun: construir um sistema de vida/produtividade sob me
 - 2026-11-16: check-ins de 13, 14 e 15/11 registrados (13 e 14 🟢; 15 🟢/🟡). Sono: dormir 00:00–03:42, acordar 08:01–10:30. Dia 15: refeição tardia coincidiu com piora de humor/energia (observação dele). A5 respondida (pico 10h30–almoço e 14h30–18h; evitar decisões à noite). Semana 0 continua (7 dias de registro). A6 respondida (coping por cenário: besteira se sem comer, procrastina com finanças/YouTube, escreve no estresse emocional, meditação ajudava e parou, café/energético ao acordar tarde). B1 respondida (dorme tarde porque acorda tarde e a rotina desliza; saídas sociais nos dias 11 e 12). Próxima pergunta: B2. Viagem a Miami em curso/iminente.
 
 ## Branch
-- Usar sempre a branch fixa `sistema-de-vida` (criar se não existir) para commits deste projeto. Nunca usar nomes gerados (ex.: `claude/intelligent-babbage-...`).
-- Se a plataforma impuser outra branch, avisar o usuário antes do push em vez de seguir em silêncio.
-- Não abrir PR sem pedir.
+- **Uma branch por semana**, criada a partir da `main`: `sistema-de-vida-AAAA-wNN` (semana ISO; ex.: `sistema-de-vida-2026-w47`). Hífen, não barra: o git não permite `sistema-de-vida/...` se existir uma branch `sistema-de-vida`.
+- Fluxo: criar na segunda → check-ins e respostas ao longo da semana → PR (squash) na `/revisao-semanal` → descartar a branch. Nunca reusar branch já mergeada e nunca usar nomes gerados (ex.: `claude/intelligent-babbage-...`).
+- Autorização permanente do usuário (16/11): criar e dar push nessas branches. Se a plataforma impuser outra branch, avisar antes do push.
+- Não abrir PR sem pedir. Não fazer force-push nem apagar branches remotas sem pedir.
 
 ## Economia de uso (obrigatório)
 - **Estado mora em arquivos.** Leia o último log + o experimento ativo; não refaça o pente fino de 90 dias sem pedido.
