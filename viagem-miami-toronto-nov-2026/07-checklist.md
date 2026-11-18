@@ -1,6 +1,6 @@
 # 07 — Checklist: mala e dia a dia
 
-> ✅ confirmado · ⚠️ estimativa/conferir · ❓ falta confirmar. Roteiro detalhado em `03-roteiro.md` (Leva 2).
+> ✅ confirmado · ⚠️ estimativa/conferir · ❓ falta confirmar. Roteiro detalhado em [03-roteiro.md](03-roteiro.md); versão de celular no [guia de bolso](guia-de-bolso.html).
 
 ## Mala de mão (vai com você o tempo todo)
 - [ ] Passaporte (+ passaporte antigo, se o visto estiver nele)
@@ -23,7 +23,7 @@
 ## Mala despachada (23 kg na ida ✅)
 - [ ] **Roupa do casamento** ✅ pronta (traje + sapato + cinto/acessórios) — dobrar com cuidado; considere levar a parte mais delicada na mão
 - [ ] Roupa de trabalho/dia a dia para Flórida (24–28 °C ⚠️): camisetas, bermudas, 1 calça
-- [ ] **Base para o frio de Toronto (0–7 °C ✅ doc, chance de neve):** segunda pele/térmica, meias grossas, 1 suéter/moletom. **Casaco, gorro, luvas e cachecol você compra em Miami em 20/11** (2ª chance 24/11)
+- [ ] **Base para o frio de Toronto (0–7 °C em média, chance de neve):** segunda pele/térmica, meias grossas, 1 suéter/moletom. **Casaco, gorro, luvas e cachecol você compra em Miami em 20/11** (2ª chance 24/11; sem casaco até 24/11 → Walmart/Target)
 - [ ] Calçado fechado (de preferência impermeável) para Toronto + tênis confortável + chinelo
 - [ ] Nécessaire (sem passar de 100 ml na mão)
 - [ ] Espaço sobrando para compras · **balança de mala** (ou comprar lá)
@@ -38,18 +38,18 @@
 
 ## Por dia (resumo; detalhes no 03)
 - [ ] **Qui 19/11** — sair ~2h, Confins ~3h, voo 6h, Miami 15h45, imigração, eSIM, Uber até a amiga
-- [ ] **Sex 20/11 (folga)** — Dolphin Mall: **casaco + gorro + luvas + térmica**; provar tamanhos
+- [ ] **Sex 20/11 (folga)** — Dolphin Mall: **casaco + gorro + luvas + térmica**; provar tamanhos · **comprar a mala da volta na Gol**
 - [ ] **Sáb 21/11** — carona para Wellington (confirmar com a Bianca)
 - [ ] **Dom 22/11** — 💍 casamento · presente resolvido?
 - [ ] **Seg 23/11** — carona para Fort Lauderdale · trabalho
 - [ ] **Ter 24/11** — trabalho · Sawgrass Mills 18h30–21h
-- [ ] **Qua 25/11** — check-in WestJet (24 h antes) · trabalho até ~15h · deixar mala grande com o primo · FLL ~16h45 · voo 19h35 · Uber em Toronto
+- [ ] **Qua 25/11** — check-in WestJet (abre 24/11 19h35) · trabalho até ~14h30–15h · deixar mala grande com o primo · sair ~16h · FLL ~16h30 · voo 19h35 · Uber em Toronto
 - [ ] **Qui 26/11** — trabalho · noite livre
 - [ ] **Sex 27/11 (folga)** — CN Tower etc.
 - [ ] **Sáb 28/11** — Niagara · Cavalcade of Lights
 - [ ] **Dom 29/11** — check-in WestJet · **agendar Uber das 5h30** · dormir cedo
 - [ ] **Seg 30/11** — YYZ 6h20 · voo 9h20 · FLL 12h50 · primo (mala) · Miami · trabalho a partir de ~15h30
-- [ ] **Ter 01/12** — **comprar mala da volta na Gol (≥ 48 h antes)** · pesar malas · compras finais/lista da irmã
+- [ ] **Ter 01/12** — 2ª mala da volta, se precisar (≥ 48 h antes) · pesar malas · compras finais/lista da irmã
 - [ ] **Qua 02/12** — trabalho · despedida
 - [ ] **Qui 03/12** — trabalho até ~17h · aeroporto ~18h35 · voo 21h35
-- [ ] **Sex 04/12** — Confins 13h55 · declarar bens se passar de US$ 1.000 (e-DBV)
+- [ ] **Sex 04/12** — alfândega na **1ª escala no Brasil** (e-DBV pronta se passar de US$ 1.000) · Confins 13h55

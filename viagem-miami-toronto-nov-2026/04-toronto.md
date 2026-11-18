@@ -9,9 +9,9 @@
 | Ripley's Aquarium | Sex 27/11 | CAD 44 ⚠️ | opcional | Ao lado da CN Tower |
 | **St. Lawrence Market** | Sex 27/11, almoço | grátis | — | Costuma fechar domingo e segunda ⚠️ |
 | **Distillery Winter Village** | Qui 26/11, noite | Grátis antes das 16h ⚠️ e seg–qua até 13/12 ⚠️; depois, a partir de **CAD 16** + taxas (Flex CAD 22,37 com taxas) ⚠️ | aberto 12/11 → 03/01 ✅ | Preço de quinta à noite ❓ — conferir no site |
-| **Raptors x Nets** (Copa da NBA), Scotiabank Arena | Sex 27/11, **19h30** ✅ | revenda ~US$ 73–160 ⚠️ (doc) | opcional | **Só Ticketmaster/revenda oficial** |
-| Raptors x Nuggets | Dom 29/11, **18h** ✅ | idem | opcional | Voo às 9h20 no dia seguinte: só se topar |
-| **Niagara Falls** | Sáb 28/11 | Tour **CAD 78–100** ⚠️ ou GO Train + WEGO **~CAD 32** ida/volta ⚠️ (valor antigo) | **reservar até 25/11** | Fim de nov é baixa temporada: barcos fechados ⚠️; **Winter Festival of Lights** à noite ⚠️. Tours "Festival of Lights" juntam dia + luzes |
+| **Raptors x Nets** (Copa da NBA), Scotiabank Arena | Sex 27/11, **19h30** ⚠️ (calendário de terceiros; conferir no site da NBA) | revenda ~US$ 73–160 ⚠️ (doc) | opcional | **Só Ticketmaster/revenda oficial** |
+| Raptors x Nuggets | Dom 29/11, **18h** ⚠️ | idem | opcional | Voo às 9h20 no dia seguinte: só se topar |
+| **Niagara Falls** | Sáb 28/11 | Tour **CAD 78–100** ⚠️ ou GO Train + WEGO **~CAD 32** ida/volta ⚠️ (valor antigo; no fim de novembro o trem de fim de semana pode não ir direto, com ônibus/baldeação, e o WEGO tem horário de inverno: **conferir**) | **reservar até 25/11** | Fim de nov é baixa temporada: barcos fechados ⚠️; **Winter Festival of Lights** à noite ⚠️. Tours "Festival of Lights" juntam dia + luzes |
 | **Cavalcade of Lights**, Nathan Phillips Square | Sáb 28/11, **18h–23h**, árvore **18h30**, fogos ✅ | grátis | ✅ toronto.ca (13/11) | Letreiro TORONTO, patinação. Se fizer o tour de Niagara com luzes, você **perde** a abertura: escolher um |
 | Kensington Market | Dom 29/11 | grátis | — | A pé |
 | Casa Loma **ou** ROM | Dom 29/11 | CAD 30–40 ⚠️ | escolher 1 | |
@@ -23,10 +23,10 @@
 ## 2. Transporte
 - **Chegada qua 25/11, 22h55** ✅: Uber/táxi direto até a amiga (~CAD 50–80 ⚠️). UP Express roda até ~1h ⚠️ (28 min até a Union).
 - **Saída seg 30/11, 5h30**: Uber **agendado no domingo à noite** (~CAD 60–90 ⚠️) ou carona da amiga. O 1º UP Express é perto de 5h30 ⚠️ — apertado.
-- **Na cidade:** TTC (metrô, bonde, ônibus) **CAD 3,30 por viagem**, baldeação em 2 h, **cartão por aproximação** ✅ (doc).
+- **Na cidade:** TTC (metrô, bonde, ônibus) **CAD 3,30 por viagem** ⚠️, baldeação em 2 h, **cartão por aproximação** ✅ (doc de out/2026).
 - **Avisos:** UP Express teve suspensões de fim de semana em 2026 ⚠️ — conferir "service updates" antes de usar.
 
-## 3. Frio (0–7 °C ✅ doc)
+## 3. Frio (0–7 °C: média de fim de novembro, não previsão ⚠️)
 Camadas: térmica + camiseta + suéter + **casaco impermeável com capuz** + gorro + luvas + cachecol + **meia grossa** + calçado fechado. Em Niagara, a névoa molha. Plano B de compra lá: Winners/Marshalls, Uniqlo (Eaton Centre) — com HST de 13% ⚠️.
 
 ## 4. Eventos de dados e IA (checagem de 18/11)

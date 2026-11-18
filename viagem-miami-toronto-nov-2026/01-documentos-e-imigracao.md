@@ -7,12 +7,13 @@
 |---|---|---|
 | Passaporte | ✅ conferido por você (18/11) | Válido até depois de 04/12; páginas em branco. Se o visto está num passaporte antigo, **levar os dois** |
 | Visto americano (B1/B2) | ✅ conferido por você (18/11) | Você entra nos EUA **duas vezes**: 19/11 (Miami) e 30/11 (pré-liberação no aeroporto de Toronto). Precisa permitir várias entradas ("M") |
-| eTA do Canadá | ✅ aprovado (doc de out/2026) | Fica ligado ao **mesmo passaporte** do pedido. Guardar o e-mail de aprovação |
+| eTA do Canadá | ✅ aprovado (doc de out/2026) | Fica ligado ao **número do passaporte** do pedido: confira no e-mail qual passaporte foi usado (atual ou antigo) e leve esse. Guardar o e-mail de aprovação |
 | Passagens | ✅ e-mails da Decolar (Gol) e WestJet | Ver [02-logistica.md](02-logistica.md) |
 
 ## 2. Seguro-viagem: Mastercard Black (AIG)
 - **Não é automático:** é preciso **emitir o bilhete de seguro antes de viajar** no portal da AIG/Mastercard ✅ (Cartões e Viagens; Mastercard, comunicado de fev/2024).
 - **Condição:** o **custo total da passagem** precisa ter sido cobrado no cartão Black ✅. Se usar milhas, valem as taxas pagas com o Black ✅.
+- **Plano B:** se a passagem **não** foi paga com o Black, contratar um seguro avulso **hoje**, antes de embarcar (valor ❓; ver [06](06-financeiro.md)).
 - **Sua passagem:** paga na Decolar com um Mastercard, em 4 parcelas sem juros ✅ (R$ 2.943,17, e-mail de 9/7). **Confirme que é o cartão Black.** A mala extra (R$ 410) foi paga com outro Mastercard ✅, mas isso não afeta o seguro (o que conta é a passagem ⚠️).
 - **Cobertura:** médica até **US$ 175 mil**, viagens de até 60 dias ⚠️ (blogs de 2026; não li a apólice). Vale para o mundo todo exceto Brasil ✅, então cobre EUA e Canadá.
 - **Período no bilhete:** 19/11 a **04/12** (você chega ao Brasil no dia 4 ✅).
@@ -50,8 +51,8 @@
 **Ter no celular (offline):** endereços dos 4 lugares (Miami, Wellington, Fort Lauderdale, Toronto), datas, passagens de volta (WestJet 30/11 e Gol 03/12), convite/dados do casamento, bilhete do seguro, comprovante de vínculo no Brasil.
 
 **Frases úteis:**
-- "I'm here for a friend's wedding and to visit friends and family. I'm staying 15 days, until December 3rd."
-- "I'm staying with a friend in Miami, then at the wedding venue in Wellington, then with my cousin in Fort Lauderdale."
+- "I'm here for a friend's wedding and to visit friends and family. I'm staying until December 3rd, with five days in Toronto in between."
+- "I'm staying with a friend in Miami, then at a friend's house in Wellington for the wedding, then with my cousin in Fort Lauderdale." (Ajuste se em Wellington você ficar em outro tipo de lugar: a resposta tem de bater com o endereço que você mostrar.)
 - Toronto: "I'm visiting a friend for five days. I fly back to Fort Lauderdale on November 30th."
 
 ### Pré-liberação em Toronto (30/11)

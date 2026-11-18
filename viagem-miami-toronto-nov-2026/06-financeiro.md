@@ -18,29 +18,29 @@
 |---|---|---|---|---|
 | Pequenos itens | Adaptador, balança de mala, cadeado | 15 | 25 | 35 |
 | Transporte | Ubers, Brightline, TTC; mín = todas as caronas dão certo; **base = a carona de 23/11 falha e quase tudo de Uber**; folgado = as duas caronas falham | 110 | 501 | 743 |
-| Alimentação | 14 dias; mín US$ 30/dia, base 45, folgado 65 (com imposto e gorjeta) | 420 | 630 | 910 |
-| Passeios e noite | CN Tower, Ripley's, Casa Loma/ROM, Niagara, Distillery, bares; folgado com Raptors | 99 | 242 | 500 |
+| Alimentação | **15 dias** (19/11 a 03/12); mín US$ 30/dia, base 45, folgado 65 (com imposto e gorjeta) | 450 | 675 | 975 |
+| Passeios e noite | CN Tower, Ripley's, Casa Loma/ROM (com HST 13%), Niagara, Distillery, bares; folgado com Raptors | 107 | 253 | 511 |
 | Compras suas + aniversário da irmã (com 7%) | Ver [05](05-compras-e-alfandega.md) | 429 | 623 | 920 |
 | Lembranças para os 3 anfitriões (com 7%) | Mercado/jantar/presente | 48 | 80 | 128 |
-| Imposto da Receita | 50% do que passar da cota | 0 | 0 | 113 |
-| **Subtotal** | | **1.121** | **2.101** | **3.349** |
-| Reserva de 15% | Imprevistos (era 10% no doc) | 168 | 315 | 502 |
-| **Total em US$** | | **1.289** | **2.416** | **3.851** |
-| **Total em R$ (× 6,10)** | | **≈ 7.863** | **≈ 14.738** | **≈ 23.491** |
+| **Subtotal** | | **1.159** | **2.157** | **3.312** |
+| Reserva de 15% | Imprevistos (era 10% no doc) | 174 | 324 | 497 |
+| **Total em US$** | | **1.333** | **2.481** | **3.809** |
+| Total em R$ (× 6,10) | | ≈ 8.131 | ≈ 15.134 | ≈ 23.235 |
+| Mala da volta na Gol (pago em R$) | 1 mala (obrigatória) / 2 malas | 400 | 400 | 800 |
+| Imposto da Receita (pago em R$ à taxa fiscal, sem IOF) | 50% do excedente da cota: US$ 113,17 × 5,65 | 0 | 0 | ≈ 639 |
+| **Total geral em R$** | | **≈ 8.531** | **≈ 15.534** | **≈ 24.674** |
 
-**Em reais, à parte:** mala da volta na Gol **R$ 400** (1 mala) a **R$ 800** (2 malas) ⚠️ (referência: R$ 400 + R$ 10 da ida).
+**Fora do total:** presente de casamento ❓ · **seguro avulso** ❓ (só se a passagem não tiver sido paga com o Black) · lista que a sua irmã financia (US$ 231–306 com imposto; ela mandou US$ 240,78) · o que já foi pago (seção 1).
 
-**Fora do total:** presente de casamento ❓ (valor/forma a definir) · lista que a sua irmã financia (US$ 231–306 com imposto; ela mandou US$ 240,78) · qualquer coisa já paga (seção 1).
+Conferência: 15 + 110 + 450 + 107 + 429 + 48 = 1.159 · 25 + 501 + 675 + 253 + 623 + 80 = 2.157 · 35 + 743 + 975 + 511 + 920 + 128 = 3.312 · 15% = 174 / 324 / 497 (arredondado) · totais 1.333 / 2.481 / 3.809 · × 6,10 = 8.131,30 / 15.134,10 / 23.234,90 · + mala + imposto = 8.531,30 / 15.534,10 / 24.674,31.
 
-Conferência: 15 + 110 + 420 + 99 + 429 + 48 + 0 = 1.121 · 25 + 501 + 630 + 242 + 623 + 80 + 0 = 2.101 · 35 + 743 + 910 + 500 + 920 + 128 + 113 = 3.349 · 15% = 168 / 315 / 502 · totais 1.289 / 2.416 / 3.851 · × 6,10 = 7.862,90 / 14.737,60 / 23.491,10.
-
-### Por que subiu em relação ao doc de outubro (base US$ 2.063 → 2.416; R$ 11.140 → ≈ 14.738)
+### Por que subiu em relação ao doc de outubro (base US$ 2.063 → 2.481; R$ 11.140 → ≈ 15.534 com a mala)
 - **Dólar:** o doc usava R$ 5,40; hoje o comercial está em R$ 5,65 ✅ e, com IOF + spread, ~R$ 6,10 ⚠️.
 - **Transporte:** o base agora assume que pelo menos uma carona falha (US$ 290 → 501).
-- **Comida:** US$ 480 → 630 (gorjeta e imposto não estavam claros; Toronto é cara).
-- **Imposto de venda (7%)** aplicado em todas as compras, não só na lista da irmã.
-- **Reserva** de 10% → 15%.
-- Saíram seguro e eSIM (já resolvidos) e entraram lembranças para os anfitriões.
+- **Comida:** US$ 480 → 675 (15 dias, gorjeta e imposto; Toronto é cara).
+- **Imposto de venda (7%)** em todas as compras e **HST de 13%** nos ingressos de Toronto.
+- **Reserva** de 10% → 15%; **mala da volta** entrou (não estava prevista).
+- O eSIM saiu (já pago); o seguro saiu **se** a passagem foi paga com o Black.
 
 ## 3. Detalhe do transporte (US$)
 | Trecho | Mín | Base | Folgado |
@@ -62,15 +62,15 @@ Conferência: 15 + 110 + 420 + 99 + 429 + 48 + 0 = 1.121 · 25 + 501 + 630 + 242
 ## 4. Detalhe dos passeios (US$)
 | Item | Mín | Base | Folgado |
 |---|---|---|---|
-| CN Tower (CAD 43) | 30,96 | 30,96 | 30,96 |
-| Ripley's Aquarium (CAD 44) | 0 | 31,68 | 31,68 |
-| Casa Loma ou ROM (CAD 35–40) | 25,20 | 25,20 | 28,80 |
+| CN Tower (CAD 43 + HST 13%) | 34,98 | 34,98 | 34,98 |
+| Ripley's Aquarium (CAD 44 + HST) | 0 | 35,80 | 35,80 |
+| Casa Loma ou ROM (CAD 35–40 + HST) | 28,48 | 28,48 | 32,54 |
 | Niagara (GO+WEGO CAD 32 / tour CAD 85 / tour CAD 100) | 23,04 | 61,20 | 72,00 |
 | Distillery Winter Village (grátis antes das 16h ou CAD 16 + HST / CAD 22,37) | 0 | 13,02 | 16,11 |
 | Raptors (revenda) | 0 | 0 | 160 |
 | Bares/saídas | 20 | 60 | 120 |
 | Wynwood/Art Week | 0 | 20 | 40 |
-| **Total** | **99,20** | **242,06** | **499,55** |
+| **Total** | **106,50** | **253,48** | **511,43** |
 
 ## 5. Como pagar
 1. **Nomad (débito em dólar)** para o dia a dia ⚠️ (IOF 3,5% na conversão, spread menor que o do banco).

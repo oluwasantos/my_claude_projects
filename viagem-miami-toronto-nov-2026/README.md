@@ -6,7 +6,7 @@ Viagem solo, saindo de **Confins (BH)**: Miami (amiga) → **Wellington, casamen
 
 Mesmo método da viagem de Ouro Preto (`../viagem-1-ano-namoro/`): confiança em todo dado (✅ confirmado · ⚠️ estimativa/conferir · ❓ não achei), somas com "Conferência", auto-revisão e revisão por um agente de viagens antes de entregar.
 
-## Linha do tempo (hora local; Brasília = +2 h)
+## Linha do tempo (hora local; Miami/Toronto = 2 h a menos que BH)
 | Data | Onde dorme | Destaque |
 |---|---|---|
 | Qui 19/11 | Miami | Gol 6h00 Confins → Miami 15h45 ✅ |
@@ -35,7 +35,8 @@ Mesmo método da viagem de Ouro Preto (`../viagem-1-ano-namoro/`): confiança em
 - [x] 07 Checklist (mala e por dia) → [07-checklist.md](07-checklist.md)
 - [x] 08 Emergência → [08-emergencia.md](08-emergencia.md)
 - [x] Guia de bolso com **painel de compras** → [guia-de-bolso.html](guia-de-bolso.html) (abre offline no navegador) · versão online privada: https://claude.ai/artifact/3i4EzU9Q192KtvzsDJQ6Vw (dados do painel ficam salvos só no aparelho; use Exportar CSV)
-- [ ] Atualizar o doc "Viagem Miami e Toronto" no Claude Docs (Leva 2)
+- [ ] Atualizar o doc "Viagem Miami e Toronto" no Claude Docs
+- [x] Revisão do agente de viagens (18/11): contas conferidas sem erro; correções aplicadas (mala da volta obrigatória, alfândega na 1ª escala, plano B de seguro e voo, limite de unidades, marcações ✅→⚠️)
 
 ## Decisões tomadas
 - **Voos:** todos comprados ✅ (Gol ida/volta via Decolar; WestJet FLL⇄YYZ, tarifa Econo).
@@ -51,7 +52,7 @@ Mesmo método da viagem de Ouro Preto (`../viagem-1-ano-namoro/`): confiança em
 1. 🔴 Emitir o seguro AIG (e conferir se a passagem foi paga no Black). Check-in Gol. eSIM instalado. Adaptador. (00)
 2. 🔴 Avisar a equipe dos dias parciais: 19/11, 25/11, 30/11, 03/12 e **04/12**.
 3. 🟠 Confirmar caronas de Wellington com a Bianca (21/11 e 23/11).
-4. 🟠 **Comprar mala para a volta** na Gol (a passagem não inclui) até ~01/12.
+4. 🟠 **Comprar mala para a volta** na Gol **já** (até ~22/11): a passagem não inclui, e sem ela nem a mala da ida volta.
 5. 🟠 Presente de casamento (valor e forma).
 6. 🟡 Me dizer quanto em dinheiro comprou na Rendimento (para o financeiro).
 7. 🟡 Niagara: reservar tour/ônibus até 25/11.

@@ -118,7 +118,7 @@ textarea{width:100%;font-family:var(--f-mono);font-size:12px}
       <tr><td class="mono">19/11 ~16h45</td><td>MIA → amiga</td><td>Uber ou carona</td></tr>
       <tr><td class="mono">21/11</td><td>Miami → Wellington</td><td>Carona (amiga da Bianca). B: Brightline até West Palm + Uber</td></tr>
       <tr><td class="mono">23/11 manhã</td><td>Wellington → Fort Lauderdale</td><td>Carona. B: Uber (US$ 70–120)</td></tr>
-      <tr><td class="mono">25/11 ~16h30</td><td>Primo → FLL T2</td><td>Carona/Uber. Mala grande fica com o primo</td></tr>
+      <tr><td class="mono">25/11 ~16h</td><td>Primo → FLL T2</td><td>Carona/Uber. Mala grande fica com o primo</td></tr>
       <tr><td class="mono">25/11 ~23h30</td><td>YYZ T3 → amiga</td><td>Uber direto</td></tr>
       <tr><td class="mono">30/11 5h30</td><td>Amiga → YYZ T3</td><td>Uber agendado na véspera</td></tr>
       <tr><td class="mono">30/11 ~13h15</td><td>FLL → primo → Miami</td><td>Pegar mala e compras</td></tr>
@@ -132,7 +132,7 @@ textarea{width:100%;font-family:var(--f-mono);font-size:12px}
 </section>
 
 <section id="v-compras" data-view="compras" class="stack" hidden>
-  <div><h2>Painel de compras</h2><p class="sub">Cota da Receita: US$ 1.000 por pessoa, tudo que está na sua mala (inclusive a lista da sua irmã). Excedente paga 50%. Digite o valor <b>pago com imposto</b> quando comprar.</p></div>
+  <div><h2>Painel de compras</h2><p class="sub">Cota da Receita: US$ 1.000 por pessoa, tudo que está na sua mala (inclusive a lista da sua irmã). Excedente paga 50%. Digite o valor <b>pago com imposto</b> quando comprar. Há também limite de quantidade (20 itens acima de US$ 10, até 3 iguais): o cenário base passa disso, então prefira cortar unidades.</p></div>
   <div class="kpis" id="kpis"></div>
   <div class="card stack">
     <div class="row" style="justify-content:space-between"><span class="lbl">Cota US$ 1.000</span><span class="mono" id="cotaTxt"></span></div>
@@ -165,8 +165,8 @@ textarea{width:100%;font-family:var(--f-mono);font-size:12px}
 <section id="v-imigracao" data-view="imigracao" class="stack" hidden>
   <div><h2>Imigração</h2><p class="sub">Sempre a verdade. Objetivo: casamento de uma amiga, visitar amigos e família, turismo.</p></div>
   <div class="card"><h3>Entrada nos EUA (19/11, Miami)</h3>
-    <p class="phrase">"I'm here for a friend's wedding and to visit friends and family. I'm staying until December 3rd."</p>
-    <p class="phrase">"I'm staying with a friend in Miami, at the wedding in Wellington, and with my cousin in Fort Lauderdale. I also visit a friend in Toronto from the 25th to the 30th."</p>
+    <p class="phrase">"I'm here for a friend's wedding and to visit friends and family. I'm staying until December 3rd, with five days in Toronto in between."</p>
+    <p class="phrase">"I'm staying with a friend in Miami, at a friend's house in Wellington for the wedding, and with my cousin in Fort Lauderdale. I visit a friend in Toronto from the 25th to the 30th."</p>
     <div class="lbl">Se perguntarem de trabalho</div>
     <p class="phrase">"I work for a Brazilian company and I'm paid in Brazil. I'll keep up with some work on my laptop. I have no job or clients in the US."</p></div>
   <div class="card"><h3>Canadá (25/11, Toronto)</h3>
@@ -201,21 +201,21 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 /* ---------- Dias ---------- */
 const DAYS=[
  {d:'2026-11-19',w:'Qui',sleep:'Miami (amiga)',tag:'viagem',items:['Sair de casa ~2h; Confins ~3h','Gol G3 1769 às 06h00 (1 escala)','Miami 15h45; imigração e mala','Ativar o eSIM; Uber até a amiga','Jantar leve, dormir cedo']},
- {d:'2026-11-20',w:'Sex',sleep:'Miami (amiga)',tag:'folga',items:['Dolphin Mall: casaco, gorro, luvas, cachecol, térmica (obrigatório)','Provar tênis e calças; anotar preços','Almoço e jantar com a amiga','Arrumar a mala do casamento']},
+ {d:'2026-11-20',w:'Sex',sleep:'Miami (amiga)',tag:'folga',items:['Dolphin Mall: casaco, gorro, luvas, cachecol, térmica (obrigatório)','Comprar a mala da volta no app da Gol','Provar tênis e calças; anotar preços','Almoço e jantar com a amiga','Arrumar a mala do casamento']},
  {d:'2026-11-21',w:'Sáb',sleep:'Wellington',tag:'casamento',items:['Carona Miami → Wellington (~1h30)','Plano B: Brightline até West Palm Beach + Uber','Preparação do casamento; jantar na casa']},
  {d:'2026-11-22',w:'Dom',sleep:'Wellington',tag:'casamento',items:['Casamento da Bianca','Festa']},
  {d:'2026-11-23',w:'Seg',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Carona Wellington → Fort Lauderdale cedo (~1h)','Trabalho 10h–18h','Jantar com o primo']},
  {d:'2026-11-24',w:'Ter',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Trabalho 10h–18h','Sawgrass Mills 18h30–21h: tênis, calças, camisetas','Compras ficam com o primo']},
- {d:'2026-11-25',w:'Qua',sleep:'Toronto (amiga)',tag:'voo',items:['Check-in WestJet; mala de mão pronta; mala grande com o primo','Trabalho até ~15h','FLL T2 ~16h45 (véspera de Thanksgiving)','WS 1115 19h35 → Toronto T3 22h55','Uber direto até a amiga']},
+ {d:'2026-11-25',w:'Qua',sleep:'Toronto (amiga)',tag:'voo',items:['Mala de mão pronta; mala grande com o primo (check-in WestJet já na véspera)','Trabalho até ~14h30–15h','Sair ~16h; FLL ~16h30 (véspera de Thanksgiving)','Voo cancelado: remarcar no app, dormir no primo','WS 1115 19h35 → Toronto T3 22h55','Uber direto até a amiga']},
  {d:'2026-11-26',w:'Qui',sleep:'Toronto (amiga)',tag:'trabalho',items:['Trabalho 10h–18h (Thanksgiving é só nos EUA)','Noite: Distillery Winter Village ou Eaton Centre']},
  {d:'2026-11-27',w:'Sex',sleep:'Toronto (amiga)',tag:'folga',items:['CN Tower (reservar horário) + Ripley\'s (opcional)','Almoço no St. Lawrence Market','Black Friday no Eaton Centre (13% de HST)','Raptors x Nets 19h30 (opcional)']},
  {d:'2026-11-28',w:'Sáb',sleep:'Toronto (amiga)',tag:'passeio',items:['Niagara Falls de dia (tour ou GO Train)','Cavalcade of Lights 18h–23h, árvore 18h30, fogos (grátis)','Tempo ruim: trocar com domingo']},
  {d:'2026-11-29',w:'Dom',sleep:'Toronto (amiga)',tag:'passeio',items:['Kensington Market + Casa Loma ou ROM','Check-in WestJet; agendar Uber das 5h30','Despedida; dormir cedo']},
  {d:'2026-11-30',w:'Seg',sleep:'Miami (amiga)',tag:'voo',items:['Sair 5h30; YYZ T3 ~6h20 (imigração americana em Toronto)','WS 1110 09h20 → FLL 12h50','Passar no primo: mala e compras','Trabalho a partir de ~15h30']},
- {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['Comprar a mala da volta na Gol (≥ 48 h antes)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
+ {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['2ª mala da volta, se precisar (≥ 48 h antes)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
  {d:'2026-12-02',w:'Qua',sleep:'Miami (amiga)',tag:'trabalho',items:['Trabalho 10h–18h','Wynwood / Design District (Art Week)','Despedida da amiga']},
  {d:'2026-12-03',w:'Qui',sleep:'Avião',tag:'voo',items:['Trabalho até ~17h','Sair ~17h45; MIA ~18h35','Gol 21h35 (2 escalas)']},
- {d:'2026-12-04',w:'Sex',sleep:'Casa',tag:'volta',items:['Confins 13h55','Declarar na e-DBV se passou de US$ 1.000']}
+ {d:'2026-12-04',w:'Sex',sleep:'Casa',tag:'volta',items:['Alfândega na 1ª escala no Brasil (e-DBV pronta se passou de US$ 1.000)','Confins 13h55']}
 ];
 const TAGS={viagem:'',folga:'ok',casamento:'',trabalho:'',voo:'warn',passeio:'ok',volta:''};
 const TAGTXT={viagem:'viagem',folga:'folga',casamento:'casamento',trabalho:'trabalho',voo:'dia de voo',passeio:'passeio',volta:'volta'};
@@ -228,16 +228,16 @@ const FLIGHTS=[
  {when:'Qui 19/11',no:'Gol G3 1769',a:'CNF',ta:'06:00',b:'MIA',tb:'15:45',mid:'1 escala',meta:['Mala 23 kg comprada','Chegar ~3h','Imigração em Miami']},
  {when:'Qua 25/11',no:'WestJet WS 1115',a:'FLL',ta:'19:35',b:'YYZ',tb:'22:55',mid:'T2 → T3',meta:['Tarifa Econo: só mala de mão','Check-in 24 h antes','Assento já marcado']},
  {when:'Seg 30/11',no:'WestJet WS 1110',a:'YYZ',ta:'09:20',b:'FLL',tb:'12:50',mid:'T3 → T2',meta:['Chegar ~6h20','Imigração americana em Toronto','Escolher assento no check-in']},
- {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'2 escalas',meta:['Sem mala despachada: comprar até 01/12','Chegar ~18h35','Chega sex 04/12']}
+ {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'2 escalas',meta:['Sem mala despachada: comprar já no app','Chegar ~18h35','Alfândega na 1ª escala no Brasil','Chega sex 04/12']}
 ];
 function renderFlights(){$('#flights').innerHTML=FLIGHTS.map(f=>`<article class="card"><div class="row" style="justify-content:space-between"><span class="lbl">${f.when}</span><span class="mono" style="font-size:13px">${f.no}</span></div><div class="pass" style="margin-top:8px"><div><div class="code">${f.a}</div><div class="time">${f.ta}</div></div><div class="mid">${f.mid}<br>✈</div><div class="r"><div class="code">${f.b}</div><div class="time">${f.tb}</div></div></div><div class="passmeta">${f.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div></article>`).join('')}
 
 /* ---------- Checklist ---------- */
 const CHECKS=[
- {g:'Antes do voo (18/11)',items:['Emitir o bilhete do seguro AIG (Mastercard Black)','Conferir se a passagem foi paga com o Black','Check-in online da Gol','Instalar o eSIM no Wi-Fi','Liberar cartões para uso internacional','Adaptador de tomada','Passaporte (+ antigo, se o visto estiver nele)','Avisar a equipe: 19/11, 25/11, 30/11, 03/12, 04/12','Mensagem para a Bianca sobre as caronas','PDFs no celular (passagens, seguro, eTA, notas fiscais)']},
+ {g:'Antes do voo (18/11)',items:['Emitir o bilhete do seguro AIG (Mastercard Black)','Conferir se a passagem foi paga com o Black','Check-in online da Gol','Instalar o eSIM no Wi-Fi','Liberar cartões para uso internacional','Adaptador de tomada','Passaporte (+ antigo, se o visto ou o eTA estiver nele)','Avisar a equipe: 19/11, 25/11, 30/11, 03/12, 04/12','Mensagem para a Bianca sobre as caronas','PDFs no celular (passagens, seguro, eTA, notas fiscais)']},
  {g:'Mala de mão',items:['Notebook + carregador','Celular, carregador e power bank','Remédios (+ receita)','Muda de roupa','Dólares em notas pequenas']},
  {g:'Mala despachada',items:['Roupa do casamento','Roupa para a Flórida','Térmica e meias grossas','Calçado fechado','Espaço para compras']},
- {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (até 25/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol (até 01/12)','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
+ {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (até 25/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol (até ~22/11)','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
 ];
 let checked=store.get('mt_checks',{});
 function renderChecks(){$('#checks').innerHTML=CHECKS.map((g,gi)=>`<div class="card"><h3>${g.g}</h3>${g.items.map((it,ii)=>{const k=gi+'-'+ii;const on=!!checked[k];return `<label class="check${on?' done':''}"><input type="checkbox" id="ck-${k}" data-k="${k}"${on?' checked':''}><span>${esc(it)}</span></label>`}).join('')}</div>`).join('')}
