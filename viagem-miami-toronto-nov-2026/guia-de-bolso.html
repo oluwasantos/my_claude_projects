@@ -1,0 +1,321 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia Miami–Toronto</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: cartão de embarque no celular — barra de abas fixa no topo, uma coluna, dados de voo em fonte mono */
+:root{
+  --paper:#F3F6F7; --card:#FFFFFF; --ink:#13212B; --muted:#5A6B76; --line:#D5DEE3;
+  --accent:#0E7479; --accent-soft:#DDEFEF; --warn:#A8620C; --warn-soft:#FBEBD3; --bad:#B3361F; --bad-soft:#F8DED8; --ok:#2F7A3A; --ok-soft:#DFF0E1;
+  --bar:#13212B; --bar-fg:#FFFFFF; --bar-muted:#B9CBD3;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F171D; --card:#17232B; --ink:#E6EEF1; --muted:#9AAEB8; --line:#2A3B46;
+  --accent:#4FC0C2; --accent-soft:#163A3D; --warn:#E3A24A; --warn-soft:#3A2A12; --bad:#F08A72; --bad-soft:#3D1D17; --ok:#7CCB86; --ok-soft:#18321C; --bar:#0A1116; --bar-fg:#E6EEF1; --bar-muted:#8FA4AE; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F171D; --card:#17232B; --ink:#E6EEF1; --muted:#9AAEB8; --line:#2A3B46;
+  --accent:#4FC0C2; --accent-soft:#163A3D; --warn:#E3A24A; --warn-soft:#3A2A12; --bad:#F08A72; --bad-soft:#3D1D17; --ok:#7CCB86; --ok-soft:#18321C; --bar:#0A1116; --bar-fg:#E6EEF1; --bar-muted:#8FA4AE; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font:15px/1.5 var(--f-body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bar)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px 48px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bar);color:var(--bar-fg)}
+header.top .in{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px 0}
+.brand{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.brand h1{font:800 18px/1.2 var(--f-display);margin:0;letter-spacing:.01em}
+.brand .route{font:500 12px var(--f-mono);color:var(--bar-muted);letter-spacing:.06em}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+nav.tabs a{flex:0 0 auto;color:var(--bar-muted);text-decoration:none;font:600 13px var(--f-body);padding:6px 10px;border-radius:6px}
+nav.tabs a[aria-current="page"]{background:var(--bar-fg);color:var(--bar)}
+nav.tabs a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h2{font:700 20px/1.25 var(--f-display);margin:8px 0 4px;text-wrap:balance}
+h3{font:700 15px/1.3 var(--f-display);margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:0 0 12px;font-size:13px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.lbl{font:600 11px var(--f-body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.pill{display:inline-block;font:600 11px var(--f-body);letter-spacing:.04em;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)} .pill.bad{background:var(--bad-soft);color:var(--bad)} .pill.ok{background:var(--ok-soft);color:var(--ok)}
+.day{display:grid;grid-template-columns:64px 1fr;gap:12px}
+.day .date{font:700 13px/1.2 var(--f-mono);color:var(--accent)}
+.day .date small{display:block;font:500 11px var(--f-body);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.day .body{min-width:0}
+.day ul{margin:6px 0 0;padding-left:18px} .day li{margin:2px 0}
+.day.today{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.sleep{font-size:12px;color:var(--muted)}
+/* boarding pass */
+.pass{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+.pass .code{font:800 26px/1 var(--f-display);letter-spacing:.02em}
+.pass .time{font:500 15px var(--f-mono)}
+.pass .mid{text-align:center;color:var(--muted);font:500 11px var(--f-mono)}
+.pass .r{text-align:right}
+.passmeta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px var(--f-body);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto}
+/* checklist */
+.check{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.check:last-child{border-bottom:0}
+.check input{width:20px;height:20px;margin-top:1px;accent-color:var(--accent);flex:0 0 auto}
+.check.done span{color:var(--muted);text-decoration:line-through}
+/* meter */
+.meter{height:12px;border-radius:99px;background:var(--line);position:relative;overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:99px}
+.meter i.proj{background:var(--accent-soft);border:1px dashed var(--accent)}
+.meter.over i{background:var(--bad)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kpi b{display:block;font:700 20px/1.2 var(--f-mono);font-variant-numeric:tabular-nums}
+.kpi.bad b{color:var(--bad)} .kpi.ok b{color:var(--ok)} .kpi.warn b{color:var(--warn)}
+button,.btn{font:600 13px var(--f-body);border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:8px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--card)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-radius:0;border-right:1px solid var(--line)} .seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--card)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=number],input[type=text],select,textarea{font:14px var(--f-body);background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+input.paid{width:84px;text-align:right;font-family:var(--f-mono)}
+textarea{width:100%;font-family:var(--f-mono);font-size:12px}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:8px 0;border-bottom:1px solid var(--line);align-items:center}
+.item .nm{min-width:0} .item .nm small{color:var(--muted);display:block;font-size:12px}
+.item.bought .nm b{color:var(--ok)}
+.phrase{font-style:italic;border-left:3px solid var(--accent);padding-left:10px;margin:6px 0}
+.note{font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.meter i{transition:width .3s}}
+</style>
+
+<header class="top"><div class="in">
+  <div class="brand"><h1>Guia Miami–Toronto</h1><span class="route">CNF · MIA · FLL · YYZ · FLL · MIA · CNF</span></div>
+  <nav class="tabs" aria-label="Seções">
+    <a href="#hoje">Hoje</a><a href="#roteiro">Roteiro</a><a href="#voos">Voos</a><a href="#checklist">Checklist</a><a href="#compras">Compras</a><a href="#imigracao">Imigração</a><a href="#emergencia">Emergência</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+<section id="v-hoje" data-view="hoje" class="stack"></section>
+
+<section id="v-roteiro" data-view="roteiro" class="stack" hidden>
+  <div><h2>Roteiro</h2><p class="sub">Hora local (Brasília = +2 h). Trabalho 10h–18h nos dias marcados.</p></div>
+  <div id="days" class="stack"></div>
+</section>
+
+<section id="v-voos" data-view="voos" class="stack" hidden>
+  <div><h2>Voos e trajetos</h2><p class="sub">Todos comprados. Chegar 3 h antes nos voos internacionais.</p></div>
+  <div id="flights" class="stack"></div>
+  <div class="card"><h3>Trajetos em terra</h3><div class="scroll"><table>
+    <thead><tr><th>Quando</th><th>Trecho</th><th>Como</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">19/11 ~16h45</td><td>MIA → amiga</td><td>Uber ou carona</td></tr>
+      <tr><td class="mono">21/11</td><td>Miami → Wellington</td><td>Carona (amiga da Bianca). B: Brightline até West Palm + Uber</td></tr>
+      <tr><td class="mono">23/11 manhã</td><td>Wellington → Fort Lauderdale</td><td>Carona. B: Uber (US$ 70–120)</td></tr>
+      <tr><td class="mono">25/11 ~16h30</td><td>Primo → FLL T2</td><td>Carona/Uber. Mala grande fica com o primo</td></tr>
+      <tr><td class="mono">25/11 ~23h30</td><td>YYZ T3 → amiga</td><td>Uber direto</td></tr>
+      <tr><td class="mono">30/11 5h30</td><td>Amiga → YYZ T3</td><td>Uber agendado na véspera</td></tr>
+      <tr><td class="mono">30/11 ~13h15</td><td>FLL → primo → Miami</td><td>Pegar mala e compras</td></tr>
+      <tr><td class="mono">03/12 ~17h45</td><td>Amiga → MIA</td><td>Uber. Art Week: sair cedo</td></tr>
+    </tbody></table></div></div>
+</section>
+
+<section id="v-checklist" data-view="checklist" class="stack" hidden>
+  <div><h2>Checklist</h2><p class="sub">Fica salvo neste aparelho.</p></div>
+  <div id="checks" class="stack"></div>
+</section>
+
+<section id="v-compras" data-view="compras" class="stack" hidden>
+  <div><h2>Painel de compras</h2><p class="sub">Cota da Receita: US$ 1.000 por pessoa, tudo que está na sua mala (inclusive a lista da sua irmã). Excedente paga 50%. Digite o valor <b>pago com imposto</b> quando comprar.</p></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="card stack">
+    <div class="row" style="justify-content:space-between"><span class="lbl">Cota US$ 1.000</span><span class="mono" id="cotaTxt"></span></div>
+    <div class="meter" id="meterProj"><i class="proj" id="barProj"></i><i id="barPaid"></i></div>
+    <div class="note">Barra cheia = já comprado. Tracejado = comprado + o que falta pela coluna do cenário (+7% de imposto).</div>
+    <div class="row"><span class="lbl">Cenário dos preços planejados</span>
+      <div class="seg" role="group" aria-label="Cenário">
+        <button type="button" data-sc="0">Mínimo</button><button type="button" data-sc="1">Base</button><button type="button" data-sc="2">Folgado</button>
+      </div></div>
+    <div class="note" id="scNote"></div>
+  </div>
+  <div class="card"><div class="row" style="justify-content:space-between"><h3>Itens</h3><select id="filter" aria-label="Filtrar"><option value="all">Todos</option><option value="dele">Seus</option><option value="aniv">Aniversário da irmã</option><option value="irma">Lista da irmã</option><option value="outro">Outros</option></select></div>
+    <div id="items"></div></div>
+  <div class="card stack"><h3>Adicionar item</h3>
+    <div class="row">
+      <input type="text" id="newName" placeholder="Item (ex.: moletom)" aria-label="Item" style="flex:1 1 160px">
+      <select id="newGroup" aria-label="De quem"><option value="dele">Seu</option><option value="aniv">Aniversário irmã</option><option value="irma">Lista irmã</option><option value="outro">Outro</option></select>
+      <input type="number" id="newPrice" placeholder="US$ etiqueta" aria-label="Preço de etiqueta" style="width:120px" step="0.01" min="0">
+      <label class="row" style="gap:4px;font-size:13px"><input type="checkbox" id="newBr" checked> vai p/ Brasil</label>
+      <button type="button" class="primary" id="addBtn">Adicionar</button>
+    </div></div>
+  <div class="card stack"><h3>Exportar / importar</h3>
+    <p class="note">Os dados ficam só neste navegador. Para guardar ou mandar para o Claude, copie o CSV. Para restaurar, cole um CSV e toque em Importar.</p>
+    <div class="row"><button type="button" id="expBtn">Gerar CSV</button><button type="button" id="copyBtn">Copiar</button><button type="button" id="impBtn">Importar</button><button type="button" id="resetBtn">Restaurar lista original</button></div>
+    <textarea id="csv" rows="6" aria-label="CSV"></textarea>
+    <div class="note" id="csvMsg" role="status"></div>
+  </div>
+</section>
+
+<section id="v-imigracao" data-view="imigracao" class="stack" hidden>
+  <div><h2>Imigração</h2><p class="sub">Sempre a verdade. Objetivo: casamento de uma amiga, visitar amigos e família, turismo.</p></div>
+  <div class="card"><h3>Entrada nos EUA (19/11, Miami)</h3>
+    <p class="phrase">"I'm here for a friend's wedding and to visit friends and family. I'm staying until December 3rd."</p>
+    <p class="phrase">"I'm staying with a friend in Miami, at the wedding in Wellington, and with my cousin in Fort Lauderdale. I also visit a friend in Toronto from the 25th to the 30th."</p>
+    <div class="lbl">Se perguntarem de trabalho</div>
+    <p class="phrase">"I work for a Brazilian company and I'm paid in Brazil. I'll keep up with some work on my laptop. I have no job or clients in the US."</p></div>
+  <div class="card"><h3>Canadá (25/11, Toronto)</h3>
+    <p class="phrase">"I'm visiting a friend for five days. I fly back to Fort Lauderdale on November 30th."</p></div>
+  <div class="card"><h3>Pré-liberação americana (30/11, no aeroporto de Toronto)</h3>
+    <p>Chegar ~6h20. Mesmas respostas da entrada em Miami. Passagem de volta ao Brasil (03/12) no celular.</p></div>
+  <div class="card"><h3>Tenha no celular</h3><ul>
+    <li>Endereços dos 4 lugares</li><li>Passagens Gol e WestJet</li><li>Bilhete do seguro AIG</li><li>Convite/dados do casamento</li><li>Notas fiscais do notebook e do celular</li></ul></div>
+</section>
+
+<section id="v-emergencia" data-view="emergencia" class="stack" hidden>
+  <div><h2>Emergência</h2></div>
+  <div class="card"><div class="lbl">Polícia, ambulância, bombeiro</div><b class="mono" style="font-size:28px">911</b> <span class="note">EUA e Canadá</span></div>
+  <div class="card stack">
+    <div><h3>Saúde</h3><p>Ligue para a central da AIG (telefone no bilhete do seguro) antes de ir ao hospital, se der. Guarde recibos.</p></div>
+    <div><h3>Passaporte perdido</h3><p>Boletim na polícia → Consulado-Geral do Brasil (Miami: só por e-mail; Toronto: só com agendamento) → avisar a companhia aérea.</p></div>
+    <div><h3>Cartão perdido</h3><p>Bloquear no app; usar o 2º cartão guardado em outro lugar.</p></div>
+    <div><h3>Mala extraviada</h3><p>Registrar no balcão da companhia antes de sair do desembarque.</p></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){
+const TAX=1.07, QUOTA=1000, SIS_BUDGET=240.78;
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const $=s=>document.querySelector(s);
+const fmt=n=>'US$ '+n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- Dias ---------- */
+const DAYS=[
+ {d:'2026-11-19',w:'Qui',sleep:'Miami (amiga)',tag:'viagem',items:['Sair de casa ~2h; Confins ~3h','Gol G3 1769 às 06h00 (1 escala)','Miami 15h45; imigração e mala','Ativar o eSIM; Uber até a amiga','Jantar leve, dormir cedo']},
+ {d:'2026-11-20',w:'Sex',sleep:'Miami (amiga)',tag:'folga',items:['Dolphin Mall: casaco, gorro, luvas, cachecol, térmica (obrigatório)','Provar tênis e calças; anotar preços','Almoço e jantar com a amiga','Arrumar a mala do casamento']},
+ {d:'2026-11-21',w:'Sáb',sleep:'Wellington',tag:'casamento',items:['Carona Miami → Wellington (~1h30)','Plano B: Brightline até West Palm Beach + Uber','Preparação do casamento; jantar na casa']},
+ {d:'2026-11-22',w:'Dom',sleep:'Wellington',tag:'casamento',items:['Casamento da Bianca','Festa']},
+ {d:'2026-11-23',w:'Seg',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Carona Wellington → Fort Lauderdale cedo (~1h)','Trabalho 10h–18h','Jantar com o primo']},
+ {d:'2026-11-24',w:'Ter',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Trabalho 10h–18h','Sawgrass Mills 18h30–21h: tênis, calças, camisetas','Compras ficam com o primo']},
+ {d:'2026-11-25',w:'Qua',sleep:'Toronto (amiga)',tag:'voo',items:['Check-in WestJet; mala de mão pronta; mala grande com o primo','Trabalho até ~15h','FLL T2 ~16h45 (véspera de Thanksgiving)','WS 1115 19h35 → Toronto T3 22h55','Uber direto até a amiga']},
+ {d:'2026-11-26',w:'Qui',sleep:'Toronto (amiga)',tag:'trabalho',items:['Trabalho 10h–18h (Thanksgiving é só nos EUA)','Noite: Distillery Winter Village ou Eaton Centre']},
+ {d:'2026-11-27',w:'Sex',sleep:'Toronto (amiga)',tag:'folga',items:['CN Tower (reservar horário) + Ripley\'s (opcional)','Almoço no St. Lawrence Market','Black Friday no Eaton Centre (13% de HST)','Raptors x Nets 19h30 (opcional)']},
+ {d:'2026-11-28',w:'Sáb',sleep:'Toronto (amiga)',tag:'passeio',items:['Niagara Falls de dia (tour ou GO Train)','Cavalcade of Lights 18h–23h, árvore 18h30, fogos (grátis)','Tempo ruim: trocar com domingo']},
+ {d:'2026-11-29',w:'Dom',sleep:'Toronto (amiga)',tag:'passeio',items:['Kensington Market + Casa Loma ou ROM','Check-in WestJet; agendar Uber das 5h30','Despedida; dormir cedo']},
+ {d:'2026-11-30',w:'Seg',sleep:'Miami (amiga)',tag:'voo',items:['Sair 5h30; YYZ T3 ~6h20 (imigração americana em Toronto)','WS 1110 09h20 → FLL 12h50','Passar no primo: mala e compras','Trabalho a partir de ~15h30']},
+ {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['Comprar a mala da volta na Gol (≥ 48 h antes)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
+ {d:'2026-12-02',w:'Qua',sleep:'Miami (amiga)',tag:'trabalho',items:['Trabalho 10h–18h','Wynwood / Design District (Art Week)','Despedida da amiga']},
+ {d:'2026-12-03',w:'Qui',sleep:'Avião',tag:'voo',items:['Trabalho até ~17h','Sair ~17h45; MIA ~18h35','Gol 21h35 (2 escalas)']},
+ {d:'2026-12-04',w:'Sex',sleep:'Casa',tag:'volta',items:['Confins 13h55','Declarar na e-DBV se passou de US$ 1.000']}
+];
+const TAGS={viagem:'',folga:'ok',casamento:'',trabalho:'',voo:'warn',passeio:'ok',volta:''};
+const TAGTXT={viagem:'viagem',folga:'folga',casamento:'casamento',trabalho:'trabalho',voo:'dia de voo',passeio:'passeio',volta:'volta'};
+function todayISO(){const t=new Date();const p=n=>String(n).padStart(2,'0');return t.getFullYear()+'-'+p(t.getMonth()+1)+'-'+p(t.getDate())}
+function dayCard(x,isToday){const [y,m,dd]=x.d.split('-');return `<article class="card day${isToday?' today':''}"><div class="date">${dd}/${m}<small>${x.w}</small></div><div class="body"><div class="row" style="justify-content:space-between"><span class="sleep">Dorme: ${esc(x.sleep)}</span><span class="pill ${TAGS[x.tag]}">${TAGTXT[x.tag]}</span></div><ul>${x.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></div></article>`}
+function renderDays(){const t=todayISO();$('#days').innerHTML=DAYS.map(x=>dayCard(x,x.d===t)).join('')}
+
+/* ---------- Voos ---------- */
+const FLIGHTS=[
+ {when:'Qui 19/11',no:'Gol G3 1769',a:'CNF',ta:'06:00',b:'MIA',tb:'15:45',mid:'1 escala',meta:['Mala 23 kg comprada','Chegar ~3h','Imigração em Miami']},
+ {when:'Qua 25/11',no:'WestJet WS 1115',a:'FLL',ta:'19:35',b:'YYZ',tb:'22:55',mid:'T2 → T3',meta:['Tarifa Econo: só mala de mão','Check-in 24 h antes','Assento já marcado']},
+ {when:'Seg 30/11',no:'WestJet WS 1110',a:'YYZ',ta:'09:20',b:'FLL',tb:'12:50',mid:'T3 → T2',meta:['Chegar ~6h20','Imigração americana em Toronto','Escolher assento no check-in']},
+ {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'2 escalas',meta:['Sem mala despachada: comprar até 01/12','Chegar ~18h35','Chega sex 04/12']}
+];
+function renderFlights(){$('#flights').innerHTML=FLIGHTS.map(f=>`<article class="card"><div class="row" style="justify-content:space-between"><span class="lbl">${f.when}</span><span class="mono" style="font-size:13px">${f.no}</span></div><div class="pass" style="margin-top:8px"><div><div class="code">${f.a}</div><div class="time">${f.ta}</div></div><div class="mid">${f.mid}<br>✈</div><div class="r"><div class="code">${f.b}</div><div class="time">${f.tb}</div></div></div><div class="passmeta">${f.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div></article>`).join('')}
+
+/* ---------- Checklist ---------- */
+const CHECKS=[
+ {g:'Antes do voo (18/11)',items:['Emitir o bilhete do seguro AIG (Mastercard Black)','Conferir se a passagem foi paga com o Black','Check-in online da Gol','Instalar o eSIM no Wi-Fi','Liberar cartões para uso internacional','Adaptador de tomada','Passaporte (+ antigo, se o visto estiver nele)','Avisar a equipe: 19/11, 25/11, 30/11, 03/12, 04/12','Mensagem para a Bianca sobre as caronas','PDFs no celular (passagens, seguro, eTA, notas fiscais)']},
+ {g:'Mala de mão',items:['Notebook + carregador','Celular, carregador e power bank','Remédios (+ receita)','Muda de roupa','Dólares em notas pequenas']},
+ {g:'Mala despachada',items:['Roupa do casamento','Roupa para a Flórida','Térmica e meias grossas','Calçado fechado','Espaço para compras']},
+ {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (até 25/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol (até 01/12)','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
+];
+let checked=store.get('mt_checks',{});
+function renderChecks(){$('#checks').innerHTML=CHECKS.map((g,gi)=>`<div class="card"><h3>${g.g}</h3>${g.items.map((it,ii)=>{const k=gi+'-'+ii;const on=!!checked[k];return `<label class="check${on?' done':''}"><input type="checkbox" id="ck-${k}" data-k="${k}"${on?' checked':''}><span>${esc(it)}</span></label>`}).join('')}</div>`).join('')}
+document.addEventListener('change',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k!==undefined&&e.target.type==='checkbox'&&e.target.id.startsWith('ck-')){checked[k]=e.target.checked;store.set('mt_checks',checked);e.target.closest('.check').classList.toggle('done',e.target.checked);renderHoje()}});
+
+/* ---------- Compras ---------- */
+const SEED=[
+ ['Casaco de inverno','dele',[60,90,150]],['Gorro + luvas + cachecol','dele',[20,30,45]],['Térmica (segunda pele)','dele',[15,25,40]],
+ ['Tênis 1','dele',[50,70,100]],['Tênis 2','dele',[50,70,100]],['Tênis 3','dele',[50,70,100]],
+ ['Calças × 3 (tall)','dele',[60,90,135]],['Camisetas × 5','dele',[40,60,100]],
+ ['Gisou, melancia','aniv',[28,28,28]],['Lip oil Sugarcoat','aniv',[16,16,16]],['Touchland (talvez)','aniv',[0,13,16]],['Squish','aniv',[12,20,30]],
+ ['Nutella biscuits × 2','irma',[13.98,13.98,13.98]],['Sour Patch família melancia × 2','irma',[17.98,17.98,17.98]],['Sour Patch melancia × 5','irma',[5,5,5]],
+ ['Nerds azul + rosa','irma',[7.98,7.98,7.98]],['Reese\'s (talvez)','irma',[6.19,6.19,6.19]],['Owala 24 oz','irma',[29.99,29.99,29.99]],
+ ['Tênis Reebok','irma',[35,35,35]],['Roupas (Ross)','irma',[40,40,40]],['Tide pen','irma',[9.99,9.99,9.99]],['Suéter Ralph Lauren','irma',[50,70,120]],
+ ['Lembranças p/ anfitriões','outro',[45,75,120],false]
+];
+const GN={dele:'Seu',aniv:'Aniversário irmã',irma:'Lista irmã',outro:'Outro'};
+function seed(){return SEED.map((s,i)=>({id:'s'+i,name:s[0],group:s[1],price:s[2].slice(),paid:null,br:s[3]!==false}))}
+let items=store.get('mt_items',null)||seed();
+let sc=store.get('mt_sc',1);
+function save(){store.set('mt_items',items);store.set('mt_sc',sc)}
+function calc(){let paidBR=0,projBR=0,sis=0,sisProj=0,all=0;
+ for(const it of items){const plan=it.price[sc]*TAX;const v=it.paid!=null?it.paid:plan;
+  if(it.br){projBR+=v;if(it.paid!=null)paidBR+=it.paid}
+  if(it.group==='irma'){sisProj+=v;if(it.paid!=null)sis+=it.paid}
+  all+=v}
+ return {paidBR,projBR,sis,sisProj,all}}
+function renderCompras(){const c=calc();const exc=Math.max(0,c.projBR-QUOTA);
+ const k=(cls,l,v,n)=>`<div class="kpi ${cls}"><span class="lbl">${l}</span><b>${v}</b>${n?`<span class="note">${n}</span>`:''}</div>`;
+ $('#kpis').innerHTML=
+  k('', 'Já comprado (Brasil)',fmt(c.paidBR),'pago com imposto')+
+  k(c.projBR>QUOTA?'bad':c.projBR>900?'warn':'ok','Projeção p/ Brasil',fmt(c.projBR),c.projBR>QUOTA?`passa ${fmt(exc)} → imposto ≈ ${fmt(exc*.5)}`:`folga ${fmt(QUOTA-c.projBR)}`)+
+  k(c.sisProj>SIS_BUDGET?'warn':'ok','Lista da irmã',fmt(c.sisProj),`ela mandou ${fmt(SIS_BUDGET)} · ${c.sisProj>SIS_BUDGET?'faltam '+fmt(c.sisProj-SIS_BUDGET):'sobram '+fmt(SIS_BUDGET-c.sisProj)}`);
+ const pct=v=>Math.min(100,v/QUOTA*100);
+ $('#barPaid').style.width=pct(c.paidBR)+'%';$('#barProj').style.width=pct(c.projBR)+'%';
+ $('#meterProj').classList.toggle('over',c.paidBR>QUOTA);
+ $('#cotaTxt').textContent=fmt(c.paidBR)+' / '+fmt(QUOTA);
+ document.querySelectorAll('[data-sc]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.sc===sc)));
+ $('#scNote').textContent=['Mínimo: preços baixos de outlet/Ross.','Base: preço típico de outlet.','Folgado: modelos melhores; passa da cota se comprar tudo.'][sc]+' Quando a projeção passar de US$ 900, troque em vez de somar.';
+ const f=$('#filter').value;
+ $('#items').innerHTML=items.filter(it=>f==='all'||it.group===f).map(it=>{const plan=it.price[sc];const b=it.paid!=null;
+  return `<div class="item${b?' bought':''}"><div class="nm"><b>${esc(it.name)}</b><small>${GN[it.group]} · planejado ${fmt(plan)}${it.br?'':' · fica nos EUA'}${b?' · ✓ comprado':''}</small></div>
+  <div class="row" style="gap:6px"><input class="paid" type="number" step="0.01" min="0" id="paid-${it.id}" data-id="${it.id}" placeholder="pago" aria-label="Pago com imposto: ${esc(it.name)}" value="${b?it.paid:''}"><button type="button" data-del="${it.id}" aria-label="Remover ${esc(it.name)}">×</button></div></div>`}).join('')||'<p class="note">Nenhum item neste filtro.</p>';
+}
+document.addEventListener('input',e=>{if(e.target.classList&&e.target.classList.contains('paid')){const it=items.find(x=>x.id===e.target.dataset.id);if(!it)return;const v=parseFloat(String(e.target.value).replace(',','.'));it.paid=isNaN(v)?null:v;save();const c=calc();renderKpisOnly()}});
+function renderKpisOnly(){const f=document.activeElement&&document.activeElement.id;renderCompras();if(f){const el=document.getElementById(f);if(el){el.focus();try{const l=el.value.length;el.setSelectionRange&&el.type==='text'&&el.setSelectionRange(l,l)}catch(e){}}}}
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.dataset&&t.dataset.sc!==undefined){sc=+t.dataset.sc;save();renderCompras()}
+ if(t.dataset&&t.dataset.del){items=items.filter(x=>x.id!==t.dataset.del);save();renderCompras()}
+});
+$('#filter').addEventListener('change',renderCompras);
+$('#addBtn').addEventListener('click',()=>{const n=$('#newName').value.trim();const p=parseFloat(String($('#newPrice').value).replace(',','.'));if(!n||isNaN(p)){$('#newName').focus();return}
+ items.push({id:'u'+Date.now(),name:n,group:$('#newGroup').value,price:[p,p,p],paid:null,br:$('#newBr').checked});$('#newName').value='';$('#newPrice').value='';save();renderCompras()});
+function toCSV(){const q=s=>'"'+String(s).replace(/"/g,'""')+'"';return ['item,grupo,etiqueta_min,etiqueta_base,etiqueta_folgado,pago_com_imposto,vai_para_brasil'].concat(items.map(it=>[q(it.name),it.group,it.price[0],it.price[1],it.price[2],it.paid==null?'':it.paid,it.br?'sim':'nao'].join(','))).join('\n')}
+function parseCSV(t){const lines=t.trim().split(/\r?\n/).slice(1);const out=[];for(const [i,l] of lines.entries()){const m=l.match(/^"((?:[^"]|"")*)",([a-z]+),([\d.]*),([\d.]*),([\d.]*),([\d.]*),(sim|nao)$/);if(!m)throw new Error('Linha '+(i+2)+' fora do formato.');if(!GN[m[2]])throw new Error('Grupo inválido na linha '+(i+2)+'.');out.push({id:'i'+i+Date.now(),name:m[1].replace(/""/g,'"'),group:m[2],price:[+m[3]||0,+m[4]||0,+m[5]||0],paid:m[6]===''?null:+m[6],br:m[7]==='sim'})}return out}
+$('#expBtn').addEventListener('click',()=>{$('#csv').value=toCSV();$('#csvMsg').textContent='CSV gerado. Toque em Copiar.'});
+$('#copyBtn').addEventListener('click',()=>{const ta=$('#csv');if(!ta.value)ta.value=toCSV();const ok=()=>$('#csvMsg').textContent='Copiado.';const fb=()=>{ta.focus();ta.select();$('#csvMsg').textContent='Texto selecionado: copie pelo menu do celular.'};try{navigator.clipboard.writeText(ta.value).then(ok,fb)}catch(e){fb()}});
+$('#impBtn').addEventListener('click',()=>{try{const r=parseCSV($('#csv').value);if(!r.length)throw new Error('Nenhum item no CSV.');items=r;save();renderCompras();$('#csvMsg').textContent='Importado: '+r.length+' itens.'}catch(e){$('#csvMsg').textContent='Não importei: '+e.message+' Use o formato do botão Gerar CSV.'}});
+let resetArmed=false;$('#resetBtn').addEventListener('click',e=>{if(!resetArmed){resetArmed=true;e.target.textContent='Toque de novo para apagar seus valores';setTimeout(()=>{resetArmed=false;e.target.textContent='Restaurar lista original'},4000);return}items=seed();save();renderCompras();resetArmed=false;e.target.textContent='Restaurar lista original';$('#csvMsg').textContent='Lista original restaurada.'});
+
+/* ---------- Hoje ---------- */
+function renderHoje(){const t=todayISO();const i=DAYS.findIndex(x=>x.d===t);let h='';
+ if(t<DAYS[0].d){const g=CHECKS[0];const left=g.items.filter((_,ii)=>!checked['0-'+ii]);
+  h=`<div><h2>Antes do voo</h2><p class="sub">Gol G3 1769 sai de Confins na qui 19/11 às 06h00. Chegar ~3h.</p></div>
+  <div class="card"><h3>Falta fazer (${left.length} de ${g.items.length})</h3>${g.items.map((it,ii)=>{const k='0-'+ii,on=!!checked[k];return `<label class="check${on?' done':''}"><input type="checkbox" id="ckh-${k}" data-k="${k}"${on?' checked':''}><span>${esc(it)}</span></label>`}).join('')}</div>`+dayCard(DAYS[0],false);}
+ else if(i>=0){h=`<div><h2>Hoje, ${DAYS[i].w} ${t.slice(8)}/${t.slice(5,7)}</h2><p class="sub">Dia ${i+1} de ${DAYS.length}</p></div>`+dayCard(DAYS[i],true)+(DAYS[i+1]?`<div class="lbl">Amanhã</div>`+dayCard(DAYS[i+1],false):'');}
+ else{h=`<div><h2>Viagem concluída</h2><p class="sub">Exporte o CSV do painel de compras para fechar as contas com a sua irmã.</p></div>`}
+ $('#v-hoje').innerHTML=h;
+ document.querySelectorAll('#v-hoje input[type=checkbox]').forEach(cb=>cb.addEventListener('change',()=>{checked[cb.dataset.k]=cb.checked;store.set('mt_checks',checked);renderChecks();renderHoje()}));
+}
+
+/* ---------- Abas ---------- */
+const VIEWS=['hoje','roteiro','voos','checklist','compras','imigracao','emergencia'];
+function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'hoje';
+ document.querySelectorAll('[data-view]').forEach(s=>s.hidden=s.dataset.view!==v);
+ document.querySelectorAll('nav.tabs a').forEach(a=>{if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+ window.scrollTo(0,0)}
+window.addEventListener('hashchange',route);
+renderDays();renderFlights();renderChecks();renderCompras();renderHoje();route();
+})();
+</script>
