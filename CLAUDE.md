@@ -9,6 +9,9 @@ Virou a skill `/visagismo-oculos` (`.claude/skills/visagismo-oculos/`): para out
 ## Projeto: sistema-de-vida/
 Sistema pessoal de vida/produtividade (sono, treino, alimentação), baseado em dados reais. **Ler `sistema-de-vida/README.md` e `sistema-de-vida/CLAUDE.md` primeiro.** Fase atual: Semana 0 (só observar, sem intervenções). Skills: `/checkin` (diário), `/revisao-semanal`, `/revisao-temporada`. **Nunca escrever em Todoist, Google Calendar ou Gmail sem pedido explícito** (propor em `sistema-de-vida/05-proposta-todoist.md`). Uma pergunta por vez (fila em `sistema-de-vida/04-perguntas.md`). Dados de saúde do log ficam no repo; não colar em serviços externos.
 
+## Projeto: viagem-miami-toronto-nov-2026/ — **EM ANDAMENTO**
+Viagem solo de 19/11 a 04/12/2026 (Confins → Miami → Wellington, casamento da Bianca em 22/11 → Fort Lauderdale → Toronto → Miami → Confins). **Ler `viagem-miami-toronto-nov-2026/README.md` primeiro.** Mesmo método e preferências da viagem de Ouro Preto (✅/⚠️/❓, somas conferidas, auto-revisão + revisão de um agente de viagens antes de entregar). Trabalho remoto 10h–18h **hora local**. Branch `viagem-miami-toronto-nov-2026` (commit + push por etapa; sem PR). Fonte anterior: doc do Claude Docs "Viagem Miami e Toronto · 19/11 a 03/12/2026" (out/2026, valores defasados); o repo é a fonte da verdade. **Privacidade:** sem números de documentos, localizadores, cartões, endereços de casas ou sobrenomes. Gmail só leitura.
+
 ## Projeto: viagem-1-ano-namoro/ — **CONCLUÍDO**
 Viagem de casal para comemorar 1 ano de namoro, **sex 6/11 a dom 8/11/2026**, saindo de BH. Planejamento ponta a ponta, decisão por decisão. **Ler `viagem-1-ano-namoro/README.md` primeiro** (andamento + decisões).
 
