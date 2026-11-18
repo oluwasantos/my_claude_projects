@@ -35,7 +35,7 @@ Mesmo método da viagem de Ouro Preto (`../viagem-1-ano-namoro/`): confiança em
 - [x] 07 Checklist (mala e por dia) → [07-checklist.md](07-checklist.md)
 - [x] 08 Emergência → [08-emergencia.md](08-emergencia.md)
 - [x] Guia de bolso com **painel de compras** → [guia-de-bolso.html](guia-de-bolso.html) (abre offline no navegador) · versão online privada: https://claude.ai/artifact/3i4EzU9Q192KtvzsDJQ6Vw (dados do painel ficam salvos só no aparelho; use Exportar CSV)
-- [ ] Atualizar o doc "Viagem Miami e Toronto" no Claude Docs
+- [x] Doc "Viagem Miami e Toronto" (Claude Docs) atualizado em 18/11 com uma seção "Atualização de 18/11" no topo
 - [x] Revisão do agente de viagens (18/11): contas conferidas sem erro; correções aplicadas (mala da volta obrigatória, alfândega na 1ª escala, plano B de seguro e voo, limite de unidades, marcações ✅→⚠️)
 
 ## Decisões tomadas
