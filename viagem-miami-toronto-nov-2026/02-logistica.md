@@ -17,10 +17,10 @@ Conferência: 2 + 2 + 2 + 5 + 3 = **14 noites** em terra + 1 no avião (03→04/
 ## 2. Voos (todos comprados ✅)
 | Data | Voo | Saída | Chegada | Mala | Fonte |
 |---|---|---|---|---|---|
-| **Qui 19/11** | Gol **G3 1769**, 1 escala (provavelmente Brasília ⚠️) | Confins **06h00** | Miami **15h45** | ✅ 1 mala de 23 kg (comprada à parte, R$ 410) | Decolar 5/9 e 4/10 |
+| **Qui 19/11** | Gol **G3 1769** CNF 06h00 → BSB 07h25, conexão 2h30, **G3 7748** BSB 09h55 → MIA ✅ (voucher) | Confins **06h00** | Miami **15h45** | ✅ 1 mala de 23 kg (comprada à parte, R$ 410) | Decolar 5/9 e 4/10 |
 | **Qua 25/11** | WestJet **WS 1115**, tarifa Econo | Fort Lauderdale **T2, 19h35** | Toronto **T3, 22h55** | Mala de mão + item pessoal ⚠️; despachada é paga ⚠️ | WestJet 4/9 |
 | **Seg 30/11** | WestJet **WS 1110**, Econo | Toronto **T3, 09h20** | Fort Lauderdale **T2, 12h50** | idem | WestJet 4/9 |
-| **Qui 03/12** | Gol (trecho de Miami: **G3 7749**), **Miami → Brasília → Congonhas → Confins** ✅ (app da Gol, 21/11) | Miami **21h35** | Confins **sex 04/12, 13h55** | ❌ **sem mala despachada** (comprar antes) | Decolar 5/9 |
+| **Qui 03/12** | **G3 7749** MIA 21h35 → BSB 07h15 (04/12) · conexão **1h35** · **G3 1405** BSB 08h50 → CGH 10h40 · conexão 1h55 · **G3 1310** CGH 12h35 → CNF ✅ (voucher Decolar) | Miami **21h35** | Confins **sex 04/12, 13h55** | ❌ **sem mala despachada** (comprar antes) | Decolar 5/9 |
 
 **Correções em relação ao doc de outubro:** a chegada em Miami é **15h45** (não "à noite"); a chegada em Toronto é **22h55** (não 22h30); o pouso em Fort Lauderdale é **12h50** (não 12h20); a volta sai **21h35 de 03/12** e **chega só em 04/12 às 13h55**.
 
@@ -32,7 +32,7 @@ A passagem da Gol **não inclui mala despachada** em nenhum trecho ✅, e você 
 - **Mala de mão da Gol:** limite de peso ~10 kg ⚠️ (conferir no app); tênis pesam.
 - Preço atual ❓ (fontes antigas: ~R$ 200–230 a 1ª mala internacional com antecedência; até ~R$ 600 no aeroporto ⚠️). Pela compra da ida, R$ 400 + R$ 10 de encargos (Decolar) ✅ é a melhor referência.
 - **Pesar em 01/12** (balança de mala: Walmart/Target, ~US$ 10–15 ⚠️).
-- **Rota da volta ✅ (app da Gol, 21/11): Miami → Brasília → Congonhas → Confins.** Brasília é a 1ª parada no Brasil: lá você faz **imigração + alfândega**, **pega a mala na esteira e despacha de novo** na esteira de conexão ⚠️ (regra usual; confirmar no check-in em Miami). Em **Congonhas não mexe** na mala; retira em **Confins**. Deixe a **e-DBV** (declaração online de bens) pronta antes de pousar em Brasília, se passar da cota. Conferir no app se a conexão em Brasília tem pelo menos 1h30–2h ⚠️.
+- **Rota da volta ✅ (app da Gol, 21/11): Miami → Brasília → Congonhas → Confins.** Brasília é a 1ª parada no Brasil: lá você faz **imigração + alfândega**, **pega a mala na esteira e despacha de novo** na esteira de conexão ⚠️ (regra usual; confirmar no check-in em Miami). Em **Congonhas não mexe** na mala; retira em **Confins**. Deixe a **e-DBV** (declaração online de bens) pronta antes de pousar em Brasília, se passar da cota. **A conexão em Brasília é de só 1h35 ✅** (pouso 07h15, saída 08h50) para imigração + alfândega + redespacho + raio-x: é apertada ⚠️. Tudo está **num bilhete só** ✅ (mesma reserva), então, se perder a conexão por atraso, a Gol remarca. Para ganhar tempo: sentar na frente do avião, e-DBV pronta, ir direto à esteira e depois ao balcão/esteira de conexão da Gol.
 
 ## 3. Deslocamentos em terra
 | Data | Trecho | Como | Duração | Custo | Plano B |

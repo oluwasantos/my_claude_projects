@@ -19,7 +19,7 @@
 | **Ter 01/12** | Miami | Livre · **comprar a mala da volta na Gol** (≥ 48 h antes) | Trabalho | **Rodada 3**: Target/Walmart/Sephora/Dolphin — **lista da irmã + aniversário** · **pesar as malas** | ✅ | — |
 | **Qua 02/12** | Miami | Livre | Trabalho | Despedida com a amiga · **Wynwood/Design District** (Miami Art Week ⚠️) · evento de IA? | ✅ | — |
 | **Qui 03/12** | (avião) | Mala fechada e pesada | Trabalho **até ~17h** (avisar ❓) | **Sair ~17h45** · MIA **~18h35** · **voo 21h35** ✅ (2 escalas) | ⚠️ parcial | Art Week: trânsito → sair 30 min antes |
-| **Sex 04/12** | Casa 🏠 | Escalas | **Brasília:** imigração + alfândega, pegar a mala e redespachar ⚠️ (e-DBV pronta se passar da cota) · Congonhas (não mexe na mala) · **Confins 13h55** ✅ | — | ⚠️ você pousa às 13h55 (avisar ❓) | — |
+| **Sex 04/12** | Casa 🏠 | Escalas | **Brasília 07h15:** imigração + alfândega, pegar a mala e redespachar ⚠️ — **conexão de só 1h35** (voo para Congonhas 08h50) (e-DBV pronta se passar da cota) · Congonhas (não mexe na mala) · **Confins 13h55** ✅ | — | ⚠️ você pousa às 13h55 (avisar ❓) | — |
 
 ## Pontos de atenção
 - **Frio:** Toronto 0–7 °C em fim de novembro (média, não previsão ⚠️), com chance de neve/chuva/vento.
