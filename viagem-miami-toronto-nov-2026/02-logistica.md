@@ -26,11 +26,11 @@ Conferência: 2 + 2 + 2 + 5 + 3 = **14 noites** em terra + 1 no avião (03→04/
 
 **Valores já pagos (fora do orçamento):** Gol ida e volta R$ 2.943,17 ✅ + mala da ida R$ 410,00 ✅ = **R$ 3.353,17**. WestJet ❓ (o recibo está no e-mail; não somei).
 
-### Mala da volta (⚠️ importante)
-A passagem da Gol **não inclui mala despachada** em nenhum trecho ✅, e você comprou mala **só para a ida** ✅. **Sem comprar, nem a mala que você leva volta** (só pagando no balcão). Por isso:
-- Comprar **1 mala de 23 kg para a volta já** (até ~22/11) pelo app da Gol ou "Minhas Viagens" da Decolar; decidir a **2ª** até 30/11 (sempre com mais de 48 h de antecedência).
+### Mala da volta
+A passagem (Decolar) não inclui mala despachada ✅, mas **você já comprou a mala da volta direto com a Gol** ✅ (21/11; por isso não aparece no app da Decolar; peso/quantidade e valor ❓, confira no app da Gol).
+- **2ª mala**, só se precisar: comprar no app da Gol até 30/11 (≥ 48 h antes).
 - **Mala de mão da Gol:** limite de peso ~10 kg ⚠️ (conferir no app); tênis pesam.
-- Preço atual ❓ (fontes antigas: ~R$ 200–230 a 1ª mala internacional com antecedência; até ~R$ 600 no aeroporto ⚠️). Pela compra da ida, R$ 400 + R$ 10 de encargos (Decolar) ✅ é a melhor referência.
+- Referência de preço para uma 2ª mala: a da ida custou R$ 400 + R$ 10 de encargos (Decolar) ✅; no aeroporto sai bem mais caro ⚠️.
 - **Pesar em 01/12** (balança de mala: Walmart/Target, ~US$ 10–15 ⚠️).
 - **Rota da volta ✅ (app da Gol, 21/11): Miami → Brasília → Congonhas → Confins.** Brasília é a 1ª parada no Brasil: lá você faz **imigração + alfândega**, **pega a mala na esteira e despacha de novo** na esteira de conexão ⚠️ (regra usual; confirmar no check-in em Miami). Em **Congonhas não mexe** na mala; retira em **Confins**. Deixe a **e-DBV** (declaração online de bens) pronta antes de pousar em Brasília, se passar da cota. **A conexão em Brasília é de só 1h35 ✅** (pouso 07h15, saída 08h50) para imigração + alfândega + redespacho + raio-x: é apertada ⚠️. Tudo está **num bilhete só** ✅ (mesma reserva), então, se perder a conexão por atraso, a Gol remarca. Para ganhar tempo: sentar na frente do avião, e-DBV pronta, ir direto à esteira e depois ao balcão/esteira de conexão da Gol.
 

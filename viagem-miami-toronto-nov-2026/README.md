@@ -52,7 +52,7 @@ Mesmo método da viagem de Ouro Preto (`../viagem-1-ano-namoro/`): confiança em
 1. 🔴 Emitir o seguro AIG (e conferir se a passagem foi paga no Black). Check-in Gol. eSIM instalado. Adaptador. (00)
 2. 🔴 Avisar a equipe dos dias parciais: 19/11, 25/11, 30/11, 03/12 e **04/12**.
 3. 🟠 Confirmar caronas de Wellington com a Bianca (21/11 e 23/11).
-4. 🟠 **Comprar mala para a volta** na Gol **já** (até ~22/11): a passagem não inclui, e sem ela nem a mala da ida volta.
+4. ✅ Mala da volta já comprada direto com a Gol (21/11).
 5. 🟠 Presente de casamento (valor e forma).
 6. 🟡 Me dizer quanto em dinheiro comprou na Rendimento (para o financeiro).
 7. 🟡 Niagara: reservar tour/ônibus até 25/11.

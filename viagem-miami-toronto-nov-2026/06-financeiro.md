@@ -9,6 +9,7 @@
 | Mala de 23 kg da ida (Decolar) | R$ 410,00 | ✅ e-mail 4/10 |
 | WestJet FLL⇄YYZ | ❓ | recibo no e-mail de 4/9 (não somei) |
 | eTA do Canadá | CAD 7 ⚠️ | doc |
+| Mala da volta (comprada direto com a Gol) | ❓ | informado em 21/11 (não somei) |
 | eSIM | ❓ | você contratou |
 | Dólar em espécie (Rendimento Câmbio) | ❓ quanto? | comprado no início de nov ✅ |
 | **Soma conhecida** | **R$ 3.353,17** | 2.943,17 + 410,00 |
@@ -26,20 +27,20 @@
 | Reserva de 15% | Imprevistos (era 10% no doc) | 174 | 324 | 497 |
 | **Total em US$** | | **1.333** | **2.481** | **3.809** |
 | Total em R$ (× 6,10) | | ≈ 8.131 | ≈ 15.134 | ≈ 23.235 |
-| Mala da volta na Gol (pago em R$) | 1 mala (obrigatória) / 2 malas | 400 | 400 | 800 |
+| 2ª mala da volta na Gol (pago em R$) | Só se precisar (a 1ª já está paga ✅) | 0 | 0 | 400 |
 | Imposto da Receita (pago em R$ à taxa fiscal, sem IOF) | 50% do excedente da cota: US$ 113,17 × 5,65 | 0 | 0 | ≈ 639 |
-| **Total geral em R$** | | **≈ 8.531** | **≈ 15.534** | **≈ 24.674** |
+| **Total geral em R$** | | **≈ 8.131** | **≈ 15.134** | **≈ 24.274** |
 
 **Fora do total:** presente de casamento ❓ · **seguro avulso** ❓ (só se a passagem não tiver sido paga com o Black) · lista que a sua irmã financia (US$ 231–306 com imposto; ela mandou US$ 240,78) · o que já foi pago (seção 1).
 
-Conferência: 15 + 110 + 450 + 107 + 429 + 48 = 1.159 · 25 + 501 + 675 + 253 + 623 + 80 = 2.157 · 35 + 743 + 975 + 511 + 920 + 128 = 3.312 · 15% = 174 / 324 / 497 (arredondado) · totais 1.333 / 2.481 / 3.809 · × 6,10 = 8.131,30 / 15.134,10 / 23.234,90 · + mala + imposto = 8.531,30 / 15.534,10 / 24.674,31.
+Conferência: 15 + 110 + 450 + 107 + 429 + 48 = 1.159 · 25 + 501 + 675 + 253 + 623 + 80 = 2.157 · 35 + 743 + 975 + 511 + 920 + 128 = 3.312 · 15% = 174 / 324 / 497 (arredondado) · totais 1.333 / 2.481 / 3.809 · × 6,10 = 8.131,30 / 15.134,10 / 23.234,90 · + 2ª mala (0 / 0 / 400) + imposto (0 / 0 / 639,41) = 8.131,30 / 15.134,10 / 24.274,31.
 
-### Por que subiu em relação ao doc de outubro (base US$ 2.063 → 2.481; R$ 11.140 → ≈ 15.534 com a mala)
+### Por que subiu em relação ao doc de outubro (base US$ 2.063 → 2.481; R$ 11.140 → ≈ 15.134)
 - **Dólar:** o doc usava R$ 5,40; hoje o comercial está em R$ 5,65 ✅ e, com IOF + spread, ~R$ 6,10 ⚠️.
 - **Transporte:** o base agora assume que pelo menos uma carona falha (US$ 290 → 501).
 - **Comida:** US$ 480 → 675 (15 dias, gorjeta e imposto; Toronto é cara).
 - **Imposto de venda (7%)** em todas as compras e **HST de 13%** nos ingressos de Toronto.
-- **Reserva** de 10% → 15%; **mala da volta** entrou (não estava prevista).
+- **Reserva** de 10% → 15%. A mala da volta já foi paga e está na seção 1.
 - O eSIM saiu (já pago); o seguro saiu **se** a passagem foi paga com o Black.
 
 ## 3. Detalhe do transporte (US$)

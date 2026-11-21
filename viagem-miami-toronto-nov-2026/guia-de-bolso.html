@@ -201,7 +201,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 /* ---------- Dias ---------- */
 const DAYS=[
  {d:'2026-11-19',w:'Qui',sleep:'Miami (amiga)',tag:'viagem',items:['Sair de casa ~2h; Confins ~3h','Gol G3 1769 às 06h00 (1 escala)','Miami 15h45; imigração e mala','Ativar o eSIM; Uber até a amiga','Jantar leve, dormir cedo']},
- {d:'2026-11-20',w:'Sex',sleep:'Miami (amiga)',tag:'folga',items:['Dolphin Mall: casaco, gorro, luvas, cachecol, térmica (obrigatório)','Comprar a mala da volta no app da Gol','Provar tênis e calças; anotar preços','Almoço e jantar com a amiga','Arrumar a mala do casamento']},
+ {d:'2026-11-20',w:'Sex',sleep:'Miami (amiga)',tag:'folga',items:['Dolphin Mall: casaco, gorro, luvas, cachecol, térmica (obrigatório)','Provar tênis e calças; anotar preços','Almoço e jantar com a amiga','Arrumar a mala do casamento']},
  {d:'2026-11-21',w:'Sáb',sleep:'Wellington',tag:'casamento',items:['Carona Miami → Wellington (~1h30)','Plano B: Brightline até West Palm Beach + Uber','Preparação do casamento; jantar na casa']},
  {d:'2026-11-22',w:'Dom',sleep:'Wellington',tag:'casamento',items:['Casamento da Bianca','Festa']},
  {d:'2026-11-23',w:'Seg',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Carona Wellington → Fort Lauderdale cedo (~1h)','Trabalho 10h–18h','Jantar com o primo']},
@@ -212,7 +212,7 @@ const DAYS=[
  {d:'2026-11-28',w:'Sáb',sleep:'Toronto (amiga)',tag:'passeio',items:['Niagara Falls de dia (tour ou GO Train)','Cavalcade of Lights 18h–23h, árvore 18h30, fogos (grátis)','Tempo ruim: trocar com domingo']},
  {d:'2026-11-29',w:'Dom',sleep:'Toronto (amiga)',tag:'passeio',items:['Kensington Market + Casa Loma ou ROM','Check-in WestJet; agendar Uber das 5h30','Despedida; dormir cedo']},
  {d:'2026-11-30',w:'Seg',sleep:'Miami (amiga)',tag:'voo',items:['Sair 5h30; YYZ T3 ~6h20 (imigração americana em Toronto)','WS 1110 09h20 → FLL 12h50','Passar no primo: mala e compras','Trabalho a partir de ~15h30']},
- {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['2ª mala da volta, se precisar (≥ 48 h antes)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
+ {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['2ª mala da volta só se precisar (a 1ª já está comprada)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
  {d:'2026-12-02',w:'Qua',sleep:'Miami (amiga)',tag:'trabalho',items:['Trabalho 10h–18h','Wynwood / Design District (Art Week)','Despedida da amiga']},
  {d:'2026-12-03',w:'Qui',sleep:'Avião',tag:'voo',items:['Trabalho até ~17h','Sair ~17h45; MIA ~18h35','Gol 21h35 (Brasília → Congonhas → Confins)']},
  {d:'2026-12-04',w:'Sex',sleep:'Casa',tag:'volta',items:['Brasília 07h15: imigração + alfândega; pegar a mala e despachar de novo (conexão de 1h35; voo para Congonhas 08h50)','Congonhas: não mexe na mala','Confins 13h55: pegar a mala']}
@@ -228,7 +228,7 @@ const FLIGHTS=[
  {when:'Qui 19/11',no:'Gol G3 1769',a:'CNF',ta:'06:00',b:'MIA',tb:'15:45',mid:'1 escala',meta:['Mala 23 kg comprada','Chegar ~3h','Imigração em Miami']},
  {when:'Qua 25/11',no:'WestJet WS 1115',a:'FLL',ta:'19:35',b:'YYZ',tb:'22:55',mid:'T2 → T3',meta:['Tarifa Econo: só mala de mão','Check-in 24 h antes','Assento já marcado']},
  {when:'Seg 30/11',no:'WestJet WS 1110',a:'YYZ',ta:'09:20',b:'FLL',tb:'12:50',mid:'T3 → T2',meta:['Chegar ~6h20','Imigração americana em Toronto','Escolher assento no check-in']},
- {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'BSB · CGH',meta:['Sem mala despachada: comprar já no app','Chegar ~18h35','BSB 07h15 → 08h50 (1h35): pegar a mala, alfândega, redespachar','CGH 10h40 → 12h35','Chega sex 04/12']}
+ {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'BSB · CGH',meta:['Mala da volta comprada na Gol','Chegar ~18h35','BSB 07h15 → 08h50 (1h35): pegar a mala, alfândega, redespachar','CGH 10h40 → 12h35','Chega sex 04/12']}
 ];
 function renderFlights(){$('#flights').innerHTML=FLIGHTS.map(f=>`<article class="card"><div class="row" style="justify-content:space-between"><span class="lbl">${f.when}</span><span class="mono" style="font-size:13px">${f.no}</span></div><div class="pass" style="margin-top:8px"><div><div class="code">${f.a}</div><div class="time">${f.ta}</div></div><div class="mid">${f.mid}<br>✈</div><div class="r"><div class="code">${f.b}</div><div class="time">${f.tb}</div></div></div><div class="passmeta">${f.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div></article>`).join('')}
 
@@ -237,7 +237,7 @@ const CHECKS=[
  {g:'Antes do voo (18/11)',items:['Emitir o bilhete do seguro AIG (Mastercard Black)','Conferir se a passagem foi paga com o Black','Check-in online da Gol','Instalar o eSIM no Wi-Fi','Liberar cartões para uso internacional','Adaptador de tomada','Passaporte (+ antigo, se o visto ou o eTA estiver nele)','Avisar a equipe: 19/11, 25/11, 30/11, 03/12, 04/12','Mensagem para a Bianca sobre as caronas','PDFs no celular (passagens, seguro, eTA, notas fiscais)']},
  {g:'Mala de mão',items:['Notebook + carregador','Celular, carregador e power bank','Remédios (+ receita)','Muda de roupa','Dólares em notas pequenas']},
  {g:'Mala despachada',items:['Roupa do casamento','Roupa para a Flórida','Térmica e meias grossas','Calçado fechado','Espaço para compras']},
- {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (até 25/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol (até ~22/11)','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
+ {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (até 25/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
 ];
 let checked=store.get('mt_checks',{});
 function renderChecks(){$('#checks').innerHTML=CHECKS.map((g,gi)=>`<div class="card"><h3>${g.g}</h3>${g.items.map((it,ii)=>{const k=gi+'-'+ii;const on=!!checked[k];return `<label class="check${on?' done':''}"><input type="checkbox" id="ck-${k}" data-k="${k}"${on?' checked':''}><span>${esc(it)}</span></label>`}).join('')}</div>`).join('')}

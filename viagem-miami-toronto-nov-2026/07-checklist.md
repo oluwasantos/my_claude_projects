@@ -38,7 +38,7 @@
 
 ## Por dia (resumo; detalhes no 03)
 - [ ] **Qui 19/11** — sair ~2h, Confins ~3h, voo 6h, Miami 15h45, imigração, eSIM, Uber até a amiga
-- [ ] **Sex 20/11 (folga)** — Dolphin Mall: **casaco + gorro + luvas + térmica**; provar tamanhos · **comprar a mala da volta na Gol**
+- [ ] **Sex 20/11 (folga)** — Dolphin Mall: **casaco + gorro + luvas + térmica**; provar tamanhos
 - [ ] **Sáb 21/11** — carona para Wellington (confirmar com a Bianca)
 - [ ] **Dom 22/11** — 💍 casamento · presente resolvido?
 - [ ] **Seg 23/11** — carona para Fort Lauderdale · trabalho
@@ -49,7 +49,7 @@
 - [ ] **Sáb 28/11** — Niagara · Cavalcade of Lights
 - [ ] **Dom 29/11** — check-in WestJet · **agendar Uber das 5h30** · dormir cedo
 - [ ] **Seg 30/11** — YYZ 6h20 · voo 9h20 · FLL 12h50 · primo (mala) · Miami · trabalho a partir de ~15h30
-- [ ] **Ter 01/12** — 2ª mala da volta, se precisar (≥ 48 h antes) · pesar malas · compras finais/lista da irmã
+- [ ] **Ter 01/12** — 2ª mala da volta só se precisar (a 1ª já está comprada ✅) · pesar malas · compras finais/lista da irmã
 - [ ] **Qua 02/12** — trabalho · despedida
 - [ ] **Qui 03/12** — trabalho até ~17h · aeroporto ~18h35 · voo 21h35
 - [ ] **Sex 04/12** — **Brasília 07h15** (conexão de 1h35; voo 08h50): imigração + alfândega, pegar a mala e redespachar (e-DBV pronta se passar de US$ 1.000) · Congonhas: não mexe na mala · Confins 13h55: pegar a mala

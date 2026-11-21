@@ -21,7 +21,7 @@
 - [ ] **Não levar comida de origem animal** (queijo, linguiça, pão de queijo congelado) para os EUA; se levar doce/café/cachaça de presente, **declarar**.
 
 ## 🟠 Nos primeiros dias (até ~22/11)
-- [ ] **Mala da volta é obrigatória:** a passagem de volta **não inclui mala despachada** ✅ (voucher Decolar: "Não inclui bagagem para despachar"; você comprou mala só para a ida). **Sem comprar, nem a mala que você leva volta**, a não ser pagando caro no balcão. Comprar **1 mala de 23 kg já** pelo app da Gol ou "Minhas Viagens" da Decolar; decidir a 2ª até 30/11.
+- [x] **Mala da volta:** ✅ já comprada direto com a Gol (por isso não aparece na Decolar; informado em 21/11). Se precisar de uma 2ª, comprar até 30/11 (≥ 48 h antes).
 
 ## 🟡 Não precisa ser hoje, mas não esqueça
 - [ ] **WestJet:** a tarifa é **Econo** ✅ (inclui mala de mão + item pessoal ⚠️; mala despachada é paga ⚠️). Como você vai só com mala de mão para Toronto, não precisa comprar nada. Check-in abre 24 h antes (25/11 e 30/11).

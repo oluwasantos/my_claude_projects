@@ -72,7 +72,7 @@ Conferência: 90 + 60 + 65 + 40 + 16 = 271 · 1.146,11 − 271 = 875,11 · × 1,
 
 - Horário dos malls 2026 ❓ (2025: Sawgrass ~10h–21h, Dolphin ~10h–21h/23h ⚠️ Patch). Conferir no site antes.
 - **Separe as notas**: suas × irmã (o painel tem a coluna "quem paga").
-- **Mala da volta:** comprar na Gol até ~01/12 (ver [02](02-logistica.md)). Com o cenário base, **1 mala de 23 kg** deve bastar ⚠️; 3 pares de tênis com caixa ocupam muito — leve sem caixa, se não for presente.
+- **Mala da volta:** ✅ já comprada direto com a Gol (ver [02](02-logistica.md)). Com o cenário base, **1 mala de 23 kg** deve bastar ⚠️; 3 pares de tênis com caixa ocupam muito — leve sem caixa, se não for presente.
 
 ## Fontes
 Doc "Viagem Miami e Toronto" (out/2026) para a lista da irmã e as lojas. Receita/cota: [Passageiro de Primeira](https://passageirodeprimeira.com/como-funciona-cota-isencao-alfandega-brasileira-2025/), [Exiap](https://exiap.com.br/guias/limite-compras-exterior-receita-federal), [gov.br e-DBV](https://www.gov.br/pt-br/servicos/declarar-bens-para-viagem-internacional-dbv), [Sou Brasília (registro automático)](https://soubrasilia.com/receita-e-dbv-registro-automatico-desembarque-aeroporto-2026/). Horários de malls: [Patch, Black Friday 2025](https://www.patch.com/florida/southtampa/black-friday-2025-mall-shopping-center-hours-fl). Preços dos itens dele: estimativas minhas ⚠️.
