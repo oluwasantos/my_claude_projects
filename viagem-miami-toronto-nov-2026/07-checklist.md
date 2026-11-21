@@ -52,4 +52,4 @@
 - [ ] **Ter 01/12** — 2ª mala da volta, se precisar (≥ 48 h antes) · pesar malas · compras finais/lista da irmã
 - [ ] **Qua 02/12** — trabalho · despedida
 - [ ] **Qui 03/12** — trabalho até ~17h · aeroporto ~18h35 · voo 21h35
-- [ ] **Sex 04/12** — alfândega na **1ª escala no Brasil** (e-DBV pronta se passar de US$ 1.000) · Confins 13h55
+- [ ] **Sex 04/12** — **Brasília**: imigração + alfândega, pegar a mala e redespachar (e-DBV pronta se passar de US$ 1.000) · Congonhas: não mexe na mala · Confins 13h55: pegar a mala

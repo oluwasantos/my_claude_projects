@@ -214,8 +214,8 @@ const DAYS=[
  {d:'2026-11-30',w:'Seg',sleep:'Miami (amiga)',tag:'voo',items:['Sair 5h30; YYZ T3 ~6h20 (imigração americana em Toronto)','WS 1110 09h20 → FLL 12h50','Passar no primo: mala e compras','Trabalho a partir de ~15h30']},
  {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['2ª mala da volta, se precisar (≥ 48 h antes)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
  {d:'2026-12-02',w:'Qua',sleep:'Miami (amiga)',tag:'trabalho',items:['Trabalho 10h–18h','Wynwood / Design District (Art Week)','Despedida da amiga']},
- {d:'2026-12-03',w:'Qui',sleep:'Avião',tag:'voo',items:['Trabalho até ~17h','Sair ~17h45; MIA ~18h35','Gol 21h35 (2 escalas)']},
- {d:'2026-12-04',w:'Sex',sleep:'Casa',tag:'volta',items:['Alfândega na 1ª escala no Brasil (e-DBV pronta se passou de US$ 1.000)','Confins 13h55']}
+ {d:'2026-12-03',w:'Qui',sleep:'Avião',tag:'voo',items:['Trabalho até ~17h','Sair ~17h45; MIA ~18h35','Gol 21h35 (Brasília → Congonhas → Confins)']},
+ {d:'2026-12-04',w:'Sex',sleep:'Casa',tag:'volta',items:['Brasília: imigração + alfândega; pegar a mala e despachar de novo (e-DBV pronta se passou de US$ 1.000)','Congonhas: não mexe na mala','Confins 13h55: pegar a mala']}
 ];
 const TAGS={viagem:'',folga:'ok',casamento:'',trabalho:'',voo:'warn',passeio:'ok',volta:''};
 const TAGTXT={viagem:'viagem',folga:'folga',casamento:'casamento',trabalho:'trabalho',voo:'dia de voo',passeio:'passeio',volta:'volta'};
@@ -228,7 +228,7 @@ const FLIGHTS=[
  {when:'Qui 19/11',no:'Gol G3 1769',a:'CNF',ta:'06:00',b:'MIA',tb:'15:45',mid:'1 escala',meta:['Mala 23 kg comprada','Chegar ~3h','Imigração em Miami']},
  {when:'Qua 25/11',no:'WestJet WS 1115',a:'FLL',ta:'19:35',b:'YYZ',tb:'22:55',mid:'T2 → T3',meta:['Tarifa Econo: só mala de mão','Check-in 24 h antes','Assento já marcado']},
  {when:'Seg 30/11',no:'WestJet WS 1110',a:'YYZ',ta:'09:20',b:'FLL',tb:'12:50',mid:'T3 → T2',meta:['Chegar ~6h20','Imigração americana em Toronto','Escolher assento no check-in']},
- {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'2 escalas',meta:['Sem mala despachada: comprar já no app','Chegar ~18h35','Alfândega na 1ª escala no Brasil','Chega sex 04/12']}
+ {when:'Qui 03/12',no:'Gol (G3 7749 sai de Miami)',a:'MIA',ta:'21:35',b:'CNF',tb:'13:55 +1',mid:'BSB · CGH',meta:['Sem mala despachada: comprar já no app','Chegar ~18h35','Brasília: pegar a mala, alfândega, redespachar','Chega sex 04/12']}
 ];
 function renderFlights(){$('#flights').innerHTML=FLIGHTS.map(f=>`<article class="card"><div class="row" style="justify-content:space-between"><span class="lbl">${f.when}</span><span class="mono" style="font-size:13px">${f.no}</span></div><div class="pass" style="margin-top:8px"><div><div class="code">${f.a}</div><div class="time">${f.ta}</div></div><div class="mid">${f.mid}<br>✈</div><div class="r"><div class="code">${f.b}</div><div class="time">${f.tb}</div></div></div><div class="passmeta">${f.meta.map(m=>`<span>${esc(m)}</span>`).join('')}</div></article>`).join('')}
 
