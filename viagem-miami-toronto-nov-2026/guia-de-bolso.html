@@ -207,10 +207,10 @@ const DAYS=[
  {d:'2026-11-23',w:'Seg',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Carona Wellington → Fort Lauderdale cedo (~1h)','Trabalho 10h–18h','Jantar com o primo']},
  {d:'2026-11-24',w:'Ter',sleep:'Fort Lauderdale (primo)',tag:'trabalho',items:['Trabalho 10h–18h','Sawgrass Mills 18h30–21h: tênis, calças, camisetas','Compras ficam com o primo']},
  {d:'2026-11-25',w:'Qua',sleep:'Toronto (amiga)',tag:'voo',items:['Mala de mão pronta; mala grande com o primo (check-in WestJet já na véspera)','Trabalho até ~14h30–15h','Sair ~16h; FLL ~16h30 (véspera de Thanksgiving)','Voo cancelado: remarcar no app, dormir no primo','WS 1115 19h35 → Toronto T3 22h55','Uber direto até a amiga']},
- {d:'2026-11-26',w:'Qui',sleep:'Toronto (amiga)',tag:'trabalho',items:['Trabalho 10h–18h (Thanksgiving é só nos EUA)','Noite: Distillery Winter Village ou Eaton Centre']},
- {d:'2026-11-27',w:'Sex',sleep:'Toronto (amiga)',tag:'folga',items:['CN Tower (reservar horário) + Ripley\'s (opcional)','Almoço no St. Lawrence Market','Black Friday no Eaton Centre (13% de HST)','Raptors x Nets 19h30 (opcional)']},
- {d:'2026-11-28',w:'Sáb',sleep:'Toronto (amiga)',tag:'passeio',items:['Niagara Falls de dia (tour ou GO Train)','Cavalcade of Lights 18h–23h, árvore 18h30, fogos (grátis)','Tempo ruim: trocar com domingo']},
- {d:'2026-11-29',w:'Dom',sleep:'Toronto (amiga)',tag:'passeio',items:['Kensington Market + Casa Loma ou ROM','Check-in WestJet; agendar Uber das 5h30','Despedida; dormir cedo']},
+ {d:'2026-11-26',w:'Qui',sleep:'Toronto (amiga)',tag:'passeio',items:['Blue Mountain (Collingwood): neve (feito)','Jantar com a amiga']},
+ {d:'2026-11-27',w:'Sex',sleep:'Toronto (amiga)',tag:'folga',items:['14h30 café e lanche: Longo\'s (Maple Leaf Sq.) ou Union Station','14h50 Uber até o Distillery: entrar antes das 16h (grátis)','16h15 St. Lawrence Market (opcional)','16h50–17h45 CN Tower no pôr do sol (comprar horário online)','18h em casa; despedida às 19h']},
+ {d:'2026-11-28',w:'Sáb',sleep:'Toronto (amiga)',tag:'passeio',items:['Livre (Kensington Market se quiser)','Cavalcade of Lights 18h–23h, árvore 18h30, fogos (grátis)']},
+ {d:'2026-11-29',w:'Dom',sleep:'Toronto (amiga)',tag:'passeio',items:['Niagara Falls + outlet (sair cedo, voltar até ~19h)','Check-in WestJet; agendar Uber das 5h30','Arrumar a mala; dormir cedo']},
  {d:'2026-11-30',w:'Seg',sleep:'Miami (amiga)',tag:'voo',items:['Sair 5h30; YYZ T3 ~6h20 (imigração americana em Toronto)','WS 1110 09h20 → FLL 12h50','Passar no primo: mala e compras','Trabalho a partir de ~15h30']},
  {d:'2026-12-01',w:'Ter',sleep:'Miami (amiga)',tag:'trabalho',items:['2ª mala da volta só se precisar (a 1ª já está comprada)','Trabalho 10h–18h','Lista da irmã e aniversário (Target, Walmart, Sephora)','Pesar as malas']},
  {d:'2026-12-02',w:'Qua',sleep:'Miami (amiga)',tag:'trabalho',items:['Trabalho 10h–18h','Wynwood / Design District (Art Week)','Despedida da amiga']},
@@ -237,7 +237,7 @@ const CHECKS=[
  {g:'Antes do voo (18/11)',items:['Emitir o bilhete do seguro AIG (Mastercard Black)','Conferir se a passagem foi paga com o Black','Check-in online da Gol','Instalar o eSIM no Wi-Fi','Liberar cartões para uso internacional','Adaptador de tomada','Passaporte (+ antigo, se o visto ou o eTA estiver nele)','Avisar a equipe: 19/11, 25/11, 30/11, 03/12, 04/12','Mensagem para a Bianca sobre as caronas','PDFs no celular (passagens, seguro, eTA, notas fiscais)']},
  {g:'Mala de mão',items:['Notebook + carregador','Celular, carregador e power bank','Remédios (+ receita)','Muda de roupa','Dólares em notas pequenas']},
  {g:'Mala despachada',items:['Roupa do casamento','Roupa para a Flórida','Térmica e meias grossas','Calçado fechado','Espaço para compras']},
- {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (até 25/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
+ {g:'Durante a viagem',items:['Casaco, gorro, luvas, cachecol (20/11)','Presente de casamento resolvido','Reservar Niagara (domingo 29/11)','Check-in WestJet 25/11','Check-in WestJet 30/11','Uber das 5h30 agendado (29/11)','Mala da volta comprada na Gol','Malas pesadas (01/12)','Notas fiscais separadas: suas × irmã']}
 ];
 let checked=store.get('mt_checks',{});
 function renderChecks(){$('#checks').innerHTML=CHECKS.map((g,gi)=>`<div class="card"><h3>${g.g}</h3>${g.items.map((it,ii)=>{const k=gi+'-'+ii;const on=!!checked[k];return `<label class="check${on?' done':''}"><input type="checkbox" id="ck-${k}" data-k="${k}"${on?' checked':''}><span>${esc(it)}</span></label>`}).join('')}</div>`).join('')}
